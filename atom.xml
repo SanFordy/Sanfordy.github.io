@@ -4,9 +4,9 @@
   <subtitle>Whatever is worth doing is worth doing well</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://CoderSanford.com/"/>
+  <link href="http://Sanfordy.com/"/>
   <updated>2016-04-24T10:03:48.000Z</updated>
-  <id>http://CoderSanford.com/</id>
+  <id>http://Sanfordy.com/</id>
   
   <author>
     <name>Sanford</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://CoderSanford.com/2016/04/24/hello-world/"/>
-    <id>http://CoderSanford.com/2016/04/24/hello-world/</id>
+    <link href="http://Sanfordy.com/2016/04/24/hello-world/"/>
+    <id>http://Sanfordy.com/2016/04/24/hello-world/</id>
     <published>2016-04-24T00:47:19.000Z</published>
     <updated>2016-04-24T10:03:48.000Z</updated>
     
