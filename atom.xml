@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Sanford Home</title>
+  <title>Sanfordy Home</title>
   <subtitle>Whatever is worth doing is worth doing well</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -9,7 +9,7 @@
   <id>http://Sanfordy.com/</id>
   
   <author>
-    <name>Sanford</name>
+    <name>Sanfordy</name>
     
   </author>
   
