@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Sanfordy.com/"/>
-  <updated>2016-04-26T12:07:27.000Z</updated>
+  <updated>2016-04-28T05:48:58.000Z</updated>
   <id>http://Sanfordy.com/</id>
   
   <author>
@@ -16,19 +16,18 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hahaha</title>
-    <link href="http://Sanfordy.com/2016/04/26/hahaha/"/>
-    <id>http://Sanfordy.com/2016/04/26/hahaha/</id>
-    <published>2016-04-26T12:07:06.000Z</published>
-    <updated>2016-04-26T12:07:27.000Z</updated>
+    <title>title</title>
+    <link href="http://Sanfordy.com/2015/02/05/hahaha/"/>
+    <id>http://Sanfordy.com/2015/02/05/hahaha/</id>
+    <published>2015-02-05T04:47:44.000Z</published>
+    <updated>2016-04-28T05:48:58.000Z</updated>
     
-    <content type="html">&lt;p&gt;jfdajfkajkhhahah&lt;/p&gt;
+    <content type="html">&lt;p&gt;這裏開始使用markdown格式輸入你的正文。&lt;br&gt;more以上內容即是文章摘要，在主頁顯示，more以下內容點擊『&amp;gt; Read More』鏈接打開全文才顯示。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;以下是餘下全文&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;jfdajfkajkhhahah&lt;/p&gt;
-
+      &lt;p&gt;這裏開始使用markdown格式輸入你的正文。&lt;br&gt;more以上內容即是文章摘要，在主頁顯示，more以下內容點擊『&amp;gt; Read More』鏈接打開全文才顯示。&lt;br&gt;
     
     </summary>
     
