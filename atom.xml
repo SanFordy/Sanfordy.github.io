@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-04-28T15:29:32.000Z</updated>
+  <updated>2016-04-28T15:45:54.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -20,10 +20,20 @@
     <link href="http://sanfordy.com/2016/04/28/hello-word/"/>
     <id>http://sanfordy.com/2016/04/28/hello-word/</id>
     <published>2016-04-28T15:19:35.000Z</published>
-    <updated>2016-04-28T15:29:32.000Z</updated>
+    <updated>2016-04-28T15:45:54.000Z</updated>
     
-    <content type="html">&lt;p&gt;more以上內容即是文章摘要，在主頁顯示，more以下內容點擊『&amp;gt; Read More』鏈接打開全文才顯示。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。&lt;br&gt;這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。&lt;/p&gt;
-</content>
+    <content type="html">&lt;p&gt;more以上內容即是文章摘要，在主頁顯示，more以下內容點擊『&amp;gt; Read More』鏈接打開全文才顯示。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;p&gt;這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文&lt;/p&gt;
+&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a&gt;二级标题&lt;/h2&gt;&lt;p&gt;。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格&lt;/p&gt;
+&lt;h3 id=&quot;三级标题&quot;&gt;&lt;a href=&quot;#三级标题&quot; class=&quot;headerlink&quot; title=&quot;三级标题&quot;&gt;&lt;/a&gt;三级标题&lt;/h3&gt;&lt;p&gt;式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。&lt;br&gt;這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdo&lt;/p&gt;
+&lt;h4 id=&quot;四级标题&quot;&gt;&lt;a href=&quot;#四级标题&quot; class=&quot;headerlink&quot; title=&quot;四级标题&quot;&gt;&lt;/a&gt;四级标题&lt;/h4&gt;&lt;p&gt;使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式&lt;/p&gt;
+&lt;h5 id=&quot;五级标题&quot;&gt;&lt;a href=&quot;#五级标题&quot; class=&quot;headerlink&quot; title=&quot;五级标题&quot;&gt;&lt;/a&gt;五级标题&lt;/h5&gt;&lt;p&gt;wn格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。這裏開始使用markdown格式輸入你的正文。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;jkfdjfjdkfjakfjkaf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;int a  double b=fdfafkdf&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;fkdfjkjkfdjkljk djkfdkjfklajf
+&lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
     
