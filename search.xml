@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[C语言简介]]></title>
       <url>http://sanfordy.com/2016/04/29/C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/</url>
-      <content type="html"><![CDATA[<p>没有预览<br>哈哈的垃圾</p>
+      <content type="html"><![CDATA[<p>没有预览<br>你们按揭付款的健康福利<br><a id="more"></a></p>
 ]]></content>
     </entry>
     
@@ -23,7 +23,7 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> a = <span class="string">@"haha"</span>; <span class="keyword">int</span> a = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *a = <span class="string">@"hahhha"</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></span><br><span class="line">markdown = Redcarpet.new(<span class="string">"Hello World!"</span>)</span><br><span class="line">puts markdown.to_html</span><br></pre></td></tr></table></figure>
 <p><code>hhhh</code></p>
 <pre><code>hhhhh
