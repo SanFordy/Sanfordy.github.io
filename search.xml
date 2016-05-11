@@ -8,17 +8,16 @@
       <url>http://sanfordy.com/2016/05/11/%E6%96%87%E7%AB%A0%E6%A0%BC%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>这是我的文章格式</p>
 <a id="more"></a>
-<h1 id="条目一"><a href="#条目一" class="headerlink" title="条目一"></a>条目一</h1><p><code>这是高亮代码或关键字</code></p>
+<h2 id="条目一"><a href="#条目一" class="headerlink" title="条目一"></a>条目一</h2><p>这是条目一内容<br><code>这是高亮代码或关键字</code></p>
 <blockquote>
 <p>注意：这是注意事项</p>
 </blockquote>
-<h2 id="条目二"><a href="#条目二" class="headerlink" title="条目二"></a>条目二</h2><p>这是条目二内容</p>
-<h3 id="条目三"><a href="#条目三" class="headerlink" title="条目三"></a>条目三</h3><p>这是条目三内容：</p>
+<h3 id="条目二"><a href="#条目二" class="headerlink" title="条目二"></a>条目二</h3><p>这是条目三内容：</p>
 <ul>
 <li>这是短条目（主要用于列举）</li>
 <li>这是短条目（主要用于列举）</li>
 </ul>
-<h4 id="条目四"><a href="#条目四" class="headerlink" title="条目四"></a>条目四</h4><p>这是条目四内容</p>
+<h4 id="条目三"><a href="#条目三" class="headerlink" title="条目三"></a>条目三</h4><p>这是条目四内容</p>
 ]]></content>
     </entry>
     
