@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-05-11T23:53:11.000Z</updated>
+  <updated>2016-05-12T00:49:31.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -20,14 +20,14 @@
     <link href="http://sanfordy.com/2016/05/11/%E3%80%9001%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
     <id>http://sanfordy.com/2016/05/11/【01】C语言简介/</id>
     <published>2016-05-11T15:24:05.000Z</published>
-    <updated>2016-05-11T23:53:11.000Z</updated>
+    <updated>2016-05-12T00:49:31.000Z</updated>
     
     <content type="html">&lt;p&gt;大学C语言学的就不够好，一直想自学，后来看了郝斌老师的C语言视频渐渐的开始喜欢C语言了，而这个系列是我结合网上一些参考资料总结的，记下来这些只是为了让我更踏实的学习，也为大家提供一点帮助。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;计算机常识&quot;&gt;&lt;a href=&quot;#计算机常识&quot; class=&quot;headerlink&quot; title=&quot;计算机常识&quot;&gt;&lt;/a&gt;计算机常识&lt;/h2&gt;&lt;p&gt;在学习C语言之前，先要了解一些计算机常识&lt;/p&gt;
 &lt;h3 id=&quot;计算机只能识别0和1&quot;&gt;&lt;a href=&quot;#计算机只能识别0和1&quot; class=&quot;headerlink&quot; title=&quot;计算机只能识别0和1&quot;&gt;&lt;/a&gt;计算机只能识别0和1&lt;/h3&gt;&lt;p&gt;大家都知道，计算机要通电才能工作，说白了，它跟电视、洗衣机一样，都是电器。电器都有个共同的能力：懂得判断通电还是断电，通电就能工作，断电就停止工作。因此，从根本上讲，计算机只能识别电信号：高电平信号（通电）、低电平信号（断电），它只知道某个开关是通电还是断电。我们用1代表高电平，0代表低电平。&lt;/p&gt;
 &lt;p&gt;也就说，计算机只能识别0和1。&lt;/p&gt;
-&lt;h4 id=&quot;二进制&quot;&gt;&lt;a href=&quot;#二进制&quot; class=&quot;headerlink&quot; title=&quot;二进制&quot;&gt;&lt;/a&gt;二进制&lt;/h4&gt;&lt;p&gt;因为计算机只能识别0和1，因此计算机所能识别的指令和数据都是用二进制数（0和1）来表示的。所谓二进制，就是用0和1来表示所有的数。不过我们日常生活中最常用的是十进制，用0~9来表示所有的数。&lt;/p&gt;
+&lt;h3 id=&quot;二进制&quot;&gt;&lt;a href=&quot;#二进制&quot; class=&quot;headerlink&quot; title=&quot;二进制&quot;&gt;&lt;/a&gt;二进制&lt;/h3&gt;&lt;p&gt;因为计算机只能识别0和1，因此计算机所能识别的指令和数据都是用二进制数（0和1）来表示的。所谓二进制，就是用0和1来表示所有的数。不过我们日常生活中最常用的是十进制，用0~9来表示所有的数。&lt;/p&gt;
 &lt;h4 id=&quot;二进制指令&quot;&gt;&lt;a href=&quot;#二进制指令&quot; class=&quot;headerlink&quot; title=&quot;二进制指令&quot;&gt;&lt;/a&gt;二进制指令&lt;/h4&gt;&lt;p&gt;给计算机灌输一些指令，它就能执行相应的操作，而计算机只能识别由0和1组成的指令。在计算机发展初期，计算机的指令长度为16，即以16个二进制数（0或1）组成一条指令，例如，用1011011000000000这条指令，是让计算机进行一次加法运算。因此，如果要想计算机执行一系列的操作，就必须编写许多条由0和1组成的指令，可以想象的到，这个工作量是如此巨大。&lt;/p&gt;
 &lt;h4 id=&quot;二进制数据&quot;&gt;&lt;a href=&quot;#二进制数据&quot; class=&quot;headerlink&quot; title=&quot;二进制数据&quot;&gt;&lt;/a&gt;二进制数据&lt;/h4&gt;&lt;p&gt;平时我们在计算机中存储的一些数据，比如文档、照片、视频等，都是以0和1的形式存储的。只不过计算机解析了这一大堆的0和1，以图形界面的形式将数据展示在我们眼前。&lt;/p&gt;
 &lt;h2 id=&quot;程序设计语言的发展史&quot;&gt;&lt;a href=&quot;#程序设计语言的发展史&quot; class=&quot;headerlink&quot; title=&quot;程序设计语言的发展史&quot;&gt;&lt;/a&gt;程序设计语言的发展史&lt;/h2&gt;&lt;p&gt;我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：机器语言、汇编语言、高级语言。其中，C语言属于高级语言。&lt;/p&gt;
