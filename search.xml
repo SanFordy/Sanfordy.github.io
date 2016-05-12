@@ -4,6 +4,67 @@
   
     
     <entry>
+      <title><![CDATA[markdowm语法]]></title>
+      <url>http://sanfordy.com/2016/05/12/markdowm%E8%AF%AD%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p>单个回车<br>视为空格。</p>
+<p>连续回车</p>
+<p>才能分段。</p>
+<p>行尾加两个空格，这里-&gt;<br>即可段内换行。</p>
+<p><em>这些文字显示为斜体</em></p>
+<p><strong>这些文字显示为粗体</strong></p>
+<p>行的开头空4个空格，表示程序代码，例如：</p>
+<p>C#:</p>
+<pre><code>//这里显示一些代码，在正文显示中会自动识别语言，进行代码染色，这是一段C#代码
+public class Blog
+{
+     public int Id { get; set; }
+     public string Subject { get; set; }
+}
+</code></pre><p>Python:</p>
+<pre><code>keywords = [&quot;dsaa&quot;,&quot;Asd&quot;,&quot;sadc&quot;,&quot;Gdfd&quot;,&quot;gdfdd&quot;,&quot;gaf&quot;,&quot;gabdddddd&quot;,&quot;eg&quot;]
+print dict([(i[0],list(i[1])) for i in groupby(sorted(keywords),lambda    x:x[0].lower())])
+</code></pre><p>Javascript:</p>
+<pre><code>/**
+ * nth element in the fibonacci series.
+ * @param n &gt;= 0
+ * @return the nth element, &gt;= 0.
+ */
+function fib(n) {
+    var a = 1, b = 1;
+    var tmp;
+    while (--n &gt;= 0) {
+        tmp = a;
+        a += b;
+       b = tmp;
+    }
+    return a;
+}
+
+document.write(fib(10));
+</code></pre><blockquote>
+<p>表示引用文字内容。</p>
+</blockquote>
+<p>#表示这是一级标题</p>
+<p>##表示这是二级标题</p>
+<p>###表示这是三级标题<br>……</p>
+<h6 id="最小是六级标题"><a href="#最小是六级标题" class="headerlink" title="最小是六级标题"></a>最小是六级标题</h6><p>也可以这样表示大标题<br>=</p>
+<ul>
+<li><p>fdkajfk</p>
+<ul>
+<li>kdfkajdkf</li>
+<li>fjkajkfl</li>
+</ul>
+</li>
+<li><p>fkjfkajk</p>
+<ul>
+<li>fajdkfaj</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[【01】C语言简介]]></title>
       <url>http://sanfordy.com/2016/05/11/%E3%80%9001%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/</url>
       <content type="html"><![CDATA[<p>大学C语言学的就不够好，一直想自学，后来看了郝斌老师的C语言视频渐渐的开始喜欢C语言了，而这个系列是我结合网上一些参考资料总结的，记下来这些只是为了让我更踏实的学习，也为大家提供一点帮助。</p>
@@ -57,6 +118,8 @@
 <h2 id="C语言能做什么"><a href="#C语言能做什么" class="headerlink" title="C语言能做什么"></a>C语言能做什么</h2><h3 id="开发计算机软件"><a href="#开发计算机软件" class="headerlink" title="开发计算机软件"></a>开发计算机软件</h3><p>由于C语言具有强大的数据处理能力，而且允许直接访问物理地址，直接对硬件操作，因此它适于编写系统软件、图形处理、单片机程序、嵌入式系统开发甚至是用于科研。</p>
 <h3 id="开发Android"><a href="#开发Android" class="headerlink" title="开发Android"></a>开发Android</h3><p>很多操作系统的底层都是用C语言写的，比如android。</p>
 <h3 id="开发iOS"><a href="#开发iOS" class="headerlink" title="开发iOS"></a>开发iOS</h3><p>iOS开发中的核心语言是Objective-C（简称OC），OC是在C语言的基础上加了一层面向对象语法。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/default.html?page=1" target="_blank" rel="external">http://www.cnblogs.com/mjios/default.html?page=1</a></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fff</span><br></pre></td></tr></table></figure>
 <hr>
 ]]></content>
     </entry>
@@ -102,8 +165,15 @@
 <li>fdfadf</li>
 <li>fdfdfdf</li>
 <li>fdfadfad</li>
-<li>fdaf</li>
-<li>fdfdf</li>
+<li><p>fdaf</p>
+<p>  int a = 0;</p>
+<p>  sjkdjfkkfkkdjfka</p>
+</li>
+</ul>
+<p><a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="external">http://www.jianshu.com/p/1e402922ee32/</a></p>
+<ul>
+<li>fdkjk</li>
+<li></li>
 </ul>
 ]]></content>
     </entry>
