@@ -17,11 +17,7 @@
 <h2 id="程序设计语言的发展史"><a href="#程序设计语言的发展史" class="headerlink" title="程序设计语言的发展史"></a>程序设计语言的发展史</h2><p>我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：机器语言、汇编语言、高级语言。其中，C语言属于高级语言。</p>
 <h3 id="机器语言"><a href="#机器语言" class="headerlink" title="机器语言"></a>机器语言</h3><h4 id="什么是机器语言"><a href="#什么是机器语言" class="headerlink" title="什么是机器语言"></a>什么是机器语言</h4><p>在计算器诞生初期， 所有的计算机程序都是直接用计算机能识别的二进制指令来编写的，也就是说所有的代码里面只有0和1。这种程序设计语言就是“机器语言”。这些由0和1组成的二进制指令，又叫做“机器指令”。</p>
 <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。<ol>
-<li>放大镜看见</li>
-<li>22</li>
-</ol>
-</li>
+<li>执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。</li>
 <li>可操作硬件：机器语言能直接访问、控制计算机的各种硬件设备，如磁盘、存储器、CPU、I/O端口等。</li>
 </ul>
 <h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
@@ -61,8 +57,7 @@
 <h2 id="C语言能做什么"><a href="#C语言能做什么" class="headerlink" title="C语言能做什么"></a>C语言能做什么</h2><h3 id="开发计算机软件"><a href="#开发计算机软件" class="headerlink" title="开发计算机软件"></a>开发计算机软件</h3><p>由于C语言具有强大的数据处理能力，而且允许直接访问物理地址，直接对硬件操作，因此它适于编写系统软件、图形处理、单片机程序、嵌入式系统开发甚至是用于科研。</p>
 <h3 id="开发Android"><a href="#开发Android" class="headerlink" title="开发Android"></a>开发Android</h3><p>很多操作系统的底层都是用C语言写的，比如android。</p>
 <h3 id="开发iOS"><a href="#开发iOS" class="headerlink" title="开发iOS"></a>开发iOS</h3><p>iOS开发中的核心语言是Objective-C（简称OC），OC是在C语言的基础上加了一层面向对象语法。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/default.html?page=1" target="_blank" rel="external">http://www.cnblogs.com/mjios/default.html?page=1</a></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fff</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 ]]></content>
     </entry>

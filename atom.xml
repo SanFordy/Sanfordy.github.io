@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-05-12T23:37:15.000Z</updated>
+  <updated>2016-05-12T23:43:21.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://sanfordy.com/2016/05/11/%E3%80%9001%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
     <id>http://sanfordy.com/2016/05/11/【01】C语言简介/</id>
     <published>2016-05-11T15:24:05.000Z</published>
-    <updated>2016-05-12T23:37:15.000Z</updated>
+    <updated>2016-05-12T23:43:21.000Z</updated>
     
     <content type="html">&lt;p&gt;大学C语言学的就不够好，一直想自学，后来看了郝斌老师的C语言视频渐渐的开始喜欢C语言了，而这个系列是我结合网上一些参考资料总结的，记下来这些只是为了让我更踏实的学习，也为大家提供一点帮助。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -33,11 +33,7 @@
 &lt;h2 id=&quot;程序设计语言的发展史&quot;&gt;&lt;a href=&quot;#程序设计语言的发展史&quot; class=&quot;headerlink&quot; title=&quot;程序设计语言的发展史&quot;&gt;&lt;/a&gt;程序设计语言的发展史&lt;/h2&gt;&lt;p&gt;我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：机器语言、汇编语言、高级语言。其中，C语言属于高级语言。&lt;/p&gt;
 &lt;h3 id=&quot;机器语言&quot;&gt;&lt;a href=&quot;#机器语言&quot; class=&quot;headerlink&quot; title=&quot;机器语言&quot;&gt;&lt;/a&gt;机器语言&lt;/h3&gt;&lt;h4 id=&quot;什么是机器语言&quot;&gt;&lt;a href=&quot;#什么是机器语言&quot; class=&quot;headerlink&quot; title=&quot;什么是机器语言&quot;&gt;&lt;/a&gt;什么是机器语言&lt;/h4&gt;&lt;p&gt;在计算器诞生初期， 所有的计算机程序都是直接用计算机能识别的二进制指令来编写的，也就是说所有的代码里面只有0和1。这种程序设计语言就是“机器语言”。这些由0和1组成的二进制指令，又叫做“机器指令”。&lt;/p&gt;
 &lt;h4 id=&quot;优点&quot;&gt;&lt;a href=&quot;#优点&quot; class=&quot;headerlink&quot; title=&quot;优点&quot;&gt;&lt;/a&gt;优点&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。&lt;ol&gt;
-&lt;li&gt;放大镜看见&lt;/li&gt;
-&lt;li&gt;22&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
+&lt;li&gt;执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。&lt;/li&gt;
 &lt;li&gt;可操作硬件：机器语言能直接访问、控制计算机的各种硬件设备，如磁盘、存储器、CPU、I/O端口等。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;缺点&quot;&gt;&lt;a href=&quot;#缺点&quot; class=&quot;headerlink&quot; title=&quot;缺点&quot;&gt;&lt;/a&gt;缺点&lt;/h4&gt;&lt;ul&gt;
@@ -77,8 +73,7 @@
 &lt;h2 id=&quot;C语言能做什么&quot;&gt;&lt;a href=&quot;#C语言能做什么&quot; class=&quot;headerlink&quot; title=&quot;C语言能做什么&quot;&gt;&lt;/a&gt;C语言能做什么&lt;/h2&gt;&lt;h3 id=&quot;开发计算机软件&quot;&gt;&lt;a href=&quot;#开发计算机软件&quot; class=&quot;headerlink&quot; title=&quot;开发计算机软件&quot;&gt;&lt;/a&gt;开发计算机软件&lt;/h3&gt;&lt;p&gt;由于C语言具有强大的数据处理能力，而且允许直接访问物理地址，直接对硬件操作，因此它适于编写系统软件、图形处理、单片机程序、嵌入式系统开发甚至是用于科研。&lt;/p&gt;
 &lt;h3 id=&quot;开发Android&quot;&gt;&lt;a href=&quot;#开发Android&quot; class=&quot;headerlink&quot; title=&quot;开发Android&quot;&gt;&lt;/a&gt;开发Android&lt;/h3&gt;&lt;p&gt;很多操作系统的底层都是用C语言写的，比如android。&lt;/p&gt;
 &lt;h3 id=&quot;开发iOS&quot;&gt;&lt;a href=&quot;#开发iOS&quot; class=&quot;headerlink&quot; title=&quot;开发iOS&quot;&gt;&lt;/a&gt;开发iOS&lt;/h3&gt;&lt;p&gt;iOS开发中的核心语言是Objective-C（简称OC），OC是在C语言的基础上加了一层面向对象语法。&lt;/p&gt;
-&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/default.html?page=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/mjios/default.html?page=1&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;fff&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 </content>
     
