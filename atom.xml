@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-05-12T16:11:51.000Z</updated>
+  <updated>2016-05-12T23:37:15.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -16,90 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>markdowm语法</title>
-    <link href="http://sanfordy.com/2016/05/12/markdowm%E8%AF%AD%E6%B3%95/"/>
-    <id>http://sanfordy.com/2016/05/12/markdowm语法/</id>
-    <published>2016-05-12T15:59:46.000Z</published>
-    <updated>2016-05-12T16:11:51.000Z</updated>
-    
-    <content type="html">&lt;p&gt;单个回车&lt;br&gt;视为空格。&lt;/p&gt;
-&lt;p&gt;连续回车&lt;/p&gt;
-&lt;p&gt;才能分段。&lt;/p&gt;
-&lt;p&gt;行尾加两个空格，这里-&amp;gt;&lt;br&gt;即可段内换行。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;这些文字显示为斜体&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;这些文字显示为粗体&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;行的开头空4个空格，表示程序代码，例如：&lt;/p&gt;
-&lt;p&gt;C#:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//这里显示一些代码，在正文显示中会自动识别语言，进行代码染色，这是一段C#代码
-public class Blog
-{
-     public int Id { get; set; }
-     public string Subject { get; set; }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Python:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;keywords = [&amp;quot;dsaa&amp;quot;,&amp;quot;Asd&amp;quot;,&amp;quot;sadc&amp;quot;,&amp;quot;Gdfd&amp;quot;,&amp;quot;gdfdd&amp;quot;,&amp;quot;gaf&amp;quot;,&amp;quot;gabdddddd&amp;quot;,&amp;quot;eg&amp;quot;]
-print dict([(i[0],list(i[1])) for i in groupby(sorted(keywords),lambda    x:x[0].lower())])
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Javascript:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/**
- * nth element in the fibonacci series.
- * @param n &amp;gt;= 0
- * @return the nth element, &amp;gt;= 0.
- */
-function fib(n) {
-    var a = 1, b = 1;
-    var tmp;
-    while (--n &amp;gt;= 0) {
-        tmp = a;
-        a += b;
-       b = tmp;
-    }
-    return a;
-}
-
-document.write(fib(10));
-&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;表示引用文字内容。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;#表示这是一级标题&lt;/p&gt;
-&lt;p&gt;##表示这是二级标题&lt;/p&gt;
-&lt;p&gt;###表示这是三级标题&lt;br&gt;……&lt;/p&gt;
-&lt;h6 id=&quot;最小是六级标题&quot;&gt;&lt;a href=&quot;#最小是六级标题&quot; class=&quot;headerlink&quot; title=&quot;最小是六级标题&quot;&gt;&lt;/a&gt;最小是六级标题&lt;/h6&gt;&lt;p&gt;也可以这样表示大标题&lt;br&gt;=&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;fdkajfk&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;kdfkajdkf&lt;/li&gt;
-&lt;li&gt;fjkajkfl&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;fkjfkajk&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;fajdkfaj&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;单个回车&lt;br&gt;视为空格。&lt;/p&gt;
-&lt;p&gt;连续回车&lt;/p&gt;
-&lt;p&gt;才能分段。&lt;/p&gt;
-&lt;p&gt;行尾加两个空格，这里-&amp;gt;&lt;br&gt;即可段内换行。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;这些文字显示为斜体&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;这些文字显示为粗体&lt;/strong&gt;&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>【01】C语言简介</title>
     <link href="http://sanfordy.com/2016/05/11/%E3%80%9001%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
     <id>http://sanfordy.com/2016/05/11/【01】C语言简介/</id>
     <published>2016-05-11T15:24:05.000Z</published>
-    <updated>2016-05-12T15:15:48.000Z</updated>
+    <updated>2016-05-12T23:37:15.000Z</updated>
     
     <content type="html">&lt;p&gt;大学C语言学的就不够好，一直想自学，后来看了郝斌老师的C语言视频渐渐的开始喜欢C语言了，而这个系列是我结合网上一些参考资料总结的，记下来这些只是为了让我更踏实的学习，也为大家提供一点帮助。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -112,7 +33,11 @@ document.write(fib(10));
 &lt;h2 id=&quot;程序设计语言的发展史&quot;&gt;&lt;a href=&quot;#程序设计语言的发展史&quot; class=&quot;headerlink&quot; title=&quot;程序设计语言的发展史&quot;&gt;&lt;/a&gt;程序设计语言的发展史&lt;/h2&gt;&lt;p&gt;我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：机器语言、汇编语言、高级语言。其中，C语言属于高级语言。&lt;/p&gt;
 &lt;h3 id=&quot;机器语言&quot;&gt;&lt;a href=&quot;#机器语言&quot; class=&quot;headerlink&quot; title=&quot;机器语言&quot;&gt;&lt;/a&gt;机器语言&lt;/h3&gt;&lt;h4 id=&quot;什么是机器语言&quot;&gt;&lt;a href=&quot;#什么是机器语言&quot; class=&quot;headerlink&quot; title=&quot;什么是机器语言&quot;&gt;&lt;/a&gt;什么是机器语言&lt;/h4&gt;&lt;p&gt;在计算器诞生初期， 所有的计算机程序都是直接用计算机能识别的二进制指令来编写的，也就是说所有的代码里面只有0和1。这种程序设计语言就是“机器语言”。这些由0和1组成的二进制指令，又叫做“机器指令”。&lt;/p&gt;
 &lt;h4 id=&quot;优点&quot;&gt;&lt;a href=&quot;#优点&quot; class=&quot;headerlink&quot; title=&quot;优点&quot;&gt;&lt;/a&gt;优点&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。&lt;/li&gt;
+&lt;li&gt;执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。&lt;ol&gt;
+&lt;li&gt;放大镜看见&lt;/li&gt;
+&lt;li&gt;22&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;li&gt;可操作硬件：机器语言能直接访问、控制计算机的各种硬件设备，如磁盘、存储器、CPU、I/O端口等。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;缺点&quot;&gt;&lt;a href=&quot;#缺点&quot; class=&quot;headerlink&quot; title=&quot;缺点&quot;&gt;&lt;/a&gt;缺点&lt;/h4&gt;&lt;ul&gt;
