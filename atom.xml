@@ -93,20 +93,25 @@
     <link href="http://sanfordy.com/2016/05/11/%E6%96%87%E7%AB%A0%E6%A0%BC%E5%BC%8F/"/>
     <id>http://sanfordy.com/2016/05/11/文章格式/</id>
     <published>2016-05-11T06:06:57.000Z</published>
-    <updated>2016-05-11T08:42:39.000Z</updated>
+    <updated>2016-05-13T00:40:26.000Z</updated>
     
     <content type="html">&lt;p&gt;这是我的文章格式&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;条目一&quot;&gt;&lt;a href=&quot;#条目一&quot; class=&quot;headerlink&quot; title=&quot;条目一&quot;&gt;&lt;/a&gt;条目一&lt;/h2&gt;&lt;p&gt;这是条目一内容&lt;br&gt;&lt;code&gt;这是高亮代码或关键字&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;条目一&quot;&gt;&lt;a href=&quot;#条目一&quot; class=&quot;headerlink&quot; title=&quot;条目一&quot;&gt;&lt;/a&gt;条目一&lt;/h2&gt;&lt;p&gt;这是条目一内容&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;这是高亮代码或关键字&lt;/code&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意：这是注意事项&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;条目二&quot;&gt;&lt;a href=&quot;#条目二&quot; class=&quot;headerlink&quot; title=&quot;条目二&quot;&gt;&lt;/a&gt;条目二&lt;/h3&gt;&lt;p&gt;这是条目三内容：&lt;/p&gt;
+&lt;h3 id=&quot;条目二&quot;&gt;&lt;a href=&quot;#条目二&quot; class=&quot;headerlink&quot; title=&quot;条目二&quot;&gt;&lt;/a&gt;条目二&lt;/h3&gt;&lt;p&gt;这是条目二内容：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;这是短条目（主要用于列举）&lt;/li&gt;
+&lt;li&gt;这是短条目（主要用于列举）&lt;ol&gt;
+&lt;li&gt;这是短条目中的短条目&lt;/li&gt;
+&lt;li&gt;这是短条目中的短条目&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;li&gt;这是短条目（主要用于列举）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;条目三&quot;&gt;&lt;a href=&quot;#条目三&quot; class=&quot;headerlink&quot; title=&quot;条目三&quot;&gt;&lt;/a&gt;条目三&lt;/h4&gt;&lt;p&gt;这是条目四内容&lt;/p&gt;
+&lt;h4 id=&quot;条目三&quot;&gt;&lt;a href=&quot;#条目三&quot; class=&quot;headerlink&quot; title=&quot;条目三&quot;&gt;&lt;/a&gt;条目三&lt;/h4&gt;&lt;p&gt;这是条目三内容&lt;/p&gt;
 </content>
     
     <summary type="html">
