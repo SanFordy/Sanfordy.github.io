@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-05-12T23:43:21.000Z</updated>
+  <updated>2016-05-17T23:40:48.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -16,14 +16,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【01】C语言简介</title>
-    <link href="http://sanfordy.com/2016/05/11/%E3%80%9001%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
-    <id>http://sanfordy.com/2016/05/11/【01】C语言简介/</id>
-    <published>2016-05-11T15:24:05.000Z</published>
-    <updated>2016-05-12T23:43:21.000Z</updated>
+    <title>【02】第一个C程序代码分析</title>
+    <link href="http://sanfordy.com/2016/05/17/%E3%80%9002%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAC%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    <id>http://sanfordy.com/2016/05/17/【02】第一个C程序代码分析/</id>
+    <published>2016-05-17T14:49:20.000Z</published>
+    <updated>2016-05-17T23:40:48.000Z</updated>
     
-    <content type="html">&lt;p&gt;大学C语言学的就不够好，一直想自学，后来看了郝斌老师的C语言视频渐渐的开始喜欢C语言了，而这个系列是我结合网上一些参考资料总结的，记下来这些只是为了让我更踏实的学习，也为大家提供一点帮助。&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://i2.buimg.com/e383d656c8c135b0.png&quot; alt=&quot;哈哈&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://i2.buimg.com/e383d656c8c135b0.png&quot; alt=&quot;哈哈&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【00】C语言简介</title>
+    <link href="http://sanfordy.com/2016/05/11/%E3%80%9000%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
+    <id>http://sanfordy.com/2016/05/11/【00】C语言简介/</id>
+    <published>2016-05-11T15:24:05.000Z</published>
+    <updated>2016-05-18T06:19:29.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://i2.buimg.com/e383d656c8c135b0.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;大学C语言学的就不够好，一直想自学，后来看了郝斌老师的C语言视频渐渐的开始喜欢C语言了，而这个系列是我结合网上一些参考资料总结的，记下来这些只是为了让我更踏实的学习，也为大家提供一点帮助。&lt;/p&gt;
 &lt;h2 id=&quot;计算机常识&quot;&gt;&lt;a href=&quot;#计算机常识&quot; class=&quot;headerlink&quot; title=&quot;计算机常识&quot;&gt;&lt;/a&gt;计算机常识&lt;/h2&gt;&lt;p&gt;在学习C语言之前，先要了解一些计算机常识&lt;/p&gt;
 &lt;h3 id=&quot;计算机只能识别0和1&quot;&gt;&lt;a href=&quot;#计算机只能识别0和1&quot; class=&quot;headerlink&quot; title=&quot;计算机只能识别0和1&quot;&gt;&lt;/a&gt;计算机只能识别0和1&lt;/h3&gt;&lt;p&gt;大家都知道，计算机要通电才能工作，说白了，它跟电视、洗衣机一样，都是电器。电器都有个共同的能力：懂得判断通电还是断电，通电就能工作，断电就停止工作。因此，从根本上讲，计算机只能识别电信号：高电平信号（通电）、低电平信号（断电），它只知道某个开关是通电还是断电。我们用1代表高电平，0代表低电平。&lt;/p&gt;
 &lt;p&gt;也就说，计算机只能识别0和1。&lt;/p&gt;
@@ -64,7 +87,7 @@
 &lt;h2 id=&quot;C语言简史&quot;&gt;&lt;a href=&quot;#C语言简史&quot; class=&quot;headerlink&quot; title=&quot;C语言简史&quot;&gt;&lt;/a&gt;C语言简史&lt;/h2&gt;&lt;p&gt;C语言于1972年发明，首次使用是用于重写UNIX操作系统（UNIX以前是用汇编写的）。随着UNIX操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。&lt;/p&gt;
 &lt;p&gt;C语言是一门面向过程的语言，非面向对象的语言。&lt;/p&gt;
 &lt;h2 id=&quot;C语言的优点&quot;&gt;&lt;a href=&quot;#C语言的优点&quot; class=&quot;headerlink&quot; title=&quot;C语言的优点&quot;&gt;&lt;/a&gt;C语言的优点&lt;/h2&gt;&lt;h3 id=&quot;丰富的运算符&quot;&gt;&lt;a href=&quot;#丰富的运算符&quot; class=&quot;headerlink&quot; title=&quot;丰富的运算符&quot;&gt;&lt;/a&gt;丰富的运算符&lt;/h3&gt;&lt;p&gt;计算机的基本功能就是计算，因此一门程序设计语言的计算能力是非常重要的。C语言提供了34种运算符，计算类型及其丰富，其中包括了最基本的加减乘除运算。&lt;/p&gt;
-&lt;h3 id=&quot;丰富的数据类型&quot;&gt;&lt;a href=&quot;#丰富的数据类型&quot; class=&quot;headerlink&quot; title=&quot;丰富的数据类型&quot;&gt;&lt;/a&gt;丰富的数据类型&lt;/h3&gt;&lt;p&gt;C语言之所以生命力如何强大，很大一部分是因为它拥有丰富的数据类型。C语言的数据类型有：整型(int)、实型(float)、字符型(char)、数组类型(int [])、指针类型(void *)、结构体类型(struct)、共用体类型(union)等。众多数据类型中，最强大的是指针，通过指针我们可以直接访问内存地址。指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。正因为C语言数据类型丰富，运算能力极强，因此很多数据库都是用C语言编写的，比如DB2、Oracle等。&lt;/p&gt;
+&lt;h3 id=&quot;丰富的数据类型&quot;&gt;&lt;a href=&quot;#丰富的数据类型&quot; class=&quot;headerlink&quot; title=&quot;丰富的数据类型&quot;&gt;&lt;/a&gt;丰富的数据类型&lt;/h3&gt;&lt;p&gt;C语言之所以生命力如何强大，很大一部分是因为它拥有丰富的数据类型。C语言的数据类型有：整型（int）、实型（float）、字符型（char）、数组类型（int []）、指针类型（void *）、结构体类型（struct）、共用体类型（union）等。众多数据类型中，最强大的是指针，通过指针我们可以直接访问内存地址。指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。正因为C语言数据类型丰富，运算能力极强，因此很多数据库都是用C语言编写的，比如&lt;code&gt;DB2&lt;/code&gt;、&lt;code&gt;Oracle&lt;/code&gt;等。&lt;/p&gt;
 &lt;h3 id=&quot;允许直接访问物理地址，对硬件进行操作&quot;&gt;&lt;a href=&quot;#允许直接访问物理地址，对硬件进行操作&quot; class=&quot;headerlink&quot; title=&quot;允许直接访问物理地址，对硬件进行操作&quot;&gt;&lt;/a&gt;允许直接访问物理地址，对硬件进行操作&lt;/h3&gt;&lt;p&gt;由于C语言允许直接访问物理地址，可以直接对硬件进行操作，因此它既具有高级语言的功能，又具有低级语言的许多功能，能够像汇编语言一样对位（bit）、字节和地址进行操作，而这三者是计算机最基本的工作单元。&lt;/p&gt;
 &lt;h3 id=&quot;高效率的目标代码&quot;&gt;&lt;a href=&quot;#高效率的目标代码&quot; class=&quot;headerlink&quot; title=&quot;高效率的目标代码&quot;&gt;&lt;/a&gt;高效率的目标代码&lt;/h3&gt;&lt;p&gt;对比汇编语言，C语言可读性好，易于调试、修改和移植，代码质量与汇编语言相当。&lt;/p&gt;
 &lt;h3 id=&quot;可移植性好&quot;&gt;&lt;a href=&quot;#可移植性好&quot; class=&quot;headerlink&quot; title=&quot;可移植性好&quot;&gt;&lt;/a&gt;可移植性好&lt;/h3&gt;&lt;p&gt;在一个环境上用C语言编写的程序，不改动或稍加改动，就可移植到另一个完全不同的环境中运行。&lt;/p&gt;
@@ -79,7 +102,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;大学C语言学的就不够好，一直想自学，后来看了郝斌老师的C语言视频渐渐的开始喜欢C语言了，而这个系列是我结合网上一些参考资料总结的，记下来这些只是为了让我更踏实的学习，也为大家提供一点帮助。&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://i2.buimg.com/e383d656c8c135b0.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
