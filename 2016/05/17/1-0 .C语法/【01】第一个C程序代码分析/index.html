@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://i4.buimg.com/6c75203e17bd6ec0.png">
 <meta property="og:image" content="http://i4.buimg.com/7a5e46c0c4d7d67d.png">
 <meta property="og:image" content="http://i4.buimg.com/7d38134b7d414433.png">
-<meta property="og:updated_time" content="2016-05-31T14:14:22.000Z">
+<meta property="og:updated_time" content="2016-05-31T15:03:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【01】第一个C程序代码分析">
 <meta name="twitter:description">
@@ -354,7 +354,7 @@
 <h3 id="填写项目名称并选择使用C语言"><a href="#填写项目名称并选择使用C语言" class="headerlink" title="填写项目名称并选择使用C语言"></a>填写项目名称并选择使用C语言</h3><p><img src="http://i4.buimg.com/cb88d0c37d44fba7.png" alt=""></p>
 <h3 id="选择保存目录"><a href="#选择保存目录" class="headerlink" title="选择保存目录"></a>选择保存目录</h3><p><img src="http://i4.buimg.com/18b883ba6b89e45f.png" alt=""></p>
 <h3 id="自动生成如下代码"><a href="#自动生成如下代码" class="headerlink" title="自动生成如下代码"></a>自动生成如下代码</h3><p><img src="http://i4.buimg.com/dff591d0452e0d30.png" alt=""></p>
-<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><p>打开项目中的 main.c 文件（ C 程序的源文件拓展名为 .c ），可以发现它是 C 程序中的唯一一个源文件，代码如下：</p>
+<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><p>打开项目中的 main.c 文件（C程序的源文件拓展名为 .c ），可以发现它是C程序中的唯一一个源文件，代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, World!\n"</span>);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接下来分析一下每行代码的意义。</p>
 <h3 id="include"><a href="#include" class="headerlink" title="#include"></a>#include</h3><p><code>#include</code>是C语言的预处理指令之一，所谓预处理，就是在编译之前做的处理，预处理指令一般以<code>#</code>开头。</p>
@@ -369,23 +369,23 @@
 <p><strong>注意</strong>：不过你可能会疑惑，为什么<code>stdio.h</code>用尖括号&lt;&gt;，而 my.txt 用双引号””？这个很好区别，如果是系统自带的文件，最好用&lt;&gt;；如果是开发人员自己创建的文件，最好用””。</p>
 <p><strong>说明</strong>：这里用 txt 文件纯属演示，平时做项目不会这样做，除非吃饱了撑着，才会把代码都写到 txt 中去。</p>
 </blockquote>
-<h3 id="stdio-h"><a href="#stdio-h" class="headerlink" title="stdio.h"></a>stdio.h</h3><p><code>stdio.h</code>是 C 语言函数库中的一个头文件，里面定义了一些标准输入输出函数。在 main.c 的第1行代码中，用<code>#include</code>指令包含了<code>stdio.h</code>文件。</p>
+<h3 id="stdio-h"><a href="#stdio-h" class="headerlink" title="stdio.h"></a>stdio.h</h3><p><code>stdio.h</code>是C语言函数库中的一个头文件，里面定义了一些标准输入输出函数。在 main.c 的第1行代码中，用<code>#include</code>指令包含了<code>stdio.h</code>文件。</p>
 <p>这里之所以包含<code>stdio.h</code>文件，是因为在第7行中用到了在<code>stdio.h</code>内部声明的<code>printf</code>函数，这个函数可以向标准输出设备（比如显示器屏幕）输出数据，屏幕上输出的文字就是第7行代码<code>printf(&quot;Hello, World!\n&quot;)</code>造成的，双引号””内的文本为C语言的字符串。</p>
-<h3 id="main函数"><a href="#main函数" class="headerlink" title="main函数"></a>main函数</h3><p>前面也已经提到， C 中的函数就是面向对象中的”方法”。 C 语言是一门面向过程的语言，是以过程为中心的编程思想，就是先分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用函数就可以了。</p>
-<p>一个C程序中一定会有一个<code>main</code>函数，也只能有一个<code>main</code>函数。<code>main</code>函数是整个C程序的入口。<code>main.c</code>的第3行代码就定义了一个<code>main</code>函数。</p>
+<h3 id="main函数"><a href="#main函数" class="headerlink" title="main函数"></a>main函数</h3><p>前面也已经提到，C中的函数就是面向对象中的”方法”。 C语言是一门面向过程的语言，是以过程为中心的编程思想，就是先分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用函数就可以了。</p>
+<p>一个C程序中一定会有一个<code>main</code>函数，也只能有一个<code>main</code>函数。<code>main</code>函数是整个 C 程序的入口。<code>main.c</code>的第3行代码就定义了一个<code>main</code>函数。</p>
 <p><code>main</code>函数的返回值为<code>int</code>类型，接收2个参数，其实可以不写参数， main 函数可以简化成这样：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, World!\n"</span>);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意</strong>：这里的 main 函数没有写返回值类型，并不代表函数没有返回值，而是表示返回值类型为 int 类型， void 才代表函数没有返回值。</p>
 </blockquote>
-<p>由于 C 语言的语法限制不严格，我们还可以进一步简化 main 函数：</p>
+<p>由于C语言的语法限制不严格，我们还可以进一步简化 main 函数：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, World!\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意</strong>：虽然它要求 main 函数返回 int 类型的值，但我们可以不返回。</p>
 </blockquote>
 <h2 id="开发和运行C程序的步骤"><a href="#开发和运行C程序的步骤" class="headerlink" title="开发和运行C程序的步骤"></a>开发和运行C程序的步骤</h2><p>步骤图如下：</p>
 <p><img src="http://i4.buimg.com/fda3af31a610f9e5.png" alt=""></p>
-<h3 id="编写程序"><a href="#编写程序" class="headerlink" title="编写程序"></a>编写程序</h3><p>C 语言源文件的扩展名为<code>.c</code>，源程序（代码）以<code>ASCII</code>码形式存储于源文件，不能直接被计算机执行，因为计算机只能识别二进制指令，也就是0和1。</p>
+<h3 id="编写程序"><a href="#编写程序" class="headerlink" title="编写程序"></a>编写程序</h3><p>C语言源文件的扩展名为<code>.c</code>，源程序（代码）以<code>ASCII</code>码形式存储于源文件，不能直接被计算机执行，因为计算机只能识别二进制指令，也就是0和1。</p>
 <h3 id="编译（生成目标文件）"><a href="#编译（生成目标文件）" class="headerlink" title="编译（生成目标文件）"></a>编译（生成目标文件）</h3><p>把 C 的源文件（代码）翻译成计算机可以识别的二进制形式的目标文件，这个过程称为编译，由 C 的编译器完成。</p>
 <p>在编译的同时，还对源程序的语法等进行检查。若出现语法错误，则编译失败。如果编译成功则生成目标文件，目标文件名跟源程序文件名一样，扩展名为<code>.obj</code>。比如，<code>mj.c</code>编译后生成目标文件<code>mj.obj</code>。</p>
 <p>每个源文件是单独进行编译的，假如一个项目中有多个 .c 源文件，编译成功会生成多个对应的<code>.obj</code>目标。一般情况下，目标文件之间是有关联的，比如<code>a.obj</code>可能会调用<code>b.obj</code>中定义的一个函数，因此它们都不能够单独被计算机执行，而且<code>目标文件中并不包含程序运行所需要的库函数</code>等。</p>
@@ -393,9 +393,9 @@
 <p><strong>提示</strong>：在编译之前会进行预处理（例如<code>#include</code>指令）。</p>
 <p><strong>注意</strong>：编译器不会编译<code>.h</code>文件，因为在编译前会进行预处理，预处理会把<code>.h</code>文件的代码拷贝到<code>.c</code>文件中，从而一起编译。</p>
 </blockquote>
-<h3 id="链接（生成可执行文件）"><a href="#链接（生成可执行文件）" class="headerlink" title="链接（生成可执行文件）"></a>链接（生成可执行文件）</h3><p>将所有有关联的<code>obj</code>目标文件，以及系统提供的 C 库函数等组合在一起生成一个可执行文件的过程，称为”链接”。链接生成的可执行文件的文件名跟源程序文件同名，扩展名为<code>.exe</code>，计算机可以直接执行。</p>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>如果是在 Windows 环境下，直接双击<code>.exe</code>文件即可运行 C 语言程序。</p>
-<p>由于我们的第一个 C 程序，是在 Mac OS X 系统环境下用 Xcode 创建的命令行项目， Mac OS X 系统是基于 UNIX 系统的，因此生成的可执行文件的这样的:</p>
+<h3 id="链接（生成可执行文件）"><a href="#链接（生成可执行文件）" class="headerlink" title="链接（生成可执行文件）"></a>链接（生成可执行文件）</h3><p>将所有有关联的<code>obj</code>目标文件，以及系统提供的C库函数等组合在一起生成一个可执行文件的过程，称为”链接”。链接生成的可执行文件的文件名跟源程序文件同名，扩展名为<code>.exe</code>，计算机可以直接执行。</p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>如果是在 Windows 环境下，直接双击<code>.exe</code>文件即可运行C语言程序。</p>
+<p>由于我们的第一个C程序，是在 Mac OS X 系统环境下用 Xcode 创建的命令行项目， Mac OS X 系统是基于 UNIX 系统的，因此生成的可执行文件的这样的:</p>
 <p><img src="http://i4.buimg.com/6c75203e17bd6ec0.png" alt=""></p>
 <p>双击可以用终端打开：</p>
 <p><img src="http://i4.buimg.com/7a5e46c0c4d7d67d.png" alt=""></p>
