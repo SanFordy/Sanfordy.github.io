@@ -106,7 +106,7 @@
     <link href="http://sanfordy.com/2016/05/11/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9000%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
     <id>http://sanfordy.com/2016/05/11/1-0 .C语法/【00】C语言简介/</id>
     <published>2016-05-11T15:24:05.000Z</published>
-    <updated>2016-05-31T08:48:56.000Z</updated>
+    <updated>2016-05-31T14:29:02.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://i2.buimg.com/b02d2cc2e402fee3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -116,7 +116,7 @@
 &lt;h3 id=&quot;二进制&quot;&gt;&lt;a href=&quot;#二进制&quot; class=&quot;headerlink&quot; title=&quot;二进制&quot;&gt;&lt;/a&gt;二进制&lt;/h3&gt;&lt;p&gt;因为计算机只能识别0和1，因此计算机所能识别的指令和数据都是用二进制数（0和1）来表示的。所谓二进制，就是用0和1来表示所有的数。不过我们日常生活中最常用的是十进制，用0~9来表示所有的数。&lt;/p&gt;
 &lt;h4 id=&quot;二进制指令&quot;&gt;&lt;a href=&quot;#二进制指令&quot; class=&quot;headerlink&quot; title=&quot;二进制指令&quot;&gt;&lt;/a&gt;二进制指令&lt;/h4&gt;&lt;p&gt;给计算机灌输一些指令，它就能执行相应的操作，而计算机只能识别由0和1组成的指令。在计算机发展初期，计算机的指令长度为16，即以16个二进制数（0或1）组成一条指令，例如，用1011011000000000这条指令，是让计算机进行一次加法运算。因此，如果要想计算机执行一系列的操作，就必须编写许多条由0和1组成的指令，可以想象的到，这个工作量是如此巨大。&lt;/p&gt;
 &lt;h4 id=&quot;二进制数据&quot;&gt;&lt;a href=&quot;#二进制数据&quot; class=&quot;headerlink&quot; title=&quot;二进制数据&quot;&gt;&lt;/a&gt;二进制数据&lt;/h4&gt;&lt;p&gt;平时我们在计算机中存储的一些数据，比如文档、照片、视频等，都是以0和1的形式存储的。只不过计算机解析了这一大堆的0和1，以图形界面的形式将数据展示在我们眼前。&lt;/p&gt;
-&lt;h2 id=&quot;程序设计语言的发展史&quot;&gt;&lt;a href=&quot;#程序设计语言的发展史&quot; class=&quot;headerlink&quot; title=&quot;程序设计语言的发展史&quot;&gt;&lt;/a&gt;程序设计语言的发展史&lt;/h2&gt;&lt;p&gt;我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：机器语言、汇编语言、高级语言。其中，C语言属于高级语言。&lt;/p&gt;
+&lt;h2 id=&quot;程序设计语言的发展史&quot;&gt;&lt;a href=&quot;#程序设计语言的发展史&quot; class=&quot;headerlink&quot; title=&quot;程序设计语言的发展史&quot;&gt;&lt;/a&gt;程序设计语言的发展史&lt;/h2&gt;&lt;p&gt;我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：机器语言、汇编语言、高级语言。其中， C语言属于高级语言。&lt;/p&gt;
 &lt;h3 id=&quot;机器语言&quot;&gt;&lt;a href=&quot;#机器语言&quot; class=&quot;headerlink&quot; title=&quot;机器语言&quot;&gt;&lt;/a&gt;机器语言&lt;/h3&gt;&lt;h4 id=&quot;什么是机器语言&quot;&gt;&lt;a href=&quot;#什么是机器语言&quot; class=&quot;headerlink&quot; title=&quot;什么是机器语言&quot;&gt;&lt;/a&gt;什么是机器语言&lt;/h4&gt;&lt;p&gt;在计算器诞生初期， 所有的计算机程序都是直接用计算机能识别的二进制指令来编写的，也就是说所有的代码里面只有0和1。这种程序设计语言就是“机器语言”。这些由0和1组成的二进制指令，又叫做“机器指令”。&lt;/p&gt;
 &lt;h4 id=&quot;优点&quot;&gt;&lt;a href=&quot;#优点&quot; class=&quot;headerlink&quot; title=&quot;优点&quot;&gt;&lt;/a&gt;优点&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。&lt;/li&gt;
@@ -128,37 +128,37 @@
 &lt;li&gt;可移植性差：由于机器语言是直接对硬件产生作用的，对硬件的依赖性很强，因此不同型号计算机的机器语言又不一样。也就是说，如果2台不同型号的机器想实现一样的功能，需要编写2套完全不同的代码。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;可以看出，机器语言很难掌握和推广，现在除了计算机生产厂家的专业人员外，绝大多数的程序员已经不再去学习机器语言了。&lt;/p&gt;
-&lt;h3 id=&quot;汇编语言&quot;&gt;&lt;a href=&quot;#汇编语言&quot; class=&quot;headerlink&quot; title=&quot;汇编语言&quot;&gt;&lt;/a&gt;汇编语言&lt;/h3&gt;&lt;h4 id=&quot;什么是汇编语言&quot;&gt;&lt;a href=&quot;#什么是汇编语言&quot; class=&quot;headerlink&quot; title=&quot;什么是汇编语言&quot;&gt;&lt;/a&gt;什么是汇编语言&lt;/h4&gt;&lt;p&gt;由于机器语言的种种弊端，严重影响开发效率，后面就出现了汇编语言。汇编语言其实就是符号化的机器语言，它用一个符号（英文单词、数字）来代表一条机器指令。比如，在机器语言中，用1011011000000000这条指令，是让计算机进行一次加法运算；而在汇编语言中，用英文单词“ADD”就可以表示加法运算。一个有意义的英文单词，很明显比一串又臭又长的二进制指令，直观好记多了。&lt;/p&gt;
-&lt;p&gt;由于计算机只能识别0和1，用汇编语言编写的代码是不能被计算机所识别的，像刚才的“ADD”，计算机肯定不知道是什么意思。因此，用汇编语言编写的代码需要翻译成二进制指令后，才能被计算机识别。这个翻译的工作交给“编译器”去做。&lt;/p&gt;
+&lt;h3 id=&quot;汇编语言&quot;&gt;&lt;a href=&quot;#汇编语言&quot; class=&quot;headerlink&quot; title=&quot;汇编语言&quot;&gt;&lt;/a&gt;汇编语言&lt;/h3&gt;&lt;h4 id=&quot;什么是汇编语言&quot;&gt;&lt;a href=&quot;#什么是汇编语言&quot; class=&quot;headerlink&quot; title=&quot;什么是汇编语言&quot;&gt;&lt;/a&gt;什么是汇编语言&lt;/h4&gt;&lt;p&gt;由于机器语言的种种弊端，严重影响开发效率，后面就出现了汇编语言。汇编语言其实就是符号化的机器语言，它用一个符号（英文单词、数字）来代表一条机器指令。比如，在机器语言中，用1011011000000000这条指令，是让计算机进行一次加法运算；而在汇编语言中，用英文单词 “ADD” 就可以表示加法运算。一个有意义的英文单词，很明显比一串又臭又长的二进制指令，直观好记多了。&lt;/p&gt;
+&lt;p&gt;由于计算机只能识别0和1，用汇编语言编写的代码是不能被计算机所识别的，像刚才的 “ADD” ，计算机肯定不知道是什么意思。因此，用汇编语言编写的代码需要翻译成二进制指令后，才能被计算机识别。这个翻译的工作交给“编译器”去做。&lt;/p&gt;
 &lt;h4 id=&quot;优点-1&quot;&gt;&lt;a href=&quot;#优点-1&quot; class=&quot;headerlink&quot; title=&quot;优点&quot;&gt;&lt;/a&gt;优点&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;可读性较好：对比机器语言，汇编语言的代码可读性好。&lt;/li&gt;
 &lt;li&gt;可操作硬件：汇编语言能像机器语言一样，可以直接访问、控制计算机的各种硬件设备，如磁盘、存储器、CPU、I/O端口等。使用汇编语言，可以访问所有能够被访问的软、硬件资源。&lt;/li&gt;
-&lt;li&gt;目标代码简短：目标代码就是经编译器翻译过后的二进制代码，占用内存少，执行速度快。（计算机中所有程序的运行都是在内存中进行的，因此内存的性能对计算机的影响非常大。其作用是用于暂时存放CPU中的运算数据，以及与硬盘等外部存储器交换的数据。只要计算机在运行中，CPU就会把需要运算的数据调到内存中进行运算，当运算完成后内存再将结果传送出来，内存的运行也决定了计算机的稳定运行。）计算机的内存是有限的，因此一个应用程序运行时所占用的内存越少越好。&lt;/li&gt;
+&lt;li&gt;目标代码简短：目标代码就是经编译器翻译过后的二进制代码，占用内存少，执行速度快。（计算机中所有程序的运行都是在内存中进行的，因此内存的性能对计算机的影响非常大。其作用是用于暂时存放 CPU 中的运算数据，以及与硬盘等外部存储器交换的数据。只要计算机在运行中， CPU 就会把需要运算的数据调到内存中进行运算，当运算完成后内存再将结果传送出来，内存的运行也决定了计算机的稳定运行。）计算机的内存是有限的，因此一个应用程序运行时所占用的内存越少越好。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;缺点-1&quot;&gt;&lt;a href=&quot;#缺点-1&quot; class=&quot;headerlink&quot; title=&quot;缺点&quot;&gt;&lt;/a&gt;缺点&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;可移植性差：汇编语言是面向机器的，通常是为特定的计算机或系列计算机专门设计的。因此，不同的机器有不同的汇编语言语法和编译器，代码缺乏可移植性，也就是说，一个程序只能在一种机器上运行，换到其他机器上就不能运行。&lt;/li&gt;
-&lt;li&gt;难记：汇编语言的符号非常多、难记，即使是完成简单的功能也需要大量的汇编语言代码，很容易产生BUG，难于调试。&lt;/li&gt;
+&lt;li&gt;难记：汇编语言的符号非常多、难记，即使是完成简单的功能也需要大量的汇编语言代码，很容易产生 BUG ，难于调试。&lt;/li&gt;
 &lt;li&gt;开发效率低：使用汇编语言必须对硬件非常了解，开发效率很低，周期长且单调。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;高级语言&quot;&gt;&lt;a href=&quot;#高级语言&quot; class=&quot;headerlink&quot; title=&quot;高级语言&quot;&gt;&lt;/a&gt;高级语言&lt;/h3&gt;&lt;p&gt;由于汇编语言依赖于硬件，代码可移植性差，符号又多又难记，于是人类就发明了非常接近自然语言的高级语言。后面要学习的C语言就是高级语言。&lt;/p&gt;
 &lt;h4 id=&quot;优点-2&quot;&gt;&lt;a href=&quot;#优点-2&quot; class=&quot;headerlink&quot; title=&quot;优点&quot;&gt;&lt;/a&gt;优点&lt;/h4&gt;&lt;p&gt;简单、易用、易于理解，语法和结构类似于普通英文，且远离对硬件的直接操作，使得一般人经过学习之后都可以编程，而不用太熟悉硬件知识。&lt;/p&gt;
-&lt;p&gt;写出来的程序更加简洁。比如要计算2个数的和，在高级语言中可以写得非常简洁：d=a+b;。但是在机器语言和汇编语言中，就需要几条甚至几十条指令，而且不同机器还要编写不同的指令代码。&lt;/p&gt;
+&lt;p&gt;写出来的程序更加简洁。比如要计算2个数的和，在高级语言中可以写得非常简洁： d=a+b 。但是在机器语言和汇编语言中，就需要几条甚至几十条指令，而且不同机器还要编写不同的指令代码。&lt;/p&gt;
 &lt;p&gt;用高级语言编写的同一个程序还可以在不同的机器上运行，具有可移植性。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意：用高级语言编写的程序不能直接被计算机识别，需要经编译器翻译成二进制指令后，才能运行到计算机上。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;C语言简史&quot;&gt;&lt;a href=&quot;#C语言简史&quot; class=&quot;headerlink&quot; title=&quot;C语言简史&quot;&gt;&lt;/a&gt;C语言简史&lt;/h2&gt;&lt;p&gt;C语言于1972年发明，首次使用是用于重写UNIX操作系统（UNIX以前是用汇编写的）。随着UNIX操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。&lt;/p&gt;
+&lt;h2 id=&quot;C语言简史&quot;&gt;&lt;a href=&quot;#C语言简史&quot; class=&quot;headerlink&quot; title=&quot;C语言简史&quot;&gt;&lt;/a&gt;C语言简史&lt;/h2&gt;&lt;p&gt;C语言于1972年发明，首次使用是用于重写&lt;code&gt;UNIX&lt;/code&gt;操作系统（&lt;code&gt;UNIX&lt;/code&gt;以前是用汇编写的）。随着&lt;code&gt;UNIX&lt;/code&gt;操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。&lt;/p&gt;
 &lt;p&gt;C语言是一门面向过程的语言，非面向对象的语言。&lt;/p&gt;
 &lt;h2 id=&quot;C语言的优点&quot;&gt;&lt;a href=&quot;#C语言的优点&quot; class=&quot;headerlink&quot; title=&quot;C语言的优点&quot;&gt;&lt;/a&gt;C语言的优点&lt;/h2&gt;&lt;h3 id=&quot;丰富的运算符&quot;&gt;&lt;a href=&quot;#丰富的运算符&quot; class=&quot;headerlink&quot; title=&quot;丰富的运算符&quot;&gt;&lt;/a&gt;丰富的运算符&lt;/h3&gt;&lt;p&gt;计算机的基本功能就是计算，因此一门程序设计语言的计算能力是非常重要的。C语言提供了34种运算符，计算类型及其丰富，其中包括了最基本的加减乘除运算。&lt;/p&gt;
-&lt;h3 id=&quot;丰富的数据类型&quot;&gt;&lt;a href=&quot;#丰富的数据类型&quot; class=&quot;headerlink&quot; title=&quot;丰富的数据类型&quot;&gt;&lt;/a&gt;丰富的数据类型&lt;/h3&gt;&lt;p&gt;C语言之所以生命力如何强大，很大一部分是因为它拥有丰富的数据类型。C语言的数据类型有：整型（int）、实型（float）、字符型（char）、数组类型（int []）、指针类型（void *）、结构体类型（struct）、共用体类型（union）等。众多数据类型中，最强大的是指针，通过指针我们可以直接访问内存地址。指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。正因为C语言数据类型丰富，运算能力极强，因此很多数据库都是用C语言编写的，比如&lt;code&gt;DB2&lt;/code&gt;、&lt;code&gt;Oracle&lt;/code&gt;等。&lt;/p&gt;
+&lt;h3 id=&quot;丰富的数据类型&quot;&gt;&lt;a href=&quot;#丰富的数据类型&quot; class=&quot;headerlink&quot; title=&quot;丰富的数据类型&quot;&gt;&lt;/a&gt;丰富的数据类型&lt;/h3&gt;&lt;p&gt;C语言之所以生命力如何强大，很大一部分是因为它拥有丰富的数据类型。C语言的数据类型有：整型（int）、实型（float）、字符型（char）、数组类型（int []）、指针类型（void *）、结构体类型（struct）、共用体类型（union）等。众多数据类型中，最强大的是指针，通过指针我们可以直接访问内存地址。指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说 C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。正因为C语言数据类型丰富，运算能力极强，因此很多数据库都是用C语言编写的，比如&lt;code&gt;DB2&lt;/code&gt;、&lt;code&gt;Oracle&lt;/code&gt;等。&lt;/p&gt;
 &lt;h3 id=&quot;允许直接访问物理地址，对硬件进行操作&quot;&gt;&lt;a href=&quot;#允许直接访问物理地址，对硬件进行操作&quot; class=&quot;headerlink&quot; title=&quot;允许直接访问物理地址，对硬件进行操作&quot;&gt;&lt;/a&gt;允许直接访问物理地址，对硬件进行操作&lt;/h3&gt;&lt;p&gt;由于C语言允许直接访问物理地址，可以直接对硬件进行操作，因此它既具有高级语言的功能，又具有低级语言的许多功能，能够像汇编语言一样对位（bit）、字节和地址进行操作，而这三者是计算机最基本的工作单元。&lt;/p&gt;
 &lt;h3 id=&quot;高效率的目标代码&quot;&gt;&lt;a href=&quot;#高效率的目标代码&quot; class=&quot;headerlink&quot; title=&quot;高效率的目标代码&quot;&gt;&lt;/a&gt;高效率的目标代码&lt;/h3&gt;&lt;p&gt;对比汇编语言，C语言可读性好，易于调试、修改和移植，代码质量与汇编语言相当。&lt;/p&gt;
 &lt;h3 id=&quot;可移植性好&quot;&gt;&lt;a href=&quot;#可移植性好&quot; class=&quot;headerlink&quot; title=&quot;可移植性好&quot;&gt;&lt;/a&gt;可移植性好&lt;/h3&gt;&lt;p&gt;在一个环境上用C语言编写的程序，不改动或稍加改动，就可移植到另一个完全不同的环境中运行。&lt;/p&gt;
 &lt;h2 id=&quot;C语言的缺点&quot;&gt;&lt;a href=&quot;#C语言的缺点&quot; class=&quot;headerlink&quot; title=&quot;C语言的缺点&quot;&gt;&lt;/a&gt;C语言的缺点&lt;/h2&gt;&lt;h3 id=&quot;封装性差、安全性低&quot;&gt;&lt;a href=&quot;#封装性差、安全性低&quot; class=&quot;headerlink&quot; title=&quot;封装性差、安全性低&quot;&gt;&lt;/a&gt;封装性差、安全性低&lt;/h3&gt;&lt;p&gt;由于C语言是面向过程的，因此它的数据封装性差、安全性低，这就是C语言和其他面向对象语言的区别之一。面向对象语言的特性之一就是数据的封装性。&lt;/p&gt;
 &lt;h3 id=&quot;语法限制不严格&quot;&gt;&lt;a href=&quot;#语法限制不严格&quot; class=&quot;headerlink&quot; title=&quot;语法限制不严格&quot;&gt;&lt;/a&gt;语法限制不严格&lt;/h3&gt;&lt;p&gt;对变量的类型约束不严格，对数组下标越界不作检查等。&lt;/p&gt;
 &lt;h2 id=&quot;C语言能做什么&quot;&gt;&lt;a href=&quot;#C语言能做什么&quot; class=&quot;headerlink&quot; title=&quot;C语言能做什么&quot;&gt;&lt;/a&gt;C语言能做什么&lt;/h2&gt;&lt;h3 id=&quot;开发计算机软件&quot;&gt;&lt;a href=&quot;#开发计算机软件&quot; class=&quot;headerlink&quot; title=&quot;开发计算机软件&quot;&gt;&lt;/a&gt;开发计算机软件&lt;/h3&gt;&lt;p&gt;由于C语言具有强大的数据处理能力，而且允许直接访问物理地址，直接对硬件操作，因此它适于编写系统软件、图形处理、单片机程序、嵌入式系统开发甚至是用于科研。&lt;/p&gt;
-&lt;h3 id=&quot;开发Android&quot;&gt;&lt;a href=&quot;#开发Android&quot; class=&quot;headerlink&quot; title=&quot;开发Android&quot;&gt;&lt;/a&gt;开发Android&lt;/h3&gt;&lt;p&gt;很多操作系统的底层都是用C语言写的，比如android。&lt;/p&gt;
-&lt;h3 id=&quot;开发iOS&quot;&gt;&lt;a href=&quot;#开发iOS&quot; class=&quot;headerlink&quot; title=&quot;开发iOS&quot;&gt;&lt;/a&gt;开发iOS&lt;/h3&gt;&lt;p&gt;iOS开发中的核心语言是Objective-C（简称OC），OC是在C语言的基础上加了一层面向对象语法。&lt;/p&gt;
+&lt;h3 id=&quot;开发Android&quot;&gt;&lt;a href=&quot;#开发Android&quot; class=&quot;headerlink&quot; title=&quot;开发Android&quot;&gt;&lt;/a&gt;开发Android&lt;/h3&gt;&lt;p&gt;很多操作系统的底层都是用C语言写的，比如 android 。&lt;/p&gt;
+&lt;h3 id=&quot;开发iOS&quot;&gt;&lt;a href=&quot;#开发iOS&quot; class=&quot;headerlink&quot; title=&quot;开发iOS&quot;&gt;&lt;/a&gt;开发iOS&lt;/h3&gt;&lt;p&gt;iOS 开发中的核心语言是 Objective-C （简称OC）， OC 是在C语言的基础上加了一层面向对象语法。&lt;/p&gt;
 &lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 </content>
