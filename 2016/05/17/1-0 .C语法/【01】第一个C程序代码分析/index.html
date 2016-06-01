@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://i4.buimg.com/6c75203e17bd6ec0.png">
 <meta property="og:image" content="http://i4.buimg.com/7a5e46c0c4d7d67d.png">
 <meta property="og:image" content="http://i4.buimg.com/7d38134b7d414433.png">
-<meta property="og:updated_time" content="2016-05-31T15:03:33.000Z">
+<meta property="og:updated_time" content="2016-06-01T02:59:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【01】第一个C程序代码分析">
 <meta name="twitter:description">
@@ -412,6 +412,7 @@
 <p>可以发现程序仍然可以正常运行。</p>
 <p>但是我们思考一个问题，如果我们不分成两个文件，直接在主函数文件中包含 message.c 是否也可以正常运行呢？答案是否定的，原因是由于编译生成的两个文件 main.obj 和 message.obj 在链接时会发现 main.obj 中已经有 message.obj 中定义的 showMessage 函数，抛出“标示符重复”的错误。</p>
 <p><img src="http://i4.buimg.com/7d38134b7d414433.png" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 
       
@@ -464,6 +465,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/30/1-0 .C语法/【02】C语言语法/" rel="prev" title="【02】C语言语法">
+                【02】C语言语法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -535,7 +540,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -615,7 +620,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Xcode创建C程序步骤"><span class="nav-number">1.</span> <span class="nav-text">Xcode创建C程序步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开Xcode"><span class="nav-number">1.1.</span> <span class="nav-text">打开Xcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择命令行程序"><span class="nav-number">1.2.</span> <span class="nav-text">选择命令行程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填写项目名称并选择使用C语言"><span class="nav-number">1.3.</span> <span class="nav-text">填写项目名称并选择使用C语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择保存目录"><span class="nav-number">1.4.</span> <span class="nav-text">选择保存目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动生成如下代码"><span class="nav-number">1.5.</span> <span class="nav-text">自动生成如下代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-number">2.</span> <span class="nav-text">代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#include"><span class="nav-number">2.1.</span> <span class="nav-text">#include</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stdio-h"><span class="nav-number">2.2.</span> <span class="nav-text">stdio.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main函数"><span class="nav-number">2.3.</span> <span class="nav-text">main函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发和运行C程序的步骤"><span class="nav-number">3.</span> <span class="nav-text">开发和运行C程序的步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编写程序"><span class="nav-number">3.1.</span> <span class="nav-text">编写程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译（生成目标文件）"><span class="nav-number">3.2.</span> <span class="nav-text">编译（生成目标文件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接（生成可执行文件）"><span class="nav-number">3.3.</span> <span class="nav-text">链接（生成可执行文件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">3.4.</span> <span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多文件开发"><span class="nav-number">4.</span> <span class="nav-text">多文件开发</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Xcode创建C程序步骤"><span class="nav-number">1.</span> <span class="nav-text">Xcode创建C程序步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开Xcode"><span class="nav-number">1.1.</span> <span class="nav-text">打开Xcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择命令行程序"><span class="nav-number">1.2.</span> <span class="nav-text">选择命令行程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填写项目名称并选择使用C语言"><span class="nav-number">1.3.</span> <span class="nav-text">填写项目名称并选择使用C语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择保存目录"><span class="nav-number">1.4.</span> <span class="nav-text">选择保存目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动生成如下代码"><span class="nav-number">1.5.</span> <span class="nav-text">自动生成如下代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-number">2.</span> <span class="nav-text">代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#include"><span class="nav-number">2.1.</span> <span class="nav-text">#include</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stdio-h"><span class="nav-number">2.2.</span> <span class="nav-text">stdio.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main函数"><span class="nav-number">2.3.</span> <span class="nav-text">main函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发和运行C程序的步骤"><span class="nav-number">3.</span> <span class="nav-text">开发和运行C程序的步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编写程序"><span class="nav-number">3.1.</span> <span class="nav-text">编写程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译（生成目标文件）"><span class="nav-number">3.2.</span> <span class="nav-text">编译（生成目标文件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接（生成可执行文件）"><span class="nav-number">3.3.</span> <span class="nav-text">链接（生成可执行文件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">3.4.</span> <span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多文件开发"><span class="nav-number">4.</span> <span class="nav-text">多文件开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
