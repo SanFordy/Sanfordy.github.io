@@ -19,7 +19,7 @@
 <li>在开发工具或者智能文本编辑工具（比如 UltraEdit ）中会显示特殊颜色。</li>
 </ul>
 <p>比如下面这段C程序在 UltraEdit 中呈现的样子：</p>
-<p><img src="http://7xrn7f.com1.z0.glb.clouddn.com/16-6-1/67869836.jpg" alt=""></p>
+<p><img src="http://7xrn7f.com1.z0.glb.clouddn.com/16-6-7/29741001.jpg" alt=""></p>
 <p>在这段代码中，只有 int 和 return 是关键字，C语言中的所有关键字在 UltraEdit 中都会显示蓝色！可以看出， main 并不是关键字。至于 int 和 return 究竟有什么特殊含义，这里先不做讨论，后面会详细介绍。</p>
 <h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><h3 id="什么是标识符"><a href="#什么是标识符" class="headerlink" title="什么是标识符"></a>什么是标识符</h3><p>在程序中使用的变量名、函数名、标号等统称为标识符。除库函数的函数名由系统定义外，其余都由用户自定义。C 规定，标识符只能是字母(A～Z，a～z)、数字(0～9)、下划线(_)组成的字符串，并且其第一个字符不能是数字。</p>
 <h3 id="在使用标识符时还必须注意以下几点"><a href="#在使用标识符时还必须注意以下几点" class="headerlink" title="在使用标识符时还必须注意以下几点"></a>在使用标识符时还必须注意以下几点</h3><ul>
