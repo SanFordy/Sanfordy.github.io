@@ -1,0 +1,935 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <link rel="apple-touch-icon" href="touch-icon-mac.png">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sanfordy`s home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【05】变量（一）">
+<meta property="og:url" content="http://sanfordy.com/2016/06/07/1-0 .C语法/【05】变量（一）/index.html">
+<meta property="og:site_name" content="Sanfordy`s home">
+<meta property="og:description">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607155214183-305983019.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607174035683-177628936.png">
+<meta property="og:updated_time" content="2016-06-07T09:42:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【05】变量（一）">
+<meta name="twitter:description">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 【05】变量（一） | Sanfordy`s home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sanfordy`s home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Your achievement depends on how many people you can face to talk</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【05】变量（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-07T15:31:04+08:00" content="2016-06-07">
+              2016-06-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/1-0-C语法/" itemprop="url" rel="index">
+                    <span itemprop="name">1-0. C语法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/07/1-0 .C语法/【05】变量（一）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/07/1-0 .C语法/【05】变量（一）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次数阅读
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png" alt=""></p>
+<a id="more"></a>
+<h2 id="什么是变量"><a href="#什么是变量" class="headerlink" title="什么是变量"></a>什么是变量</h2><p>常量表示的数据是不可以改的，而用变量表示的数据是可以经常修改的。</p>
+<h2 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h2><p>跟其他语言一样，C语言中用变量来存储计算过程使用的值，任何变量都必须先定义类型再使用。为什么一定要先定义呢？因为变量的类型决定了变量占用的存储空间，所以定义变量类型，就是为了给该变量分配适当的存储空间，以便存放数据。比如你是 char 类型，我就只给你分配1个字节就够了，没必要分配2个字节、3个字节乃至更多的存储空间。</p>
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><p>我们在定义变量的时候，需要指明变量类型，系统会根据变量类型来分配相应的存储空间。不同数据类型所占用的存储空间是不一样的，如果是字符型（char）变量，就分配1个字节的存储空间；如果是整型（int）变量，就分配4个字节的存储空间。</p>
+<p>变量类型的还一个作用是用来约束变量所存放数据的类型。一旦给变量指明了类型，那么这个变量就只能存储这种类型的数据，比如整型（int）变量只能存储整型数据，不能存储浮点型数据。</p>
+<h2 id="变量名"><a href="#变量名" class="headerlink" title="变量名"></a>变量名</h2><p>在程序运行过程，肯定会定义大量的变量，每个变量都有自己的存储空间。那怎么区分这些变量呢？怎么找到变量对应的存储空间呢？为了区分这些变量，定义变量的时候应该为每个变量指定一个变量名，变量名也是标识符的一种。当我们要修改变量的数据时，系统会根据变量名找到变量对应的存储空间，将存储空间里面的数据改掉。</p>
+<p>变量的命名规则：</p>
+<ul>
+<li>只能由数字、字母、下划线组成，并且不能以数字开头。</li>
+<li>不可以与系统保留字同名。</li>
+<li>不能使用重复的变量名。</li>
+<li>见名知意（规范）。</li>
+</ul>
+<h2 id="变量的分类"><a href="#变量的分类" class="headerlink" title="变量的分类"></a>变量的分类</h2><h3 id="根据变量的作用域"><a href="#根据变量的作用域" class="headerlink" title="根据变量的作用域"></a>根据变量的作用域</h3><p>C语言根据变量作用域的不同，将变量分为局部变量和全局变量。</p>
+<h4 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h4><ul>
+<li>定义：在函数内部定义的变量，称为局部变量。形式参数也属于局部变量。</li>
+<li>作用域：局部变量只在定义它的函数内部有效，即局部变量只有在定义它的函数内部使用，其它函数不能使用它。</li>
+</ul>
+<h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><ul>
+<li>定义：在所有函数外部定义的变量，称为全局变量。</li>
+<li>作用域：全局变量的作用范围是从定义变量的位置开始到源程序结束，即全局变量可以被在其定义位置之后的其它函数所共享。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第1行的变量a是全局变量，第5行的变量b是局部变量。</p>
+<h3 id="根据变量的存储地点"><a href="#根据变量的存储地点" class="headerlink" title="根据变量的存储地点"></a>根据变量的存储地点</h3><p>有3个地方可以用于存储变量：普通内存、运行时堆栈、硬件寄存器。变量的存储地点决定了变量何时创建、何时销毁以及它的值能保持多久，也就是决定了变量的生命周期。</p>
+<p>C语言根据变量存储地点的不同，可以把变量分为：自动变量、静态变量、寄存器变量。</p>
+<h4 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h4><ul>
+<li>定义：自动变量是存储在堆栈中的。</li>
+<li>哪些是自动变量：被关键字<code>auto</code>修饰的局部变量都是自动变量，但是极少使用这个关键字，基本上是废的，因为所有的局部变量在默认情况下都是自动变量。</li>
+<li>生命周期：在程序执行到声明自动变量的代码块（函数）时，自动变量才被创建，当自动变量所在的代码块（函数）执行完毕后，这些自动变量就会自行销毁。如果一个函数被重复调用，这些自动变量每次都会重新创建。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> c = a + b;</span><br><span class="line">      <span class="keyword">auto</span> <span class="keyword">int</span> d;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>第1行的变量a、b，第2行的变量c、第4行的变量d都是自动变量。</p>
+<h4 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h4><ul>
+<li>定义：静态变量是存储在静态内存中的，也就是不属于堆栈。</li>
+<li>哪些是静态变量：<ol>
+<li>所有的全局变量都是静态变量。</li>
+<li>被关键字static修饰的局部变量也是静态变量。</li>
+</ol>
+</li>
+<li>生命周期：静态变量在程序运行之前创建并且只会创建一次，在程序的整个运行期间始终存在，直到程序结束。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">    b++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">    c++;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"b=%d, c=%d \n"</span>, b, c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="comment">// 连续调用3次test函数</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">        test();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第3行的变量a、第6行的变量b都是静态变量，第9行的变量c、第16行的变量i是自动变量。</p>
+<p>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用 test 函数时，变量b的值不会被重新初始化为0。</p>
+<blockquote>
+<p><strong>注意</strong>：虽然第6行的变量 b 是静态变量，但是只改变了它生命周期，并没有改变它的作用域，变量 b 还是只能在 test 函数内部使用。</p>
+</blockquote>
+<p>我们在main函数中重复调用test函数3次，输出结果为：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607155214183-305983019.png" alt=""></p>
+<h4 id="寄存器变量"><a href="#寄存器变量" class="headerlink" title="寄存器变量"></a>寄存器变量</h4><ul>
+<li>定义：存储在硬件寄存器中的变量，称为寄存器变量。寄存器变量比存储在内存中的变量访问效率更高（默认情况下，自动变量和静态变量都是放在内存中的）。</li>
+<li>哪些变量是寄存器变量：被关键字<code>register</code>修饰的自动变量都是寄存器变量。<ol>
+<li>只有局部变量才可以是寄存器变量。</li>
+<li>寄存器变量只限于int、char和指针类型变量使用。</li>
+</ol>
+</li>
+<li>生命周期：因为寄存器变量本身就是局部变量，所以函数中的寄存器变量在调用该函数时占用寄存器中存放的值，当函数结束时释放寄存器，变量消失。</li>
+<li>使用注意：<ol>
+<li>由于计算机中寄存器数目有限，不能使用太多的寄存器变量。如果寄存器使用饱和时，程序将寄存器变量自动转换为自动变量处理。</li>
+<li>为了提高运算速度，一般会将一些频繁使用的局部变量定义为寄存器变量，这样程序尽可能地为它分配寄存器存放，而不用内存。</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">register</span> <span class="keyword">int</span> a;</span><br><span class="line">     return <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>第2行的变量a是个寄存器变量。</p>
+<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><p>总结可得，定义变量需要2个条件：变量类型、变量名。定义变量的格式为：变量类型  变量名；</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第3行定义了一个名字为i的整型变量，说明i只能存储整型数据；在第5行定义了一个名字为c的字符型变量，说明c只能存储字符型数据。第3、5、7行的代码都称为“语句”，每条语句后面都有个分号“;”。</p>
+<p>于是，系统就会在内存中分别为变量i、c分配一定的存储空间，如下图所示，i和c各占用一块存储空间。</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png" alt=""></p>
+<p>如果是同一种类型的变量，可以连续定义，变量名之间用逗号,隔开。格式为：变量类型  变量名1, 变量名2, 变量名3, … ;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, c;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第3行代码的意思是定义了2个int类型的变量，变量名分别为a、c。</p>
+<h2 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h2><h3 id="先定义，再初始化"><a href="#先定义，再初始化" class="headerlink" title="先定义，再初始化"></a>先定义，再初始化</h3><p>前面已经定义了两个变量，但是这两个变量并没有存储任何值，我们需要给变量进行第一次赋值，也叫做“初始化”。</p>
+<p>变量赋值的格式是：变量名 = 值;</p>
+<p>这个等号”=”是一个赋值运算符，将右边的值赋值给左边的变量，也就是将右边的值存储到左边变量的存储空间中。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    c = <span class="string">'A'</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第4行给变量i赋值一个整型常量10，在第7行给变量c赋值一个字符型常量’A’。像第4、7行这样的赋值操作，称为“赋值运算”。</p>
+<p>内存中大致如下图所示，整数10存储在i的存储空间中，字母A存储在c的存储空间中。（其实我这个图并不是很准确，因为内存中的所有数据都是以0和1的形式存储的，比如10，它会存储成1010；字母A，它会存储成1000001。这里为了达到直观的效果，就没有写成二进制形式）</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png" alt=""></p>
+<h3 id="定义的同时初始化"><a href="#定义的同时初始化" class="headerlink" title="定义的同时初始化"></a>定义的同时初始化</h3><p>上面的代码也可以写成下面这样，在定义变量的同时进行初始化：变量类型  变量名 = 值;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">float</span> f = <span class="number">10.9f</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> d = <span class="number">9.8</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607174035683-177628936.png" alt=""></p>
+<h3 id="可以不断修改"><a href="#可以不断修改" class="headerlink" title="可以不断修改"></a>可以不断修改</h3><p>既然i是个变量，说明它的值可以不断地改变，看下面的代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    i = <span class="number">89</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">'A'</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第3行定义了变量i，并且初始值为10。紧接着在第5行把i的值改为89，这个89会覆盖以前存储的10。</p>
+<h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><p>刚才提到，默认情况下，变量的值是可以不断改变的。不过，有时候我们会希望变量的值只在定义的时候初始化一次，以后都不能再改变，这个时候我们就可以使用const关键字来修饰变量。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    i = <span class="number">11</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意第3行，在int的前面加了个const关键字。表示变量i的值只会初始化一次，也就是说i的值永远都是一开始的10，以后都不能再改了。所以编译器会报第5行代码的错误，不允许再次修改i的值。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+<div>想请我吃辣条吗</div>
+<button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+<span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+</button>
+<div id="QR" style="display: none;">
+
+<div id="wechat" style="display: inline-block">
+<img id="wechat_qr" src="http://i4.piimg.com/508f386ab6942876.jpg" alt="Sanfordy WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>微信打赏</p>
+</div>
+
+
+<div id="alipay" style="display: inline-block">
+<img id="alipay_qr" src="http://i4.piimg.com/481cbcc6ec69d37b.png" alt="Sanfordy Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>支付宝打赏</p>
+</div>
+
+</div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/07/1-0 .C语法/【04】常量/" rel="next" title="【04】常量">
+                <i class="fa fa-chevron-left"></i> 【04】常量
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/07/1-0 .C语法/【05】变量（一）/"
+           data-title="【05】变量（一）" data-url="http://sanfordy.com/2016/06/07/1-0 .C语法/【05】变量（一）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/kedaya.jpg"
+               alt="Sanfordy" />
+          <p class="site-author-name" itemprop="name">Sanfordy</p>
+          <p class="site-description motion-element" itemprop="description">A happy programmer</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sanfordy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/sanfordy" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.guijj.com/pics/201404/535a0243a9698.gif" title="biggift" target="_blank">biggift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是变量"><span class="nav-number">1.</span> <span class="nav-text">什么是变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的定义"><span class="nav-number">2.</span> <span class="nav-text">变量的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量类型"><span class="nav-number">3.</span> <span class="nav-text">变量类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量名"><span class="nav-number">4.</span> <span class="nav-text">变量名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的分类"><span class="nav-number">5.</span> <span class="nav-text">变量的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#根据变量的作用域"><span class="nav-number">5.1.</span> <span class="nav-text">根据变量的作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#局部变量"><span class="nav-number">5.1.1.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局变量"><span class="nav-number">5.1.2.</span> <span class="nav-text">全局变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据变量的存储地点"><span class="nav-number">5.2.</span> <span class="nav-text">根据变量的存储地点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动变量"><span class="nav-number">5.2.1.</span> <span class="nav-text">自动变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态变量"><span class="nav-number">5.2.2.</span> <span class="nav-text">静态变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#寄存器变量"><span class="nav-number">5.2.3.</span> <span class="nav-text">寄存器变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量定义"><span class="nav-number">6.</span> <span class="nav-text">变量定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的使用"><span class="nav-number">7.</span> <span class="nav-text">变量的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先定义，再初始化"><span class="nav-number">7.1.</span> <span class="nav-text">先定义，再初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义的同时初始化"><span class="nav-number">7.2.</span> <span class="nav-text">定义的同时初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以不断修改"><span class="nav-number">7.3.</span> <span class="nav-text">可以不断修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const关键字"><span class="nav-number">7.4.</span> <span class="nav-text">const关键字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sanfordy</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv">本站访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sanfordy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>

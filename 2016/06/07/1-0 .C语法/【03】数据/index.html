@@ -85,14 +85,18 @@
 
 <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【00】C语言简介">
-<meta property="og:url" content="http://sanfordy.com/2016/05/11/1-0 .C语法/【00】C语言简介/index.html">
+<meta property="og:title" content="【03】数据">
+<meta property="og:url" content="http://sanfordy.com/2016/06/07/1-0 .C语法/【03】数据/index.html">
 <meta property="og:site_name" content="Sanfordy`s home">
 <meta property="og:description">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png">
-<meta property="og:updated_time" content="2016-06-07T03:51:05.000Z">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143556418-1431912984.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143719574-1356202246.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143724168-1786196972.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143728402-1476722878.png">
+<meta property="og:updated_time" content="2016-06-07T07:08:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【00】C语言简介">
+<meta name="twitter:title" content="【03】数据">
 <meta name="twitter:description">
 <meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png">
 
@@ -112,7 +116,7 @@
   };
 </script>
 
-  <title> 【00】C语言简介 | Sanfordy`s home </title>
+  <title> 【03】数据 | Sanfordy`s home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -265,7 +269,7 @@
             
             
               
-                【00】C语言简介
+                【03】数据
               
             
           </h1>
@@ -277,8 +281,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T23:24:05+08:00" content="2016-05-11">
-              2016-05-11
+            <time itemprop="dateCreated" datetime="2016-06-07T14:27:08+08:00" content="2016-06-07">
+              2016-06-07
             </time>
           </span>
 
@@ -307,8 +311,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/11/1-0 .C语法/【00】C语言简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/11/1-0 .C语法/【00】C语言简介/" itemprop="commentsCount"></span>
+                <a href="/2016/06/07/1-0 .C语法/【03】数据/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/07/1-0 .C语法/【03】数据/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -338,55 +342,44 @@
       
         <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png" alt=""></p>
 <a id="more"></a>
-<h2 id="计算机常识"><a href="#计算机常识" class="headerlink" title="计算机常识"></a>计算机常识</h2><p>在学习C语言之前，先要了解一些计算机常识</p>
-<h3 id="计算机只能识别0和1"><a href="#计算机只能识别0和1" class="headerlink" title="计算机只能识别0和1"></a>计算机只能识别0和1</h3><p>大家都知道，计算机要通电才能工作，说白了，它跟电视、洗衣机一样，都是电器。电器都有个共同的能力：懂得判断通电还是断电，通电就能工作，断电就停止工作。因此，从根本上讲，计算机只能识别电信号：高电平信号（通电）、低电平信号（断电），它只知道某个开关是通电还是断电。我们用1代表高电平，0代表低电平。</p>
-<p>也就说，计算机只能识别0和1。</p>
-<h3 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h3><p>因为计算机只能识别0和1，因此计算机所能识别的指令和数据都是用二进制数（0和1）来表示的。所谓二进制，就是用0和1来表示所有的数。不过我们日常生活中最常用的是十进制，用0~9来表示所有的数。</p>
-<h4 id="二进制指令"><a href="#二进制指令" class="headerlink" title="二进制指令"></a>二进制指令</h4><p>给计算机灌输一些指令，它就能执行相应的操作，而计算机只能识别由0和1组成的指令。在计算机发展初期，计算机的指令长度为16，即以16个二进制数（0或1）组成一条指令，例如，用1011011000000000这条指令，是让计算机进行一次加法运算。因此，如果要想计算机执行一系列的操作，就必须编写许多条由0和1组成的指令，可以想象的到，这个工作量是如此巨大。</p>
-<h4 id="二进制数据"><a href="#二进制数据" class="headerlink" title="二进制数据"></a>二进制数据</h4><p>平时我们在计算机中存储的一些数据，比如文档、照片、视频等，都是以0和1的形式存储的。只不过计算机解析了这一大堆的0和1，以图形界面的形式将数据展示在我们眼前。</p>
-<h2 id="程序设计语言的发展史"><a href="#程序设计语言的发展史" class="headerlink" title="程序设计语言的发展史"></a>程序设计语言的发展史</h2><p>我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：机器语言、汇编语言、高级语言。其中， C语言属于高级语言。</p>
-<h3 id="机器语言"><a href="#机器语言" class="headerlink" title="机器语言"></a>机器语言</h3><h4 id="什么是机器语言"><a href="#什么是机器语言" class="headerlink" title="什么是机器语言"></a>什么是机器语言</h4><p>在计算器诞生初期， 所有的计算机程序都是直接用计算机能识别的二进制指令来编写的，也就是说所有的代码里面只有0和1。这种程序设计语言就是“机器语言”。这些由0和1组成的二进制指令，又叫做“机器指令”。</p>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。</li>
-<li>可操作硬件：机器语言能直接访问、控制计算机的各种硬件设备，如磁盘、存储器、CPU、I/O端口等。</li>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在我们使用计算机的过程中，会接触到各种各样的数据，有文档数据、图片数据、视频数据，还有聊 QQ 时产生的文字数据、用迅雷下载的文件数据等。这讲我们就来介绍C语言中数据的处理。</p>
+<h2 id="数据的存储"><a href="#数据的存储" class="headerlink" title="数据的存储"></a>数据的存储</h2><h3 id="数据形态"><a href="#数据形态" class="headerlink" title="数据形态"></a>数据形态</h3><p>首先来看看计算机是怎么存储数据的。总的来说，计算机中存储的数据可以分为两种：静态数据和动态数据。</p>
+<h4 id="静态数据"><a href="#静态数据" class="headerlink" title="静态数据"></a>静态数据</h4><ul>
+<li>概念：静态数据是指一些永久性的数据，一般存储在硬盘中。硬盘的存储空间一般都比较大，现在普通计算机的硬盘都有500G左右，因此硬盘中可以存放一些比较大的文件。</li>
+<li>存储的时长：计算机关闭之后再开启，这些数据依旧还在，只要你不主动删掉或者硬盘没坏，这些数据永远都在。</li>
+<li>哪些是静态数据：静态数据一般是以文件的形式存储在硬盘上，比如文档、照片、视频等。</li>
 </ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>难记：用机器语言编写程序，编程人员要首先熟记所用计算机的全部指令和指令的涵义，指令又多又难记。</li>
-<li>可读性差：编出的程序全是些0和1的指令代码，可读性差，还容易出错。</li>
-<li>可移植性差：由于机器语言是直接对硬件产生作用的，对硬件的依赖性很强，因此不同型号计算机的机器语言又不一样。也就是说，如果2台不同型号的机器想实现一样的功能，需要编写2套完全不同的代码。</li>
+<h4 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h4><ul>
+<li>概念：动态数据指在程序运行过程中，动态产生的临时数据，一般存储在内存中。内存的存储空间一般都比较小，现在普通计算机的内存只有4G左右，因此要谨慎使用内存，不要占用太多的内存空间。</li>
+<li>存储的时长：计算机关闭之后，这些临时数据就会被清除。</li>
+<li>哪些是动态数据：当运行某个程序（软件）时，整个程序就会被加载到内存中，在程序运行过程中，会产生各种各样的临时数据，这些临时数据都是存储在内存中的。当程序停止运行或者计算机被强制关闭时，这个程序产生的所有临时数据都会被清除。</li>
 </ul>
-<p>可以看出，机器语言很难掌握和推广，现在除了计算机生产厂家的专业人员外，绝大多数的程序员已经不再去学习机器语言了。</p>
-<h3 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h3><h4 id="什么是汇编语言"><a href="#什么是汇编语言" class="headerlink" title="什么是汇编语言"></a>什么是汇编语言</h4><p>由于机器语言的种种弊端，严重影响开发效率，后面就出现了汇编语言。汇编语言其实就是符号化的机器语言，它用一个符号（英文单词、数字）来代表一条机器指令。比如，在机器语言中，用1011011000000000这条指令，是让计算机进行一次加法运算；而在汇编语言中，用英文单词 “ADD” 就可以表示加法运算。一个有意义的英文单词，很明显比一串又臭又长的二进制指令，直观好记多了。</p>
-<p>由于计算机只能识别0和1，用汇编语言编写的代码是不能被计算机所识别的，像刚才的 “ADD” ，计算机肯定不知道是什么意思。因此，用汇编语言编写的代码需要翻译成二进制指令后，才能被计算机识别。这个翻译的工作交给“编译器”去做。</p>
-<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>可读性较好：对比机器语言，汇编语言的代码可读性好。</li>
-<li>可操作硬件：汇编语言能像机器语言一样，可以直接访问、控制计算机的各种硬件设备，如磁盘、存储器、CPU、I/O端口等。使用汇编语言，可以访问所有能够被访问的软、硬件资源。</li>
-<li>目标代码简短：目标代码就是经编译器翻译过后的二进制代码，占用内存少，执行速度快。（计算机中所有程序的运行都是在内存中进行的，因此内存的性能对计算机的影响非常大。其作用是用于暂时存放 CPU 中的运算数据，以及与硬盘等外部存储器交换的数据。只要计算机在运行中， CPU 就会把需要运算的数据调到内存中进行运算，当运算完成后内存再将结果传送出来，内存的运行也决定了计算机的稳定运行。）计算机的内存是有限的，因此一个应用程序运行时所占用的内存越少越好。</li>
+<p>你可能会问，既然硬盘的存储空间这么大，为何不把所有的应用程序加载到硬盘中去执行呢？有个主要原因是内存的访问速度比硬盘快N倍。</p>
+<h4 id="动态数据和静态数据的转换"><a href="#动态数据和静态数据的转换" class="headerlink" title="动态数据和静态数据的转换"></a>动态数据和静态数据的转换</h4><p>硬盘和内存是计算机使用最频繁的两个硬件，它们之间的数据经常要进行转换。</p>
+<p>比如，硬盘上有个叫做“C语言.mp4”的视频文件，现在要使用暴风影音来播放：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143556418-1431912984.png" alt=""></p>
+<p>首先打开暴风影音软件，计算机会将暴风影音加载到内存中，紧接着计算机会读取硬盘中视频文件的内容到内存中。暴风影音会解析读取到的文件内容，以视频的形式呈现给用户看。这就完成了一个由静态数据到动态数据的转换。</p>
+<p>再比如，你使用迅雷从网上下载一个叫做“C语言.mp4”的视频文件：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143719574-1356202246.png" alt=""></p>
+<p>首先打开迅雷软件，计算机会将迅雷加载到内存中，紧接着迅雷就会从互联网下载视频文件。大家都知道，这个下载过程肯定是要耗点时间的，主要受文件大小和下载速度的影响。每个时间段内下载获取的数据都是先放到内存中，然后再写入到硬盘中。所有数据下载完毕后，硬盘中就会有一个完整的视频文件。这就完成了动态数据到静态数据的转换。</p>
+<h3 id="存储形式"><a href="#存储形式" class="headerlink" title="存储形式"></a>存储形式</h3><h4 id="二进制存储"><a href="#二进制存储" class="headerlink" title="二进制存储"></a>二进制存储</h4><p>计算机只能识别0和1。因此，前面所说的静态数据和动态数据，都是以0和1的形式存储的，这种存储方式称为“二进制存储”。有人可能觉得很诧异，只是0和1怎么可能表示这多的数据呢？没错，如果只是一位数字的话，只能表示2种数据：要么是0，要么是1。但是如果有多位数字的话，那情况就不一样了。如果有2位数字，那么就能表示4种数据：00、01、10、11；如果有3位数字呢，就能表示8种数据；以此类推，如果有n位数字，就能表示2的n次方种数据。可以发现，只要位数足够，0和1所能表示的数据是非常庞大的。</p>
+<h4 id="比特位和字节"><a href="#比特位和字节" class="headerlink" title="比特位和字节"></a>比特位和字节</h4><p>平时我们在计算机上看到的MP4、MP3、照片等文件，都是由0和1组合成的，只不过计算机解析了这些0和1，以图形界面的形式呈现在我们眼前。文件越大，所包含的0和1就越多，为了方便计算文件大小，对计量单位做了个规定：1个二进制位为1bit，也就是1个0或1就为1bit，bit的中文翻译是“比特位”；8个二进制位为1byte，也就是8个0或1就为1byte，1byte=8bit，byte的中文翻译是“字节”。平时我们所说的某个文件大小为64B，就是64字节的意思，内部包含了64x8个0和1。</p>
+<p>数据换算：1 KB = 1024 B，1 MB = 1024 KB，1 GB = 1024 MB，1 TB = 1024 GB。</p>
+<h2 id="数据的类型"><a href="#数据的类型" class="headerlink" title="数据的类型"></a>数据的类型</h2><p>C语言有丰富的数据类型，因此它很适合用来编写数据库，如DB2、Oracle都是C语言写的。</p>
+<p>作为程序员，最关心的肯定是内存中的动态数据，因为我们写的程序就是运行在内存中的。程序在运行过程中，会产生各种各样的动态临时数据，为了方便数据的运算和操作，C语言对这些数据进行了分类，提供了丰富的数据类型。大致如下图所示：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143724168-1786196972.jpg" alt=""></p>
+<p>在图中众多数据类型中，最常用的是4种基本数据类型：char、int、float、double，而最重要的是指针类型，指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。</p>
+<p>这些丰富的数据在C语言中可以用常量或者变量来表示（后面会介绍常量和变量的使用）。</p>
+<h2 id="数据的访问"><a href="#数据的访问" class="headerlink" title="数据的访问"></a>数据的访问</h2><p>数据访问一般分为直接访问和间接访问：</p>
+<ul>
+<li>直接访问：直接访问内存单元中的内容。例如: a = 20; b = 2 * a等。</li>
+<li>间接访问：通过内存单元编号以及数据所占字节数访问内存中数据。</li>
 </ul>
-<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>可移植性差：汇编语言是面向机器的，通常是为特定的计算机或系列计算机专门设计的。因此，不同的机器有不同的汇编语言语法和编译器，代码缺乏可移植性，也就是说，一个程序只能在一种机器上运行，换到其他机器上就不能运行。</li>
-<li>难记：汇编语言的符号非常多、难记，即使是完成简单的功能也需要大量的汇编语言代码，很容易产生 BUG ，难于调试。</li>
-<li>开发效率低：使用汇编语言必须对硬件非常了解，开发效率很低，周期长且单调。</li>
-</ul>
-<h3 id="高级语言"><a href="#高级语言" class="headerlink" title="高级语言"></a>高级语言</h3><p>由于汇编语言依赖于硬件，代码可移植性差，符号又多又难记，于是人类就发明了非常接近自然语言的高级语言。后面要学习的C语言就是高级语言。</p>
-<h4 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h4><p>简单、易用、易于理解，语法和结构类似于普通英文，且远离对硬件的直接操作，使得一般人经过学习之后都可以编程，而不用太熟悉硬件知识。</p>
-<p>写出来的程序更加简洁。比如要计算2个数的和，在高级语言中可以写得非常简洁： d=a+b 。但是在机器语言和汇编语言中，就需要几条甚至几十条指令，而且不同机器还要编写不同的指令代码。</p>
-<p>用高级语言编写的同一个程序还可以在不同的机器上运行，具有可移植性。</p>
 <blockquote>
-<p>注意：用高级语言编写的程序不能直接被计算机识别，需要经编译器翻译成二进制指令后，才能运行到计算机上。</p>
+<p><strong>注意</strong>：指针是间接访问的常用方式。</p>
 </blockquote>
-<h2 id="C语言简史"><a href="#C语言简史" class="headerlink" title="C语言简史"></a>C语言简史</h2><p>C语言于1972年发明，首次使用是用于重写<code>UNIX</code>操作系统（<code>UNIX</code>以前是用汇编写的）。随着<code>UNIX</code>操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。</p>
-<p>C语言是一门面向过程的语言，非面向对象的语言。</p>
-<h2 id="C语言的优点"><a href="#C语言的优点" class="headerlink" title="C语言的优点"></a>C语言的优点</h2><h3 id="丰富的运算符"><a href="#丰富的运算符" class="headerlink" title="丰富的运算符"></a>丰富的运算符</h3><p>计算机的基本功能就是计算，因此一门程序设计语言的计算能力是非常重要的。C语言提供了34种运算符，计算类型及其丰富，其中包括了最基本的加减乘除运算。</p>
-<h3 id="丰富的数据类型"><a href="#丰富的数据类型" class="headerlink" title="丰富的数据类型"></a>丰富的数据类型</h3><p>C语言之所以生命力如何强大，很大一部分是因为它拥有丰富的数据类型。C语言的数据类型有：整型（int）、实型（float）、字符型（char）、数组类型（int []）、指针类型（void *）、结构体类型（struct）、共用体类型（union）等。众多数据类型中，最强大的是指针，通过指针我们可以直接访问内存地址。指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说 C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。正因为C语言数据类型丰富，运算能力极强，因此很多数据库都是用C语言编写的，比如<code>DB2</code>、<code>Oracle</code>等。</p>
-<h3 id="允许直接访问物理地址，对硬件进行操作"><a href="#允许直接访问物理地址，对硬件进行操作" class="headerlink" title="允许直接访问物理地址，对硬件进行操作"></a>允许直接访问物理地址，对硬件进行操作</h3><p>由于C语言允许直接访问物理地址，可以直接对硬件进行操作，因此它既具有高级语言的功能，又具有低级语言的许多功能，能够像汇编语言一样对位（bit）、字节和地址进行操作，而这三者是计算机最基本的工作单元。</p>
-<h3 id="高效率的目标代码"><a href="#高效率的目标代码" class="headerlink" title="高效率的目标代码"></a>高效率的目标代码</h3><p>对比汇编语言，C语言可读性好，易于调试、修改和移植，代码质量与汇编语言相当。</p>
-<h3 id="可移植性好"><a href="#可移植性好" class="headerlink" title="可移植性好"></a>可移植性好</h3><p>在一个环境上用C语言编写的程序，不改动或稍加改动，就可移植到另一个完全不同的环境中运行。</p>
-<h2 id="C语言的缺点"><a href="#C语言的缺点" class="headerlink" title="C语言的缺点"></a>C语言的缺点</h2><h3 id="封装性差、安全性低"><a href="#封装性差、安全性低" class="headerlink" title="封装性差、安全性低"></a>封装性差、安全性低</h3><p>由于C语言是面向过程的，因此它的数据封装性差、安全性低，这就是C语言和其他面向对象语言的区别之一。面向对象语言的特性之一就是数据的封装性。</p>
-<h3 id="语法限制不严格"><a href="#语法限制不严格" class="headerlink" title="语法限制不严格"></a>语法限制不严格</h3><p>对变量的类型约束不严格，对数组下标越界不作检查等。</p>
-<h2 id="C语言能做什么"><a href="#C语言能做什么" class="headerlink" title="C语言能做什么"></a>C语言能做什么</h2><h3 id="开发计算机软件"><a href="#开发计算机软件" class="headerlink" title="开发计算机软件"></a>开发计算机软件</h3><p>由于C语言具有强大的数据处理能力，而且允许直接访问物理地址，直接对硬件操作，因此它适于编写系统软件、图形处理、单片机程序、嵌入式系统开发甚至是用于科研。</p>
-<h3 id="开发Android"><a href="#开发Android" class="headerlink" title="开发Android"></a>开发Android</h3><p>很多操作系统的底层都是用C语言写的，比如 android 。</p>
-<h3 id="开发iOS"><a href="#开发iOS" class="headerlink" title="开发iOS"></a>开发iOS</h3><p>iOS 开发中的核心语言是 Objective-C （简称OC）， OC 是在C语言的基础上加了一层面向对象语法。</p>
+<h2 id="不同编译器环境下基本数据类型的存储长度"><a href="#不同编译器环境下基本数据类型的存储长度" class="headerlink" title="不同编译器环境下基本数据类型的存储长度"></a>不同编译器环境下基本数据类型的存储长度</h2><p>红色的代表常用的数据类型：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143728402-1476722878.png" alt=""></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 
@@ -433,12 +426,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/05/30/1-0 .C语法/【02】C语言语法/" rel="next" title="【02】C语言语法">
+                <i class="fa fa-chevron-left"></i> 【02】C语言语法
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/17/1-0 .C语法/【01】第一个C程序代码分析/" rel="prev" title="【01】第一个C程序代码分析">
-                【01】第一个C程序代码分析 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/07/1-0 .C语法/【04】常量/" rel="prev" title="【04】常量">
+                【04】常量 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -465,8 +462,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/11/1-0 .C语法/【00】C语言简介/"
-           data-title="【00】C语言简介" data-url="http://sanfordy.com/2016/05/11/1-0 .C语法/【00】C语言简介/">
+      <div class="ds-thread" data-thread-key="2016/06/07/1-0 .C语法/【03】数据/"
+           data-title="【03】数据" data-url="http://sanfordy.com/2016/06/07/1-0 .C语法/【03】数据/">
       </div>
     
   </div>
@@ -591,7 +588,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机常识"><span class="nav-number">1.</span> <span class="nav-text">计算机常识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机只能识别0和1"><span class="nav-number">1.1.</span> <span class="nav-text">计算机只能识别0和1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制"><span class="nav-number">1.2.</span> <span class="nav-text">二进制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制指令"><span class="nav-number">1.2.1.</span> <span class="nav-text">二进制指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制数据"><span class="nav-number">1.2.2.</span> <span class="nav-text">二进制数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序设计语言的发展史"><span class="nav-number">2.</span> <span class="nav-text">程序设计语言的发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器语言"><span class="nav-number">2.1.</span> <span class="nav-text">机器语言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是机器语言"><span class="nav-number">2.1.1.</span> <span class="nav-text">什么是机器语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">2.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#汇编语言"><span class="nav-number">2.2.</span> <span class="nav-text">汇编语言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是汇编语言"><span class="nav-number">2.2.1.</span> <span class="nav-text">什么是汇编语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级语言"><span class="nav-number">2.3.</span> <span class="nav-text">高级语言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言简史"><span class="nav-number">3.</span> <span class="nav-text">C语言简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言的优点"><span class="nav-number">4.</span> <span class="nav-text">C语言的优点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#丰富的运算符"><span class="nav-number">4.1.</span> <span class="nav-text">丰富的运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#丰富的数据类型"><span class="nav-number">4.2.</span> <span class="nav-text">丰富的数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#允许直接访问物理地址，对硬件进行操作"><span class="nav-number">4.3.</span> <span class="nav-text">允许直接访问物理地址，对硬件进行操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高效率的目标代码"><span class="nav-number">4.4.</span> <span class="nav-text">高效率的目标代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可移植性好"><span class="nav-number">4.5.</span> <span class="nav-text">可移植性好</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言的缺点"><span class="nav-number">5.</span> <span class="nav-text">C语言的缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装性差、安全性低"><span class="nav-number">5.1.</span> <span class="nav-text">封装性差、安全性低</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法限制不严格"><span class="nav-number">5.2.</span> <span class="nav-text">语法限制不严格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言能做什么"><span class="nav-number">6.</span> <span class="nav-text">C语言能做什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发计算机软件"><span class="nav-number">6.1.</span> <span class="nav-text">开发计算机软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发Android"><span class="nav-number">6.2.</span> <span class="nav-text">开发Android</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发iOS"><span class="nav-number">6.3.</span> <span class="nav-text">开发iOS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的存储"><span class="nav-number">2.</span> <span class="nav-text">数据的存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据形态"><span class="nav-number">2.1.</span> <span class="nav-text">数据形态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态数据"><span class="nav-number">2.1.1.</span> <span class="nav-text">静态数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态数据"><span class="nav-number">2.1.2.</span> <span class="nav-text">动态数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态数据和静态数据的转换"><span class="nav-number">2.1.3.</span> <span class="nav-text">动态数据和静态数据的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储形式"><span class="nav-number">2.2.</span> <span class="nav-text">存储形式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制存储"><span class="nav-number">2.2.1.</span> <span class="nav-text">二进制存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比特位和字节"><span class="nav-number">2.2.2.</span> <span class="nav-text">比特位和字节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的类型"><span class="nav-number">3.</span> <span class="nav-text">数据的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的访问"><span class="nav-number">4.</span> <span class="nav-text">数据的访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同编译器环境下基本数据类型的存储长度"><span class="nav-number">5.</span> <span class="nav-text">不同编译器环境下基本数据类型的存储长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>

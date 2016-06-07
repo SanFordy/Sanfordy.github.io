@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-06-07T03:53:11.000Z</updated>
+  <updated>2016-06-07T09:42:55.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -14,6 +14,217 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【05】变量（一）</title>
+    <link href="http://sanfordy.com/2016/06/07/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9005%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://sanfordy.com/2016/06/07/1-0 .C语法/【05】变量（一）/</id>
+    <published>2016-06-07T07:31:04.000Z</published>
+    <updated>2016-06-07T09:42:55.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;什么是变量&quot;&gt;&lt;a href=&quot;#什么是变量&quot; class=&quot;headerlink&quot; title=&quot;什么是变量&quot;&gt;&lt;/a&gt;什么是变量&lt;/h2&gt;&lt;p&gt;常量表示的数据是不可以改的，而用变量表示的数据是可以经常修改的。&lt;/p&gt;
+&lt;h2 id=&quot;变量的定义&quot;&gt;&lt;a href=&quot;#变量的定义&quot; class=&quot;headerlink&quot; title=&quot;变量的定义&quot;&gt;&lt;/a&gt;变量的定义&lt;/h2&gt;&lt;p&gt;跟其他语言一样，C语言中用变量来存储计算过程使用的值，任何变量都必须先定义类型再使用。为什么一定要先定义呢？因为变量的类型决定了变量占用的存储空间，所以定义变量类型，就是为了给该变量分配适当的存储空间，以便存放数据。比如你是 char 类型，我就只给你分配1个字节就够了，没必要分配2个字节、3个字节乃至更多的存储空间。&lt;/p&gt;
+&lt;h2 id=&quot;变量类型&quot;&gt;&lt;a href=&quot;#变量类型&quot; class=&quot;headerlink&quot; title=&quot;变量类型&quot;&gt;&lt;/a&gt;变量类型&lt;/h2&gt;&lt;p&gt;我们在定义变量的时候，需要指明变量类型，系统会根据变量类型来分配相应的存储空间。不同数据类型所占用的存储空间是不一样的，如果是字符型（char）变量，就分配1个字节的存储空间；如果是整型（int）变量，就分配4个字节的存储空间。&lt;/p&gt;
+&lt;p&gt;变量类型的还一个作用是用来约束变量所存放数据的类型。一旦给变量指明了类型，那么这个变量就只能存储这种类型的数据，比如整型（int）变量只能存储整型数据，不能存储浮点型数据。&lt;/p&gt;
+&lt;h2 id=&quot;变量名&quot;&gt;&lt;a href=&quot;#变量名&quot; class=&quot;headerlink&quot; title=&quot;变量名&quot;&gt;&lt;/a&gt;变量名&lt;/h2&gt;&lt;p&gt;在程序运行过程，肯定会定义大量的变量，每个变量都有自己的存储空间。那怎么区分这些变量呢？怎么找到变量对应的存储空间呢？为了区分这些变量，定义变量的时候应该为每个变量指定一个变量名，变量名也是标识符的一种。当我们要修改变量的数据时，系统会根据变量名找到变量对应的存储空间，将存储空间里面的数据改掉。&lt;/p&gt;
+&lt;p&gt;变量的命名规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只能由数字、字母、下划线组成，并且不能以数字开头。&lt;/li&gt;
+&lt;li&gt;不可以与系统保留字同名。&lt;/li&gt;
+&lt;li&gt;不能使用重复的变量名。&lt;/li&gt;
+&lt;li&gt;见名知意（规范）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;变量的分类&quot;&gt;&lt;a href=&quot;#变量的分类&quot; class=&quot;headerlink&quot; title=&quot;变量的分类&quot;&gt;&lt;/a&gt;变量的分类&lt;/h2&gt;&lt;h3 id=&quot;根据变量的作用域&quot;&gt;&lt;a href=&quot;#根据变量的作用域&quot; class=&quot;headerlink&quot; title=&quot;根据变量的作用域&quot;&gt;&lt;/a&gt;根据变量的作用域&lt;/h3&gt;&lt;p&gt;C语言根据变量作用域的不同，将变量分为局部变量和全局变量。&lt;/p&gt;
+&lt;h4 id=&quot;局部变量&quot;&gt;&lt;a href=&quot;#局部变量&quot; class=&quot;headerlink&quot; title=&quot;局部变量&quot;&gt;&lt;/a&gt;局部变量&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;定义：在函数内部定义的变量，称为局部变量。形式参数也属于局部变量。&lt;/li&gt;
+&lt;li&gt;作用域：局部变量只在定义它的函数内部有效，即局部变量只有在定义它的函数内部使用，其它函数不能使用它。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;全局变量&quot;&gt;&lt;a href=&quot;#全局变量&quot; class=&quot;headerlink&quot; title=&quot;全局变量&quot;&gt;&lt;/a&gt;全局变量&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;定义：在所有函数外部定义的变量，称为全局变量。&lt;/li&gt;
+&lt;li&gt;作用域：全局变量的作用范围是从定义变量的位置开始到源程序结束，即全局变量可以被在其定义位置之后的其它函数所共享。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第1行的变量a是全局变量，第5行的变量b是局部变量。&lt;/p&gt;
+&lt;h3 id=&quot;根据变量的存储地点&quot;&gt;&lt;a href=&quot;#根据变量的存储地点&quot; class=&quot;headerlink&quot; title=&quot;根据变量的存储地点&quot;&gt;&lt;/a&gt;根据变量的存储地点&lt;/h3&gt;&lt;p&gt;有3个地方可以用于存储变量：普通内存、运行时堆栈、硬件寄存器。变量的存储地点决定了变量何时创建、何时销毁以及它的值能保持多久，也就是决定了变量的生命周期。&lt;/p&gt;
+&lt;p&gt;C语言根据变量存储地点的不同，可以把变量分为：自动变量、静态变量、寄存器变量。&lt;/p&gt;
+&lt;h4 id=&quot;自动变量&quot;&gt;&lt;a href=&quot;#自动变量&quot; class=&quot;headerlink&quot; title=&quot;自动变量&quot;&gt;&lt;/a&gt;自动变量&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;定义：自动变量是存储在堆栈中的。&lt;/li&gt;
+&lt;li&gt;哪些是自动变量：被关键字&lt;code&gt;auto&lt;/code&gt;修饰的局部变量都是自动变量，但是极少使用这个关键字，基本上是废的，因为所有的局部变量在默认情况下都是自动变量。&lt;/li&gt;
+&lt;li&gt;生命周期：在程序执行到声明自动变量的代码块（函数）时，自动变量才被创建，当自动变量所在的代码块（函数）执行完毕后，这些自动变量就会自行销毁。如果一个函数被重复调用，这些自动变量每次都会重新创建。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; c = a + b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; d;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第1行的变量a、b，第2行的变量c、第4行的变量d都是自动变量。&lt;/p&gt;
+&lt;h4 id=&quot;静态变量&quot;&gt;&lt;a href=&quot;#静态变量&quot; class=&quot;headerlink&quot; title=&quot;静态变量&quot;&gt;&lt;/a&gt;静态变量&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;定义：静态变量是存储在静态内存中的，也就是不属于堆栈。&lt;/li&gt;
+&lt;li&gt;哪些是静态变量：&lt;ol&gt;
+&lt;li&gt;所有的全局变量都是静态变量。&lt;/li&gt;
+&lt;li&gt;被关键字static修饰的局部变量也是静态变量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;生命周期：静态变量在程序运行之前创建并且只会创建一次，在程序的整个运行期间始终存在，直到程序结束。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    b++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; c = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    c++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;b=%d, c=%d \n&quot;&lt;/span&gt;, b, c);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 连续调用3次test函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i&amp;lt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        test();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第3行的变量a、第6行的变量b都是静态变量，第9行的变量c、第16行的变量i是自动变量。&lt;/p&gt;
+&lt;p&gt;因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用 test 函数时，变量b的值不会被重新初始化为0。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：虽然第6行的变量 b 是静态变量，但是只改变了它生命周期，并没有改变它的作用域，变量 b 还是只能在 test 函数内部使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们在main函数中重复调用test函数3次，输出结果为：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607155214183-305983019.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;寄存器变量&quot;&gt;&lt;a href=&quot;#寄存器变量&quot; class=&quot;headerlink&quot; title=&quot;寄存器变量&quot;&gt;&lt;/a&gt;寄存器变量&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;定义：存储在硬件寄存器中的变量，称为寄存器变量。寄存器变量比存储在内存中的变量访问效率更高（默认情况下，自动变量和静态变量都是放在内存中的）。&lt;/li&gt;
+&lt;li&gt;哪些变量是寄存器变量：被关键字&lt;code&gt;register&lt;/code&gt;修饰的自动变量都是寄存器变量。&lt;ol&gt;
+&lt;li&gt;只有局部变量才可以是寄存器变量。&lt;/li&gt;
+&lt;li&gt;寄存器变量只限于int、char和指针类型变量使用。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;生命周期：因为寄存器变量本身就是局部变量，所以函数中的寄存器变量在调用该函数时占用寄存器中存放的值，当函数结束时释放寄存器，变量消失。&lt;/li&gt;
+&lt;li&gt;使用注意：&lt;ol&gt;
+&lt;li&gt;由于计算机中寄存器数目有限，不能使用太多的寄存器变量。如果寄存器使用饱和时，程序将寄存器变量自动转换为自动变量处理。&lt;/li&gt;
+&lt;li&gt;为了提高运算速度，一般会将一些频繁使用的局部变量定义为寄存器变量，这样程序尽可能地为它分配寄存器存放，而不用内存。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;keyword&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第2行的变量a是个寄存器变量。&lt;/p&gt;
+&lt;h2 id=&quot;变量定义&quot;&gt;&lt;a href=&quot;#变量定义&quot; class=&quot;headerlink&quot; title=&quot;变量定义&quot;&gt;&lt;/a&gt;变量定义&lt;/h2&gt;&lt;p&gt;总结可得，定义变量需要2个条件：变量类型、变量名。定义变量的格式为：变量类型  变量名；&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在第3行定义了一个名字为i的整型变量，说明i只能存储整型数据；在第5行定义了一个名字为c的字符型变量，说明c只能存储字符型数据。第3、5、7行的代码都称为“语句”，每条语句后面都有个分号“;”。&lt;/p&gt;
+&lt;p&gt;于是，系统就会在内存中分别为变量i、c分配一定的存储空间，如下图所示，i和c各占用一块存储空间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如果是同一种类型的变量，可以连续定义，变量名之间用逗号,隔开。格式为：变量类型  变量名1, 变量名2, 变量名3, … ;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a, c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第3行代码的意思是定义了2个int类型的变量，变量名分别为a、c。&lt;/p&gt;
+&lt;h2 id=&quot;变量的使用&quot;&gt;&lt;a href=&quot;#变量的使用&quot; class=&quot;headerlink&quot; title=&quot;变量的使用&quot;&gt;&lt;/a&gt;变量的使用&lt;/h2&gt;&lt;h3 id=&quot;先定义，再初始化&quot;&gt;&lt;a href=&quot;#先定义，再初始化&quot; class=&quot;headerlink&quot; title=&quot;先定义，再初始化&quot;&gt;&lt;/a&gt;先定义，再初始化&lt;/h3&gt;&lt;p&gt;前面已经定义了两个变量，但是这两个变量并没有存储任何值，我们需要给变量进行第一次赋值，也叫做“初始化”。&lt;/p&gt;
+&lt;p&gt;变量赋值的格式是：变量名 = 值;&lt;/p&gt;
+&lt;p&gt;这个等号”=”是一个赋值运算符，将右边的值赋值给左边的变量，也就是将右边的值存储到左边变量的存储空间中。&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    i = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    c = &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在第4行给变量i赋值一个整型常量10，在第7行给变量c赋值一个字符型常量’A’。像第4、7行这样的赋值操作，称为“赋值运算”。&lt;/p&gt;
+&lt;p&gt;内存中大致如下图所示，整数10存储在i的存储空间中，字母A存储在c的存储空间中。（其实我这个图并不是很准确，因为内存中的所有数据都是以0和1的形式存储的，比如10，它会存储成1010；字母A，它会存储成1000001。这里为了达到直观的效果，就没有写成二进制形式）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;定义的同时初始化&quot;&gt;&lt;a href=&quot;#定义的同时初始化&quot; class=&quot;headerlink&quot; title=&quot;定义的同时初始化&quot;&gt;&lt;/a&gt;定义的同时初始化&lt;/h3&gt;&lt;p&gt;上面的代码也可以写成下面这样，在定义变量的同时进行初始化：变量类型  变量名 = 值;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; f = &lt;span class=&quot;number&quot;&gt;10.9f&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; d = &lt;span class=&quot;number&quot;&gt;9.8&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607174035683-177628936.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;可以不断修改&quot;&gt;&lt;a href=&quot;#可以不断修改&quot; class=&quot;headerlink&quot; title=&quot;可以不断修改&quot;&gt;&lt;/a&gt;可以不断修改&lt;/h3&gt;&lt;p&gt;既然i是个变量，说明它的值可以不断地改变，看下面的代码&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    i = &lt;span class=&quot;number&quot;&gt;89&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; c = &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在第3行定义了变量i，并且初始值为10。紧接着在第5行把i的值改为89，这个89会覆盖以前存储的10。&lt;/p&gt;
+&lt;h3 id=&quot;const关键字&quot;&gt;&lt;a href=&quot;#const关键字&quot; class=&quot;headerlink&quot; title=&quot;const关键字&quot;&gt;&lt;/a&gt;const关键字&lt;/h3&gt;&lt;p&gt;刚才提到，默认情况下，变量的值是可以不断改变的。不过，有时候我们会希望变量的值只在定义的时候初始化一次，以后都不能再改变，这个时候我们就可以使用const关键字来修饰变量。&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    i = &lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注意第3行，在int的前面加了个const关键字。表示变量i的值只会初始化一次，也就是说i的值永远都是一开始的10，以后都不能再改了。所以编译器会报第5行代码的错误，不允许再次修改i的值。&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【04】常量</title>
+    <link href="http://sanfordy.com/2016/06/07/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9004%E3%80%91%E5%B8%B8%E9%87%8F/"/>
+    <id>http://sanfordy.com/2016/06/07/1-0 .C语法/【04】常量/</id>
+    <published>2016-06-07T07:13:20.000Z</published>
+    <updated>2016-06-07T07:27:42.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;什么是常量&quot;&gt;&lt;a href=&quot;#什么是常量&quot; class=&quot;headerlink&quot; title=&quot;什么是常量&quot;&gt;&lt;/a&gt;什么是常量&lt;/h2&gt;&lt;p&gt;&lt;code&gt;&amp;quot;量&amp;quot;表示数据&lt;/code&gt;。常量，则表示一些固定的数据，也就是不能改变的数据。&lt;/p&gt;
+&lt;h2 id=&quot;常量的类型&quot;&gt;&lt;a href=&quot;#常量的类型&quot; class=&quot;headerlink&quot; title=&quot;常量的类型&quot;&gt;&lt;/a&gt;常量的类型&lt;/h2&gt;&lt;h3 id=&quot;整型常量（int）&quot;&gt;&lt;a href=&quot;#整型常量（int）&quot; class=&quot;headerlink&quot; title=&quot;整型常量（int）&quot;&gt;&lt;/a&gt;整型常量（int）&lt;/h3&gt;&lt;p&gt;其实就是 &lt;code&gt;int&lt;/code&gt; 类型的数据，包括了所有的整数，比如6、27、109、256、-10、0、-289等。&lt;/p&gt;
+&lt;h3 id=&quot;浮点型常量（float-double）&quot;&gt;&lt;a href=&quot;#浮点型常量（float-double）&quot; class=&quot;headerlink&quot; title=&quot;浮点型常量（float\double）&quot;&gt;&lt;/a&gt;浮点型常量（float\double）&lt;/h3&gt;&lt;p&gt;浮点型常量分为&lt;code&gt;double&lt;/code&gt;和&lt;code&gt;float&lt;/code&gt;两种数据类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;double&lt;/code&gt;：双精度浮点型，其实就是小数。比如5.43、-2.3、0.0等，注意，0.0也算是个小数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;float&lt;/code&gt;：单精度浮点型，也是小数，比&lt;code&gt;double&lt;/code&gt;的精确程度低，也就是说所能表示的小数位数比较少。为了跟&lt;code&gt;double&lt;/code&gt;区分开来， &lt;code&gt;float&lt;/code&gt; 型数据都是以&lt;code&gt;f&lt;/code&gt;结尾的，比如5.43f、-2.3f、0.0f。需要注意的是，绝对不能有10f这样格式的，编译器会直接报错，只有小数才允许加上f。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;字符常量（char）&quot;&gt;&lt;a href=&quot;#字符常量（char）&quot; class=&quot;headerlink&quot; title=&quot;字符常量（char）&quot;&gt;&lt;/a&gt;字符常量（char）&lt;/h3&gt;&lt;p&gt;将一个数字（0~9）、英文字母（a~z、A~Z）或者其他符号（+、-、!、?等）用单引号括起来，这样构成的就是字符常量。比如’6’、’a’、’F’、’+’、’$’等。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：单引号只能括住1个字符，而且不能是中文字符，下面的写法是错误的：’abc’、’123456’、’男’。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;字符串常量&quot;&gt;&lt;a href=&quot;#字符串常量&quot; class=&quot;headerlink&quot; title=&quot;字符串常量&quot;&gt;&lt;/a&gt;字符串常量&lt;/h3&gt;&lt;p&gt;将一个或者多个字符用双引号（””）括起来，这样构成的就是字符串常量。比如”6”、”男”、”哇哈哈”、”abcd”、”my_car4”，其实printf(“Hello World”);语句中的”Hello World”就是字符串常量。&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【03】数据</title>
+    <link href="http://sanfordy.com/2016/06/07/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9003%E3%80%91%E6%95%B0%E6%8D%AE/"/>
+    <id>http://sanfordy.com/2016/06/07/1-0 .C语法/【03】数据/</id>
+    <published>2016-06-07T06:27:08.000Z</published>
+    <updated>2016-06-07T07:08:10.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在我们使用计算机的过程中，会接触到各种各样的数据，有文档数据、图片数据、视频数据，还有聊 QQ 时产生的文字数据、用迅雷下载的文件数据等。这讲我们就来介绍C语言中数据的处理。&lt;/p&gt;
+&lt;h2 id=&quot;数据的存储&quot;&gt;&lt;a href=&quot;#数据的存储&quot; class=&quot;headerlink&quot; title=&quot;数据的存储&quot;&gt;&lt;/a&gt;数据的存储&lt;/h2&gt;&lt;h3 id=&quot;数据形态&quot;&gt;&lt;a href=&quot;#数据形态&quot; class=&quot;headerlink&quot; title=&quot;数据形态&quot;&gt;&lt;/a&gt;数据形态&lt;/h3&gt;&lt;p&gt;首先来看看计算机是怎么存储数据的。总的来说，计算机中存储的数据可以分为两种：静态数据和动态数据。&lt;/p&gt;
+&lt;h4 id=&quot;静态数据&quot;&gt;&lt;a href=&quot;#静态数据&quot; class=&quot;headerlink&quot; title=&quot;静态数据&quot;&gt;&lt;/a&gt;静态数据&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;概念：静态数据是指一些永久性的数据，一般存储在硬盘中。硬盘的存储空间一般都比较大，现在普通计算机的硬盘都有500G左右，因此硬盘中可以存放一些比较大的文件。&lt;/li&gt;
+&lt;li&gt;存储的时长：计算机关闭之后再开启，这些数据依旧还在，只要你不主动删掉或者硬盘没坏，这些数据永远都在。&lt;/li&gt;
+&lt;li&gt;哪些是静态数据：静态数据一般是以文件的形式存储在硬盘上，比如文档、照片、视频等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;动态数据&quot;&gt;&lt;a href=&quot;#动态数据&quot; class=&quot;headerlink&quot; title=&quot;动态数据&quot;&gt;&lt;/a&gt;动态数据&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;概念：动态数据指在程序运行过程中，动态产生的临时数据，一般存储在内存中。内存的存储空间一般都比较小，现在普通计算机的内存只有4G左右，因此要谨慎使用内存，不要占用太多的内存空间。&lt;/li&gt;
+&lt;li&gt;存储的时长：计算机关闭之后，这些临时数据就会被清除。&lt;/li&gt;
+&lt;li&gt;哪些是动态数据：当运行某个程序（软件）时，整个程序就会被加载到内存中，在程序运行过程中，会产生各种各样的临时数据，这些临时数据都是存储在内存中的。当程序停止运行或者计算机被强制关闭时，这个程序产生的所有临时数据都会被清除。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你可能会问，既然硬盘的存储空间这么大，为何不把所有的应用程序加载到硬盘中去执行呢？有个主要原因是内存的访问速度比硬盘快N倍。&lt;/p&gt;
+&lt;h4 id=&quot;动态数据和静态数据的转换&quot;&gt;&lt;a href=&quot;#动态数据和静态数据的转换&quot; class=&quot;headerlink&quot; title=&quot;动态数据和静态数据的转换&quot;&gt;&lt;/a&gt;动态数据和静态数据的转换&lt;/h4&gt;&lt;p&gt;硬盘和内存是计算机使用最频繁的两个硬件，它们之间的数据经常要进行转换。&lt;/p&gt;
+&lt;p&gt;比如，硬盘上有个叫做“C语言.mp4”的视频文件，现在要使用暴风影音来播放：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143556418-1431912984.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;首先打开暴风影音软件，计算机会将暴风影音加载到内存中，紧接着计算机会读取硬盘中视频文件的内容到内存中。暴风影音会解析读取到的文件内容，以视频的形式呈现给用户看。这就完成了一个由静态数据到动态数据的转换。&lt;/p&gt;
+&lt;p&gt;再比如，你使用迅雷从网上下载一个叫做“C语言.mp4”的视频文件：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143719574-1356202246.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;首先打开迅雷软件，计算机会将迅雷加载到内存中，紧接着迅雷就会从互联网下载视频文件。大家都知道，这个下载过程肯定是要耗点时间的，主要受文件大小和下载速度的影响。每个时间段内下载获取的数据都是先放到内存中，然后再写入到硬盘中。所有数据下载完毕后，硬盘中就会有一个完整的视频文件。这就完成了动态数据到静态数据的转换。&lt;/p&gt;
+&lt;h3 id=&quot;存储形式&quot;&gt;&lt;a href=&quot;#存储形式&quot; class=&quot;headerlink&quot; title=&quot;存储形式&quot;&gt;&lt;/a&gt;存储形式&lt;/h3&gt;&lt;h4 id=&quot;二进制存储&quot;&gt;&lt;a href=&quot;#二进制存储&quot; class=&quot;headerlink&quot; title=&quot;二进制存储&quot;&gt;&lt;/a&gt;二进制存储&lt;/h4&gt;&lt;p&gt;计算机只能识别0和1。因此，前面所说的静态数据和动态数据，都是以0和1的形式存储的，这种存储方式称为“二进制存储”。有人可能觉得很诧异，只是0和1怎么可能表示这多的数据呢？没错，如果只是一位数字的话，只能表示2种数据：要么是0，要么是1。但是如果有多位数字的话，那情况就不一样了。如果有2位数字，那么就能表示4种数据：00、01、10、11；如果有3位数字呢，就能表示8种数据；以此类推，如果有n位数字，就能表示2的n次方种数据。可以发现，只要位数足够，0和1所能表示的数据是非常庞大的。&lt;/p&gt;
+&lt;h4 id=&quot;比特位和字节&quot;&gt;&lt;a href=&quot;#比特位和字节&quot; class=&quot;headerlink&quot; title=&quot;比特位和字节&quot;&gt;&lt;/a&gt;比特位和字节&lt;/h4&gt;&lt;p&gt;平时我们在计算机上看到的MP4、MP3、照片等文件，都是由0和1组合成的，只不过计算机解析了这些0和1，以图形界面的形式呈现在我们眼前。文件越大，所包含的0和1就越多，为了方便计算文件大小，对计量单位做了个规定：1个二进制位为1bit，也就是1个0或1就为1bit，bit的中文翻译是“比特位”；8个二进制位为1byte，也就是8个0或1就为1byte，1byte=8bit，byte的中文翻译是“字节”。平时我们所说的某个文件大小为64B，就是64字节的意思，内部包含了64x8个0和1。&lt;/p&gt;
+&lt;p&gt;数据换算：1 KB = 1024 B，1 MB = 1024 KB，1 GB = 1024 MB，1 TB = 1024 GB。&lt;/p&gt;
+&lt;h2 id=&quot;数据的类型&quot;&gt;&lt;a href=&quot;#数据的类型&quot; class=&quot;headerlink&quot; title=&quot;数据的类型&quot;&gt;&lt;/a&gt;数据的类型&lt;/h2&gt;&lt;p&gt;C语言有丰富的数据类型，因此它很适合用来编写数据库，如DB2、Oracle都是C语言写的。&lt;/p&gt;
+&lt;p&gt;作为程序员，最关心的肯定是内存中的动态数据，因为我们写的程序就是运行在内存中的。程序在运行过程中，会产生各种各样的动态临时数据，为了方便数据的运算和操作，C语言对这些数据进行了分类，提供了丰富的数据类型。大致如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143724168-1786196972.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在图中众多数据类型中，最常用的是4种基本数据类型：char、int、float、double，而最重要的是指针类型，指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。&lt;/p&gt;
+&lt;p&gt;这些丰富的数据在C语言中可以用常量或者变量来表示（后面会介绍常量和变量的使用）。&lt;/p&gt;
+&lt;h2 id=&quot;数据的访问&quot;&gt;&lt;a href=&quot;#数据的访问&quot; class=&quot;headerlink&quot; title=&quot;数据的访问&quot;&gt;&lt;/a&gt;数据的访问&lt;/h2&gt;&lt;p&gt;数据访问一般分为直接访问和间接访问：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接访问：直接访问内存单元中的内容。例如: a = 20; b = 2 * a等。&lt;/li&gt;
+&lt;li&gt;间接访问：通过内存单元编号以及数据所占字节数访问内存中数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：指针是间接访问的常用方式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;不同编译器环境下基本数据类型的存储长度&quot;&gt;&lt;a href=&quot;#不同编译器环境下基本数据类型的存储长度&quot; class=&quot;headerlink&quot; title=&quot;不同编译器环境下基本数据类型的存储长度&quot;&gt;&lt;/a&gt;不同编译器环境下基本数据类型的存储长度&lt;/h2&gt;&lt;p&gt;红色的代表常用的数据类型：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143728402-1476722878.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>【02】C语言语法</title>
