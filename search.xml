@@ -61,7 +61,7 @@
 <li>定义：存储在硬件寄存器中的变量，称为寄存器变量。寄存器变量比存储在内存中的变量访问效率更高（默认情况下，自动变量和静态变量都是放在内存中的）。</li>
 <li>哪些变量是寄存器变量：被关键字<code>register</code>修饰的自动变量都是寄存器变量。<ol>
 <li>只有局部变量才可以是寄存器变量。</li>
-<li>寄存器变量只限于int、char和指针类型变量使用。</li>
+<li>寄存器变量只限于 int 、 char 和指针类型变量使用。</li>
 </ol>
 </li>
 <li>生命周期：因为寄存器变量本身就是局部变量，所以函数中的寄存器变量在调用该函数时占用寄存器中存放的值，当函数结束时释放寄存器，变量消失。</li>
@@ -72,21 +72,21 @@
 </li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">register</span> <span class="keyword">int</span> a;</span><br><span class="line">     return <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>第2行的变量a是个寄存器变量。</p>
+<p>第2行的变量 a 是个寄存器变量。</p>
 <h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><p>总结可得，定义变量需要2个条件：变量类型、变量名。定义变量的格式为：变量类型  变量名；</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第3行定义了一个名字为i的整型变量，说明i只能存储整型数据；在第5行定义了一个名字为c的字符型变量，说明c只能存储字符型数据。第3、5、7行的代码都称为“语句”，每条语句后面都有个分号“;”。</p>
-<p>于是，系统就会在内存中分别为变量i、c分配一定的存储空间，如下图所示，i和c各占用一块存储空间。</p>
+<p>在第3行定义了一个名字为i的整型变量，说明i只能存储整型数据；在第5行定义了一个名字为 c 的字符型变量，说明c只能存储字符型数据。第3、5、7行的代码都称为“语句”，每条语句后面都有个分号“;”。</p>
+<p>于是，系统就会在内存中分别为变量 i 、 c 分配一定的存储空间，如下图所示， i 和 c 各占用一块存储空间。</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png" alt=""></p>
 <p>如果是同一种类型的变量，可以连续定义，变量名之间用逗号,隔开。格式为：变量类型  变量名1, 变量名2, 变量名3, … ;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, c;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第3行代码的意思是定义了2个int类型的变量，变量名分别为a、c。</p>
+<p>第3行代码的意思是定义了2个 int 类型的变量，变量名分别为 a 、 c 。</p>
 <h2 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h2><h3 id="先定义，再初始化"><a href="#先定义，再初始化" class="headerlink" title="先定义，再初始化"></a>先定义，再初始化</h3><p>前面已经定义了两个变量，但是这两个变量并没有存储任何值，我们需要给变量进行第一次赋值，也叫做“初始化”。</p>
 <p>变量赋值的格式是：变量名 = 值;</p>
 <p>这个等号”=”是一个赋值运算符，将右边的值赋值给左边的变量，也就是将右边的值存储到左边变量的存储空间中。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    c = <span class="string">'A'</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在第4行给变量i赋值一个整型常量10，在第7行给变量c赋值一个字符型常量’A’。像第4、7行这样的赋值操作，称为“赋值运算”。</p>
-<p>内存中大致如下图所示，整数10存储在i的存储空间中，字母A存储在c的存储空间中。（其实我这个图并不是很准确，因为内存中的所有数据都是以0和1的形式存储的，比如10，它会存储成1010；字母A，它会存储成1000001。这里为了达到直观的效果，就没有写成二进制形式）</p>
+<p>内存中大致如下图所示，整数10存储在 i 的存储空间中，字母 A 存储在 c 的存储空间中。（其实我这个图并不是很准确，因为内存中的所有数据都是以0和1的形式存储的，比如10，它会存储成1010；字母 A ，它会存储成1000001。这里为了达到直观的效果，就没有写成二进制形式）</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png" alt=""></p>
 <h3 id="定义的同时初始化"><a href="#定义的同时初始化" class="headerlink" title="定义的同时初始化"></a>定义的同时初始化</h3><p>上面的代码也可以写成下面这样，在定义变量的同时进行初始化：变量类型  变量名 = 值;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">float</span> f = <span class="number">10.9f</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> d = <span class="number">9.8</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -94,9 +94,9 @@
 <h3 id="可以不断修改"><a href="#可以不断修改" class="headerlink" title="可以不断修改"></a>可以不断修改</h3><p>既然i是个变量，说明它的值可以不断地改变，看下面的代码</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    i = <span class="number">89</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">'A'</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在第3行定义了变量i，并且初始值为10。紧接着在第5行把i的值改为89，这个89会覆盖以前存储的10。</p>
-<h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><p>刚才提到，默认情况下，变量的值是可以不断改变的。不过，有时候我们会希望变量的值只在定义的时候初始化一次，以后都不能再改变，这个时候我们就可以使用const关键字来修饰变量。</p>
+<h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><p>刚才提到，默认情况下，变量的值是可以不断改变的。不过，有时候我们会希望变量的值只在定义的时候初始化一次，以后都不能再改变，这个时候我们就可以使用<code>const</code>关键字来修饰变量。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    i = <span class="number">11</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意第3行，在int的前面加了个const关键字。表示变量i的值只会初始化一次，也就是说i的值永远都是一开始的10，以后都不能再改了。所以编译器会报第5行代码的错误，不允许再次修改i的值。</p>
+<p>注意第3行，在<code>int</code>的前面加了个<code>const</code>关键字。表示变量 i 的值只会初始化一次，也就是说 i 的值永远都是一开始的10，以后都不能再改了。所以编译器会报第5行代码的错误，不允许再次修改i的值。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 ]]></content>
