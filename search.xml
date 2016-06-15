@@ -68,41 +68,41 @@
 <p>变量类型的还一个作用是用来约束变量所存放数据的类型。一旦给变量指明了类型，那么这个变量就只能存储这种类型的数据，比如整型（int）变量只能存储整型数据，不能存储浮点型数据。</p>
 <h2 id="变量名"><a href="#变量名" class="headerlink" title="变量名"></a>变量名</h2><p>在程序运行过程，肯定会定义大量的变量，每个变量都有自己的存储空间。那怎么区分这些变量呢？怎么找到变量对应的存储空间呢？为了区分这些变量，定义变量的时候应该为每个变量指定一个变量名，变量名也是标识符的一种。当我们要修改变量的数据时，系统会根据变量名找到变量对应的存储空间，将存储空间里面的数据改掉。</p>
 <p>变量的命名规则：</p>
-<ul>
+<ol>
 <li>只能由数字、字母、下划线组成，并且不能以数字开头。</li>
 <li>不可以与系统保留字同名。</li>
 <li>不能使用重复的变量名。</li>
 <li>见名知意（规范）。</li>
-</ul>
-<h2 id="变量的分类"><a href="#变量的分类" class="headerlink" title="变量的分类"></a>变量的分类</h2><h3 id="根据变量的作用域"><a href="#根据变量的作用域" class="headerlink" title="根据变量的作用域"></a>根据变量的作用域</h3><p>C语言根据变量作用域的不同，将变量分为局部变量和全局变量。</p>
-<h4 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h4><ul>
+</ol>
+<h2 id="变量的分类"><a href="#变量的分类" class="headerlink" title="变量的分类"></a>变量的分类</h2><h3 id="根据变量的作用域"><a href="#根据变量的作用域" class="headerlink" title="根据变量的作用域"></a>根据变量的作用域</h3><p>C语言根据变量作用域的不同，将变量分为<code>局部变量</code>、<code>全局变量</code>。</p>
+<h4 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h4><ol>
 <li>定义：在函数内部定义的变量，称为局部变量。形式参数也属于局部变量。</li>
 <li>作用域：局部变量只在定义它的函数内部有效，即局部变量只有在定义它的函数内部使用，其它函数不能使用它。</li>
-</ul>
-<h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><ul>
+</ol>
+<h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><ol>
 <li>定义：在所有函数外部定义的变量，称为全局变量。</li>
 <li>作用域：全局变量的作用范围是从定义变量的位置开始到源程序结束，即全局变量可以被在其定义位置之后的其它函数所共享。</li>
-</ul>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>第1行的变量a是全局变量，第5行的变量b是局部变量。</p>
 <h3 id="根据变量的存储地点"><a href="#根据变量的存储地点" class="headerlink" title="根据变量的存储地点"></a>根据变量的存储地点</h3><p>有3个地方可以用于存储变量：普通内存、运行时堆栈、硬件寄存器。变量的存储地点决定了变量何时创建、何时销毁以及它的值能保持多久，也就是决定了变量的生命周期。</p>
-<p>C语言根据变量存储地点的不同，可以把变量分为：自动变量、静态变量、寄存器变量。</p>
-<h4 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h4><ul>
+<p>C语言根据变量存储地点的不同，可以把变量分为：<code>自动变量</code>、<code>静态变量</code>、<code>寄存器变量</code>。</p>
+<h4 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h4><ol>
 <li>定义：自动变量是存储在堆栈中的。</li>
 <li>哪些是自动变量：被关键字<code>auto</code>修饰的局部变量都是自动变量，但是极少使用这个关键字，基本上是废的，因为所有的局部变量在默认情况下都是自动变量。</li>
 <li>生命周期：在程序执行到声明自动变量的代码块（函数）时，自动变量才被创建，当自动变量所在的代码块（函数）执行完毕后，这些自动变量就会自行销毁。如果一个函数被重复调用，这些自动变量每次都会重新创建。</li>
-</ul>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> c = a + b;</span><br><span class="line">      <span class="keyword">auto</span> <span class="keyword">int</span> d;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>第1行的变量a、b，第2行的变量c、第4行的变量d都是自动变量。</p>
-<h4 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h4><ul>
+<h4 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h4><ol>
 <li>定义：静态变量是存储在静态内存中的，也就是不属于堆栈。</li>
-<li>哪些是静态变量：<ol>
+<li>哪些是静态变量：<ul>
 <li>所有的全局变量都是静态变量。</li>
 <li>被关键字<code>static</code>修饰的局部变量也是静态变量。</li>
-</ol>
+</ul>
 </li>
 <li>生命周期：静态变量在程序<code>运行之前</code>创建并且只会创建一次，在程序的整个运行期间始终存在，直到程序结束。</li>
-</ul>
+</ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">    b++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">    c++;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"b=%d, c=%d \n"</span>, b, c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="comment">// 连续调用3次test函数</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">        test();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>第3行的变量a、第6行的变量b都是静态变量，第9行的变量c、第16行的变量i是自动变量。</p>
 <p>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用test函数时，变量b的值不会被重新初始化为0。</p>
@@ -162,12 +162,12 @@
       <content type="html"><![CDATA[<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png" alt=""></p>
 <a id="more"></a>
 <h2 id="什么是常量"><a href="#什么是常量" class="headerlink" title="什么是常量"></a>什么是常量</h2><p><code>&quot;量&quot;表示数据</code>。常量，则表示一些固定的数据，也就是不能改变的数据。</p>
-<h2 id="常量的类型"><a href="#常量的类型" class="headerlink" title="常量的类型"></a>常量的类型</h2><h3 id="整型常量（int）"><a href="#整型常量（int）" class="headerlink" title="整型常量（int）"></a>整型常量（int）</h3><p>其实就是 <code>int</code> 类型的数据，包括了所有的整数，比如6、27、109、256、-10、0、-289等。</p>
+<h2 id="常量的类型"><a href="#常量的类型" class="headerlink" title="常量的类型"></a>常量的类型</h2><h3 id="整型常量（int）"><a href="#整型常量（int）" class="headerlink" title="整型常量（int）"></a>整型常量（int）</h3><p>其实就是<code>int</code>类型的数据，包括了所有的整数，比如6、27、109、256、-10、0、-289等。</p>
 <h3 id="浮点型常量（float-double）"><a href="#浮点型常量（float-double）" class="headerlink" title="浮点型常量（float\double）"></a>浮点型常量（float\double）</h3><p>浮点型常量分为<code>double</code>和<code>float</code>两种数据类型：</p>
-<ul>
+<ol>
 <li><code>double</code>：双精度浮点型，其实就是小数。比如5.43、-2.3、0.0等，注意，0.0也算是个小数。</li>
 <li><code>float</code>：单精度浮点型，也是小数，比<code>double</code>的精确程度低，也就是说所能表示的小数位数比较少。为了跟<code>double</code>区分开来， <code>float</code> 型数据都是以<code>f</code>结尾的，比如5.43f、-2.3f、0.0f。需要注意的是，绝对不能有10f这样格式的，编译器会直接报错，只有小数才允许加上f。</li>
-</ul>
+</ol>
 <h3 id="字符常量（char）"><a href="#字符常量（char）" class="headerlink" title="字符常量（char）"></a>字符常量（char）</h3><p>将一个数字（0~9）、英文字母（a~z、A~Z）或者其他符号（+、-、!、?等）用单引号括起来，这样构成的就是字符常量。比如’6’、’a’、’F’、’+’、’$’等。</p>
 <blockquote>
 <p><strong>注意</strong>：单引号只能括住1个字符，而且不能是中文字符，下面的写法是错误的：’abc’、’123456’、’男’。</p>
@@ -183,18 +183,18 @@
       <url>http://sanfordy.com/2016/06/07/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9003%E3%80%91%E6%95%B0%E6%8D%AE/</url>
       <content type="html"><![CDATA[<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png" alt=""></p>
 <a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在我们使用计算机的过程中，会接触到各种各样的数据，有文档数据、图片数据、视频数据，还有聊 QQ 时产生的文字数据、用迅雷下载的文件数据等。这讲我们就来介绍C语言中数据的处理。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在我们使用计算机的过程中，会接触到各种各样的数据，有文档数据、图片数据、视频数据，还有聊QQ时产生的文字数据、用迅雷下载的文件数据等。这讲我们就来介绍C语言中数据的处理。</p>
 <h2 id="数据的存储"><a href="#数据的存储" class="headerlink" title="数据的存储"></a>数据的存储</h2><h3 id="数据形态"><a href="#数据形态" class="headerlink" title="数据形态"></a>数据形态</h3><p>首先来看看计算机是怎么存储数据的。总的来说，计算机中存储的数据可以分为两种：静态数据和动态数据。</p>
-<h4 id="静态数据"><a href="#静态数据" class="headerlink" title="静态数据"></a>静态数据</h4><ul>
+<h4 id="静态数据"><a href="#静态数据" class="headerlink" title="静态数据"></a>静态数据</h4><ol>
 <li>概念：静态数据是指一些永久性的数据，一般存储在硬盘中。硬盘的存储空间一般都比较大，现在普通计算机的硬盘都有500G左右，因此硬盘中可以存放一些比较大的文件。</li>
 <li>存储的时长：计算机关闭之后再开启，这些数据依旧还在，只要你不主动删掉或者硬盘没坏，这些数据永远都在。</li>
 <li>哪些是静态数据：静态数据一般是以文件的形式存储在硬盘上，比如文档、照片、视频等。</li>
-</ul>
-<h4 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h4><ul>
+</ol>
+<h4 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h4><ol>
 <li>概念：动态数据指在程序运行过程中，动态产生的临时数据，一般存储在内存中。内存的存储空间一般都比较小，现在普通计算机的内存只有4G左右，因此要谨慎使用内存，不要占用太多的内存空间。</li>
 <li>存储的时长：计算机关闭之后，这些临时数据就会被清除。</li>
 <li>哪些是动态数据：当运行某个程序（软件）时，整个程序就会被加载到内存中，在程序运行过程中，会产生各种各样的临时数据，这些临时数据都是存储在内存中的。当程序停止运行或者计算机被强制关闭时，这个程序产生的所有临时数据都会被清除。</li>
-</ul>
+</ol>
 <p>你可能会问，既然硬盘的存储空间这么大，为何不把所有的应用程序加载到硬盘中去执行呢？有个主要原因是内存的访问速度比硬盘快N倍。</p>
 <h4 id="动态数据和静态数据的转换"><a href="#动态数据和静态数据的转换" class="headerlink" title="动态数据和静态数据的转换"></a>动态数据和静态数据的转换</h4><p>硬盘和内存是计算机使用最频繁的两个硬件，它们之间的数据经常要进行转换。</p>
 <p>比如，硬盘上有个叫做“C语言.mp4”的视频文件，现在要使用暴风影音来播放：</p>
@@ -212,10 +212,10 @@
 <p>在图中众多数据类型中，最常用的是4种基本数据类型：char、int、float、double，而最重要的是指针类型，指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。</p>
 <p>这些丰富的数据在C语言中可以用常量或者变量来表示（后面会介绍常量和变量的使用）。</p>
 <h2 id="数据的访问"><a href="#数据的访问" class="headerlink" title="数据的访问"></a>数据的访问</h2><p>数据访问一般分为直接访问和间接访问：</p>
-<ul>
+<ol>
 <li>直接访问：直接访问内存单元中的内容。例如: a = 20; b = 2 * a等。</li>
 <li>间接访问：通过内存单元编号以及数据所占字节数访问内存中数据。</li>
-</ul>
+</ol>
 <blockquote>
 <p><strong>注意</strong>：指针是间接访问的常用方式。</p>
 </blockquote>
