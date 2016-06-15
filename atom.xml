@@ -299,30 +299,30 @@
     <link href="http://sanfordy.com/2016/05/30/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9002%E3%80%91C%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/"/>
     <id>http://sanfordy.com/2016/05/30/1-0 .C语法/【02】C语言语法/</id>
     <published>2016-05-30T02:23:42.000Z</published>
-    <updated>2016-06-07T03:53:11.000Z</updated>
+    <updated>2016-06-15T02:56:47.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;C语言属于一门高级语言，其实，所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的 Objective-C ，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;C语言属于一门高级语言，其实所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的Objective-C，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。&lt;/p&gt;
 &lt;h2 id=&quot;关键字&quot;&gt;&lt;a href=&quot;#关键字&quot; class=&quot;headerlink&quot; title=&quot;关键字&quot;&gt;&lt;/a&gt;关键字&lt;/h2&gt;&lt;h3 id=&quot;什么是关键字&quot;&gt;&lt;a href=&quot;#什么是关键字&quot; class=&quot;headerlink&quot; title=&quot;什么是关键字&quot;&gt;&lt;/a&gt;什么是关键字&lt;/h3&gt;&lt;p&gt;关键字就是C语言提供的有特殊含义的符号，有些地方也叫做“保留字”。&lt;/p&gt;
 &lt;h3 id=&quot;都有哪些关键字&quot;&gt;&lt;a href=&quot;#都有哪些关键字&quot; class=&quot;headerlink&quot; title=&quot;都有哪些关键字&quot;&gt;&lt;/a&gt;都有哪些关键字&lt;/h3&gt;&lt;p&gt;C语言一共提供了32个关键字，这些关键字都被C语言赋予了特殊含义。&lt;/p&gt;
 &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;switch&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extern&lt;/span&gt; return &lt;span class=&quot;keyword&quot;&gt;union&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;continue&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;signed&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;goto&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;sizeof&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;volatile&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;大致浏览一遍即可，不用去百度每个关键字的作用，这些关键字以后会经常用到的，到时候你想不记住都难。&lt;/p&gt;
 &lt;h3 id=&quot;如何辨别关键字&quot;&gt;&lt;a href=&quot;#如何辨别关键字&quot; class=&quot;headerlink&quot; title=&quot;如何辨别关键字&quot;&gt;&lt;/a&gt;如何辨别关键字&lt;/h3&gt;&lt;p&gt;这些关键字会经常跟其他符号混在一起使用，一个程序里面这么多英文符号，我怎么知道那些是关键字呢？关键字有2大特征：&lt;/p&gt;
-&lt;ul&gt;
+&lt;ol&gt;
 &lt;li&gt;全部都是小写。&lt;/li&gt;
-&lt;li&gt;在开发工具或者智能文本编辑工具（比如 UltraEdit ）中会显示特殊颜色。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;比如下面这段C程序在 UltraEdit 中呈现的样子：&lt;/p&gt;
+&lt;li&gt;在开发工具或者智能文本编辑工具（比如UltraEdit）中会显示特殊颜色。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;比如下面这段C程序在UltraEdit中呈现的样子：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607104437855-2085184487.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;在这段代码中，只有 int 和 return 是关键字，C语言中的所有关键字在 UltraEdit 中都会显示蓝色！可以看出， main 并不是关键字。至于 int 和 return 究竟有什么特殊含义，这里先不做讨论，后面会详细介绍。&lt;/p&gt;
-&lt;h2 id=&quot;标识符&quot;&gt;&lt;a href=&quot;#标识符&quot; class=&quot;headerlink&quot; title=&quot;标识符&quot;&gt;&lt;/a&gt;标识符&lt;/h2&gt;&lt;h3 id=&quot;什么是标识符&quot;&gt;&lt;a href=&quot;#什么是标识符&quot; class=&quot;headerlink&quot; title=&quot;什么是标识符&quot;&gt;&lt;/a&gt;什么是标识符&lt;/h3&gt;&lt;p&gt;在程序中使用的变量名、函数名、标号等统称为标识符。除库函数的函数名由系统定义外，其余都由用户自定义。C 规定，标识符只能是字母(A～Z，a～z)、数字(0～9)、下划线(_)组成的字符串，并且其第一个字符不能是数字。&lt;/p&gt;
-&lt;h3 id=&quot;在使用标识符时还必须注意以下几点&quot;&gt;&lt;a href=&quot;#在使用标识符时还必须注意以下几点&quot; class=&quot;headerlink&quot; title=&quot;在使用标识符时还必须注意以下几点&quot;&gt;&lt;/a&gt;在使用标识符时还必须注意以下几点&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;标准 C 不限制标识符的长度，但它受各种版本的C语言编译系统限制，同时也受到具体机器的限制。例如在某版本 C 中规定标识符前八位有效，当两个标识符前八位相同时，则被认为是同一个标识符。&lt;/li&gt;
-&lt;li&gt;在标识符中，大小写是有区别的。例如 BOOK 和 book 是两个不同的标识符。&lt;/li&gt;
-&lt;li&gt;标识符虽然可由程序员随意定义，但标识符是用于标识某个量的符号。因此，命名应尽量有相应的意义，以便阅读理解，作到“顾名思义”。如果标识符中含有多个单词，可以使用驼峰标识（除开第一个单词，后面每个单词的首字母都是大写）： firstName 、 myFirstName ，或者使用下划线_来连接： first_name 、 my_first_name 。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;表达式&quot;&gt;&lt;a href=&quot;#表达式&quot; class=&quot;headerlink&quot; title=&quot;表达式&quot;&gt;&lt;/a&gt;表达式&lt;/h2&gt;&lt;p&gt;表达式是由常量、变量与运算符组成的。例如：3+5 ， a += b !&lt;/p&gt;
+&lt;p&gt;在这段代码中，只有int和return是关键字，C语言中的所有关键字在UltraEdit中都会显示蓝色！可以看出，main并不是关键字。至于int和return究竟有什么特殊含义，这里先不做讨论，后面会详细介绍。&lt;/p&gt;
+&lt;h2 id=&quot;标识符&quot;&gt;&lt;a href=&quot;#标识符&quot; class=&quot;headerlink&quot; title=&quot;标识符&quot;&gt;&lt;/a&gt;标识符&lt;/h2&gt;&lt;h3 id=&quot;什么是标识符&quot;&gt;&lt;a href=&quot;#什么是标识符&quot; class=&quot;headerlink&quot; title=&quot;什么是标识符&quot;&gt;&lt;/a&gt;什么是标识符&lt;/h3&gt;&lt;p&gt;在程序中使用的变量名、函数名、标号等统称为标识符。除库函数的函数名由系统定义外，其余都由用户自定义。C规定，标识符只能是字母(A～Z，a～z)、数字(0～9)、下划线(_)组成的字符串，并且其第一个字符不能是数字。&lt;/p&gt;
+&lt;h3 id=&quot;在使用标识符时还必须注意以下几点&quot;&gt;&lt;a href=&quot;#在使用标识符时还必须注意以下几点&quot; class=&quot;headerlink&quot; title=&quot;在使用标识符时还必须注意以下几点&quot;&gt;&lt;/a&gt;在使用标识符时还必须注意以下几点&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;标准C不限制标识符的长度，但它受各种版本的C语言编译系统限制，同时也受到具体机器的限制。例如在某版本C中规定标识符前八位有效，当两个标识符前八位相同时，则被认为是同一个标识符。&lt;/li&gt;
+&lt;li&gt;在标识符中，大小写是有区别的。例如BOOK和book是两个不同的标识符。&lt;/li&gt;
+&lt;li&gt;标识符虽然可由程序员随意定义，但标识符是用于标识某个量的符号。因此，命名应尽量有相应的意义，以便阅读理解，作到“顾名思义”。如果标识符中含有多个单词，可以使用驼峰标识（除开第一个单词，后面每个单词的首字母都是大写）：firstName、myFirstName，或者使用下划线_来连接：first_name、my_first_name。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;表达式&quot;&gt;&lt;a href=&quot;#表达式&quot; class=&quot;headerlink&quot; title=&quot;表达式&quot;&gt;&lt;/a&gt;表达式&lt;/h2&gt;&lt;p&gt;表达式是由常量、变量与运算符组成的。例如：3+5，a += b!&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：表达式都会返回值。&lt;/p&gt;
 &lt;/blockquote&gt;
