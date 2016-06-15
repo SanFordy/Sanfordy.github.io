@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-06-07T15:16:34.000Z</updated>
+  <updated>2016-06-15T07:46:35.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -20,31 +20,30 @@
     <link href="http://sanfordy.com/2016/06/07/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9006%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://sanfordy.com/2016/06/07/1-0 .C语法/【06】变量（二）/</id>
     <published>2016-06-07T14:40:54.000Z</published>
-    <updated>2016-06-07T15:16:34.000Z</updated>
+    <updated>2016-06-15T07:46:35.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;变量和内存的关系&quot;&gt;&lt;a href=&quot;#变量和内存的关系&quot; class=&quot;headerlink&quot; title=&quot;变量和内存的关系&quot;&gt;&lt;/a&gt;变量和内存的关系&lt;/h2&gt;&lt;h3 id=&quot;变量示例&quot;&gt;&lt;a href=&quot;#变量示例&quot; class=&quot;headerlink&quot; title=&quot;变量示例&quot;&gt;&lt;/a&gt;变量示例&lt;/h3&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; a = &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;在64bit编译器环境下，系统为变量a、b分别分配1个字节、4个字节的存储单元。也就是说：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;变量b中的10是用4个字节来存储的，4个字节共32位，因此变量b在内存中的存储形式应该是0000 0000 0000 0000 0000 0000 0000 1010。&lt;/li&gt;
+&lt;ol&gt;
 &lt;li&gt;变量a中的’A’是用1个字节来存储的，1个字节共8位，变量a在内存中的存储形式是0100 0001，至于为什么’A’的二进制是这样呢，后面再讨论。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;上述变量a、b在内存中的存储情况大致如下表所示：&lt;/p&gt;
+&lt;li&gt;变量b中的10是用4个字节来存储的，4个字节共32位，因此变量b在内存中的存储形式应该是0000 0000 0000 0000 0000 0000 0000 1010。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;上述变量a、b在内存中的存储情况大致如下表所示（“存储的内容”那一列的一个小格子就代表一个字节，“地址”那一列是指每个字节的地址。）：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225259808-1160410400.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;提示&lt;/strong&gt;：”存储的内容”那一列的一个小格子就代表一个字节，”地址”那一列是指每个字节的地址。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
+&lt;ol&gt;
 &lt;li&gt;从图中可以看出，变量b占用了内存地址从ffc1~ffc4的4个字节，变量a占用了内存地址为ffc5的1个字节。每个字节都有自己的地址，其实变量也有地址。变量存储单元的第一个字节的地址就是该变量的地址。变量a的地址是ffc5，变量b的地址是ffc1。&lt;/li&gt;
 &lt;li&gt;内存寻址是从大到小的，也就是说做什么事都会先从内存地址较大的字节开始，因此系统会优先分配地址值较大的字节给变量。由于是先定义变量a、后定义变量b，因此你会看到变量a的地址ffc5比变量b的地址ffc1大。&lt;/li&gt;
-&lt;li&gt;注意看表格中变量b存储的内容，变量b的二进制形式是：0000 0000 0000 0000 0000 0000 0000 1010。由于内存寻址是从大到小的，所以是从内存地址最大的字节开始存储数据，存放顺序是ffc4 -&amp;gt; ffc3 -&amp;gt; ffc2 -&amp;gt; ffc1，所以把前面的0000 0000都放在ffc2~ffc4中，最后面的八位0000 1010放在ffc1中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;查看变量的内存地址&quot;&gt;&lt;a href=&quot;#查看变量的内存地址&quot; class=&quot;headerlink&quot; title=&quot;查看变量的内存地址&quot;&gt;&lt;/a&gt;查看变量的内存地址&lt;/h3&gt;&lt;p&gt;在调试过程中，我们经常会采取打印的方式查看变量的地址：&lt;/p&gt;
+&lt;li&gt;注意看表格中变量b存储的内容，变量b的二进制形式是：0000 0000 0000 0000 0000 0000 0000 1010。由于内存寻址是从大到小的，所以是从内存地址最大的字节开始存储数据，存放顺序是ffc4-&amp;gt;ffc3-&amp;gt; ffc2-&amp;gt;ffc1，所以把前面的0000 0000都放在ffc2~ffc4中，最后面的八位0000 1010放在ffc1中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;查看变量的内存地址&quot;&gt;&lt;a href=&quot;#查看变量的内存地址&quot; class=&quot;headerlink&quot; title=&quot;查看变量的内存地址&quot;&gt;&lt;/a&gt;查看变量的内存地址&lt;/h3&gt;&lt;p&gt;在调试过程中，我们经常会采取打印的方式查看变量的地址。&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;main.c&lt;/em&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;变量a的地址是：%p&quot;&lt;/span&gt;, &amp;amp;a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;第6行中的&amp;amp;是一个地址运算符，&amp;amp;a表示取得变量a的地址。格式符%p是专门用来输出地址的。输出结果是：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;变量a的地址是：&lt;span class=&quot;number&quot;&gt;0x7fff5fbff8f8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这个0x7fff5fbff8f8就是变量a的内存地址。&lt;/p&gt;
+&lt;p&gt;第6行中的&amp;amp;是一个地址运算符，&amp;amp;a表示取得变量a的地址。格式符%p是专门用来输出地址的。这个0x7fff5fbff8f8就是变量a的内存地址。&lt;/p&gt;
 &lt;h2 id=&quot;变量的使用注意&quot;&gt;&lt;a href=&quot;#变量的使用注意&quot; class=&quot;headerlink&quot; title=&quot;变量的使用注意&quot;&gt;&lt;/a&gt;变量的使用注意&lt;/h2&gt;&lt;h3 id=&quot;不能重复定义同一个变量&quot;&gt;&lt;a href=&quot;#不能重复定义同一个变量&quot; class=&quot;headerlink&quot; title=&quot;不能重复定义同一个变量&quot;&gt;&lt;/a&gt;不能重复定义同一个变量&lt;/h3&gt;&lt;p&gt;下面的代码是错误的：&lt;/p&gt;
 &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;89&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;编译器会报第5行的错，错误的原因很简单，第3行和第5行都是定义变量i，因此在内存中会是这样：&lt;/p&gt;
@@ -62,14 +61,50 @@
 &lt;p&gt;上述代码的打印结果是：1606422622。因此，局部变量还是必须先进行初始化赋值，然后再使用，这样才是最安全的做法。&lt;/p&gt;
 &lt;p&gt;如果是全局的int类型变量，系统会默认赋值为0：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225318965-1449503471.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;char使用注意事项&quot;&gt;&lt;a href=&quot;#char使用注意事项&quot; class=&quot;headerlink&quot; title=&quot;char使用注意事项&quot;&gt;&lt;/a&gt;char使用注意事项&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;char的取值范围是：ASCII码字符 或者 -128~127的整数，所以使用char存储大写字母A有2种赋值方式：&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&quot;char使用注意事项&quot;&gt;&lt;a href=&quot;#char使用注意事项&quot; class=&quot;headerlink&quot; title=&quot;char使用注意事项&quot;&gt;&lt;/a&gt;char使用注意事项&lt;/h3&gt;&lt;h4 id=&quot;char的取值范围&quot;&gt;&lt;a href=&quot;#char的取值范围&quot; class=&quot;headerlink&quot; title=&quot;char的取值范围&quot;&gt;&lt;/a&gt;char的取值范围&lt;/h4&gt;&lt;p&gt;char的取值范围是ASCII码字符或者-128~127的整数，所以使用char存储大写字母A有2种赋值方式：&lt;/p&gt;
 &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 方式1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; c = &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 方式2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; c = &lt;span class=&quot;number&quot;&gt;65&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;上面两种方式是等效的，因为大写字母A的ASCII码值刚好为65。&lt;/p&gt;
+&lt;h4 id=&quot;char只能存储一个字符&quot;&gt;&lt;a href=&quot;#char只能存储一个字符&quot; class=&quot;headerlink&quot; title=&quot;char只能存储一个字符&quot;&gt;&lt;/a&gt;char只能存储一个字符&lt;/h4&gt;&lt;p&gt;汉字或者字符串需要用字符数组来存储，因为一个汉字占了2个字符，一个字符串是由一个或者多个字符组成的。因此，下面的写法都是错误的：&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;char c1 = &#39;我&#39;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char c2 = &#39;123&#39;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char c3 = &quot;123&quot;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;负数的二进制形式&quot;&gt;&lt;a href=&quot;#负数的二进制形式&quot; class=&quot;headerlink&quot; title=&quot;负数的二进制形式&quot;&gt;&lt;/a&gt;负数的二进制形式&lt;/h3&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = &lt;span class=&quot;number&quot;&gt;-10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在第3行定义了一个整型变量，它的值是-10。-10在内存中怎样存储的呢？其实任何数值在内存中都是以补码的形式存储的：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;char只能存储一个字符&lt;/li&gt;
+&lt;li&gt;正数的补码与原码相同。比如9的原码和补码都是1001。&lt;/li&gt;
+&lt;li&gt;负数的补码等于它正数的原码取反后再+1。（取反的意思就是0变1、1变0）。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;那么-10的补码计算过程如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先算出10的二进制形式：0000 0000 0000 0000 0000 0000 0000 1010。&lt;/li&gt;
+&lt;li&gt;对10的二进制进行取反：1111 1111 1111 1111 1111 1111 1111 0101。&lt;/li&gt;
+&lt;li&gt;对取反后的结果+1：1111 1111 1111 1111 1111 1111 1111 0110，因此，整数-10在内存中的二进制形式是：1111 1111 1111 1111 1111 1111 1111 0110。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225323355-2088972388.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;变量的作用域-1&quot;&gt;&lt;a href=&quot;#变量的作用域-1&quot; class=&quot;headerlink&quot; title=&quot;变量的作用域&quot;&gt;&lt;/a&gt;变量的作用域&lt;/h2&gt;&lt;h3 id=&quot;作用域简介&quot;&gt;&lt;a href=&quot;#作用域简介&quot; class=&quot;headerlink&quot; title=&quot;作用域简介&quot;&gt;&lt;/a&gt;作用域简介&lt;/h3&gt;&lt;p&gt;变量的作用域就是指变量的作用范围。先来看看下面的程序：&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol&gt;
+&lt;li&gt;在第3行定义了一个变量a，当执行到这行代码时，系统就会为变量a分配存储空间。&lt;/li&gt;
+&lt;li&gt;当main函数执行完毕，也就是执行完第5行代码了，变量a所占用的内存就会被系统自动回收。&lt;/li&gt;
+&lt;li&gt;因此，变量a的作用范围是从定义它的那行开始，一直到它所在的大括号{}结束，也就是第3~6行，一旦离开这个范围，变量a就失效了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;代码块&quot;&gt;&lt;a href=&quot;#代码块&quot; class=&quot;headerlink&quot; title=&quot;代码块&quot;&gt;&lt;/a&gt;代码块&lt;/h3&gt;&lt;p&gt;代码块其实就是用大括号{}括住的一块代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;a=%d&quot;&lt;/span&gt;, a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    a = &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol&gt;
+&lt;li&gt;注意第3~7行的大括号，这就是一个代码块。&lt;/li&gt;
+&lt;li&gt;当执行到第4行时，系统会分配内存给变量a。&lt;/li&gt;
+&lt;li&gt;当代码块执行完毕，也就是执行完第6行代码后，变量a所占用的内存就会被系统回收。&lt;/li&gt;
+&lt;li&gt;因此，变量a的作用范围是从定义它的那行开始，一直到它所在的大括号{}结束，也就是第4~7行，离开这个范围，变量a就失效了。&lt;/li&gt;
+&lt;li&gt;所以，上面的程序是编译失败的，第9行代码是错误的，变量a在第7行的时候已经失效了，不可能在第9行使用。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果是下面这种情况：&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;a=%d&quot;&lt;/span&gt;, a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol&gt;
+&lt;li&gt;注意第3、6行，各自定义了一个变量a，这种情况是没问题的。C语言规定：在不同作用域中允许有同名变量，系统会为它们分配不同的存储空间。&lt;/li&gt;
+&lt;li&gt;在第3行定义的变量a的作用域是：第3~12行；在第6行定义的变量a的作用域是：第6~9行。&lt;/li&gt;
+&lt;li&gt;最后注意第8行：尝试输出变量a的值。那这里输出的是哪一个变量a呢？其实这里采取的是“就近原则”，也就是第8行访问的是在第6行定义的变量a，并不是在第3行的变量a。输出结果：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;a=&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
 </content>
     
     <summary type="html">
@@ -78,7 +113,7 @@
     
     </summary>
     
-      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+      <category term="1. C语法" scheme="http://sanfordy.com/categories/1-C%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -88,7 +123,7 @@
     <link href="http://sanfordy.com/2016/06/07/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9005%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://sanfordy.com/2016/06/07/1-0 .C语法/【05】变量（一）/</id>
     <published>2016-06-07T07:31:04.000Z</published>
-    <updated>2016-06-15T03:10:10.000Z</updated>
+    <updated>2016-06-15T07:26:26.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -191,7 +226,7 @@
     
     </summary>
     
-      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+      <category term="1. C语法" scheme="http://sanfordy.com/categories/1-C%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -201,7 +236,7 @@
     <link href="http://sanfordy.com/2016/06/07/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9004%E3%80%91%E5%B8%B8%E9%87%8F/"/>
     <id>http://sanfordy.com/2016/06/07/1-0 .C语法/【04】常量/</id>
     <published>2016-06-07T07:13:20.000Z</published>
-    <updated>2016-06-15T03:04:28.000Z</updated>
+    <updated>2016-06-15T07:26:29.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -227,7 +262,7 @@
     
     </summary>
     
-      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+      <category term="1. C语法" scheme="http://sanfordy.com/categories/1-C%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -237,7 +272,7 @@
     <link href="http://sanfordy.com/2016/06/07/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9003%E3%80%91%E6%95%B0%E6%8D%AE/"/>
     <id>http://sanfordy.com/2016/06/07/1-0 .C语法/【03】数据/</id>
     <published>2016-06-07T06:27:08.000Z</published>
-    <updated>2016-06-15T03:02:23.000Z</updated>
+    <updated>2016-06-15T07:26:59.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -289,7 +324,7 @@
     
     </summary>
     
-      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+      <category term="1. C语法" scheme="http://sanfordy.com/categories/1-C%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -299,7 +334,7 @@
     <link href="http://sanfordy.com/2016/05/30/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9002%E3%80%91C%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/"/>
     <id>http://sanfordy.com/2016/05/30/1-0 .C语法/【02】C语言语法/</id>
     <published>2016-05-30T02:23:42.000Z</published>
-    <updated>2016-06-15T02:56:47.000Z</updated>
+    <updated>2016-06-15T07:26:05.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -337,7 +372,7 @@
     
     </summary>
     
-      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+      <category term="1. C语法" scheme="http://sanfordy.com/categories/1-C%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -347,7 +382,7 @@
     <link href="http://sanfordy.com/2016/05/17/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAC%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/"/>
     <id>http://sanfordy.com/2016/05/17/1-0 .C语法/【01】第一个C程序代码分析/</id>
     <published>2016-05-17T14:49:20.000Z</published>
-    <updated>2016-06-15T02:53:02.000Z</updated>
+    <updated>2016-06-15T07:25:56.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -424,7 +459,7 @@
     
     </summary>
     
-      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+      <category term="1. C语法" scheme="http://sanfordy.com/categories/1-C%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -434,7 +469,7 @@
     <link href="http://sanfordy.com/2016/05/11/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9000%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
     <id>http://sanfordy.com/2016/05/11/1-0 .C语法/【00】C语言简介/</id>
     <published>2016-05-11T15:24:05.000Z</published>
-    <updated>2016-06-15T02:24:26.000Z</updated>
+    <updated>2016-06-15T07:25:38.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -502,7 +537,7 @@
     
     </summary>
     
-      <category term="1-0. C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
+      <category term="1. C语法" scheme="http://sanfordy.com/categories/1-C%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
