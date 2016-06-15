@@ -287,7 +287,7 @@
 </blockquote>
 <h3 id="stdio-h"><a href="#stdio-h" class="headerlink" title="stdio.h"></a>stdio.h</h3><p><code>stdio.h</code>是C语言函数库中的一个头文件，里面定义了一些标准输入输出函数。在main.c的第1行代码中，用<code>#include</code>指令包含了<code>stdio.h</code>文件。</p>
 <p>这里之所以包含<code>stdio.h</code>文件，是因为在第7行中用到了在<code>stdio.h</code>内部声明的<code>printf</code>函数，这个函数可以向标准输出设备（比如显示器屏幕）输出数据，屏幕上输出的文字就是第7行代码<code>printf(&quot;Hello, World!\n&quot;)</code>造成的，双引号””内的文本为C语言的字符串。</p>
-<h3 id="main函数"><a href="#main函数" class="headerlink" title="main函数"></a>main函数</h3><p>前面也已经提到，C中的函数就是面向对象中的”方法”。 C语言是一门面向过程的语言，是以过程为中心的编程思想，就是先分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用函数就可以了。</p>
+<h3 id="main"><a href="#main" class="headerlink" title="main"></a>main</h3><p>前面也已经提到，C中的函数就是面向对象中的”方法”。 C语言是一门面向过程的语言，是以过程为中心的编程思想，就是先分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用函数就可以了。</p>
 <p>一个C程序中一定会有一个<code>main</code>函数，也只能有一个<code>main</code>函数。<code>main</code>函数是整个C程序的入口。<code>main.c</code>的第3行代码就定义了一个<code>main</code>函数。</p>
 <p><code>main</code>函数的返回值为<code>int</code>类型，接收2个参数，其实可以不写参数， main 函数可以简化成这样：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, World!\n"</span>);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

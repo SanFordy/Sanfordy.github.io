@@ -347,7 +347,7 @@
     <link href="http://sanfordy.com/2016/05/17/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAC%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/"/>
     <id>http://sanfordy.com/2016/05/17/1-0 .C语法/【01】第一个C程序代码分析/</id>
     <published>2016-05-17T14:49:20.000Z</published>
-    <updated>2016-06-15T02:49:01.000Z</updated>
+    <updated>2016-06-15T02:53:02.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -373,7 +373,7 @@
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;stdio-h&quot;&gt;&lt;a href=&quot;#stdio-h&quot; class=&quot;headerlink&quot; title=&quot;stdio.h&quot;&gt;&lt;/a&gt;stdio.h&lt;/h3&gt;&lt;p&gt;&lt;code&gt;stdio.h&lt;/code&gt;是C语言函数库中的一个头文件，里面定义了一些标准输入输出函数。在main.c的第1行代码中，用&lt;code&gt;#include&lt;/code&gt;指令包含了&lt;code&gt;stdio.h&lt;/code&gt;文件。&lt;/p&gt;
 &lt;p&gt;这里之所以包含&lt;code&gt;stdio.h&lt;/code&gt;文件，是因为在第7行中用到了在&lt;code&gt;stdio.h&lt;/code&gt;内部声明的&lt;code&gt;printf&lt;/code&gt;函数，这个函数可以向标准输出设备（比如显示器屏幕）输出数据，屏幕上输出的文字就是第7行代码&lt;code&gt;printf(&amp;quot;Hello, World!\n&amp;quot;)&lt;/code&gt;造成的，双引号””内的文本为C语言的字符串。&lt;/p&gt;
-&lt;h3 id=&quot;main函数&quot;&gt;&lt;a href=&quot;#main函数&quot; class=&quot;headerlink&quot; title=&quot;main函数&quot;&gt;&lt;/a&gt;main函数&lt;/h3&gt;&lt;p&gt;前面也已经提到，C中的函数就是面向对象中的”方法”。 C语言是一门面向过程的语言，是以过程为中心的编程思想，就是先分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用函数就可以了。&lt;/p&gt;
+&lt;h3 id=&quot;main&quot;&gt;&lt;a href=&quot;#main&quot; class=&quot;headerlink&quot; title=&quot;main&quot;&gt;&lt;/a&gt;main&lt;/h3&gt;&lt;p&gt;前面也已经提到，C中的函数就是面向对象中的”方法”。 C语言是一门面向过程的语言，是以过程为中心的编程思想，就是先分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用函数就可以了。&lt;/p&gt;
 &lt;p&gt;一个C程序中一定会有一个&lt;code&gt;main&lt;/code&gt;函数，也只能有一个&lt;code&gt;main&lt;/code&gt;函数。&lt;code&gt;main&lt;/code&gt;函数是整个C程序的入口。&lt;code&gt;main.c&lt;/code&gt;的第3行代码就定义了一个&lt;code&gt;main&lt;/code&gt;函数。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;main&lt;/code&gt;函数的返回值为&lt;code&gt;int&lt;/code&gt;类型，接收2个参数，其实可以不写参数， main 函数可以简化成这样：&lt;/p&gt;
 &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;main()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// insert code here...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Hello, World!\n&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
