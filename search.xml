@@ -4,6 +4,47 @@
   
     
     <entry>
+      <title><![CDATA[【07】进制]]></title>
+      <url>http://sanfordy.com/2016/06/18/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9008%E3%80%91%E8%BF%9B%E5%88%B6/</url>
+      <content type="html"><![CDATA[<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png" alt=""></p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们先来看看平时是如何表示一个整数的，最常见的肯定是用阿拉伯数字表示，比如“十二”，我们可以用12来表示，其实这种表示方式是基于一种叫做“十进制”的计数方式。“进制”是一种计数方式，编程中常见的进制有4种：十进制、二进制、八进制、十六进制。也就是说，同一个整数，我们至少有4种表示方式。</p>
+<h2 id="十进制"><a href="#十进制" class="headerlink" title="十进制"></a>十进制</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>十进制是我们最熟悉、最常用的一种计数方式，它有两个特点：由0、1、2….9十个基本数字组成；运算规则是“逢十进一”。</p>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p>所谓“逢十进一”，似乎在小学数学中都已经学过了，也就是当数值满十时，就要向前进一位：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102519860-1011222561.png" alt=""></p>
+<p>个位数为9+1，满十了，十位数就进一。</p>
+<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>二进制是计算机内部使用的一种计数方式，它有两个特点：由0、1两个基本数字组成；运算规则是“逢二进一”。</p>
+<h3 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h3><p>有人可能会问：为什么二进制里面没有2~9这些数字呢？都说了，逢二进一，因此当数字满二的时候就会进位。</p>
+<p>如果我写个1010，你能看出它是二进制还是十进制么？为了跟其他进制区分开来，书写二进制数的时候，需要以0b或者0B开头。比如0b1010是个二进制数，而1010则还是我们熟悉的十进制数，就是“一千零一十”</p>
+<h3 id="运算-1"><a href="#运算-1" class="headerlink" title="运算"></a>运算</h3><p>做个简单的运算吧，比如1+1：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102524750-87756776.png" alt=""></p>
+<p>个位数是1+1，值满二了，于是十位数要进一。因此，在二进制中：1 + 1 = 0b10，这里的0b10表示的是十进制中的“二”，并不是“十”。</p>
+<p>以此类推，11 + 1 = 0b100：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102530235-234384441.png" alt=""></p>
+<h3 id="二进制转为十进制"><a href="#二进制转为十进制" class="headerlink" title="二进制转为十进制"></a>二进制转为十进制</h3><p>用二进制表示数值，虽然简单、方便，但是不容易阅读，比如随便给出个二进制数0b110111101010，你能立刻看出它表示的是什么数值吗？一般需要将二进制数转为十进制数后才能知道代表的什么数值。</p>
+<p>进制里面有个“基数”的概念，基数是用来计算数值的，比如十进制的基数是10，因此十进制是这样算数的：1230 = 0 <em> 10<sup>0</sup> + 3 </em> 10<sup>1</sup> + 2 <em> 10<sup>2</sup> + 1 </em> 10<sup>3</sup> = 0 <em> 1 + 3 </em> 10 + 2 <em> 100 + 1 </em> 1000。</p>
+<p>二进制的基数是2，以此类推：0b1011 = 1 <em> 2<sup>0</sup> + 1 </em> 2<sup>1</sup> + 0 <em> 2<sup>2</sup> + 1 </em> 2<sup>3</sup> = 1 <em> 1 + 1 </em> 2 + 0 <em> 4 + 1 </em> 8 = 1 + 2 + 0 + 8 = 11，因此二进制数0b1011表示的数值是十进制中的11。</p>
+<p>一位二进制数能表示的最大值是1，而n位二进制数所能表示的最大值是0b111…1111，也就是说n位二进制数都是1，那么它的十进制数值为：1 <em> 20 + 1 </em> 21 + 1 <em> 22 + 1 </em> 23 + …. + 1 * 2n-1 = 2n - 1。</p>
+<p>因此，n位二进制数所能表示的最大值是2n - 1。也就是说，4位二进制数能表示的最大值是0b1111，十进制数值为：24 - 1 = 15；5位二进制数能表示的最大值是25 - 1 = 31。</p>
+<h2 id="八进制"><a href="#八进制" class="headerlink" title="八进制"></a>八进制</h2><h3 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h3><p>八进制有两个特点：由0~7八个基本数字组成；运算规则是“逢八进一”。</p>
+<h3 id="细节-1"><a href="#细节-1" class="headerlink" title="细节"></a>细节</h3><p>由于十进制和八进制中都包含了0~7，为了区分开来，在书写八进制数的时候，需要在前面加个<code>0</code>。比如<code>076</code>是个八进制数，76则是个十进制数。</p>
+<h3 id="运算-2"><a href="#运算-2" class="headerlink" title="运算"></a>运算</h3><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102534906-1731486194.png" alt=""></p>
+<p>个位数是7+1，值满八了，于是十位数要进一。因此，在八进制中，7 + 1 = 010。010则表示十进制中的“八”，而不是“十”。</p>
+<h3 id="八进制转十进制"><a href="#八进制转十进制" class="headerlink" title="八进制转十进制"></a>八进制转十进制</h3><p>八进制的基数是8，因此027计算出来就是十进制中的23：027 = 7 <em> 8<sup>0</sup> + 2 </em> 8<sup>1</sup> = 7 <em> 1 + 2 </em> 8 = 23。</p>
+<h3 id="二进制转八进制"><a href="#二进制转八进制" class="headerlink" title="二进制转八进制"></a>二进制转八进制</h3><p>不难发现一个十进制数可以表示的最大值是9，而一个八进制数可以表示的最大值是7，恰好3个二进制数可以表示的最大值0b111也是7。因此，我们可以用一个八进制数来代替3个二进制数：0b11110011 = 0b 011  110  011  = 0363。</p>
+<p>如果是八进制转为二进制，那就反过来，用3位二进制数来表示1位八进制数：025 = 0b 010  101 = 0b10101。</p>
+<h2 id="变量与进制"><a href="#变量与进制" class="headerlink" title="变量与进制"></a>变量与进制</h2><h3 id="十进制与变量"><a href="#十进制与变量" class="headerlink" title="十进制与变量"></a>十进制与变量</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第3行定义了一个变量a，存储的是十进制整数10。其实，这个变量a在内存中是以二进制数的形式存储的，10的二进制形式是1010。</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102544594-718950591.png" alt=""></p>
+<h3 id="其他进制与变量"><a href="#其他进制与变量" class="headerlink" title="其他进制与变量"></a>其他进制与变量</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>b110; <span class="comment">// 十进制数：6</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">021</span>; <span class="comment">// 十进制数：17</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">12</span>; <span class="comment">// 十进制数：12</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> d = <span class="number">0x1D</span>; <span class="comment">// 十进制数：29</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码中，分别将4种不同进制的数值赋值给不同的整型变量。对应的十进制数值已经写在右边的注释中。它们最终都是以二进制的形式存储在内存中：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102549172-1114288608.png" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[【07】变量（三）]]></title>
       <url>http://sanfordy.com/2016/06/18/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9007%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%89%EF%BC%89/</url>
       <content type="html"><![CDATA[<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png" alt=""></p>
