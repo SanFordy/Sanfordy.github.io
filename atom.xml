@@ -113,61 +113,6 @@
   </entry>
   
   <entry>
-    <title>【07】变量（三）</title>
-    <link href="http://sanfordy.com/2016/06/18/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9008%E3%80%91%E8%BF%9B%E5%88%B6/"/>
-    <id>http://sanfordy.com/2016/06/18/1-0 .C语法/【08】进制/</id>
-    <published>2016-06-18T14:23:15.000Z</published>
-    <updated>2016-06-23T02:56:14.000Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;我们先来看看平时是如何表示一个整数的，最常见的肯定是用阿拉伯数字表示，比如“十二”，我们可以用12来表示，其实这种表示方式是基于一种叫做“十进制”的计数方式。“进制”是一种计数方式，编程中常见的进制有4种：十进制、二进制、八进制、十六进制。也就是说，同一个整数，我们至少有4种表示方式。&lt;/p&gt;
-&lt;h2 id=&quot;十进制&quot;&gt;&lt;a href=&quot;#十进制&quot; class=&quot;headerlink&quot; title=&quot;十进制&quot;&gt;&lt;/a&gt;十进制&lt;/h2&gt;&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;十进制是我们最熟悉、最常用的一种计数方式，它有两个特点：由0、1、2….9十个基本数字组成；运算规则是“逢十进一”。&lt;/p&gt;
-&lt;h3 id=&quot;运算&quot;&gt;&lt;a href=&quot;#运算&quot; class=&quot;headerlink&quot; title=&quot;运算&quot;&gt;&lt;/a&gt;运算&lt;/h3&gt;&lt;p&gt;所谓“逢十进一”，似乎在小学数学中都已经学过了，也就是当数值满十时，就要向前进一位：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102519860-1011222561.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;个位数为9+1，满十了，十位数就进一。&lt;/p&gt;
-&lt;h2 id=&quot;二进制&quot;&gt;&lt;a href=&quot;#二进制&quot; class=&quot;headerlink&quot; title=&quot;二进制&quot;&gt;&lt;/a&gt;二进制&lt;/h2&gt;&lt;h3 id=&quot;概念-1&quot;&gt;&lt;a href=&quot;#概念-1&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;二进制是计算机内部使用的一种计数方式，它有两个特点：由0、1两个基本数字组成；运算规则是“逢二进一”。&lt;/p&gt;
-&lt;h3 id=&quot;细节&quot;&gt;&lt;a href=&quot;#细节&quot; class=&quot;headerlink&quot; title=&quot;细节&quot;&gt;&lt;/a&gt;细节&lt;/h3&gt;&lt;p&gt;有人可能会问：为什么二进制里面没有2~9这些数字呢？都说了，逢二进一，因此当数字满二的时候就会进位。&lt;/p&gt;
-&lt;p&gt;如果我写个1010，你能看出它是二进制还是十进制么？为了跟其他进制区分开来，书写二进制数的时候，需要以0b或者0B开头。比如0b1010是个二进制数，而1010则还是我们熟悉的十进制数，就是“一千零一十”&lt;/p&gt;
-&lt;h3 id=&quot;运算-1&quot;&gt;&lt;a href=&quot;#运算-1&quot; class=&quot;headerlink&quot; title=&quot;运算&quot;&gt;&lt;/a&gt;运算&lt;/h3&gt;&lt;p&gt;做个简单的运算吧，比如1+1：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102524750-87756776.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;个位数是1+1，值满二了，于是十位数要进一。因此，在二进制中：1 + 1 = 0b10，这里的0b10表示的是十进制中的“二”，并不是“十”。&lt;/p&gt;
-&lt;p&gt;以此类推，11 + 1 = 0b100：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102530235-234384441.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;二进制转为十进制&quot;&gt;&lt;a href=&quot;#二进制转为十进制&quot; class=&quot;headerlink&quot; title=&quot;二进制转为十进制&quot;&gt;&lt;/a&gt;二进制转为十进制&lt;/h3&gt;&lt;p&gt;用二进制表示数值，虽然简单、方便，但是不容易阅读，比如随便给出个二进制数0b110111101010，你能立刻看出它表示的是什么数值吗？一般需要将二进制数转为十进制数后才能知道代表的什么数值。&lt;/p&gt;
-&lt;p&gt;进制里面有个“基数”的概念，基数是用来计算数值的，比如十进制的基数是10，因此十进制是这样算数的：1230 = 0 &lt;em&gt; 10&lt;sup&gt;0&lt;/sup&gt; + 3 &lt;/em&gt; 10&lt;sup&gt;1&lt;/sup&gt; + 2 &lt;em&gt; 10&lt;sup&gt;2&lt;/sup&gt; + 1 &lt;/em&gt; 10&lt;sup&gt;3&lt;/sup&gt; = 0 &lt;em&gt; 1 + 3 &lt;/em&gt; 10 + 2 &lt;em&gt; 100 + 1 &lt;/em&gt; 1000。&lt;/p&gt;
-&lt;p&gt;二进制的基数是2，以此类推：0b1011 = 1 &lt;em&gt; 2&lt;sup&gt;0&lt;/sup&gt; + 1 &lt;/em&gt; 2&lt;sup&gt;1&lt;/sup&gt; + 0 &lt;em&gt; 2&lt;sup&gt;2&lt;/sup&gt; + 1 &lt;/em&gt; 2&lt;sup&gt;3&lt;/sup&gt; = 1 &lt;em&gt; 1 + 1 &lt;/em&gt; 2 + 0 &lt;em&gt; 4 + 1 &lt;/em&gt; 8 = 1 + 2 + 0 + 8 = 11，因此二进制数0b1011表示的数值是十进制中的11。&lt;/p&gt;
-&lt;p&gt;一位二进制数能表示的最大值是1，而n位二进制数所能表示的最大值是0b111…1111，也就是说n位二进制数都是1，那么它的十进制数值为：1 &lt;em&gt; 20 + 1 &lt;/em&gt; 21 + 1 &lt;em&gt; 22 + 1 &lt;/em&gt; 23 + …. + 1 * 2n-1 = 2n - 1。&lt;/p&gt;
-&lt;p&gt;因此，n位二进制数所能表示的最大值是2n - 1。也就是说，4位二进制数能表示的最大值是0b1111，十进制数值为：24 - 1 = 15；5位二进制数能表示的最大值是25 - 1 = 31。&lt;/p&gt;
-&lt;h2 id=&quot;八进制&quot;&gt;&lt;a href=&quot;#八进制&quot; class=&quot;headerlink&quot; title=&quot;八进制&quot;&gt;&lt;/a&gt;八进制&lt;/h2&gt;&lt;h3 id=&quot;概念-2&quot;&gt;&lt;a href=&quot;#概念-2&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h3&gt;&lt;p&gt;八进制有两个特点：由0~7八个基本数字组成；运算规则是“逢八进一”。&lt;/p&gt;
-&lt;h3 id=&quot;细节-1&quot;&gt;&lt;a href=&quot;#细节-1&quot; class=&quot;headerlink&quot; title=&quot;细节&quot;&gt;&lt;/a&gt;细节&lt;/h3&gt;&lt;p&gt;由于十进制和八进制中都包含了0~7，为了区分开来，在书写八进制数的时候，需要在前面加个&lt;code&gt;0&lt;/code&gt;。比如&lt;code&gt;076&lt;/code&gt;是个八进制数，76则是个十进制数。&lt;/p&gt;
-&lt;h3 id=&quot;运算-2&quot;&gt;&lt;a href=&quot;#运算-2&quot; class=&quot;headerlink&quot; title=&quot;运算&quot;&gt;&lt;/a&gt;运算&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102534906-1731486194.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;个位数是7+1，值满八了，于是十位数要进一。因此，在八进制中，7 + 1 = 010。010则表示十进制中的“八”，而不是“十”。&lt;/p&gt;
-&lt;h3 id=&quot;八进制转十进制&quot;&gt;&lt;a href=&quot;#八进制转十进制&quot; class=&quot;headerlink&quot; title=&quot;八进制转十进制&quot;&gt;&lt;/a&gt;八进制转十进制&lt;/h3&gt;&lt;p&gt;八进制的基数是8，因此027计算出来就是十进制中的23：027 = 7 &lt;em&gt; 8&lt;sup&gt;0&lt;/sup&gt; + 2 &lt;/em&gt; 8&lt;sup&gt;1&lt;/sup&gt; = 7 &lt;em&gt; 1 + 2 &lt;/em&gt; 8 = 23。&lt;/p&gt;
-&lt;h3 id=&quot;二进制转八进制&quot;&gt;&lt;a href=&quot;#二进制转八进制&quot; class=&quot;headerlink&quot; title=&quot;二进制转八进制&quot;&gt;&lt;/a&gt;二进制转八进制&lt;/h3&gt;&lt;p&gt;不难发现一个十进制数可以表示的最大值是9，而一个八进制数可以表示的最大值是7，恰好3个二进制数可以表示的最大值0b111也是7。因此，我们可以用一个八进制数来代替3个二进制数：0b11110011 = 0b 011  110  011  = 0363。&lt;/p&gt;
-&lt;p&gt;如果是八进制转为二进制，那就反过来，用3位二进制数来表示1位八进制数：025 = 0b 010  101 = 0b10101。&lt;/p&gt;
-&lt;h2 id=&quot;变量与进制&quot;&gt;&lt;a href=&quot;#变量与进制&quot; class=&quot;headerlink&quot; title=&quot;变量与进制&quot;&gt;&lt;/a&gt;变量与进制&lt;/h2&gt;&lt;h3 id=&quot;十进制与变量&quot;&gt;&lt;a href=&quot;#十进制与变量&quot; class=&quot;headerlink&quot; title=&quot;十进制与变量&quot;&gt;&lt;/a&gt;十进制与变量&lt;/h3&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;在第3行定义了一个变量a，存储的是十进制整数10。其实，这个变量a在内存中是以二进制数的形式存储的，10的二进制形式是1010。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102544594-718950591.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;其他进制与变量&quot;&gt;&lt;a href=&quot;#其他进制与变量&quot; class=&quot;headerlink&quot; title=&quot;其他进制与变量&quot;&gt;&lt;/a&gt;其他进制与变量&lt;/h3&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;b110; &lt;span class=&quot;comment&quot;&gt;// 十进制数：6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = &lt;span class=&quot;number&quot;&gt;021&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// 十进制数：17&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; c = &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// 十进制数：12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; d = &lt;span class=&quot;number&quot;&gt;0x1D&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// 十进制数：29&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;上面的代码中，分别将4种不同进制的数值赋值给不同的整型变量。对应的十进制数值已经写在右边的注释中。它们最终都是以二进制的形式存储在内存中：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102549172-1114288608.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="1.0 C语法" scheme="http://sanfordy.com/categories/1-0-C%E8%AF%AD%E6%B3%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>【06】变量（二）</title>
     <link href="http://sanfordy.com/2016/06/07/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9006%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://sanfordy.com/2016/06/07/1-0 .C语法/【06】变量（二）/</id>
