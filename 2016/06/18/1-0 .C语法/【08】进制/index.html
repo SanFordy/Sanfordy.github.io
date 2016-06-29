@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102534906-1731486194.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102544594-718950591.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102549172-1114288608.png">
-<meta property="og:updated_time" content="2016-06-23T03:28:03.000Z">
+<meta property="og:updated_time" content="2016-06-29T09:18:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【08】进制">
 <meta name="twitter:description">
@@ -358,10 +358,10 @@
 <p>以此类推，11 + 1 = 0b100：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102530235-234384441.png" alt=""></p>
 <h3 id="二进制转为十进制"><a href="#二进制转为十进制" class="headerlink" title="二进制转为十进制"></a>二进制转为十进制</h3><p>用二进制表示数值，虽然简单、方便，但是不容易阅读，比如随便给出个二进制数0b110111101010，你能立刻看出它表示的是什么数值吗？一般需要将二进制数转为十进制数后才能知道代表的什么数值。</p>
-<p>进制里面有个“基数”的概念，基数是用来计算数值的，比如十进制的基数是10，因此十进制是这样算数的：1230 = 0 <em> 10<sup>0</sup> + 3 </em> 10<sup>1</sup> + 2 <em> 10<sup>2</sup> + 1 </em> 10<sup>3</sup> = 0 <em> 1 + 3 </em> 10 + 2 <em> 100 + 1 </em> 1000。</p>
-<p>二进制的基数是2，以此类推：0b1011 = 1 <em> 2<sup>0</sup> + 1 </em> 2<sup>1</sup> + 0 <em> 2<sup>2</sup> + 1 </em> 2<sup>3</sup> = 1 <em> 1 + 1 </em> 2 + 0 <em> 4 + 1 </em> 8 = 1 + 2 + 0 + 8 = 11，因此二进制数0b1011表示的数值是十进制中的11。</p>
-<p>一位二进制数能表示的最大值是1，而n位二进制数所能表示的最大值是0b111…1111，也就是说n位二进制数都是1，那么它的十进制数值为：1 <em> 20 + 1 </em> 21 + 1 <em> 22 + 1 </em> 23 + …. + 1 * 2n-1 = 2n - 1。</p>
-<p>因此，n位二进制数所能表示的最大值是2n - 1。也就是说，4位二进制数能表示的最大值是0b1111，十进制数值为：24 - 1 = 15；5位二进制数能表示的最大值是25 - 1 = 31。</p>
+<p>进制里面有个“基数”的概念，基数是用来计算数值的，比如十进制的基数是10，因此十进制是这样算数的：1230 = 0 x 10<sup>0</sup> + 3 x 10<sup>1</sup> + 2 x 10<sup>2</sup> + 1 x 10<sup>3</sup> = 0 x 1 + 3 x 10 + 2 x 100 + 1 x 1000。</p>
+<p>二进制的基数是2，以此类推：0b1011 = 1 x 2<sup>0</sup> + 1 x 2<sup>1</sup> + 0 x 2<sup>2</sup> + 1 x 2<sup>3</sup> = 1 x 1 + 1 x 2 + 0 x 4 + 1 x 8 = 1 + 2 + 0 + 8 = 11，因此二进制数0b1011表示的数值是十进制中的11。</p>
+<p>一位二进制数能表示的最大值是1，而n位二进制数所能表示的最大值是0b111…1111，也就是说n位二进制数都是1，那么它的十进制数值为：1 x 2<sup>0</sup> + 1 x 2<sup>1</sup> + 1 x 2<sup>2</sup> + 1 x 2<sup>3</sup> + …. + 1 x 2<sup>n-1</sup> = 2<sup>n</sup> - 1。</p>
+<p>因此，n位二进制数所能表示的最大值是2<sup>n</sup> - 1。也就是说，4位二进制数能表示的最大值是0b1111，十进制数值为：2<sup>4</sup> - 1 = 15；5位二进制数能表示的最大值是2<sup>5</sup> - 1 = 31。</p>
 <h2 id="八进制"><a href="#八进制" class="headerlink" title="八进制"></a>八进制</h2><h3 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h3><p>八进制有两个特点：由0~7八个基本数字组成；运算规则是“逢八进一”。</p>
 <h3 id="细节-1"><a href="#细节-1" class="headerlink" title="细节"></a>细节</h3><p>由于十进制和八进制中都包含了0~7，为了区分开来，在书写八进制数的时候，需要在前面加个<code>0</code>。比如<code>076</code>是个八进制数，76则是个十进制数。</p>
 <h3 id="运算-2"><a href="#运算-2" class="headerlink" title="运算"></a>运算</h3><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102534906-1731486194.png" alt=""></p>
@@ -421,13 +421,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/18/1-0 .C语法/【07】变量（三）/" rel="next" title="【07】变量（三）">
-                <i class="fa fa-chevron-left"></i> 【07】变量（三）
+              <a href="/2016/06/07/1-0 .C语法/【06】变量（二）/" rel="next" title="【06】变量（二）">
+                <i class="fa fa-chevron-left"></i> 【06】变量（二）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/18/1-0 .C语法/【07】变量（三）/" rel="prev" title="【07】变量（三）">
+                【07】变量（三） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
