@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143719574-1356202246.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143724168-1786196972.jpg">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143728402-1476722878.png">
-<meta property="og:updated_time" content="2016-06-18T14:28:37.000Z">
+<meta property="og:updated_time" content="2016-07-26T10:09:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【03】数据">
 <meta name="twitter:description">
@@ -342,45 +342,34 @@
       
         <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png" alt=""></p>
 <a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在我们使用计算机的过程中，会接触到各种各样的数据，有文档数据、图片数据、视频数据，还有聊QQ时产生的文字数据、用迅雷下载的文件数据等。这讲我们就来介绍C语言中数据的处理。</p>
-<h2 id="数据的存储"><a href="#数据的存储" class="headerlink" title="数据的存储"></a>数据的存储</h2><h3 id="数据形态"><a href="#数据形态" class="headerlink" title="数据形态"></a>数据形态</h3><p>首先来看看计算机是怎么存储数据的。总的来说，计算机中存储的数据可以分为两种：静态数据和动态数据。</p>
-<h4 id="静态数据"><a href="#静态数据" class="headerlink" title="静态数据"></a>静态数据</h4><ol>
-<li>概念：静态数据是指一些永久性的数据，一般存储在硬盘中。硬盘的存储空间一般都比较大，现在普通计算机的硬盘都有500G左右，因此硬盘中可以存放一些比较大的文件。</li>
-<li>存储的时长：计算机关闭之后再开启，这些数据依旧还在，只要你不主动删掉或者硬盘没坏，这些数据永远都在。</li>
-<li>哪些是静态数据：静态数据一般是以文件的形式存储在硬盘上，比如文档、照片、视频等。</li>
-</ol>
-<h4 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h4><ol>
-<li>概念：动态数据指在程序运行过程中，动态产生的临时数据，一般存储在内存中。内存的存储空间一般都比较小，现在普通计算机的内存只有4G左右，因此要谨慎使用内存，不要占用太多的内存空间。</li>
-<li>存储的时长：计算机关闭之后，这些临时数据就会被清除。</li>
-<li>哪些是动态数据：当运行某个程序（软件）时，整个程序就会被加载到内存中，在程序运行过程中，会产生各种各样的临时数据，这些临时数据都是存储在内存中的。当程序停止运行或者计算机被强制关闭时，这个程序产生的所有临时数据都会被清除。</li>
-</ol>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　<br>在我们使用计算机的过程中，会接触到各种各样的数据，有文档数据、图片数据、视频数据，还有聊QQ时产生的文字数据、用迅雷下载的文件数据等。这讲我们就来介绍C语言中数据的处理。</p>
+<h1 id="数据的存储"><a href="#数据的存储" class="headerlink" title="数据的存储"></a>数据的存储</h1><h2 id="数据形态"><a href="#数据形态" class="headerlink" title="数据形态"></a>数据形态</h2><p>首先来看看计算机是怎么存储数据的。总的来说，计算机中存储的数据可以分为两种：静态数据和动态数据。</p>
+<h3 id="静态数据"><a href="#静态数据" class="headerlink" title="静态数据"></a>静态数据</h3><p>（1）概念：静态数据是指一些永久性的数据，一般存储在硬盘中。硬盘的存储空间一般都比较大，现在普通计算机的硬盘都有500G左右，因此硬盘中可以存放一些比较大的文件。<br>（2）存储的时长：计算机关闭之后再开启，这些数据依旧还在，只要你不主动删掉或者硬盘没坏，这些数据永远都在。<br>（3）哪些是静态数据：静态数据一般是以文件的形式存储在硬盘上，比如文档、照片、视频等。</p>
+<h3 id="动态数据"><a href="#动态数据" class="headerlink" title="动态数据"></a>动态数据</h3><p>（1）概念：动态数据指在程序运行过程中，动态产生的临时数据，一般存储在内存中。内存的存储空间一般都比较小，现在普通计算机的内存只有4G左右，因此要谨慎使用内存，不要占用太多的内存空间。<br>（2）存储的时长：计算机关闭之后，这些临时数据就会被清除。<br>（3）哪些是动态数据：当运行某个程序（软件）时，整个程序就会被加载到内存中，在程序运行过程中，会产生各种各样的临时数据，这些临时数据都是存储在内存中的。当程序停止运行或者计算机被强制关闭时，这个程序产生的所有临时数据都会被清除。</p>
 <p>你可能会问，既然硬盘的存储空间这么大，为何不把所有的应用程序加载到硬盘中去执行呢？有个主要原因是内存的访问速度比硬盘快N倍。</p>
-<h4 id="动态数据和静态数据的转换"><a href="#动态数据和静态数据的转换" class="headerlink" title="动态数据和静态数据的转换"></a>动态数据和静态数据的转换</h4><p>硬盘和内存是计算机使用最频繁的两个硬件，它们之间的数据经常要进行转换。</p>
+<h3 id="动态数据和静态数据的转换"><a href="#动态数据和静态数据的转换" class="headerlink" title="动态数据和静态数据的转换"></a>动态数据和静态数据的转换</h3><p>硬盘和内存是计算机使用最频繁的两个硬件，它们之间的数据经常要进行转换。</p>
 <p>比如，硬盘上有个叫做“C语言.mp4”的视频文件，现在要使用暴风影音来播放：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143556418-1431912984.png" alt=""></p>
 <p>首先打开暴风影音软件，计算机会将暴风影音加载到内存中，紧接着计算机会读取硬盘中视频文件的内容到内存中。暴风影音会解析读取到的文件内容，以视频的形式呈现给用户看。这就完成了一个由静态数据到动态数据的转换。</p>
 <p>再比如，你使用迅雷从网上下载一个叫做“C语言.mp4”的视频文件：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143719574-1356202246.png" alt=""></p>
 <p>首先打开迅雷软件，计算机会将迅雷加载到内存中，紧接着迅雷就会从互联网下载视频文件。大家都知道，这个下载过程肯定是要耗点时间的，主要受文件大小和下载速度的影响。每个时间段内下载获取的数据都是先放到内存中，然后再写入到硬盘中。所有数据下载完毕后，硬盘中就会有一个完整的视频文件。这就完成了动态数据到静态数据的转换。</p>
-<h3 id="存储形式"><a href="#存储形式" class="headerlink" title="存储形式"></a>存储形式</h3><h4 id="二进制存储"><a href="#二进制存储" class="headerlink" title="二进制存储"></a>二进制存储</h4><p>计算机只能识别0和1。因此，前面所说的静态数据和动态数据，都是以0和1的形式存储的，这种存储方式称为“二进制存储”。有人可能觉得很诧异，只是0和1怎么可能表示这多的数据呢？没错，如果只是一位数字的话，只能表示2种数据：要么是0，要么是1。但是如果有多位数字的话，那情况就不一样了。如果有2位数字，那么就能表示4种数据：00、01、10、11；如果有3位数字呢，就能表示8种数据；以此类推，如果有n位数字，就能表示2的n次方种数据。可以发现，只要位数足够，0和1所能表示的数据是非常庞大的。</p>
-<h4 id="比特位和字节"><a href="#比特位和字节" class="headerlink" title="比特位和字节"></a>比特位和字节</h4><p>平时我们在计算机上看到的MP4、MP3、照片等文件，都是由0和1组合成的，只不过计算机解析了这些0和1，以图形界面的形式呈现在我们眼前。文件越大，所包含的0和1就越多，为了方便计算文件大小，对计量单位做了个规定：1个二进制位为1bit，也就是1个0或1就为1bit，bit的中文翻译是“比特位”；8个二进制位为1byte，也就是8个0或1就为1byte，1byte=8bit，byte的中文翻译是“字节”。平时我们所说的某个文件大小为64B，就是64字节的意思，内部包含了64x8个0和1。</p>
+<h2 id="存储形式"><a href="#存储形式" class="headerlink" title="存储形式"></a>存储形式</h2><h3 id="二进制存储"><a href="#二进制存储" class="headerlink" title="二进制存储"></a>二进制存储</h3><p>计算机只能识别0和1。因此，前面所说的静态数据和动态数据，都是以0和1的形式存储的，这种存储方式称为“二进制存储”。有人可能觉得很诧异，只是0和1怎么可能表示这多的数据呢？没错，如果只是一位数字的话，只能表示2种数据：要么是0，要么是1。但是如果有多位数字的话，那情况就不一样了。如果有2位数字，那么就能表示4种数据：00、01、10、11；如果有3位数字呢，就能表示8种数据；以此类推，如果有n位数字，就能表示2的n次方种数据。可以发现，只要位数足够，0和1所能表示的数据是非常庞大的。</p>
+<h3 id="比特位和字节"><a href="#比特位和字节" class="headerlink" title="比特位和字节"></a>比特位和字节</h3><p>平时我们在计算机上看到的MP4、MP3、照片等文件，都是由0和1组合成的，只不过计算机解析了这些0和1，以图形界面的形式呈现在我们眼前。文件越大，所包含的0和1就越多，为了方便计算文件大小，对计量单位做了个规定：1个二进制位为1bit，也就是1个0或1就为1bit，bit的中文翻译是“比特位”；8个二进制位为1byte，也就是8个0或1就为1byte，1byte=8bit，byte的中文翻译是“字节”。平时我们所说的某个文件大小为64B，就是64字节的意思，内部包含了64x8个0和1。</p>
 <p>数据换算：1 KB = 1024 B，1 MB = 1024 KB，1 GB = 1024 MB，1 TB = 1024 GB。</p>
-<h2 id="数据的类型"><a href="#数据的类型" class="headerlink" title="数据的类型"></a>数据的类型</h2><p>C语言有丰富的数据类型，因此它很适合用来编写数据库，如DB2、Oracle都是C语言写的。</p>
+<h1 id="数据的类型"><a href="#数据的类型" class="headerlink" title="数据的类型"></a>数据的类型</h1><p>　<br>C语言有丰富的数据类型，因此它很适合用来编写数据库，如DB2、Oracle都是C语言写的。</p>
 <p>作为程序员，最关心的肯定是内存中的动态数据，因为我们写的程序就是运行在内存中的。程序在运行过程中，会产生各种各样的动态临时数据，为了方便数据的运算和操作，C语言对这些数据进行了分类，提供了丰富的数据类型。大致如下图所示：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143724168-1786196972.jpg" alt=""></p>
 <p>在图中众多数据类型中，最常用的是4种基本数据类型：char、int、float、double，而最重要的是指针类型，指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。</p>
 <p>这些丰富的数据在C语言中可以用常量或者变量来表示（后面会介绍常量和变量的使用）。</p>
-<h2 id="数据的访问"><a href="#数据的访问" class="headerlink" title="数据的访问"></a>数据的访问</h2><p>数据访问一般分为直接访问和间接访问：</p>
-<ol>
-<li>直接访问：直接访问内存单元中的内容。例如: a = 20; b = 2 * a等。</li>
-<li>间接访问：通过内存单元编号以及数据所占字节数访问内存中数据。</li>
-</ol>
+<h1 id="数据的访问"><a href="#数据的访问" class="headerlink" title="数据的访问"></a>数据的访问</h1><p>　<br>数据访问一般分为直接访问和间接访问：</p>
+<p>（1）直接访问：直接访问内存单元中的内容。例如: a = 20; b = 2 * a等。<br>（2）间接访问：通过内存单元编号以及数据所占字节数访问内存中数据。</p>
 <blockquote>
 <p><strong>注意</strong>：指针是间接访问的常用方式。</p>
 </blockquote>
-<h2 id="不同编译器环境下基本数据类型的存储长度"><a href="#不同编译器环境下基本数据类型的存储长度" class="headerlink" title="不同编译器环境下基本数据类型的存储长度"></a>不同编译器环境下基本数据类型的存储长度</h2><p>红色的代表常用的数据类型：</p>
+<h1 id="不同编译器环境下基本数据类型的存储长度"><a href="#不同编译器环境下基本数据类型的存储长度" class="headerlink" title="不同编译器环境下基本数据类型的存储长度"></a>不同编译器环境下基本数据类型的存储长度</h1><p>　<br>红色的代表常用的数据类型：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143728402-1476722878.png" alt=""></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>　<br><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 
       
@@ -508,7 +497,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -588,7 +577,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的存储"><span class="nav-number">2.</span> <span class="nav-text">数据的存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据形态"><span class="nav-number">2.1.</span> <span class="nav-text">数据形态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态数据"><span class="nav-number">2.1.1.</span> <span class="nav-text">静态数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态数据"><span class="nav-number">2.1.2.</span> <span class="nav-text">动态数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态数据和静态数据的转换"><span class="nav-number">2.1.3.</span> <span class="nav-text">动态数据和静态数据的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储形式"><span class="nav-number">2.2.</span> <span class="nav-text">存储形式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制存储"><span class="nav-number">2.2.1.</span> <span class="nav-text">二进制存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比特位和字节"><span class="nav-number">2.2.2.</span> <span class="nav-text">比特位和字节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的类型"><span class="nav-number">3.</span> <span class="nav-text">数据的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的访问"><span class="nav-number">4.</span> <span class="nav-text">数据的访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同编译器环境下基本数据类型的存储长度"><span class="nav-number">5.</span> <span class="nav-text">不同编译器环境下基本数据类型的存储长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据的存储"><span class="nav-number">2.</span> <span class="nav-text">数据的存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据形态"><span class="nav-number">2.1.</span> <span class="nav-text">数据形态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态数据"><span class="nav-number">2.1.1.</span> <span class="nav-text">静态数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态数据"><span class="nav-number">2.1.2.</span> <span class="nav-text">动态数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态数据和静态数据的转换"><span class="nav-number">2.1.3.</span> <span class="nav-text">动态数据和静态数据的转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储形式"><span class="nav-number">2.2.</span> <span class="nav-text">存储形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制存储"><span class="nav-number">2.2.1.</span> <span class="nav-text">二进制存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比特位和字节"><span class="nav-number">2.2.2.</span> <span class="nav-text">比特位和字节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据的类型"><span class="nav-number">3.</span> <span class="nav-text">数据的类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据的访问"><span class="nav-number">4.</span> <span class="nav-text">数据的访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不同编译器环境下基本数据类型的存储长度"><span class="nav-number">5.</span> <span class="nav-text">不同编译器环境下基本数据类型的存储长度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>

@@ -85,14 +85,21 @@
 
 <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【00】C语言简介">
-<meta property="og:url" content="http://sanfordy.com/2016/05/11/1-0 .C语法/【00】C语言简介/index.html">
+<meta property="og:title" content="【08】进制">
+<meta property="og:url" content="http://sanfordy.com/2016/06/19/1-0 .C语法/【08】进制/index.html">
 <meta property="og:site_name" content="Sanfordy`s home">
 <meta property="og:description">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png">
-<meta property="og:updated_time" content="2016-07-26T09:06:09.000Z">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102519860-1011222561.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102524750-87756776.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102530235-234384441.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102534906-1731486194.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102539938-225212688.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102544594-718950591.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102549172-1114288608.png">
+<meta property="og:updated_time" content="2016-07-26T15:21:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【00】C语言简介">
+<meta name="twitter:title" content="【08】进制">
 <meta name="twitter:description">
 <meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png">
 
@@ -112,7 +119,7 @@
   };
 </script>
 
-  <title> 【00】C语言简介 | Sanfordy`s home </title>
+  <title> 【08】进制 | Sanfordy`s home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -265,7 +272,7 @@
             
             
               
-                【00】C语言简介
+                【08】进制
               
             
           </h1>
@@ -277,8 +284,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-11T23:24:05+08:00" content="2016-05-11">
-              2016-05-11
+            <time itemprop="dateCreated" datetime="2016-06-19T22:23:15+08:00" content="2016-06-19">
+              2016-06-19
             </time>
           </span>
 
@@ -307,8 +314,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/11/1-0 .C语法/【00】C语言简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/11/1-0 .C语法/【00】C语言简介/" itemprop="commentsCount"></span>
+                <a href="/2016/06/19/1-0 .C语法/【08】进制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/19/1-0 .C语法/【08】进制/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -338,41 +345,47 @@
       
         <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png" alt=""></p>
 <a id="more"></a>
-<h1 id="计算机常识"><a href="#计算机常识" class="headerlink" title="计算机常识"></a>计算机常识</h1><p>　<br>在学习C语言之前，先要了解一些计算机常识</p>
-<h2 id="计算机只能识别0和1"><a href="#计算机只能识别0和1" class="headerlink" title="计算机只能识别0和1"></a>计算机只能识别0和1</h2><p>大家都知道，计算机要通电才能工作，说白了，它跟电视、洗衣机一样，都是电器。电器都有个共同的能力：懂得判断通电还是断电，通电就能工作，断电就停止工作。因此，从根本上讲，计算机只能识别电信号：高电平信号（通电）、低电平信号（断电），它只知道某个开关是通电还是断电。我们用1代表高电平，0代表低电平。也就说，<code>计算机只能识别0和1。</code></p>
-<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>因为计算机只能识别0和1，因此计算机所能识别的指令和数据都是用二进制数（0和1）来表示的。所谓二进制，就是用0和1来表示所有的数。不过我们日常生活中最常用的是十进制，用0~9来表示所有的数。</p>
-<h3 id="二进制指令"><a href="#二进制指令" class="headerlink" title="二进制指令"></a>二进制指令</h3><p>给计算机灌输一些指令，它就能执行相应的操作，而计算机只能识别由0和1组成的指令。在计算机发展初期，计算机的指令长度为16，即以16个二进制数（0或1）组成一条指令，例如，用1011011000000000这条指令，是让计算机进行一次加法运算。因此，如果要想计算机执行一系列的操作，就必须编写许多条由0和1组成的指令，可以想象的到，这个工作量是如此巨大。</p>
-<h3 id="二进制数据"><a href="#二进制数据" class="headerlink" title="二进制数据"></a>二进制数据</h3><p>平时我们在计算机中存储的一些数据，比如文档、照片、视频等，都是以0和1的形式存储的。只不过计算机解析了这一大堆的0和1，以图形界面的形式将数据展示在我们眼前。</p>
-<h1 id="程序设计语言的发展史"><a href="#程序设计语言的发展史" class="headerlink" title="程序设计语言的发展史"></a>程序设计语言的发展史</h1><p>　<br>我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：<code>机器语言</code>、<code>汇编语言</code>、<code>高级语言</code>。其中， C语言属于高级语言。</p>
-<h2 id="机器语言"><a href="#机器语言" class="headerlink" title="机器语言"></a>机器语言</h2><h3 id="什么是机器语言"><a href="#什么是机器语言" class="headerlink" title="什么是机器语言"></a>什么是机器语言</h3><p>在计算器诞生初期， 所有的计算机程序都是直接用计算机能识别的二进制指令来编写的，也就是说所有的代码里面只有0和1。这种程序设计语言就是“机器语言”。这些由0和1组成的二进制指令，又叫做“机器指令”。</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>（1）执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。<br>（2）可操作硬件：机器语言能直接访问、控制计算机的各种硬件设备，如磁盘、存储器、CPU、I/O端口等。</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>（1）难记：用机器语言编写程序，编程人员要首先熟记所用计算机的全部指令和指令的涵义，指令又多又难记。<br>（2）可读性差：编出的程序全是些0和1的指令代码，可读性差，还容易出错。<br>（3）可移植性差：由于机器语言是直接对硬件产生作用的，对硬件的依赖性很强，因此不同型号计算机的机器语言又不一样。也就是说，如果2台不同型号的机器想实现一样的功能，需要编写2套完全不同的代码。</p>
-<blockquote>
-<p><strong>提示</strong>：机器语言很难掌握和推广，现在除了计算机生产厂家的专业人员外，绝大多数的程序员已经不再去学习机器语言了。</p>
-</blockquote>
-<h2 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h2><h3 id="什么是汇编语言"><a href="#什么是汇编语言" class="headerlink" title="什么是汇编语言"></a>什么是汇编语言</h3><p>由于机器语言的种种弊端，严重影响开发效率，后面就出现了汇编语言。汇编语言其实就是符号化的机器语言，它用一个符号（英文单词、数字）来代表一条机器指令。比如，在机器语言中，用1011011000000000这条指令，是让计算机进行一次加法运算；而在汇编语言中，用英文单词 “ADD”就可以表示加法运算。一个有意义的英文单词，很明显比一串又臭又长的二进制指令，直观好记多了。</p>
-<p>由于计算机只能识别0和1，用汇编语言编写的代码是不能被计算机所识别的，像刚才的”ADD”，计算机肯定不知道是什么意思。因此，用汇编语言编写的代码需要翻译成二进制指令后，才能被计算机识别。这个翻译的工作交给编译器去做。</p>
-<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><p>（1）可读性较好：对比机器语言，汇编语言的代码可读性好。<br>（2）可操作硬件：汇编语言能像机器语言一样，可以直接访问、控制计算机的各种硬件设备，如磁盘、存储器、CPU、I/O端口等。使用汇编语言，可以访问所有能够被访问的软、硬件资源。<br>（3）目标代码简短：目标代码就是经编译器翻译过后的二进制代码，占用内存少，执行速度快。（计算机中所有程序的运行都是在内存中进行的，因此内存的性能对计算机的影响非常大。其作用是用于暂时存放CPU中的运算数据，以及与硬盘等外部存储器交换的数据。只要计算机在运行中， CPU就会把需要运算的数据调到内存中进行运算，当运算完成后内存再将结果传送出来，内存的运行也决定了计算机的稳定运行。）计算机的内存是有限的，因此一个应用程序运行时所占用的内存越少越好。</p>
-<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><p>（1）可移植性差：汇编语言是面向机器的，通常是为特定的计算机或系列计算机专门设计的。因此，不同的机器有不同的汇编语言语法和编译器，代码缺乏可移植性，也就是说，一个程序只能在一种机器上运行，换到其他机器上就不能运行。<br>（2）难记：汇编语言的符号非常多、难记，即使是完成简单的功能也需要大量的汇编语言代码，很容易产生BUG，难于调试。<br>（3）开发效率低：使用汇编语言必须对硬件非常了解，开发效率很低，周期长且单调。</p>
-<h2 id="高级语言"><a href="#高级语言" class="headerlink" title="高级语言"></a>高级语言</h2><h3 id="什么是高级语言"><a href="#什么是高级语言" class="headerlink" title="什么是高级语言"></a>什么是高级语言</h3><p>由于汇编语言依赖于硬件，代码可移植性差，符号又多又难记，于是人类就发明了非常接近自然语言的高级语言。后面要学习的C语言就是高级语言。</p>
-<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><p>（1）可读性最好：语法和结构类似于普通英文，且远离对硬件的直接操作，使得一般人经过学习之后都可以编程，而不用太熟悉硬件知识。<br>（2）代码简洁：比如要计算2个数的和，在高级语言中可以写得非常简洁：d=a+b。但是在机器语言和汇编语言中，就需要几条甚至几十条指令，而且不同机器还要编写不同的指令代码。<br>（3）可移植性好：用高级语言编写的同一个程序还可以在不同的机器上运行，具有可移植性。</p>
-<blockquote>
-<p><strong>注意</strong>：用高级语言编写的程序不能直接被计算机识别，需要经编译器翻译成二进制指令后，才能运行到计算机上。</p>
-</blockquote>
-<h1 id="C语言简史"><a href="#C语言简史" class="headerlink" title="C语言简史"></a>C语言简史</h1><p>　<br>C语言于1972年发明，首次使用是用于重写<code>UNIX</code>操作系统（<code>UNIX</code>以前是用汇编写的）。随着<code>UNIX</code>操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。</p>
-<blockquote>
-<p><strong>注意</strong>：C语言是一门面向过程的语言，非面向对象的语言。</p>
-</blockquote>
-<h1 id="C语言的优点"><a href="#C语言的优点" class="headerlink" title="C语言的优点"></a>C语言的优点</h1><h2 id="丰富的运算符"><a href="#丰富的运算符" class="headerlink" title="丰富的运算符"></a>丰富的运算符</h2><p>计算机的基本功能就是计算，因此一门程序设计语言的计算能力是非常重要的。C语言提供了34种运算符，计算类型及其丰富，其中包括了最基本的加减乘除运算。</p>
-<h2 id="丰富的数据类型"><a href="#丰富的数据类型" class="headerlink" title="丰富的数据类型"></a>丰富的数据类型</h2><p>C语言之所以生命力如何强大，很大一部分是因为它拥有丰富的数据类型。C语言的数据类型有：整型（int）、实型（float）、字符型（char）、数组类型（int []）、指针类型（void *）、结构体类型（struct）、共用体类型（union）等。众多数据类型中，最强大的是指针，通过指针我们可以直接访问内存地址。指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说 C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。正因为C语言数据类型丰富，运算能力极强，因此很多数据库都是用C语言编写的，比如<code>DB2</code>、<code>Oracle</code>等。</p>
-<h2 id="允许直接访问物理地址，对硬件进行操作"><a href="#允许直接访问物理地址，对硬件进行操作" class="headerlink" title="允许直接访问物理地址，对硬件进行操作"></a>允许直接访问物理地址，对硬件进行操作</h2><p>由于C语言允许直接访问物理地址，可以直接对硬件进行操作，因此它既具有高级语言的功能，又具有低级语言的许多功能，能够像汇编语言一样对位（bit）、字节和地址进行操作，而这三者是计算机最基本的工作单元。</p>
-<h2 id="高效率的目标代码"><a href="#高效率的目标代码" class="headerlink" title="高效率的目标代码"></a>高效率的目标代码</h2><p>对比汇编语言，C语言可读性好，易于调试、修改和移植，代码质量与汇编语言相当。</p>
-<h2 id="可移植性好"><a href="#可移植性好" class="headerlink" title="可移植性好"></a>可移植性好</h2><p>在一个环境上用C语言编写的程序，不改动或稍加改动，就可移植到另一个完全不同的环境中运行。</p>
-<h1 id="C语言的缺点"><a href="#C语言的缺点" class="headerlink" title="C语言的缺点"></a>C语言的缺点</h1><h2 id="封装性差、安全性低"><a href="#封装性差、安全性低" class="headerlink" title="封装性差、安全性低"></a>封装性差、安全性低</h2><p>由于C语言是面向过程的，因此它的数据封装性差、安全性低，这就是C语言和其他面向对象语言的区别之一。面向对象语言的特性之一就是数据的封装性。</p>
-<h2 id="语法限制不严格"><a href="#语法限制不严格" class="headerlink" title="语法限制不严格"></a>语法限制不严格</h2><p>对变量的类型约束不严格，对数组下标越界不作检查等。</p>
-<h1 id="C语言能做什么"><a href="#C语言能做什么" class="headerlink" title="C语言能做什么"></a>C语言能做什么</h1><h2 id="开发计算机软件"><a href="#开发计算机软件" class="headerlink" title="开发计算机软件"></a>开发计算机软件</h2><p>由于C语言具有强大的数据处理能力，而且允许直接访问物理地址，直接对硬件操作，因此它适于编写系统软件、图形处理、单片机程序、嵌入式系统开发甚至是用于科研。</p>
-<h2 id="开发Android"><a href="#开发Android" class="headerlink" title="开发Android"></a>开发Android</h2><p>很多操作系统的底层都是用C语言写的，比如 android 。</p>
-<h2 id="开发iOS"><a href="#开发iOS" class="headerlink" title="开发iOS"></a>开发iOS</h2><p>iOS开发中的核心语言是Objective-C（简称OC），OC是在C语言的基础上加了一层面向对象语法。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　<br>我们先来看看平时是如何表示一个整数的，最常见的肯定是用阿拉伯数字表示，比如“十二”，我们可以用12来表示，其实这种表示方式是基于一种叫做“十进制”的计数方式。“进制”是一种计数方式，编程中常见的进制有4种：十进制、二进制、八进制、十六进制。也就是说，同一个整数，我们至少有4种表示方式。</p>
+<h1 id="十进制"><a href="#十进制" class="headerlink" title="十进制"></a>十进制</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>十进制是我们最熟悉、最常用的一种计数方式，它有两个特点：由0、1、2….9十个基本数字组成；运算规则是“逢十进一”。</p>
+<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><p>所谓“逢十进一”，似乎在小学数学中都已经学过了，也就是当数值满十时，就要向前进一位：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102519860-1011222561.png" alt=""></p>
+<p>个位数为9+1，满十了，十位数就进一。</p>
+<h1 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>二进制是计算机内部使用的一种计数方式，它有两个特点：由0、1两个基本数字组成；运算规则是“逢二进一”。</p>
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>有人可能会问：为什么二进制里面没有2~9这些数字呢？都说了，逢二进一，因此当数字满二的时候就会进位。</p>
+<p>如果我写个1010，你能看出它是二进制还是十进制么？为了跟其他进制区分开来，书写二进制数的时候，需要以<code>0b</code>或者<code>0B</code>开头。比如0b1010是个二进制数，而1010则还是我们熟悉的十进制数，就是“一千零一十”</p>
+<h2 id="运算-1"><a href="#运算-1" class="headerlink" title="运算"></a>运算</h2><p>做个简单的运算吧，比如1+1：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102524750-87756776.png" alt=""></p>
+<p>个位数是1+1，值满二了，于是十位数要进一。因此，在二进制中：1 + 1 = 0b10，这里的0b10表示的是十进制中的“二”，并不是“十”。</p>
+<p>以此类推，11 + 1 = 0b100：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102530235-234384441.png" alt=""></p>
+<h2 id="二进制转为十进制"><a href="#二进制转为十进制" class="headerlink" title="二进制转为十进制"></a>二进制转为十进制</h2><p>进制里面有个“基数”的概念，基数是用来计算数值的，比如十进制的基数是10，因此十进制是这样算数的：1230 = 0 x 10<sup>0</sup> + 3 x 10<sup>1</sup> + 2 x 10<sup>2</sup> + 1 x 10<sup>3</sup> = 0 x 1 + 3 x 10 + 2 x 100 + 1 x 1000。</p>
+<p>二进制的基数是2，以此类推：0b1011 = 1 x 2<sup>0</sup> + 1 x 2<sup>1</sup> + 0 x 2<sup>2</sup> + 1 x 2<sup>3</sup> = 1 x 1 + 1 x 2 + 0 x 4 + 1 x 8 = 1 + 2 + 0 + 8 = 11，因此二进制数0b1011表示的数值是十进制中的11。</p>
+<p>一位二进制数能表示的最大值是1，而n位二进制数所能表示的最大值是0b111…1111，也就是说n位二进制数都是1，那么它的十进制数值为：1 x 2<sup>0</sup> + 1 x 2<sup>1</sup> + 1 x 2<sup>2</sup> + 1 x 2<sup>3</sup> + …. + 1 x 2<sup>n-1</sup> = 2<sup>n</sup> - 1。因此，n位二进制数所能表示的最大值是2<sup>n</sup> - 1。也就是说，4位二进制数能表示的最大值是0b1111，十进制数值为：2<sup>4</sup> - 1 = 15。</p>
+<h1 id="八进制"><a href="#八进制" class="headerlink" title="八进制"></a>八进制</h1><h2 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h2><p>八进制有两个特点：由0~7八个基本数字组成；运算规则是“逢八进一”。</p>
+<h2 id="细节-1"><a href="#细节-1" class="headerlink" title="细节"></a>细节</h2><p>由于十进制和八进制中都包含了0~7，为了区分开来，在书写八进制数的时候，需要在前面加个<code>0</code>。比如076是个八进制数，76则是个十进制数。</p>
+<h2 id="运算-2"><a href="#运算-2" class="headerlink" title="运算"></a>运算</h2><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102534906-1731486194.png" alt=""></p>
+<p>个位数是7+1，值满八了，于是十位数要进一。因此，在八进制中，7 + 1 = 010。010则表示十进制中的“八”，而不是“十”。</p>
+<h2 id="八进制转十进制"><a href="#八进制转十进制" class="headerlink" title="八进制转十进制"></a>八进制转十进制</h2><p>八进制的基数是8，因此027计算出来就是十进制中的23：027 = 7 x 8<sup>0</sup> + 2 x 8<sup>1</sup> = 7 x 1 + 2 x 8 = 23。</p>
+<h2 id="二进制转八进制"><a href="#二进制转八进制" class="headerlink" title="二进制转八进制"></a>二进制转八进制</h2><p>不难发现一个十进制数可以表示的最大值是9，而一个八进制数可以表示的最大值是7，恰好一个3位进制数可以表示的最大值0b111也是7。因此，我们可以用一个3位二进制数来代替一个1位八进制数：</p>
+<p>0b11110011 = 0b 011  110  011  = 0363。</p>
+<h2 id="八进制转二进制"><a href="#八进制转二进制" class="headerlink" title="八进制转二进制"></a>八进制转二进制</h2><p>如果是八进制转为二进制，那就反过来，用一个3位二进制数来表示一个1位八进制数：</p>
+<p>025 = 0b 010  101 = 0b10101。</p>
+<h1 id="十六进制"><a href="#十六进制" class="headerlink" title="十六进制"></a>十六进制</h1><h2 id="概念-3"><a href="#概念-3" class="headerlink" title="概念"></a>概念</h2><p>十六进制有两个特点：由0~9和A~F组成，A~F分别表示10~15；运算规则是“逢十六进一”。</p>
+<h2 id="细节-2"><a href="#细节-2" class="headerlink" title="细节"></a>细节</h2><p>由于十进制、八进制、十六进制中都包含了0~7，为了区分开来，在书写十六进制数的时候，需要在前面加个<code>0x</code>或者<code>0X</code>。比如0x76是个十六进制数，076是个八进制数，76则是个十进制数。</p>
+<h2 id="运算-3"><a href="#运算-3" class="headerlink" title="运算"></a>运算</h2><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102539938-225212688.png" alt=""></p>
+<p>个位数是B+5，也就是11+5，值满十六了，于是十位数要进一。因此，在十六进制中，B + 5 = 0x10。0x10则表示十进制中的“十六”，而不是“十”。</p>
+<h2 id="十六进制转十进制"><a href="#十六进制转十进制" class="headerlink" title="十六进制转十进制"></a>十六进制转十进制</h2><p>十六进制的基数是16，F表示十进制中的15，因此0x2F计算出来就是十进制中的47：</p>
+<p>0x2F = 15 x 16<sup>0</sup> + 2 x 16<sup>1</sup> = 15 x 1 + 2 x 16 = 47</p>
+<h2 id="二进制转十六进制"><a href="#二进制转十六进制" class="headerlink" title="二进制转十六进制"></a>二进制转十六进制</h2><p>一个十六进制数可以表示的最大值是15，恰好一个4位二进制数可以表示的最大值0b1111也是15。因此，我们可以用一个4位二进制数来代替一个1位十六进制数：</p>
+<p>0b11110011 = 0b 1111  0011  = 0xF3</p>
+<h2 id="十六进制转二进制"><a href="#十六进制转二进制" class="headerlink" title="十六进制转二进制"></a>十六进制转二进制</h2><p>如果是十六进制转为二进制，那就反过来，用一个4位二进制数来表示一个1位十六进制数：</p>
+<p>0x25 = 0b 0010  0101=0b100101</p>
+<h1 id="变量与进制"><a href="#变量与进制" class="headerlink" title="变量与进制"></a>变量与进制</h1><h2 id="十进制与变量"><a href="#十进制与变量" class="headerlink" title="十进制与变量"></a>十进制与变量</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第3行定义了一个变量a，存储的是十进制整数10。其实，这个变量a在内存中是以二进制数的形式存储的，10的二进制形式是1010。</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102544594-718950591.png" alt=""></p>
+<h2 id="其他进制与变量"><a href="#其他进制与变量" class="headerlink" title="其他进制与变量"></a>其他进制与变量</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>b110; <span class="comment">// 十进制数：6</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">021</span>; <span class="comment">// 十进制数：17</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">12</span>; <span class="comment">// 十进制数：12</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> d = <span class="number">0x1D</span>; <span class="comment">// 十进制数：29</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码中，分别将4种不同进制的数值赋值给不同的整型变量。对应的十进制数值已经写在右边的注释中。它们最终都是以二进制的形式存储在内存中：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160623102549172-1114288608.png" alt=""></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>　<br><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 
@@ -419,12 +432,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/06/18/1-0 .C语法/【07】变量（三）/" rel="next" title="【07】变量（三）">
+                <i class="fa fa-chevron-left"></i> 【07】变量（三）
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/17/1-0 .C语法/【01】第一个C程序代码分析/" rel="prev" title="【01】第一个C程序代码分析">
-                【01】第一个C程序代码分析 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/19/1-0 .C语法/【09】ASCII码/" rel="prev" title="【09】ASCII码">
+                【09】ASCII码 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -451,8 +468,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/11/1-0 .C语法/【00】C语言简介/"
-           data-title="【00】C语言简介" data-url="http://sanfordy.com/2016/05/11/1-0 .C语法/【00】C语言简介/">
+      <div class="ds-thread" data-thread-key="2016/06/19/1-0 .C语法/【08】进制/"
+           data-title="【08】进制" data-url="http://sanfordy.com/2016/06/19/1-0 .C语法/【08】进制/">
       </div>
     
   </div>
@@ -577,7 +594,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机常识"><span class="nav-number">1.</span> <span class="nav-text">计算机常识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机只能识别0和1"><span class="nav-number">1.1.</span> <span class="nav-text">计算机只能识别0和1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制"><span class="nav-number">1.2.</span> <span class="nav-text">二进制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制指令"><span class="nav-number">1.2.1.</span> <span class="nav-text">二进制指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制数据"><span class="nav-number">1.2.2.</span> <span class="nav-text">二进制数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序设计语言的发展史"><span class="nav-number">2.</span> <span class="nav-text">程序设计语言的发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器语言"><span class="nav-number">2.1.</span> <span class="nav-text">机器语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是机器语言"><span class="nav-number">2.1.1.</span> <span class="nav-text">什么是机器语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">2.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">2.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇编语言"><span class="nav-number">2.2.</span> <span class="nav-text">汇编语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是汇编语言"><span class="nav-number">2.2.1.</span> <span class="nav-text">什么是汇编语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级语言"><span class="nav-number">2.3.</span> <span class="nav-text">高级语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是高级语言"><span class="nav-number">2.3.1.</span> <span class="nav-text">什么是高级语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C语言简史"><span class="nav-number">3.</span> <span class="nav-text">C语言简史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C语言的优点"><span class="nav-number">4.</span> <span class="nav-text">C语言的优点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#丰富的运算符"><span class="nav-number">4.1.</span> <span class="nav-text">丰富的运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#丰富的数据类型"><span class="nav-number">4.2.</span> <span class="nav-text">丰富的数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#允许直接访问物理地址，对硬件进行操作"><span class="nav-number">4.3.</span> <span class="nav-text">允许直接访问物理地址，对硬件进行操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高效率的目标代码"><span class="nav-number">4.4.</span> <span class="nav-text">高效率的目标代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可移植性好"><span class="nav-number">4.5.</span> <span class="nav-text">可移植性好</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C语言的缺点"><span class="nav-number">5.</span> <span class="nav-text">C语言的缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#封装性差、安全性低"><span class="nav-number">5.1.</span> <span class="nav-text">封装性差、安全性低</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法限制不严格"><span class="nav-number">5.2.</span> <span class="nav-text">语法限制不严格</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C语言能做什么"><span class="nav-number">6.</span> <span class="nav-text">C语言能做什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发计算机软件"><span class="nav-number">6.1.</span> <span class="nav-text">开发计算机软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发Android"><span class="nav-number">6.2.</span> <span class="nav-text">开发Android</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发iOS"><span class="nav-number">6.3.</span> <span class="nav-text">开发iOS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十进制"><span class="nav-number">2.</span> <span class="nav-text">十进制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算"><span class="nav-number">2.2.</span> <span class="nav-text">运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二进制"><span class="nav-number">3.</span> <span class="nav-text">二进制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念-1"><span class="nav-number">3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细节"><span class="nav-number">3.2.</span> <span class="nav-text">细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算-1"><span class="nav-number">3.3.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制转为十进制"><span class="nav-number">3.4.</span> <span class="nav-text">二进制转为十进制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#八进制"><span class="nav-number">4.</span> <span class="nav-text">八进制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念-2"><span class="nav-number">4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细节-1"><span class="nav-number">4.2.</span> <span class="nav-text">细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算-2"><span class="nav-number">4.3.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八进制转十进制"><span class="nav-number">4.4.</span> <span class="nav-text">八进制转十进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制转八进制"><span class="nav-number">4.5.</span> <span class="nav-text">二进制转八进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八进制转二进制"><span class="nav-number">4.6.</span> <span class="nav-text">八进制转二进制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#十六进制"><span class="nav-number">5.</span> <span class="nav-text">十六进制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念-3"><span class="nav-number">5.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细节-2"><span class="nav-number">5.2.</span> <span class="nav-text">细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算-3"><span class="nav-number">5.3.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六进制转十进制"><span class="nav-number">5.4.</span> <span class="nav-text">十六进制转十进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制转十六进制"><span class="nav-number">5.5.</span> <span class="nav-text">二进制转十六进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六进制转二进制"><span class="nav-number">5.6.</span> <span class="nav-text">十六进制转二进制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量与进制"><span class="nav-number">6.</span> <span class="nav-text">变量与进制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#十进制与变量"><span class="nav-number">6.1.</span> <span class="nav-text">十进制与变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他进制与变量"><span class="nav-number">6.2.</span> <span class="nav-text">其他进制与变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
