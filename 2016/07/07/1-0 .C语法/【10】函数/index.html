@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160707155855624-785321241.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160707155901561-302125664.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160718141032685-1803882138.png">
-<meta property="og:updated_time" content="2016-07-26T15:51:28.000Z">
+<meta property="og:updated_time" content="2016-07-31T10:17:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【10】函数">
 <meta name="twitter:description">
@@ -458,13 +458,13 @@
 <p>输出结果(注意，后面是有个点的)：The price is 14.</p>
 <p>（2）如果我把%d换成%4d：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"The price is %4d."</span>, <span class="number">14</span>);</span><br></pre></td></tr></table></figure>
-<p>输出结果：The price is   14.，你会发现”is”跟”14”的距离被拉开了，%4d的意思是输出宽度为4，而”14”的宽度为2，因此多出2个宽度，多出的宽度就会在左边用空格填补，因此你会看到”14”左边多了2个空格。</p>
+<p>输出结果：The price is　　14.，你会发现”is”跟”14”的距离被拉开了，%4d的意思是输出宽度为4，而”14”的宽度为2，因此多出2个宽度，多出的宽度就会在左边用空格填补，因此你会看到”14”左边多了2个空格。</p>
 <p>（3）如果实际数值宽度比较大，用%4d输出宽度为6的”142434”，那就会按照实际数值宽度6来输出：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"The price is %4d."</span>, <span class="number">142434</span>);</span><br></pre></td></tr></table></figure>
 <p>输出结果：The price is 132434，”142434”的输出宽度为6。</p>
 <p>（4）如果换成%-4d：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"The price is %-4d."</span>, <span class="number">14</span>);</span><br></pre></td></tr></table></figure>
-<p>输出结果：The price is 14    .，你会发现”14”跟”.”的距离被拉开了，%-4d表示输出宽度为4，如果比实际数值宽度大，多出的宽度会在右边用空格填补。如果4比实际数值宽度小，就按照实际数值的宽度来输出。</p>
+<p>输出结果：The price is 14　　.，你会发现”14”跟”.”的距离被拉开了，%-4d表示输出宽度为4，如果比实际数值宽度大，多出的宽度会在右边用空格填补。如果4比实际数值宽度小，就按照实际数值的宽度来输出。</p>
 <h4 id="浮点数的小数位数"><a href="#浮点数的小数位数" class="headerlink" title="浮点数的小数位数"></a>浮点数的小数位数</h4><p>（1）我们先看下默认的浮点数输出：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"My height is %f"</span>, <span class="number">179.95f</span>);</span><br></pre></td></tr></table></figure>
 <p>输出结果：My height is 179.949997，默认是输出6位小数。</p>
@@ -473,7 +473,7 @@
 <p>输出结果：My height is 179.95</p>
 <p>（3）当然，可以同时设置输出宽度和小数位数：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"My height is %8.1f"</span>, <span class="number">179.95f</span>);</span><br></pre></td></tr></table></figure>
-<p>输出结果：My height is     179.9，输出宽度为8，保留1位小数。</p>
+<p>输出结果：My height is　　179.9，输出宽度为8，保留1位小数。</p>
 <h2 id="字符处理函数"><a href="#字符处理函数" class="headerlink" title="字符处理函数"></a>字符处理函数</h2><p>下面介绍的两个字符处理函数都是在stdio.h头文件中声明的。</p>
 <h3 id="字符输出函数putchar"><a href="#字符输出函数putchar" class="headerlink" title="字符输出函数putchar"></a>字符输出函数putchar</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">putchar</span>(<span class="number">65</span>); <span class="comment">// A</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">putchar</span>(<span class="string">'A'</span>); <span class="comment">// A</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">65</span>;</span><br><span class="line"><span class="built_in">putchar</span>(a); <span class="comment">// A</span></span><br></pre></td></tr></table></figure>
 <p>上面的3种用法，输出的都是大写字母A。</p>
@@ -538,6 +538,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/31/1-0 .C语法/【11】流程控制/" rel="prev" title="【11】流程控制">
+                【11】流程控制 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -609,7 +613,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
