@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-08-03T10:06:33.000Z</updated>
+  <updated>2016-08-04T07:40:57.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -16,11 +16,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>哈哈哈啊</title>
+    <link href="http://sanfordy.com/2016/08/04/%E5%93%88%E5%93%88%E5%93%88%E5%95%8A/"/>
+    <id>http://sanfordy.com/2016/08/04/哈哈哈啊/</id>
+    <published>2016-08-04T07:40:24.000Z</published>
+    <updated>2016-08-04T07:40:57.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;ladkjdkj&quot;&gt;&lt;a href=&quot;#ladkjdkj&quot; class=&quot;headerlink&quot; title=&quot;ladkjdkj&quot;&gt;&lt;/a&gt;ladkjdkj&lt;/h1&gt;&lt;p&gt;肯德基看见&lt;/p&gt;
+&lt;h2 id=&quot;djfkajfkdj&quot;&gt;&lt;a href=&quot;#djfkajfkdj&quot; class=&quot;headerlink&quot; title=&quot;djfkajfkdj&quot;&gt;&lt;/a&gt;djfkajfkdj&lt;/h2&gt;&lt;p&gt;djfklajfkd&lt;/p&gt;
+&lt;p&gt;jfdjfjdfkljak&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ladkjdkj&quot;&gt;&lt;a href=&quot;#ladkjdkj&quot; class=&quot;headerlink&quot; title=&quot;ladkjdkj&quot;&gt;&lt;/a&gt;ladkjdkj&lt;/h1&gt;&lt;p&gt;肯德基看见&lt;/p&gt;
+&lt;h2 id=&quot;djfkajfkdj&quot;&gt;&lt;a href=&quot;#djfkaj
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>【12】基本运算</title>
     <link href="http://sanfordy.com/2016/08/01/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9012%E3%80%91%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/"/>
     <id>http://sanfordy.com/2016/08/01/1-0 .C语法/【12】基本运算/</id>
     <published>2016-08-01T00:52:05.000Z</published>
-    <updated>2016-08-03T10:06:33.000Z</updated>
+    <updated>2016-08-04T07:34:50.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -89,32 +111,11 @@
 &lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201607/776348-20160731215744731-1017647345.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;如果用户点击了注册按钮，我们就执行“跳转到注册界面”的代码；如果用户点击了登录按钮，我们就执行“跳转到登录界面”的代码。如果用户没做出任何操作，就不执行前面所说的两段代码。像这种情况的话可以使用条件语句来完成，但是我们暂时不学习条件语句，先来看一些更基础的知识：如何判断一个条件成不成立。如果这个都不会判断，还执行什么代码。&lt;/p&gt;
 &lt;p&gt;在C语言中，条件成立称为“真”，条件不成立称为“假”，因此，判断条件是否成立，就是判断条件的“真假”。那怎么判断真假呢？C语言规定，任何非0值都为“真”，只有0才为“假”。也就是说，108、-18、4.5、-10.5等都是“真”，0则是“假”。&lt;/p&gt;
-&lt;h2 id=&quot;关系运算符的简单使用&quot;&gt;&lt;a href=&quot;#关系运算符的简单使用&quot; class=&quot;headerlink&quot; title=&quot;关系运算符的简单使用&quot;&gt;&lt;/a&gt;关系运算符的简单使用&lt;/h2&gt;&lt;p&gt;（1）小于。比如a&lt;5。 （2）小于等于。比如a&lt;=&quot;5。&quot; （3）大于。比如a=&quot;&quot;&gt;5。&lt;br&gt;（4）大于等于。比如a&amp;gt;=5。&lt;br&gt;（5）等于。比如a==5。&lt;br&gt;（6）不等于。比如a!=5。&lt;/5。&gt;&lt;/p&gt;
+&lt;h2 id=&quot;关系运算符的简单使用&quot;&gt;&lt;a href=&quot;#关系运算符的简单使用&quot; class=&quot;headerlink&quot; title=&quot;关系运算符的简单使用&quot;&gt;&lt;/a&gt;关系运算符的简单使用&lt;/h2&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;a&amp;lt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//  小于&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a&amp;lt;=&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//  小于等于&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a&amp;gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//  大于&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a&amp;gt;=&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//  大于等于&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a==&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//  等于&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a!=&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//  不等于&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;关系运算符的运算结果只有2种：如果条件成立，结果就为1，也就是“真”；如果条件不成立，结果就为0，也就是“假”。&lt;/p&gt;
 &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a1 = &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; &amp;gt; &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a2 = &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; &amp;lt; &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// 0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;关系运算符的使用注意&quot;&gt;&lt;a href=&quot;#关系运算符的使用注意&quot; class=&quot;headerlink&quot; title=&quot;关系运算符的使用注意&quot;&gt;&lt;/a&gt;关系运算符的使用注意&lt;/h2&gt;&lt;p&gt;（1）关系运算符中==、!=的优先级相等，&amp;lt;、&amp;lt;=、&amp;gt;、&amp;gt;=的优先级相等，且前者的优先级低于后者。&lt;br&gt;　　例如2==3&amp;gt;1 ：先算3&amp;gt;1，条件成立，结果为1。再计算2==1，条件不成立，结果为0。因此2==3&amp;gt;1的结果为0。&lt;br&gt;（2）关系运算符的结合方向为“从左往右”。&lt;br&gt;　　例如4&amp;gt;3&amp;gt;2 ：先算4&amp;gt;3，条件成立，结果为1。再与2比较，即1&amp;gt;2，条件不成立，结果为0。因此4&amp;gt;3&amp;gt;2的结果为0。&lt;br&gt;（3）关系运算符的优先级小于算术运算符。&lt;br&gt;　　例如3+4&amp;gt;8-2 ：先计算3+4，结果为7。再计算8-2，结果为6。最后计算7&amp;gt;6，条件成立，结果为1。因此3+4&amp;gt;8-2的结果为1。&lt;/p&gt;
-&lt;h1 id=&quot;逻辑运算符&quot;&gt;&lt;a href=&quot;#逻辑运算符&quot; class=&quot;headerlink&quot; title=&quot;逻辑运算符&quot;&gt;&lt;/a&gt;逻辑运算符&lt;/h1&gt;&lt;p&gt;　&lt;br&gt;有时候，我们需要在多个条件同时成立的时候才能执行某段代码，比如：用户只有同时输入了QQ和密码，才能执行登录代码，如果只输入了QQ或者只输入了密码，就不能执行登录代码。这种情况下，我们就要借助于C语言提供的逻辑运算符。&lt;/p&gt;
-&lt;p&gt;C语言提供了3个逻辑运算符：&amp;amp;&amp;amp;（逻辑与）、||（逻辑或）、!（逻辑非）。注意：这些都是英文字符，不要写成中文字符。跟关系运算符一样，逻辑运算的结果只有2个：“真”为1，“假”为0。&lt;/p&gt;
-&lt;h2 id=&quot;amp-amp-逻辑与&quot;&gt;&lt;a href=&quot;#amp-amp-逻辑与&quot; class=&quot;headerlink&quot; title=&quot;&amp;amp;&amp;amp; 逻辑与&quot;&gt;&lt;/a&gt;&amp;amp;&amp;amp; 逻辑与&lt;/h2&gt;&lt;h3 id=&quot;使用格式&quot;&gt;&lt;a href=&quot;#使用格式&quot; class=&quot;headerlink&quot; title=&quot;使用格式&quot;&gt;&lt;/a&gt;使用格式&lt;/h3&gt;&lt;p&gt;“条件A &amp;amp;&amp;amp; 条件B”&lt;/p&gt;
-&lt;h3 id=&quot;运算结果&quot;&gt;&lt;a href=&quot;#运算结果&quot; class=&quot;headerlink&quot; title=&quot;运算结果&quot;&gt;&lt;/a&gt;运算结果&lt;/h3&gt;&lt;p&gt;只有当条件A和条件B都成立时，结果才为1，也就是“真”；其余情况的结果都为0，也就是“假”。因此，条件A或条件B只要有一个不成立，结果都为0，也就是“假”&lt;/p&gt;
-&lt;h3 id=&quot;运算过程&quot;&gt;&lt;a href=&quot;#运算过程&quot; class=&quot;headerlink&quot; title=&quot;运算过程&quot;&gt;&lt;/a&gt;运算过程&lt;/h3&gt;&lt;p&gt;（1）总是先判断条件A是否成立。&lt;br&gt;（2）如果条件A成立，接着再判断条件B是否成立：如果条件B成立，“条件A &amp;amp;&amp;amp; 条件B”的结果就为1，即“真”，如果条件B不成立，结果就为0，即“假”。&lt;br&gt;（3）如果条件A不成立，就不会再去判断条件B是否成立：因为条件A已经不成立了，不管条件B如何，“条件A &amp;amp;&amp;amp; 条件B”的结果肯定是0，也就是“假”。&lt;/p&gt;
-&lt;h3 id=&quot;举例&quot;&gt;&lt;a href=&quot;#举例&quot; class=&quot;headerlink&quot; title=&quot;举例&quot;&gt;&lt;/a&gt;举例&lt;/h3&gt;&lt;p&gt;逻辑与的结合方向是“自左至右”。比如表达式 (a&amp;gt;3) &amp;amp;&amp;amp; (a&amp;lt;5)：&lt;/p&gt;
-&lt;p&gt;（1）若a的值是4：先判断a&amp;gt;3，成立；再判断a&lt;5，也成立。因此结果为1。 （2）若a的值是2：先判断a=&quot;&quot;&gt;3，不成立，停止判断。因此结果为0。&lt;br&gt;（3）因此，如果a的值在(3, 5)这个范围内，结果就为1；否则，结果就为0。&lt;/5，也成立。因此结果为1。&gt;&lt;/p&gt;
-&lt;h3 id=&quot;注意&quot;&gt;&lt;a href=&quot;#注意&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h3&gt;&lt;p&gt;（1）若想判断a的值是否在(3, 5)范围内，千万不能写成3&lt;a&lt;5，因为关系运算符的结合方向为“从左往右”。比如a为2，它会先算3&lt;a，也就是3&lt;2，条件不成立，结果为0。再与5比较，即0&lt;5，条件成立，结果为1。因此3&lt;a&lt;5的结果为1，条件成立，也就是说当a的值为2时，a的值是在(3, 5)范围内的。这明显是不对的。正确的判断方法是：(a=&quot;&quot;&gt;3) &amp;amp;&amp;amp; (a&amp;lt;5)。&lt;br&gt;（2）C语言规定：任何非0值都为“真”，只有0才为“假”。因此逻辑与也适用于数值。比如 5 &amp;amp;&amp;amp; 4的结果是1，为“真”；-6 &amp;amp;&amp;amp; 0的结果是0，为“假”。&lt;/a&lt;5，因为关系运算符的结合方向为“从左往右”。比如a为2，它会先算3&lt;a，也就是3&lt;2，条件不成立，结果为0。再与5比较，即0&lt;5，条件成立，结果为1。因此3&lt;a&lt;5的结果为1，条件成立，也就是说当a的值为2时，a的值是在(3,&gt;&lt;/p&gt;
-&lt;h2 id=&quot;逻辑或&quot;&gt;&lt;a href=&quot;#逻辑或&quot; class=&quot;headerlink&quot; title=&quot;||  逻辑或&quot;&gt;&lt;/a&gt;||  逻辑或&lt;/h2&gt;&lt;h3 id=&quot;使用格式-1&quot;&gt;&lt;a href=&quot;#使用格式-1&quot; class=&quot;headerlink&quot; title=&quot;使用格式&quot;&gt;&lt;/a&gt;使用格式&lt;/h3&gt;&lt;p&gt;“条件A || 条件B”&lt;/p&gt;
-&lt;h3 id=&quot;运算结果-1&quot;&gt;&lt;a href=&quot;#运算结果-1&quot; class=&quot;headerlink&quot; title=&quot;运算结果&quot;&gt;&lt;/a&gt;运算结果&lt;/h3&gt;&lt;p&gt;当条件A或条件B只要有一个成立时（也包括条件A和条件B都成立），结果就为1，也就是“真”；只有当条件A和条件B都不成立时，结果才为0，也就是“假”。&lt;/p&gt;
-&lt;h3 id=&quot;运算过程-1&quot;&gt;&lt;a href=&quot;#运算过程-1&quot; class=&quot;headerlink&quot; title=&quot;运算过程&quot;&gt;&lt;/a&gt;运算过程&lt;/h3&gt;&lt;p&gt;（1）总是先判断条件A是否成立。&lt;br&gt;（2）如果条件A成立，就不会再去判断条件B是否成立：因为条件A已经成立了，不管条件B如何，“条件A || 条件B”的结果肯定是1，也就是“真”。&lt;br&gt;（3）如果条件A不成立，接着再判断条件B是否成立：如果条件B成立，“条件A || 条件B”的结果就为1，即“真”，如果条件B不成立，结果就为0，即“假”。&lt;/p&gt;
-&lt;h3 id=&quot;举例-1&quot;&gt;&lt;a href=&quot;#举例-1&quot; class=&quot;headerlink&quot; title=&quot;举例&quot;&gt;&lt;/a&gt;举例&lt;/h3&gt;&lt;p&gt;逻辑或的结合方向是“自左至右”，比如表达式 (a&lt;3) ||=&quot;&quot; (a=&quot;&quot;&gt;5)：&lt;/3)&gt;&lt;/p&gt;
-&lt;p&gt;（1）若a的值是4：先判断a&lt;3，不成立；再判断a&gt;5，也不成立。因此结果为0。&lt;br&gt;（2）若a的值是2：先判断a&amp;lt;3，成立，停止判断。因此结果为1。&lt;br&gt;（3）因此，如果a的值在(-∞, 3)或者(5, +∞)范围内，结果就为1；否则，结果就为0。&lt;/3，不成立；再判断a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;注意-1&quot;&gt;&lt;a href=&quot;#注意-1&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h3&gt;&lt;p&gt;C语言规定：任何非0值都为“真”，只有0才为“假”。因此逻辑或也适用于数值。比如 5 || 4的结果是1，为“真”；-6 || 0的结果是1，为“真”；0 || 0的结果是0，为“假”。&lt;/p&gt;
-&lt;h2 id=&quot;逻辑非&quot;&gt;&lt;a href=&quot;#逻辑非&quot; class=&quot;headerlink&quot; title=&quot;! 逻辑非&quot;&gt;&lt;/a&gt;! 逻辑非&lt;/h2&gt;&lt;h3 id=&quot;使用格式-2&quot;&gt;&lt;a href=&quot;#使用格式-2&quot; class=&quot;headerlink&quot; title=&quot;使用格式&quot;&gt;&lt;/a&gt;使用格式&lt;/h3&gt;&lt;p&gt;“! 条件A”&lt;/p&gt;
-&lt;h3 id=&quot;运算结果-2&quot;&gt;&lt;a href=&quot;#运算结果-2&quot; class=&quot;headerlink&quot; title=&quot;运算结果&quot;&gt;&lt;/a&gt;运算结果&lt;/h3&gt;&lt;p&gt;其实就是对条件A进行取反：若条件A成立，结果就为0，即“假”；若条件A不成立，结果就为1，即“真”。也就是说：真的变假，假的变真。&lt;/p&gt;
-&lt;h3 id=&quot;举例-2&quot;&gt;&lt;a href=&quot;#举例-2&quot; class=&quot;headerlink&quot; title=&quot;举例&quot;&gt;&lt;/a&gt;举例&lt;/h3&gt;&lt;p&gt;逻辑非的结合方向是“自右至左”。比如表达式 ! (a&amp;gt;5)：&lt;/p&gt;
-&lt;p&gt;（1）若a的值是6：先判断a&amp;gt;5，成立，再取反之后的结果为0。&lt;br&gt;（2）若a的值是2：先判断a&amp;gt;3，不成立，再取反之后的结果为1。&lt;br&gt;（3）因此，如果a的值大于5，结果就为0；否则，结果就为1。&lt;/p&gt;
-&lt;h3 id=&quot;注意-2&quot;&gt;&lt;a href=&quot;#注意-2&quot; class=&quot;headerlink&quot; title=&quot;注意&quot;&gt;&lt;/a&gt;注意&lt;/h3&gt;&lt;p&gt;（1）可以多次连续使用逻辑非运算符：!(4&amp;gt;2)结果为0，是“假”，!!(4&amp;gt;2)结果为1，是“真”，!!!(4&amp;gt;2)结果为0，是“假”。&lt;br&gt;（2）C语言规定：任何非0值都为“真”，只有0才为“假”。因此，对非0值进行逻辑非!运算的结果都是0，对0值进行逻辑非!运算的结果为1。!5、!6.7、!-9的结果都为0，!0的结果为1。&lt;/p&gt;
-&lt;h2 id=&quot;优先级-1&quot;&gt;&lt;a href=&quot;#优先级-1&quot; class=&quot;headerlink&quot; title=&quot;优先级&quot;&gt;&lt;/a&gt;优先级&lt;/h2&gt;&lt;p&gt;逻辑运算符的优先级顺序为： 小括号() &amp;gt; 负号 - &amp;gt; ! &amp;gt; 算术运算符 &amp;gt; 关系运算符 &amp;gt; &amp;amp;&amp;amp; &amp;gt; ||：&lt;/p&gt;
-&lt;p&gt;（1）表达式!(3&amp;gt;5) || (2&lt;4) &amp;&amp;=&quot;&quot; (6&lt;1)=&quot;&quot; ：先计算=&quot;&quot; !(3=&quot;&quot;&gt;5)、(2&lt;4)、(6&lt;1)，结果为1，式子变为1 1=&quot;&quot; ||=&quot;&quot; &amp;&amp;=&quot;&quot; 0，再计算1=&quot;&quot; 0，式子变为1=&quot;&quot; 0，最后的结果为1。=&quot;&quot; （2）表达式3+2&lt;5||6=&quot;&quot;&gt;3 等价于 ((3+2) &amp;lt; 5) || (6&amp;gt;3)，结果为1。&lt;br&gt;（3）表达式4&amp;gt;3 &amp;amp;&amp;amp; !-5&amp;gt;2 等价于 (4&amp;gt;3) &amp;amp;&amp;amp;  ((!(-5)) &amp;gt; 2) ，结果为0。&lt;/4)、(6&lt;1)，结果为1，式子变为1&gt;&lt;/4)&gt;&lt;/p&gt;
-</content>
+&lt;h1 id=&quot;逻辑运算符&quot;&gt;&lt;a href=&quot;#逻辑运算符&quot; class=&quot;headerlink&quot; title=&quot;逻辑运算符&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;逻辑运算符&lt;/font&gt;&lt;/h1&gt;&lt;h1 id=&quot;dkjfkajk&quot;&gt;&lt;a href=&quot;#dkjfkajk&quot; class=&quot;headerlink&quot; title=&quot;dkjfkajk&quot;&gt;&lt;/a&gt;dkjfkajk&lt;/h1&gt;&lt;h2 id=&quot;fjkldfjkj&quot;&gt;&lt;a href=&quot;#fjkldfjkj&quot; class=&quot;headerlink&quot; title=&quot;fjkldfjkj&quot;&gt;&lt;/a&gt;fjkldfjkj&lt;/h2&gt;</content>
     
     <summary type="html">
     
