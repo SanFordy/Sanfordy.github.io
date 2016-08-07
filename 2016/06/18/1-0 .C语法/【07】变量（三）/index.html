@@ -48,13 +48,19 @@
   
 
   
+    
+      
+    
+
+    
+  
 
   
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|comic sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -71,7 +77,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Sanfordy`s home" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Sanfordy`s　blog" type="application/atom+xml" />
 
 
 
@@ -83,20 +89,18 @@
 
 
 
-<meta name="description">
+<meta name="description" content="我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【07】变量（三）">
 <meta property="og:url" content="http://sanfordy.com/2016/06/18/1-0 .C语法/【07】变量（三）/index.html">
-<meta property="og:site_name" content="Sanfordy`s home">
-<meta property="og:description">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png">
+<meta property="og:site_name" content="Sanfordy`s　blog">
+<meta property="og:description" content="我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png">
-<meta property="og:updated_time" content="2016-08-02T14:35:41.000Z">
+<meta property="og:updated_time" content="2016-08-06T15:49:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【07】变量（三）">
-<meta name="twitter:description">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png">
-
+<meta name="twitter:description" content="我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -113,7 +117,30 @@
   };
 </script>
 
-  <title> 【07】变量（三） | Sanfordy`s home </title>
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+
+<style>
+.pace .pace-progress {
+background: #228B22; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #228B22, 0 0 5px     #228B22; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #228B22;    /*上边框颜色*/
+border-left-color: #228B22;    /*左边框颜色*/
+}
+</style>
+
+
+
+  <title> 【07】变量（三） | Sanfordy`s　blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +171,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Sanfordy`s home</span>
+      <span class="site-title">Sanfordy`s　blog</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -293,7 +320,7 @@
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/1-0-【C语法】/" itemprop="url" rel="index">
-                    <span itemprop="name">1.0 【C语法】</span>
+                    <span itemprop="name">1.0　【C语法】</span>
                   </a>
                 </span>
 
@@ -337,55 +364,84 @@
       
 
       
-        <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607114713324-747211849.png" alt=""></p>
+        <blockquote>
+<p>我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能存储的数据范围就变大了。</p>
+</blockquote>
 <a id="more"></a>
-<h1 id="类型修饰符"><a href="#类型修饰符" class="headerlink" title="类型修饰符"></a>类型修饰符</h1><h2 id="什么是类型修饰符"><a href="#什么是类型修饰符" class="headerlink" title="什么是类型修饰符"></a>什么是类型修饰符</h2><p>我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能存储的数据范围就变大了。</p>
+<h2 id="类型修饰符"><a href="#类型修饰符" class="headerlink" title="类型修饰符"></a>类型修饰符</h2><h3 id="什么是类型修饰符"><a href="#什么是类型修饰符" class="headerlink" title="什么是类型修饰符"></a>什么是类型修饰符</h3><p>我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能存储的数据范围就变大了。</p>
 <p>C语言提供了以下4种类型修饰符，4个都属于关键字：</p>
-<p>（1）short  短型。<br>（2）long  长型。<br>（3）signed  有符号型。<br>（4）unsigned  无符号型。</p>
+<ol>
+<li>short  短型。</li>
+<li>long  长型。</li>
+<li>signed  有符号型。</li>
+<li>unsigned  无符号型。</li>
+</ol>
 <p>按照用途进行分类，short和long是一类，signed和unsigned是一类。</p>
-<h2 id="用法演示"><a href="#用法演示" class="headerlink" title="用法演示"></a>用法演示</h2><p>这些说明符一般就是用来修饰int类型的，所以在使用时可以省略int：</p>
+<h3 id="用法演示"><a href="#用法演示" class="headerlink" title="用法演示"></a>用法演示</h3><p>这些说明符一般就是用来修饰int类型的，所以在使用时可以省略int：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">short</span> <span class="keyword">int</span> s1 = <span class="number">1</span>;</span><br><span class="line"> <span class="keyword">short</span> s2 = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">long</span> <span class="keyword">int</span> l1 = <span class="number">2</span>;</span><br><span class="line"> <span class="keyword">long</span> l2 = <span class="number">2</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 可以连续使用2个long</span></span><br><span class="line"> <span class="keyword">long</span> <span class="keyword">long</span> ll = <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">signed</span> <span class="keyword">int</span> si1 = <span class="number">3</span>;</span><br><span class="line"> <span class="keyword">signed</span> si2 = <span class="number">3</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">unsigned</span> <span class="keyword">int</span> us1 = <span class="number">4</span>;</span><br><span class="line"> <span class="keyword">unsigned</span> us2 = <span class="number">4</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 也可以同时使用2种修饰符</span></span><br><span class="line"> <span class="keyword">signed</span> <span class="keyword">short</span> <span class="keyword">int</span> ss = <span class="number">5</span>;</span><br><span class="line"> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> ul = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<p>（1）第2行中的short int和第3行中的short是等价的。<br>（2）看第10行，可以连续使用两个long。long的作用会在后面解释。<br>（3）注意第21和22行，可以同时使用两种不同的说明符。但是不能同时使用相同类型的修饰符，也就是说不能同时使用short和long 或者 不能同时使用signed和unsigned。</p>
-<h2 id="short和long"><a href="#short和long" class="headerlink" title="short和long"></a>short和long</h2><p>short和long可以提供不同长度的整型数，也就是可以改变整型数的取值范围。在64bit编译器环境下，int占用4个字节（32bit），取值范围是-231~231-1；short占用2个字节（16bit），取值范围是-215~215-1；long占用8个字节（64bit），取值范围是-263~263-1。</p>
+<ol>
+<li>第2行中的short int和第3行中的short是等价的。</li>
+<li>看第10行，可以连续使用两个long。long的作用会在后面解释。</li>
+<li>注意第21和22行，可以同时使用两种不同的说明符。但是不能同时使用相同类型的修饰符，也就是说不能同时使用short和long 或者 不能同时使用signed和unsigned。</li>
+</ol>
+<h3 id="short和long"><a href="#short和long" class="headerlink" title="short和long"></a>short和long</h3><p>short和long可以提供不同长度的整型数，也就是可以改变整型数的取值范围。在64bit编译器环境下，int占用4个字节（32bit），取值范围是-231~231-1；short占用2个字节（16bit），取值范围是-215~215-1；long占用8个字节（64bit），取值范围是-263~263-1。</p>
 <p>在64位编译器环境下，short占2个字节(16位)，int占4个字节(32位)，long占8个字节(64位)。因此，如果使用的整数不是很大的话，可以使用short代替int，这样的话，更节省内存开销。</p>
 <p>世界上的编译器林林总总，不同编译器环境下，int、short、long的取值范围和占用的长度又是不一样的。比如在16bit编译器环境下，long只占用4个字节。不过幸运的是，ANSI \ ISO制定了以下规则：</p>
-<p>（1）short跟int至少为16位（2字节）。<br>（2）long至少为32位（4字节）。<br>（3）short的长度不能大于int，int的长度不能大于long。<br>（4）char一定为为8位（1字节），毕竟char是我们编程能用的最小数据类型。</p>
+<ol>
+<li>short跟int至少为16位（2字节）。</li>
+<li>long至少为32位（4字节）。</li>
+<li>short的长度不能大于int，int的长度不能大于long。</li>
+<li>char一定为为8位（1字节），毕竟char是我们编程能用的最小数据类型。</li>
+</ol>
 <p>可以连续使用2个long，也就是long long。一般来说，long long的范围是不小于long的，比如在32bit编译器环境下，long long占用8个字节，long占用4个字节。不过在64bit编译器环境下，long long跟long是一样的，都占用8个字节。</p>
 <p>还有一点要明确的是：short int等价于short，long int等价于long，long long int等价于long long。</p>
-<h2 id="long的使用注意"><a href="#long的使用注意" class="headerlink" title="long的使用注意"></a>long的使用注意</h2><h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>long和int都能够存储整型常量，为了区分long和int，一般会在整型常量后面加个小写字母l，比如100l，表示long类型的常量。如果是long long类型呢，就加2个l，比如100ll。如果什么都不加，就是int类型的常量。因此，100是int类型的常量，100l是long类型的常量，100ll是long long类型的常量：</p>
+<h3 id="long的使用注意"><a href="#long的使用注意" class="headerlink" title="long的使用注意"></a>long的使用注意</h3><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>long和int都能够存储整型常量，为了区分long和int，一般会在整型常量后面加个小写字母l，比如100l，表示long类型的常量。如果是long long类型呢，就加2个l，比如100ll。如果什么都不加，就是int类型的常量。因此，100是int类型的常量，100l是long类型的常量，100ll是long long类型的常量：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">long</span> b = <span class="number">100l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> c = <span class="number">100l</span>l;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>变量a、b、c最终存储的值其实都是100，只不过占用的字节不相同，变量a用4个字节来存储100，变量b、c则用8个字节来存储100。</p>
 <p>其实，你直接将100赋值给long类型的变量也是没问题的，照样使用。因为100是个int类型的常量，只要有4个字节，就能存储它，而long类型的变量b有8个字节，那肯定可以装下100啦：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> b = <span class="number">100</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">100000000000l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">100000000000l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在第5行定义了long类型变量a，在第7行尝试输出a的值。注意了，这里用的是%d，表示以十进制整数格式输出，%d会把a当做int类型来输出，它认为a是4个字节的。由于a是long类型的，占用8个字节，但是输出a的时候，只会取其中4个字节的内容进行输出，所以输出结果是：<code>1215752192</code>。又是传说的垃圾数据。</p>
 <p>那怎样才能完整地输出long类型呢？应该用格式符%ld：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">100000000000l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%ld\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意第7行，双引号里面的是%ld，表示输出1个long类型的整数，这时候的输出结果是：1000000000000</p>
 <p>如果是long long类型，应该用%lld：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a = <span class="number">100000000000l</span>l;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="signed和unsigned"><a href="#signed和unsigned" class="headerlink" title="signed和unsigned"></a>signed和unsigned</h2><p>首先要明确的：<code>signed int</code>等价于<code>signed</code>，<code>unsigned int</code>等价于<code>unsigned</code>。</p>
+<h3 id="signed和unsigned"><a href="#signed和unsigned" class="headerlink" title="signed和unsigned"></a>signed和unsigned</h3><p>首先要明确的：<code>signed int</code>等价于<code>signed</code>，<code>unsigned int</code>等价于<code>unsigned</code>。</p>
 <p><code>signed</code>和<code>unsigned</code>的区别就是它们的最高位是否要当做符号位，并不会像<code>short</code>和<code>long</code>那样改变数据的长度，即所占的字节数。</p>
-<h3 id="signed"><a href="#signed" class="headerlink" title="signed"></a>signed</h3><p><code>signed</code>表示有符号，也就是说最高位要当做符号位，所以包括正数、负数和0。其实int的最高位本来就是符号位，已经包括了正负数和0了，因此signed和int是一样的，signed等价于signed int，也等价于int。signed的取值范围是-231 ~ 231 - 1。</p>
-<h3 id="unsigned"><a href="#unsigned" class="headerlink" title="unsigned"></a>unsigned</h3><p><code>unsigned</code>表示无符号，也就是说最高位并不当做符号位，所以不包括负数。在64bit编译器环境下面，int占用4个字节（32bit），因此unsigned的取值范围是：0000 0000 0000 0000 0000 0000 0000 0000 ~ 1111 1111 1111 1111 1111 1111 1111 1111，也就是0 ~ 232 - 1。</p>
+<h4 id="signed"><a href="#signed" class="headerlink" title="signed"></a>signed</h4><p><code>signed</code>表示有符号，也就是说最高位要当做符号位，所以包括正数、负数和0。其实int的最高位本来就是符号位，已经包括了正负数和0了，因此signed和int是一样的，signed等价于signed int，也等价于int。signed的取值范围是-231 ~ 231 - 1。</p>
+<h4 id="unsigned"><a href="#unsigned" class="headerlink" title="unsigned"></a>unsigned</h4><p><code>unsigned</code>表示无符号，也就是说最高位并不当做符号位，所以不包括负数。在64bit编译器环境下面，int占用4个字节（32bit），因此unsigned的取值范围是：0000 0000 0000 0000 0000 0000 0000 0000 ~ 1111 1111 1111 1111 1111 1111 1111 1111，也就是0 ~ 232 - 1。</p>
 <blockquote>
 <p><strong>注意</strong>：signed、unsigned也可以修饰char，long还可以修饰double。</p>
 </blockquote>
-<h2 id="不同数据类型所占用的存储空间"><a href="#不同数据类型所占用的存储空间" class="headerlink" title="不同数据类型所占用的存储空间"></a>不同数据类型所占用的存储空间</h2><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png" alt=""></p>
-<h1 id="自动类型提升"><a href="#自动类型提升" class="headerlink" title="自动类型提升"></a>自动类型提升</h1><h2 id="什么是自动类型提升"><a href="#什么是自动类型提升" class="headerlink" title="什么是自动类型提升"></a>什么是自动类型提升</h2><p>先来看看下面的一则运算：</p>
+<h3 id="不同数据类型所占用的存储空间"><a href="#不同数据类型所占用的存储空间" class="headerlink" title="不同数据类型所占用的存储空间"></a>不同数据类型所占用的存储空间</h3><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png" alt=""></p>
+<h2 id="自动类型提升"><a href="#自动类型提升" class="headerlink" title="自动类型提升"></a>自动类型提升</h2><h3 id="什么是自动类型提升"><a href="#什么是自动类型提升" class="headerlink" title="什么是自动类型提升"></a>什么是自动类型提升</h3><p>先来看看下面的一则运算：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> d = a + <span class="number">9.5</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%f \n"</span>, d);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>（1）在第5行定义了一个int类型的变量a，赋值了一个整数10。<br>（2）接着在第7行取出a的值10，加上浮点数9.5，这里做了一个“加法运算”，并且将“和”赋值给d。所以d的值应该是19.5。<br>（3）在第9行使用格式符%f输出浮点型变量d，默认是保留6位小数的。输出结果为：<code>19.500000</code><br>（4）看似这么简单的运算，其实包含了一些语法细节在里面。严格来说，相同数据类型的值才能进行运算（比如加法运算），而且运算结果依然是同一种数据类型。第7行的情况是：变量a的值10是int类型（4字节），9.5是double类型（8字节）。很明显，10和9.5并不是相同数据类型。按理来说，10和9.5是不允许进行加法运算的。但是，系统会自动对占用内存较少的类型做一个“自动类型提升”的操作，也就把10提升为double类型。也就是说，本来是用4个字节来存放10的，现在改为用8个字节来存放10。因此，10和9.5现在都是用8个字节来存放的，都是double类型，然后就可以进行运算了。并且把运算结果赋值给double类型的变量d。<br>（5）需要注意的是：经过第7行代码后，变量a一直都还是int类型的，并没有变成double类型。1个变量在它定义的时候是什么类型，那么就一直都是什么类型。“自动类型提升”只是在运算过程中进行的。</p>
-<h2 id="常见的自动类型提升"><a href="#常见的自动类型提升" class="headerlink" title="常见的自动类型提升"></a>常见的自动类型提升</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> a = <span class="number">10</span> + <span class="number">3.45f</span>;<span class="comment">// int 提升为 float</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="string">'A'</span> + <span class="number">32</span>; <span class="comment">// char 提升为 int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> c = <span class="number">10.3f</span> + <span class="number">5.7</span>; <span class="comment">// float 提升为 double</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>（1）注意第5行，系统会将字符’A’提升为int类型数据，也就是转为’A’的ASCII值后再跟32进行加法运算。’A’的ASCII值是65，因此变量b的值为65+32=97。<br>（2）这个自动类型提升，知道有这么一回事就行了，不用死记这规则，因为系统会自动执行这个操作。</p>
-<h1 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h1><h2 id="什么是强制类型转换"><a href="#什么是强制类型转换" class="headerlink" title="什么是强制类型转换"></a>什么是强制类型转换</h2><p>先来看看下面的代码：</p>
+<ol>
+<li>在第5行定义了一个int类型的变量a，赋值了一个整数10。</li>
+<li>接着在第7行取出a的值10，加上浮点数9.5，这里做了一个“加法运算”，并且将“和”赋值给d。所以d的值应该是19.5。</li>
+<li>在第9行使用格式符%f输出浮点型变量d，默认是保留6位小数的。输出结果为：<code>19.500000</code></li>
+<li>看似这么简单的运算，其实包含了一些语法细节在里面。严格来说，相同数据类型的值才能进行运算（比如加法运算），而且运算结果依然是同一种数据类型。第7行的情况是：变量a的值10是int类型（4字节），9.5是double类型（8字节）。很明显，10和9.5并不是相同数据类型。按理来说，10和9.5是不允许进行加法运算的。但是，系统会自动对占用内存较少的类型做一个“自动类型提升”的操作，也就把10提升为double类型。也就是说，本来是用4个字节来存放10的，现在改为用8个字节来存放10。因此，10和9.5现在都是用8个字节来存放的，都是double类型，然后就可以进行运算了。并且把运算结果赋值给double类型的变量d。</li>
+<li>需要注意的是：经过第7行代码后，变量a一直都还是int类型的，并没有变成double类型。1个变量在它定义的时候是什么类型，那么就一直都是什么类型。“自动类型提升”只是在运算过程中进行的。</li>
+</ol>
+<h3 id="常见的自动类型提升"><a href="#常见的自动类型提升" class="headerlink" title="常见的自动类型提升"></a>常见的自动类型提升</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> a = <span class="number">10</span> + <span class="number">3.45f</span>;<span class="comment">// int 提升为 float</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="string">'A'</span> + <span class="number">32</span>; <span class="comment">// char 提升为 int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> c = <span class="number">10.3f</span> + <span class="number">5.7</span>; <span class="comment">// float 提升为 double</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>注意第5行，系统会将字符’A’提升为int类型数据，也就是转为’A’的ASCII值后再跟32进行加法运算。’A’的ASCII值是65，因此变量b的值为65+32=97。</li>
+<li>这个自动类型提升，知道有这么一回事就行了，不用死记这规则，因为系统会自动执行这个操作。</li>
+</ol>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="什么是强制类型转换"><a href="#什么是强制类型转换" class="headerlink" title="什么是强制类型转换"></a>什么是强制类型转换</h3><p>先来看看下面的代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, i);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> j = (int) <span class="number">10.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, j);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>（1）注意第5行，我们将一个8个字节的浮点数10.7赋值给了只有4个字节存储空间的整型变量i。可以想象得到，把8个字节的内容塞给4个字节，肯定会损失精度。在第7行将变量i的值输出，输出结果是：<code>10</code>，这是必然的。<br>（2）这里面也有一点语法细节，其实第5行做了一个“强制类型转换”的操作：由于左边是int类型的变量i，那么就会强制把double类型的10.7转换为int类型的10，并且把转换后的值赋值给了整型变量i。由于C语言是语法限制不严格，所以系统会自动强制转换，如果换做是其他语法严格的语言，比如Java，第5行代码早就报错了。<br>（3）如果写得严格一点，明显地进行“强制类型转换”，应该写成第8行，在10.7的前面加了个(int)，表示强制转换为int类型的数据。这样就绝对不会有语法问题了。总之你将一个浮点型数据转换为整型数据，就会丢失小数部分的值。</p>
-<h2 id="常见的强制类型转换"><a href="#常见的强制类型转换" class="headerlink" title="常见的强制类型转换"></a>常见的强制类型转换</h2><p>这个强制类型转换，知道有这么一回事就行了，不用死记这规则，因为很多时候系统会自动执行这个操作：</p>
+<ol>
+<li>注意第5行，我们将一个8个字节的浮点数10.7赋值给了只有4个字节存储空间的整型变量i。可以想象得到，把8个字节的内容塞给4个字节，肯定会损失精度。在第7行将变量i的值输出，输出结果是：<code>10</code>，这是必然的。</li>
+<li>这里面也有一点语法细节，其实第5行做了一个“强制类型转换”的操作：由于左边是int类型的变量i，那么就会强制把double类型的10.7转换为int类型的10，并且把转换后的值赋值给了整型变量i。由于C语言是语法限制不严格，所以系统会自动强制转换，如果换做是其他语法严格的语言，比如Java，第5行代码早就报错了。</li>
+<li>如果写得严格一点，明显地进行“强制类型转换”，应该写成第8行，在10.7的前面加了个(int)，表示强制转换为int类型的数据。这样就绝对不会有语法问题了。总之你将一个浮点型数据转换为整型数据，就会丢失小数部分的值。</li>
+</ol>
+<h3 id="常见的强制类型转换"><a href="#常见的强制类型转换" class="headerlink" title="常见的强制类型转换"></a>常见的强制类型转换</h3><p>这个强制类型转换，知道有这么一回事就行了，不用死记这规则，因为很多时候系统会自动执行这个操作：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">198l</span>; <span class="comment">// long 转换为 int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> b = <span class="number">65</span>; <span class="comment">// int 转换为 char</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">19.5f</span>; <span class="comment">// float 转换为 int</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="其他用法"><a href="#其他用法" class="headerlink" title="其他用法"></a>其他用法</h2><p>前面看到的强制转换好像都是“大类型”转为“小类型”，其实这是不一样的，也可以由“小类型”转为“大类型”：</p>
+<h3 id="其他用法"><a href="#其他用法" class="headerlink" title="其他用法"></a>其他用法</h3><p>前面看到的强制转换好像都是“大类型”转为“小类型”，其实这是不一样的，也可以由“小类型”转为“大类型”：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> b = (double)a  + <span class="number">9.6</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意第5行，先将a的值强制转换为double类型后，再跟9.6进行加法运算。这样的话，系统就不用执行“自动类型提升”的操作了。其实你不强转也可以的，因为系统会做一个“自动类型提升”的操作，将变量a的值10提升为double类型。知道有这用法就行了，以后某些地方会用得上。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>　<br><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 
       
@@ -513,7 +569,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -521,7 +577,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -593,7 +649,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类型修饰符"><span class="nav-number">1.</span> <span class="nav-text">类型修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是类型修饰符"><span class="nav-number">1.1.</span> <span class="nav-text">什么是类型修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用法演示"><span class="nav-number">1.2.</span> <span class="nav-text">用法演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#short和long"><span class="nav-number">1.3.</span> <span class="nav-text">short和long</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#long的使用注意"><span class="nav-number">1.4.</span> <span class="nav-text">long的使用注意</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常量"><span class="nav-number">1.4.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出"><span class="nav-number">1.4.2.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#signed和unsigned"><span class="nav-number">1.5.</span> <span class="nav-text">signed和unsigned</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#signed"><span class="nav-number">1.5.1.</span> <span class="nav-text">signed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unsigned"><span class="nav-number">1.5.2.</span> <span class="nav-text">unsigned</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同数据类型所占用的存储空间"><span class="nav-number">1.6.</span> <span class="nav-text">不同数据类型所占用的存储空间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动类型提升"><span class="nav-number">2.</span> <span class="nav-text">自动类型提升</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是自动类型提升"><span class="nav-number">2.1.</span> <span class="nav-text">什么是自动类型提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的自动类型提升"><span class="nav-number">2.2.</span> <span class="nav-text">常见的自动类型提升</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#强制类型转换"><span class="nav-number">3.</span> <span class="nav-text">强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是强制类型转换"><span class="nav-number">3.1.</span> <span class="nav-text">什么是强制类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的强制类型转换"><span class="nav-number">3.2.</span> <span class="nav-text">常见的强制类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他用法"><span class="nav-number">3.3.</span> <span class="nav-text">其他用法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类型修饰符"><span class="nav-number">1.</span> <span class="nav-text">类型修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是类型修饰符"><span class="nav-number">1.1.</span> <span class="nav-text">什么是类型修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法演示"><span class="nav-number">1.2.</span> <span class="nav-text">用法演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#short和long"><span class="nav-number">1.3.</span> <span class="nav-text">short和long</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#long的使用注意"><span class="nav-number">1.4.</span> <span class="nav-text">long的使用注意</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常量"><span class="nav-number">1.4.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出"><span class="nav-number">1.4.2.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#signed和unsigned"><span class="nav-number">1.5.</span> <span class="nav-text">signed和unsigned</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#signed"><span class="nav-number">1.5.1.</span> <span class="nav-text">signed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unsigned"><span class="nav-number">1.5.2.</span> <span class="nav-text">unsigned</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同数据类型所占用的存储空间"><span class="nav-number">1.6.</span> <span class="nav-text">不同数据类型所占用的存储空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动类型提升"><span class="nav-number">2.</span> <span class="nav-text">自动类型提升</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是自动类型提升"><span class="nav-number">2.1.</span> <span class="nav-text">什么是自动类型提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的自动类型提升"><span class="nav-number">2.2.</span> <span class="nav-text">常见的自动类型提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换"><span class="nav-number">3.</span> <span class="nav-text">强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是强制类型转换"><span class="nav-number">3.1.</span> <span class="nav-text">什么是强制类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的强制类型转换"><span class="nav-number">3.2.</span> <span class="nav-text">常见的强制类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他用法"><span class="nav-number">3.3.</span> <span class="nav-text">其他用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>

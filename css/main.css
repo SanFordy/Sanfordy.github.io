@@ -226,27 +226,27 @@ h6 {
   margin: 20px 0 15px;
 }
 h1 {
-  font-size: 22px;
+  font-size: 37px;
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 18px;
+    font-size: 33px;
   }
 }
 h2 {
-  font-size: 20px;
+  font-size: 30px;
 }
 @media (max-width: 767px) {
   h2 {
-    font-size: 16px;
+    font-size: 26px;
   }
 }
 h3 {
-  font-size: 18px;
+  font-size: 23px;
 }
 @media (max-width: 767px) {
   h3 {
-    font-size: 14px;
+    font-size: 19px;
   }
 }
 h4 {
@@ -258,19 +258,19 @@ h4 {
   }
 }
 h5 {
-  font-size: 14px;
+  font-size: 9px;
 }
 @media (max-width: 767px) {
   h5 {
-    font-size: 10px;
+    font-size: 5px;
   }
 }
 h6 {
-  font-size: 12px;
+  font-size: 2px;
 }
 @media (max-width: 767px) {
   h6 {
-    font-size: 8px;
+    font-size: -2px;
   }
 }
 p {
@@ -521,8 +521,8 @@ code {
 code {
   padding: 2px 4px;
   word-break: break-all;
-  color: #555;
-  background: #eee;
+  color: #fff;
+  background: #999;
   border-radius: 4px;
   font-size: 13px;
 }
@@ -913,7 +913,7 @@ pre .javascript .function {
   line-height: 36px;
   font-size: 24px;
   font-weight: normal;
-  font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'comic sans', 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -1534,7 +1534,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffdfff;
+  background: #0af;
 }
 .links-of-blogroll {
   font-size: 13px;
