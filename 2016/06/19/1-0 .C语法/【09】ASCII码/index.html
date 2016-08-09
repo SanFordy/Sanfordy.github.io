@@ -96,9 +96,7 @@
 <meta property="og:site_name" content="Sanfordy`s　blog">
 <meta property="og:description" content="ASCII码是基于拉丁字母的一套电脑编码系统，是现今最通用的单字节编码系统，全称是“American Standard Code for Information Interchange”。编码系统，看起来好像很高级，其实就是一个字符集—字符的集合。">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160701092939656-1944808901.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160701092945312-1155107796.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160701092954437-678167137.png">
-<meta property="og:updated_time" content="2016-08-06T15:58:52.000Z">
+<meta property="og:updated_time" content="2016-08-09T06:21:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【09】ASCII码">
 <meta name="twitter:description" content="ASCII码是基于拉丁字母的一套电脑编码系统，是现今最通用的单字节编码系统，全称是“American Standard Code for Information Interchange”。编码系统，看起来好像很高级，其实就是一个字符集—字符的集合。">
@@ -355,19 +353,23 @@
 <h2 id="ASCII码表"><a href="#ASCII码表" class="headerlink" title="ASCII码表"></a>ASCII码表</h2><p>下面是一张ASCII码字符表，ASCII码值的范围是0~127：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160701092939656-1944808901.png" alt=""></p>
 <h2 id="ASCII码使用"><a href="#ASCII码使用" class="headerlink" title="ASCII码使用"></a>ASCII码使用</h2><p>我们都知道1个char型变量只占用1个字节的存储空间，而所有的ASCII字符都是单字节字符，因此char型变量能存储任何ASCII字符。而且在使用char型变量存储ASCII字符时，可以直接用ASCII字符，也可以用ASCII值：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c1 = <span class="number">65</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c2 = <span class="string">'A'</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"c1=%c  c2=%c \n"</span>, c1, c2);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c1=A  c2=A </span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
 <li>在第5、7行分别定义了字符型变量c1、c2。很明显，变量c2存储的是ACII字符‘A’；变量c1存储的是65，而ASCII值65对应的ASCII字符就是‘A’，因此变量c1存储的也是‘A’。</li>
-<li>由于第9行用的是%c，表示以字符格式输出，输出结果：</li>
-</ol>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160701092945312-1155107796.png" alt=""></p>
-<p>经过上面的例子后，应该知道6和’6’的区别了吧。</p>
+</ul>
+<p>下面来看看6和‘6’的区别：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c1 = <span class="number">6</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c2 = <span class="string">'6'</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"c1=%d  c2=%d \n"</span>, c1, c2);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c1=<span class="number">6</span>  c2=<span class="number">54</span> </span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
 <li>第5行给变量c1赋值了整数6，第7行给变量c2赋值了字符‘6’，‘6’的ASCII值是54。</li>
-<li>由于第9行用的是%d，表示以十进制整数格式输出，输出结果：</li>
-</ol>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160701092954437-678167137.png" alt=""></p>
+</ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 
