@@ -493,12 +493,14 @@
 </ol>
 <p>按照用途进行分类，short和long是一类，signed和unsigned是一类。</p>
 <h3 id="用法演示"><a href="#用法演示" class="headerlink" title="用法演示"></a>用法演示</h3><p>这些说明符一般就是用来修饰int类型的，所以在使用时可以省略int：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">short</span> <span class="keyword">int</span> s1 = <span class="number">1</span>;</span><br><span class="line"> <span class="keyword">short</span> s2 = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">long</span> <span class="keyword">int</span> l1 = <span class="number">2</span>;</span><br><span class="line"> <span class="keyword">long</span> l2 = <span class="number">2</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 可以连续使用2个long</span></span><br><span class="line"> <span class="keyword">long</span> <span class="keyword">long</span> ll = <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">signed</span> <span class="keyword">int</span> si1 = <span class="number">3</span>;</span><br><span class="line"> <span class="keyword">signed</span> si2 = <span class="number">3</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">unsigned</span> <span class="keyword">int</span> us1 = <span class="number">4</span>;</span><br><span class="line"> <span class="keyword">unsigned</span> us2 = <span class="number">4</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 也可以同时使用2种修饰符</span></span><br><span class="line"> <span class="keyword">signed</span> <span class="keyword">short</span> <span class="keyword">int</span> ss = <span class="number">5</span>;</span><br><span class="line"> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> ul = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<ol>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
 <li>第2行中的short int和第3行中的short是等价的。</li>
 <li>看第10行，可以连续使用两个long。long的作用会在后面解释。</li>
 <li>注意第21和22行，可以同时使用两种不同的说明符。但是不能同时使用相同类型的修饰符，也就是说不能同时使用short和long 或者 不能同时使用signed和unsigned。</li>
-</ol>
+</ul>
 <h3 id="short和long"><a href="#short和long" class="headerlink" title="short和long"></a>short和long</h3><p>short和long可以提供不同长度的整型数，也就是可以改变整型数的取值范围。在64bit编译器环境下，int占用4个字节（32bit），取值范围是-231~231-1；short占用2个字节（16bit），取值范围是-215~215-1；long占用8个字节（64bit），取值范围是-263~263-1。</p>
 <p>在64位编译器环境下，short占2个字节(16位)，int占4个字节(32位)，long占8个字节(64位)。因此，如果使用的整数不是很大的话，可以使用short代替int，这样的话，更节省内存开销。</p>
 <p>世界上的编译器林林总总，不同编译器环境下，int、short、long的取值范围和占用的长度又是不一样的。比如在16bit编译器环境下，long只占用4个字节。不过幸运的是，ANSI \ ISO制定了以下规则：</p>
@@ -511,17 +513,36 @@
 <p>可以连续使用2个long，也就是long long。一般来说，long long的范围是不小于long的，比如在32bit编译器环境下，long long占用8个字节，long占用4个字节。不过在64bit编译器环境下，long long跟long是一样的，都占用8个字节。</p>
 <p>还有一点要明确的是：short int等价于short，long int等价于long，long long int等价于long long。</p>
 <h3 id="long的使用注意"><a href="#long的使用注意" class="headerlink" title="long的使用注意"></a>long的使用注意</h3><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>long和int都能够存储整型常量，为了区分long和int，一般会在整型常量后面加个小写字母l，比如100l，表示long类型的常量。如果是long long类型呢，就加2个l，比如100ll。如果什么都不加，就是int类型的常量。因此，100是int类型的常量，100l是long类型的常量，100ll是long long类型的常量：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">long</span> b = <span class="number">100l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> c = <span class="number">100l</span>l;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>变量a、b、c最终存储的值其实都是100，只不过占用的字节不相同，变量a用4个字节来存储100，变量b、c则用8个字节来存储100。</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>变量a、b、c最终存储的值其实都是100，只不过占用的字节不相同，变量a用4个字节来存储100，变量b、c则用8个字节来存储100。</li>
+</ul>
 <p>其实，你直接将100赋值给long类型的变量也是没问题的，照样使用。因为100是个int类型的常量，只要有4个字节，就能存储它，而long类型的变量b有8个字节，那肯定可以装下100啦：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> b = <span class="number">100</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">100000000000l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第5行定义了long类型变量a，在第7行尝试输出a的值。注意了，这里用的是%d，表示以十进制整数格式输出，%d会把a当做int类型来输出，它认为a是4个字节的。由于a是long类型的，占用8个字节，但是输出a的时候，只会取其中4个字节的内容进行输出，所以输出结果是：<code>1215752192</code>。又是传说的垃圾数据。</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">100000000000l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1215752192</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第5行定义了long类型变量a，在第7行尝试输出a的值。注意了，这里用的是%d，表示以十进制整数格式输出，%d会把a当做int类型来输出，它认为a是4个字节的。由于a是long类型的，占用8个字节，但是输出a的时候，只会取其中4个字节的内容进行输出，所以输出结果又是传说的垃圾数据。</li>
+</ul>
 <p>那怎样才能完整地输出long类型呢？应该用格式符%ld：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">100000000000l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%ld\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意第7行，双引号里面的是%ld，表示输出1个long类型的整数，这时候的输出结果是：1000000000000</p>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1000000000000</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意第7行，双引号里面的是%ld，表示输出1个long类型的整数。</li>
+</ul>
 <p>如果是long long类型，应该用%lld：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a = <span class="number">100000000000l</span>l;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1000000000000</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <h3 id="signed和unsigned"><a href="#signed和unsigned" class="headerlink" title="signed和unsigned"></a>signed和unsigned</h3><p>首先要明确的：<code>signed int</code>等价于<code>signed</code>，<code>unsigned int</code>等价于<code>unsigned</code>。</p>
 <p><code>signed</code>和<code>unsigned</code>的区别就是它们的最高位是否要当做符号位，并不会像<code>short</code>和<code>long</code>那样改变数据的长度，即所占的字节数。</p>
 <h4 id="signed"><a href="#signed" class="headerlink" title="signed"></a>signed</h4><p><code>signed</code>表示有符号，也就是说最高位要当做符号位，所以包括正数、负数和0。其实int的最高位本来就是符号位，已经包括了正负数和0了，因此signed和int是一样的，signed等价于signed int，也等价于int。signed的取值范围是-231 ~ 231 - 1。</p>
@@ -531,31 +552,42 @@
 </blockquote>
 <h3 id="不同数据类型所占用的存储空间"><a href="#不同数据类型所占用的存储空间" class="headerlink" title="不同数据类型所占用的存储空间"></a>不同数据类型所占用的存储空间</h3><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png" alt=""></p>
 <h2 id="自动类型提升"><a href="#自动类型提升" class="headerlink" title="自动类型提升"></a>自动类型提升</h2><h3 id="什么是自动类型提升"><a href="#什么是自动类型提升" class="headerlink" title="什么是自动类型提升"></a>什么是自动类型提升</h3><p>先来看看下面的一则运算：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> d = a + <span class="number">9.5</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%f \n"</span>, d);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">19.500000</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li>在第5行定义了一个int类型的变量a，赋值了一个整数10。</li>
 <li>接着在第7行取出a的值10，加上浮点数9.5，这里做了一个“加法运算”，并且将“和”赋值给d。所以d的值应该是19.5。</li>
-<li>在第9行使用格式符%f输出浮点型变量d，默认是保留6位小数的。输出结果为：<code>19.500000</code></li>
+<li>在第9行使用格式符%f输出浮点型变量d，默认是保留6位小数的。</li>
 <li>看似这么简单的运算，其实包含了一些语法细节在里面。严格来说，相同数据类型的值才能进行运算（比如加法运算），而且运算结果依然是同一种数据类型。第7行的情况是：变量a的值10是int类型（4字节），9.5是double类型（8字节）。很明显，10和9.5并不是相同数据类型。按理来说，10和9.5是不允许进行加法运算的。但是，系统会自动对占用内存较少的类型做一个“自动类型提升”的操作，也就把10提升为double类型。也就是说，本来是用4个字节来存放10的，现在改为用8个字节来存放10。因此，10和9.5现在都是用8个字节来存放的，都是double类型，然后就可以进行运算了。并且把运算结果赋值给double类型的变量d。</li>
 <li>需要注意的是：经过第7行代码后，变量a一直都还是int类型的，并没有变成double类型。1个变量在它定义的时候是什么类型，那么就一直都是什么类型。“自动类型提升”只是在运算过程中进行的。</li>
-</ol>
-<h3 id="常见的自动类型提升"><a href="#常见的自动类型提升" class="headerlink" title="常见的自动类型提升"></a>常见的自动类型提升</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> a = <span class="number">10</span> + <span class="number">3.45f</span>;<span class="comment">// int 提升为 float</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="string">'A'</span> + <span class="number">32</span>; <span class="comment">// char 提升为 int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> c = <span class="number">10.3f</span> + <span class="number">5.7</span>; <span class="comment">// float 提升为 double</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+</ul>
+<h3 id="常见的自动类型提升"><a href="#常见的自动类型提升" class="headerlink" title="常见的自动类型提升"></a>常见的自动类型提升</h3><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> a = <span class="number">10</span> + <span class="number">3.45f</span>;<span class="comment">// int 提升为 float</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="string">'A'</span> + <span class="number">32</span>; <span class="comment">// char 提升为 int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> c = <span class="number">10.3f</span> + <span class="number">5.7</span>; <span class="comment">// float 提升为 double</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
 <li>注意第5行，系统会将字符’A’提升为int类型数据，也就是转为’A’的ASCII值后再跟32进行加法运算。’A’的ASCII值是65，因此变量b的值为65+32=97。</li>
 <li>这个自动类型提升，知道有这么一回事就行了，不用死记这规则，因为系统会自动执行这个操作。</li>
-</ol>
+</ul>
 <h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="什么是强制类型转换"><a href="#什么是强制类型转换" class="headerlink" title="什么是强制类型转换"></a>什么是强制类型转换</h3><p>先来看看下面的代码：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, i);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> j = (int) <span class="number">10.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, j);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>注意第5行，我们将一个8个字节的浮点数10.7赋值给了只有4个字节存储空间的整型变量i。可以想象得到，把8个字节的内容塞给4个字节，肯定会损失精度。在第7行将变量i的值输出，输出结果是：<code>10</code>，这是必然的。</li>
-<li>这里面也有一点语法细节，其实第5行做了一个“强制类型转换”的操作：由于左边是int类型的变量i，那么就会强制把double类型的10.7转换为int类型的10，并且把转换后的值赋值给了整型变量i。由于C语言是语法限制不严格，所以系统会自动强制转换，如果换做是其他语法严格的语言，比如Java，第5行代码早就报错了。</li>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> </span><br><span class="line"><span class="number">10</span> </span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意第5行，我们将一个8个字节的浮点数10.7赋值给了只有4个字节存储空间的整型变量i。可以想象得到，把8个字节的内容塞给4个字节，肯定会损失精度。这里面也有一点语法细节，其实第5行做了一个“强制类型转换”的操作：由于左边是int类型的变量i，那么就会强制把double类型的10.7转换为int类型的10，并且把转换后的值赋值给了整型变量i。由于C语言是语法限制不严格，所以系统会自动强制转换，如果换做是其他语法严格的语言，比如Java，第5行代码早就报错了。</li>
 <li>如果写得严格一点，明显地进行“强制类型转换”，应该写成第8行，在10.7的前面加了个(int)，表示强制转换为int类型的数据。这样就绝对不会有语法问题了。总之你将一个浮点型数据转换为整型数据，就会丢失小数部分的值。</li>
-</ol>
+</ul>
 <h3 id="常见的强制类型转换"><a href="#常见的强制类型转换" class="headerlink" title="常见的强制类型转换"></a>常见的强制类型转换</h3><p>这个强制类型转换，知道有这么一回事就行了，不用死记这规则，因为很多时候系统会自动执行这个操作：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">198l</span>; <span class="comment">// long 转换为 int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> b = <span class="number">65</span>; <span class="comment">// int 转换为 char</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">19.5f</span>; <span class="comment">// float 转换为 int</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="其他用法"><a href="#其他用法" class="headerlink" title="其他用法"></a>其他用法</h3><p>前面看到的强制转换好像都是“大类型”转为“小类型”，其实这是不一样的，也可以由“小类型”转为“大类型”：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> b = (double)a  + <span class="number">9.6</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意第5行，先将a的值强制转换为double类型后，再跟9.6进行加法运算。这样的话，系统就不用执行“自动类型提升”的操作了。其实你不强转也可以的，因为系统会做一个“自动类型提升”的操作，将变量a的值10提升为double类型。知道有这用法就行了，以后某些地方会用得上。</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>注意第5行，先将a的值强制转换为double类型后，再跟9.6进行加法运算。这样的话，系统就不用执行“自动类型提升”的操作了。其实你不强转也可以的，因为系统会做一个“自动类型提升”的操作，将变量a的值10提升为double类型。知道有这用法就行了，以后某些地方会用得上。</li>
+</ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 ]]></content>
@@ -568,51 +600,65 @@
 <p>在C语言中，你声明一个局部变量后，没有经过初始化赋值是可以使用的，但这是很危险的，不建议这样做。大多数人应该觉得变量b打印出来应该是0，其实不是。因为系统会随意给变量b赋值，得到的是垃圾数据。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="变量和内存的关系"><a href="#变量和内存的关系" class="headerlink" title="变量和内存的关系"></a>变量和内存的关系</h2><h3 id="变量示例"><a href="#变量示例" class="headerlink" title="变量示例"></a>变量示例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a = <span class="string">'A'</span>; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在64bit编译器环境下，系统为变量a、b分别分配1个字节、4个字节的存储单元。也就是说：</p>
-<ol>
+<h2 id="变量和内存的关系"><a href="#变量和内存的关系" class="headerlink" title="变量和内存的关系"></a>变量和内存的关系</h2><h3 id="变量示例"><a href="#变量示例" class="headerlink" title="变量示例"></a>变量示例</h3><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a = <span class="string">'A'</span>; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
 <li>变量a中的‘A’是用1个字节来存储的，1个字节共8位，变量a在内存中的存储形式是0100 0001，至于为什么‘A’的二进制是这样呢，后面再讨论。</li>
 <li>变量b中的10是用4个字节来存储的，4个字节共32位，因此变量b在内存中的存储形式应该是0000 0000 0000 0000 0000 0000 0000 1010。</li>
-</ol>
-<p>上述变量a、b在内存中的存储情况大致如下表所示（“存储的内容”那一列的一个小格子就代表一个字节，“地址”那一列是指每个字节的地址。）：</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225259808-1160410400.png" alt=""></p>
-<ol>
-<li>从图中可以看出，变量b占用了内存地址从ffc1~ffc4的4个字节，变量a占用了内存地址为ffc5的1个字节。每个字节都有自己的地址，其实变量也有地址。变量存储单元的第一个字节的地址就是该变量的地址。变量a的地址是ffc5，变量b的地址是ffc1。</li>
-<li>内存寻址是从大到小的，也就是说做什么事都会先从内存地址较大的字节开始，因此系统会优先分配地址值较大的字节给变量。由于是先定义变量a、后定义变量b，因此你会看到变量a的地址ffc5比变量b的地址ffc1大。</li>
-<li>注意看表格中变量b存储的内容，变量b的二进制形式是：0000 0000 0000 0000 0000 0000 0000 1010。由于内存寻址是从大到小的，所以是从内存地址最大的字节开始存储数据，存放顺序是ffc4-&gt;ffc3-&gt; ffc2-&gt;ffc1，所以把前面的0000 0000都放在ffc2~ffc4中，最后面的八位0000 1010放在ffc1中。</li>
-</ol>
-<h3 id="查看变量的内存地址"><a href="#查看变量的内存地址" class="headerlink" title="查看变量的内存地址"></a>查看变量的内存地址</h3><p>在调试过程中，我们经常会采取打印的方式查看变量的地址。</p>
+<li>上述变量a、b在内存中的存储情况大致如下表所示（“存储的内容”那一列的一个小格子就代表一个字节，“地址”那一列是指每个字节的地址。）：<br><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225259808-1160410400.png" alt=""><br>从图中可以看出，变量b占用了内存地址从ffc1~ffc4的4个字节，变量a占用了内存地址为ffc5的1个字节。每个字节都有自己的地址，其实变量也有地址。变量存储单元的第一个字节的地址就是该变量的地址。变量a的地址是ffc5，变量b的地址是ffc1。内存寻址是从大到小的，也就是说做什么事都会先从内存地址较大的字节开始，因此系统会优先分配地址值较大的字节给变量。由于是先定义变量a、后定义变量b，因此你会看到变量a的地址ffc5比变量b的地址ffc1大。注意看表格中变量b存储的内容，变量b的二进制形式是：0000 0000 0000 0000 0000 0000 0000 1010。由于内存寻址是从大到小的，所以是从内存地址最大的字节开始存储数据，存放顺序是ffc4-&gt;ffc3-&gt; ffc2-&gt;ffc1，所以把前面的0000 0000都放在ffc2~ffc4中，最后面的八位0000 1010放在ffc1中。</li>
+</ul>
+<h3 id="查看变量的内存地址"><a href="#查看变量的内存地址" class="headerlink" title="查看变量的内存地址"></a>查看变量的内存地址</h3><p>在调试过程中，我们经常会采取打印的方式查看变量的地址：</p>
 <p>&lt; 代码示例 &gt;</p>
 <p><em>main.c</em></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"变量a的地址是：%p"</span>, &amp;a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量a的地址是：<span class="number">0x7fff5fbff8f8</span></span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
-<p>第6行中的&amp;是一个地址运算符，&amp;a表示取得变量a的地址。格式符%p是专门用来输出地址的。这个0x7fff5fbff8f8就是变量a的内存地址。</p>
+<ul>
+<li>第6行中的&amp;是一个地址运算符，&amp;a表示取得变量a的地址。格式符%p是专门用来输出地址的。这个0x7fff5fbff8f8就是变量a的内存地址。</li>
+</ul>
 <h2 id="变量的使用注意"><a href="#变量的使用注意" class="headerlink" title="变量的使用注意"></a>变量的使用注意</h2><h3 id="不能重复定义同一个变量"><a href="#不能重复定义同一个变量" class="headerlink" title="不能重复定义同一个变量"></a>不能重复定义同一个变量</h3><p>下面的代码是错误的：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">89</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译器会报第5行的错，错误的原因很简单，第3行和第5行都是定义变量i，因此在内存中会是这样：</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225305090-942626929.png" alt=""></p>
-<p>内存中会出现两块存储空间，而且名字都叫i，那如果我想取出变量i的值，那你说计算机取10好还是取89好呢？因此，这种做法肯定是不可以的。</p>
-<h3 id="同类型变量之间可以相互赋值"><a href="#同类型变量之间可以相互赋值" class="headerlink" title="同类型变量之间可以相互赋值"></a>同类型变量之间可以相互赋值</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a = i;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第3行定义了变量i且初始值为10；接着在第5行定义了变量a，并且将变量i的值赋值给了a。在内存中大致如下图所示：</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225310043-2108240599.png" alt=""></p>
-<p>变量i和变量a存储的值都是10。</p>
+<p>&lt; CRASH &gt;</p>
+<ul>
+<li>编译器会报第5行的错，错误的原因很简单，第3行和第5行都是定义变量i，因此在内存中会是这样：<br><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225305090-942626929.png" alt=""><br>内存中会出现两块存储空间，而且名字都叫i，那如果我想取出变量i的值，那你说计算机取10好还是取89好呢？因此，这种做法肯定是不可以的。</li>
+</ul>
+<h3 id="同类型变量之间可以相互赋值"><a href="#同类型变量之间可以相互赋值" class="headerlink" title="同类型变量之间可以相互赋值"></a>同类型变量之间可以相互赋值</h3><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a = i;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第3行定义了变量i且初始值为10；接着在第5行定义了变量a，并且将变量i的值赋值给了a。在内存中大致如下图所示：<br><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225310043-2108240599.png" alt=""><br>变量i和变量a存储的值都是10。</li>
+</ul>
 <h3 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h3><p>变量的作用范围（作用域）是从定义变量的那一行代码开始，下面的代码是错误的：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = i;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译器会报第3行的错误，错误原因是：标识符i找不到。我们是在第5行定义了变量i，因此变量i从第5行开始才有效，在前面的第3行是无效的。</p>
-<h3 id="没有经过初始化的变量是可以使用的"><a href="#没有经过初始化的变量是可以使用的" class="headerlink" title="没有经过初始化的变量是可以使用的"></a>没有经过初始化的变量是可以使用的</h3><p>在C语言中，你声明一个局部变量后，没有经过初始化赋值是可以使用的，但这是很危险的，不建议这样做。大多数人应该觉得变量b打印出来应该是0，其实不是。因为系统会随意给变量b赋值，得到的是垃圾数据。</p>
+<p>&lt; CRASH &gt;</p>
+<ul>
+<li>编译器会报第3行的错误，错误原因是：标识符i找不到。我们是在第5行定义了变量i，因此变量i从第5行开始才有效，在前面的第3行是无效的。</li>
+</ul>
+<h3 id="没有经过初始化的变量是可以使用的"><a href="#没有经过初始化的变量是可以使用的" class="headerlink" title="没有经过初始化的变量是可以使用的"></a>没有经过初始化的变量是可以使用的</h3><p>在C语言中，你声明一个局部变量后，没有经过初始化赋值是可以使用的，但这是很危险的，不建议这样做。大多数人应该觉得变量b打印出来应该是0，其实不是。因为系统会随意给变量b赋值，得到的是垃圾数据：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b;           </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, b);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码的打印结果是：1606422622。因此，局部变量还是必须先进行初始化赋值，然后再使用，这样才是最安全的做法。</p>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1606422622</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>上述代码的打印结果是个垃圾数据，因此局部变量还是必须先进行初始化赋值，然后再使用，这样才是最安全的做法。</li>
+</ul>
 <p>如果是全局的int类型变量，系统会默认赋值为0：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607225318965-1449503471.png" alt=""></p>
 <h3 id="char使用注意事项"><a href="#char使用注意事项" class="headerlink" title="char使用注意事项"></a>char使用注意事项</h3><h4 id="char的取值范围"><a href="#char的取值范围" class="headerlink" title="char的取值范围"></a>char的取值范围</h4><p>char的取值范围是ASCII码字符或者-128~127的整数，所以使用char存储大写字母A有2种赋值方式：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式1</span></span><br><span class="line"><span class="keyword">char</span> c = <span class="string">'A'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式2</span></span><br><span class="line"><span class="keyword">char</span> c = <span class="number">65</span>;</span><br></pre></td></tr></table></figure>
-<p>上面两种方式是等效的，因为大写字母A的ASCII码值刚好为65。</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>上面两种方式是等效的，因为大写字母A的ASCII码值刚好为65。</li>
+</ul>
 <h4 id="char只能存储一个字符"><a href="#char只能存储一个字符" class="headerlink" title="char只能存储一个字符"></a>char只能存储一个字符</h4><p>汉字或者字符串需要用字符数组来存储，因为一个汉字占了2个字符，一个字符串是由一个或者多个字符组成的。因此，下面的写法都是错误的：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char c1 = '我';</span><br><span class="line">char c2 = '123';</span><br><span class="line">char c3 = "123";</span><br></pre></td></tr></table></figure>
-<h3 id="负数的二进制形式"><a href="#负数的二进制形式" class="headerlink" title="负数的二进制形式"></a>负数的二进制形式</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> b = <span class="number">-10</span>;</span><br><span class="line">   return <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>在第3行定义了一个整型变量，它的值是-10。-10在内存中怎样存储的呢？其实任何数值在内存中都是以补码的形式存储的：</p>
+<h3 id="补码相关"><a href="#补码相关" class="headerlink" title="补码相关"></a>补码相关</h3><p>其实任何数值在内存中都是以补码的形式存储的：</p>
 <ol>
 <li>正数的补码与原码相同。比如9的原码和补码都是1001。</li>
 <li>负数的补码等于它正数的原码取反后再+1。（取反的意思就是0变1、1变0）。那么-10的补码计算过程如下：<ul>
@@ -623,29 +669,34 @@
 </li>
 </ol>
 <h2 id="变量的作用域-1"><a href="#变量的作用域-1" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><h3 id="作用域简介"><a href="#作用域简介" class="headerlink" title="作用域简介"></a>作用域简介</h3><p>变量的作用域就是指变量的作用范围。先来看看下面的程序：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">7</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
 <li>在第3行定义了一个变量a，当执行到这行代码时，系统就会为变量a分配存储空间。</li>
 <li>当main函数执行完毕，也就是执行完第5行代码了，变量a所占用的内存就会被系统自动回收。</li>
 <li>因此，变量a的作用范围是从定义它的那行开始，一直到它所在的大括号{}结束，也就是第3~6行，一旦离开这个范围，变量a就失效了。</li>
-</ol>
+</ul>
 <h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>代码块其实就是用大括号{}括住的一块代码：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"a=%d"</span>, a);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    a = <span class="number">9</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+<ul>
 <li>注意第3~7行的大括号，这就是一个代码块。</li>
 <li>当执行到第4行时，系统会分配内存给变量a。</li>
 <li>当代码块执行完毕，也就是执行完第6行代码后，变量a所占用的内存就会被系统回收。</li>
 <li>因此，变量a的作用范围是从定义它的那行开始，一直到它所在的大括号{}结束，也就是第4~7行，离开这个范围，变量a就失效了。</li>
 <li>所以，上面的程序是编译失败的，第9行代码是错误的，变量a在第7行的时候已经失效了，不可能在第9行使用。</li>
-</ol>
+</ul>
 <p>如果是下面这种情况：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">9</span>;</span><br><span class="line">    </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"a=%d"</span>, a);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">a</span>=<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li>注意第3、6行，各自定义了一个变量a，这种情况是没问题的。C语言规定：在不同作用域中允许有同名变量，系统会为它们分配不同的存储空间。</li>
 <li>在第3行定义的变量a的作用域是：第3~12行；在第6行定义的变量a的作用域是：第6~9行。</li>
-<li>最后注意第8行：尝试输出变量a的值。那这里输出的是哪一个变量a呢？其实这里采取的是“就近原则”，也就是第8行访问的是在第6行定义的变量a，并不是在第3行的变量a。输出结果：</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<li>最后注意第8行：尝试输出变量a的值。那这里输出的是哪一个变量a呢？其实这里采取的是“就近原则”，也就是第8行访问的是在第6行定义的变量a，并不是在第3行的变量a。</li>
+</ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 ]]></content>
@@ -675,15 +726,15 @@
 <p>作用域：局部变量只在定义它的函数内部有效，即局部变量只有在定义它的函数内部使用，其它函数不能使用它。</p>
 <h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><p>定义：在所有函数外部定义的变量，称为全局变量。</p>
 <p>作用域：全局变量的作用范围是从定义变量的位置开始到源程序结束，即全局变量可以被在其定义位置之后的其它函数所共享。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第1行的变量a是全局变量，第5行的变量b是局部变量。</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  a是全局变量</span></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;   </span><br><span class="line">    <span class="comment">//  b是局部变量。</span></span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="根据变量的存储地点"><a href="#根据变量的存储地点" class="headerlink" title="根据变量的存储地点"></a>根据变量的存储地点</h3><p>有3个地方可以用于存储变量：普通内存、运行时堆栈、硬件寄存器。变量的存储地点决定了变量何时创建、何时销毁以及它的值能保持多久，也就是决定了变量的生命周期。</p>
 <p>C语言根据变量存储地点的不同，可以把变量分为：<code>自动变量</code>、<code>静态变量</code>、<code>寄存器变量</code>。</p>
 <h4 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h4><p>定义：自动变量是存储在堆栈中的。</p>
 <p>哪些是自动变量：被关键字<code>auto</code>修饰的局部变量都是自动变量，但是极少使用这个关键字，基本上是废的，因为所有的局部变量在默认情况下都是自动变量。</p>
 <p>生命周期：在程序执行到声明自动变量的代码块（函数）时，自动变量才被创建，当自动变量所在的代码块（函数）执行完毕后，这些自动变量就会自行销毁。如果一个函数被重复调用，这些自动变量每次都会重新创建。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> c = a + b;</span><br><span class="line">      <span class="keyword">auto</span> <span class="keyword">int</span> d;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>第1行的变量a、b，第2行的变量c、第4行的变量d都是自动变量。</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  a和b是自动变量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//  c是自动变量</span></span><br><span class="line">      <span class="keyword">int</span> c = a + b;</span><br><span class="line">      <span class="comment">//  d是自动变量</span></span><br><span class="line">      <span class="keyword">auto</span> <span class="keyword">int</span> d;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <h4 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h4><p>定义：静态变量是存储在静态内存中的，也就是不属于堆栈。</p>
 <p>哪些是静态变量：</p>
 <ol>
@@ -691,14 +742,18 @@
 <li>被关键字<code>static</code>修饰的局部变量也是静态变量。</li>
 </ol>
 <p>生命周期：静态变量在程序<code>运行之前</code>创建并且只会创建一次，在程序的整个运行期间始终存在，直到程序结束。</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">    b++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">    c++;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"b=%d, c=%d \n"</span>, b, c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="comment">// 连续调用3次test函数</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">        test();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第3行的变量a、第6行的变量b都是静态变量，第9行的变量c、第16行的变量i是自动变量。</p>
-<p>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用test函数时，变量b的值不会被重新初始化为0。</p>
-<blockquote>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">b=1,</span> <span class="attr">c=1</span> </span><br><span class="line"><span class="attr">b=2,</span> <span class="attr">c=1</span> </span><br><span class="line"><span class="attr">b=3,</span> <span class="attr">c=1</span> </span><br><span class="line">Program ended <span class="keyword">with</span> exit code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第3行的变量a、第6行的变量b都是静态变量，第9行的变量c、第16行的变量i是自动变量。</li>
+<li>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用test函数时，变量b的值不会被重新初始化为0。<blockquote>
 <p><strong>注意</strong>：虽然第6行的变量b是静态变量，但是只改变了它生命周期，并没有改变它的作用域，变量b还是只能在test函数内部使用。</p>
 </blockquote>
-<p>我们在main函数中重复调用test函数3次，输出结果为：</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607155214183-305983019.png" alt=""></p>
+</li>
+</ul>
 <h4 id="寄存器变量"><a href="#寄存器变量" class="headerlink" title="寄存器变量"></a>寄存器变量</h4><p>定义：存储在硬件寄存器中的变量，称为寄存器变量。寄存器变量比存储在内存中的变量访问效率更高（默认情况下，自动变量和静态变量都是放在内存中的）。</p>
 <p>哪些变量是寄存器变量：被关键字<code>register</code>修饰的自动变量都是寄存器变量。</p>
 <blockquote>
@@ -710,32 +765,54 @@
 <li>由于计算机中寄存器数目有限，不能使用太多的寄存器变量。如果寄存器使用饱和时，程序将寄存器变量自动转换为自动变量处理。</li>
 <li>为了提高运算速度，一般会将一些频繁使用的局部变量定义为寄存器变量，这样程序尽可能地为它分配寄存器存放，而不用内存。</li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">register</span> <span class="keyword">int</span> a;</span><br><span class="line">     return <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>第2行的变量a是个寄存器变量。</p>
-<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><p>总结可得，定义变量需要2个条件：变量类型、变量名。定义变量的格式为：变量类型  变量名：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="comment">//  a是个寄存器变量。</span></span><br><span class="line">     <span class="keyword">register</span> <span class="keyword">int</span> a;</span><br><span class="line">     return <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><p>总结可得，定义变量需要2个条件：变量类型、变量名。代码如下：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第3行定义了一个名字为i的整型变量，说明i只能存储整型数据；在第5行定义了一个名字为c的字符型变量，说明c只能存储字符型数据。第3、5、7行的代码都称为“语句”，每条语句后面都有个分号“;”。</p>
-<p>于是，系统就会在内存中分别为变量i、c分配一定的存储空间，如下图所示，i和c各占用一块存储空间：</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png" alt=""></p>
-<p>如果是同一种类型的变量，可以连续定义，变量名之间用逗号,隔开。格式为：变量类型  变量名1, 变量名2, 变量名3, … ;</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第3行定义了一个名字为i的整型变量，说明i只能存储整型数据；在第5行定义了一个名字为c的字符型变量，说明c只能存储字符型数据。</li>
+<li>于是，系统就会在内存中分别为变量i、c分配一定的存储空间，如下图所示，i和c各占用一块存储空间：<br><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png" alt=""></li>
+</ul>
+<p>如果是同一种类型的变量，可以连续定义，变量名之间用逗号,隔开。代码如下：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, c;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第3行代码的意思是定义了2个int类型的变量，变量名分别为a、c。</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第3行代码的意思是定义了2个int类型的变量，变量名分别为a、c。</li>
+</ul>
 <h2 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h2><h3 id="先定义，再初始化"><a href="#先定义，再初始化" class="headerlink" title="先定义，再初始化"></a>先定义，再初始化</h3><p>前面已经定义了两个变量，但是这两个变量并没有存储任何值，我们需要给变量进行第一次赋值，也叫做“初始化”。</p>
 <p>变量赋值的格式是：变量名 = 值;</p>
-<p>这个等号”=”是一个赋值运算符，将右边的值赋值给左边的变量，也就是将右边的值存储到左边变量的存储空间中。</p>
+<p>这个等号”=”是一个赋值运算符，将右边的值赋值给左边的变量，也就是将右边的值存储到左边变量的存储空间中：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    c = <span class="string">'A'</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第4行给变量i赋值一个整型常量10，在第7行给变量c赋值一个字符型常量’A’。像第4、7行这样的赋值操作，称为“赋值运算”。</p>
-<p>内存中大致如下图所示，整数10存储在i的存储空间中，字母A存储在c的存储空间中。（其实我这个图并不是很准确，因为内存中的所有数据都是以0和1的形式存储的，比如10，它会存储成1010；字母 A ，它会存储成1000001。这里为了达到直观的效果，就没有写成二进制形式）</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png" alt=""></p>
-<h3 id="定义的同时初始化"><a href="#定义的同时初始化" class="headerlink" title="定义的同时初始化"></a>定义的同时初始化</h3><p>上面的代码也可以写成下面这样，在定义变量的同时进行初始化：变量类型  变量名 = 值;</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第4行给变量i赋值一个整型常量10，在第7行给变量c赋值一个字符型常量’A’。像第4、7行这样的赋值操作，称为“赋值运算”。</li>
+<li>内存中大致如下图所示，整数10存储在i的存储空间中，字母A存储在c的存储空间中。（其实我这个图并不是很准确，因为内存中的所有数据都是以0和1的形式存储的，比如10，它会存储成1010；字母 A ，它会存储成1000001。这里为了达到直观的效果，就没有写成二进制形式）<br><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png" alt=""></li>
+</ul>
+<h3 id="定义的同时初始化"><a href="#定义的同时初始化" class="headerlink" title="定义的同时初始化"></a>定义的同时初始化</h3><p>上面的代码也可以写成下面这样，在定义变量的同时进行初始化：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">float</span> f = <span class="number">10.9f</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> d = <span class="number">9.8</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607174035683-177628936.png" alt=""></p>
-<h3 id="可以不断修改"><a href="#可以不断修改" class="headerlink" title="可以不断修改"></a>可以不断修改</h3><p>既然i是个变量，说明它的值可以不断地改变，看下面的代码</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>内存分析如下：<br><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607174035683-177628936.png" alt=""></li>
+</ul>
+<h3 id="可以不断修改"><a href="#可以不断修改" class="headerlink" title="可以不断修改"></a>可以不断修改</h3><p>既然i是个变量，说明它的值可以不断地改变，看下面的代码：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    i = <span class="number">89</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">'A'</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第3行定义了变量i，并且初始值为10。紧接着在第5行把i的值改为89，这个89会覆盖以前存储的10。</p>
-<h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><p>刚才提到，默认情况下，变量的值是可以不断改变的。不过，有时候我们会希望变量的值只在定义的时候初始化一次，以后都不能再改变，这个时候我们就可以使用<code>const</code>关键字来修饰变量。</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第3行定义了变量i，并且初始值为10。紧接着在第5行把i的值改为89，这个89会覆盖以前存储的10。</li>
+</ul>
+<h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><p>刚才提到，默认情况下，变量的值是可以不断改变的。不过，有时候我们会希望变量的值只在定义的时候初始化一次，以后都不能再改变，这个时候我们就可以使用<code>const</code>关键字来修饰变量：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    i = <span class="number">11</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意第3行，在<code>int</code>的前面加了个<code>const</code>关键字。表示变量i的值只会初始化一次，也就是说i的值永远都是一开始的10，以后都不能再改了。所以编译器会报第5行代码的错误，不允许再次修改i的值。</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>注意第3行，在<code>int</code>的前面加了个<code>const</code>关键字。表示变量i的值只会初始化一次，也就是说i的值永远都是一开始的10，以后都不能再改了。所以编译器会报第5行代码的错误，不允许再次修改i的值。</li>
+</ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 ]]></content>
@@ -818,7 +895,7 @@
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>C语言属于一门高级语言，其实所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的Objective-C，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。</p>
 <h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="什么是关键字"><a href="#什么是关键字" class="headerlink" title="什么是关键字"></a>什么是关键字</h3><p>关键字就是C语言提供的有特殊含义的符号，有些地方也叫做“保留字”。</p>
-<h3 id="都有哪些关键字"><a href="#都有哪些关键字" class="headerlink" title="都有哪些关键字"></a>都有哪些关键字</h3><p>C语言一共提供了32个关键字，这些关键字都被C语言赋予了特殊含义。</p>
+<h3 id="都有哪些关键字"><a href="#都有哪些关键字" class="headerlink" title="都有哪些关键字"></a>都有哪些关键字</h3><p>C语言一共提供了32个关键字，这些关键字都被C语言赋予了特殊含义：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> <span class="keyword">double</span> <span class="keyword">int</span> <span class="keyword">struct</span> <span class="keyword">break</span> <span class="keyword">else</span> <span class="keyword">long</span> <span class="keyword">switch</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">case</span> <span class="keyword">enum</span> <span class="keyword">register</span> <span class="keyword">typedef</span> <span class="keyword">char</span> <span class="keyword">extern</span> return <span class="keyword">union</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> <span class="keyword">short</span> <span class="keyword">unsigned</span> <span class="keyword">continue</span> <span class="keyword">for</span> <span class="keyword">signed</span> <span class="keyword">void</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">default</span> <span class="keyword">goto</span> <span class="keyword">sizeof</span> <span class="keyword">volatile</span> <span class="keyword">do</span> <span class="keyword">if</span> <span class="keyword">while</span> <span class="keyword">static</span></span><br></pre></td></tr></table></figure>
 <p>大致浏览一遍即可，不用去百度每个关键字的作用，这些关键字以后会经常用到的，到时候你想不记住都难。</p>
 <h3 id="如何辨别关键字"><a href="#如何辨别关键字" class="headerlink" title="如何辨别关键字"></a>如何辨别关键字</h3><p>这些关键字会经常跟其他符号混在一起使用，一个程序里面这么多英文符号，我怎么知道那些是关键字呢？关键字有2大特征：</p>

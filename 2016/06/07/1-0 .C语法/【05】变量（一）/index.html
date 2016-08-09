@@ -95,15 +95,14 @@
 <meta property="og:url" content="http://sanfordy.com/2016/06/07/1-0 .C语法/【05】变量（一）/index.html">
 <meta property="og:site_name" content="Sanfordy`s　blog">
 <meta property="og:description" content="常量表示的数据是不可以改的，而用变量表示的数据是可以经常修改的。">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607155214183-305983019.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607174035683-177628936.png">
-<meta property="og:updated_time" content="2016-08-06T14:59:06.000Z">
+<meta property="og:updated_time" content="2016-08-08T15:29:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【05】变量（一）">
 <meta name="twitter:description" content="常量表示的数据是不可以改的，而用变量表示的数据是可以经常修改的。">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607155214183-305983019.png">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -119,27 +118,6 @@
     }
   };
 </script>
-
-
-
-
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
-
-
-<style>
-.pace .pace-progress {
-background: #228B22; /*进度条颜色*/
-height: 3px;
-}
-.pace .pace-progress-inner {
-box-shadow: 0 0 10px #228B22, 0 0 5px     #228B22; /*阴影颜色*/
-}
-.pace .pace-activity {
-border-top-color: #228B22;    /*上边框颜色*/
-border-left-color: #228B22;    /*左边框颜色*/
-}
-</style>
 
 
 
@@ -388,15 +366,15 @@ border-left-color: #228B22;    /*左边框颜色*/
 <p>作用域：局部变量只在定义它的函数内部有效，即局部变量只有在定义它的函数内部使用，其它函数不能使用它。</p>
 <h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><p>定义：在所有函数外部定义的变量，称为全局变量。</p>
 <p>作用域：全局变量的作用范围是从定义变量的位置开始到源程序结束，即全局变量可以被在其定义位置之后的其它函数所共享。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第1行的变量a是全局变量，第5行的变量b是局部变量。</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  a是全局变量</span></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;   </span><br><span class="line">    <span class="comment">//  b是局部变量。</span></span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="根据变量的存储地点"><a href="#根据变量的存储地点" class="headerlink" title="根据变量的存储地点"></a>根据变量的存储地点</h3><p>有3个地方可以用于存储变量：普通内存、运行时堆栈、硬件寄存器。变量的存储地点决定了变量何时创建、何时销毁以及它的值能保持多久，也就是决定了变量的生命周期。</p>
 <p>C语言根据变量存储地点的不同，可以把变量分为：<code>自动变量</code>、<code>静态变量</code>、<code>寄存器变量</code>。</p>
 <h4 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h4><p>定义：自动变量是存储在堆栈中的。</p>
 <p>哪些是自动变量：被关键字<code>auto</code>修饰的局部变量都是自动变量，但是极少使用这个关键字，基本上是废的，因为所有的局部变量在默认情况下都是自动变量。</p>
 <p>生命周期：在程序执行到声明自动变量的代码块（函数）时，自动变量才被创建，当自动变量所在的代码块（函数）执行完毕后，这些自动变量就会自行销毁。如果一个函数被重复调用，这些自动变量每次都会重新创建。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> c = a + b;</span><br><span class="line">      <span class="keyword">auto</span> <span class="keyword">int</span> d;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>第1行的变量a、b，第2行的变量c、第4行的变量d都是自动变量。</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  a和b是自动变量</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//  c是自动变量</span></span><br><span class="line">      <span class="keyword">int</span> c = a + b;</span><br><span class="line">      <span class="comment">//  d是自动变量</span></span><br><span class="line">      <span class="keyword">auto</span> <span class="keyword">int</span> d;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <h4 id="静态变量"><a href="#静态变量" class="headerlink" title="静态变量"></a>静态变量</h4><p>定义：静态变量是存储在静态内存中的，也就是不属于堆栈。</p>
 <p>哪些是静态变量：</p>
 <ol>
@@ -404,14 +382,18 @@ border-left-color: #228B22;    /*左边框颜色*/
 <li>被关键字<code>static</code>修饰的局部变量也是静态变量。</li>
 </ol>
 <p>生命周期：静态变量在程序<code>运行之前</code>创建并且只会创建一次，在程序的整个运行期间始终存在，直到程序结束。</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">    b++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">    c++;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"b=%d, c=%d \n"</span>, b, c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="comment">// 连续调用3次test函数</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">        test();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第3行的变量a、第6行的变量b都是静态变量，第9行的变量c、第16行的变量i是自动变量。</p>
-<p>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用test函数时，变量b的值不会被重新初始化为0。</p>
-<blockquote>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">b=1,</span> <span class="attr">c=1</span> </span><br><span class="line"><span class="attr">b=2,</span> <span class="attr">c=1</span> </span><br><span class="line"><span class="attr">b=3,</span> <span class="attr">c=1</span> </span><br><span class="line">Program ended <span class="keyword">with</span> exit code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第3行的变量a、第6行的变量b都是静态变量，第9行的变量c、第16行的变量i是自动变量。</li>
+<li>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用test函数时，变量b的值不会被重新初始化为0。<blockquote>
 <p><strong>注意</strong>：虽然第6行的变量b是静态变量，但是只改变了它生命周期，并没有改变它的作用域，变量b还是只能在test函数内部使用。</p>
 </blockquote>
-<p>我们在main函数中重复调用test函数3次，输出结果为：</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607155214183-305983019.png" alt=""></p>
+</li>
+</ul>
 <h4 id="寄存器变量"><a href="#寄存器变量" class="headerlink" title="寄存器变量"></a>寄存器变量</h4><p>定义：存储在硬件寄存器中的变量，称为寄存器变量。寄存器变量比存储在内存中的变量访问效率更高（默认情况下，自动变量和静态变量都是放在内存中的）。</p>
 <p>哪些变量是寄存器变量：被关键字<code>register</code>修饰的自动变量都是寄存器变量。</p>
 <blockquote>
@@ -423,32 +405,54 @@ border-left-color: #228B22;    /*左边框颜色*/
 <li>由于计算机中寄存器数目有限，不能使用太多的寄存器变量。如果寄存器使用饱和时，程序将寄存器变量自动转换为自动变量处理。</li>
 <li>为了提高运算速度，一般会将一些频繁使用的局部变量定义为寄存器变量，这样程序尽可能地为它分配寄存器存放，而不用内存。</li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">register</span> <span class="keyword">int</span> a;</span><br><span class="line">     return <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>第2行的变量a是个寄存器变量。</p>
-<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><p>总结可得，定义变量需要2个条件：变量类型、变量名。定义变量的格式为：变量类型  变量名：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="comment">//  a是个寄存器变量。</span></span><br><span class="line">     <span class="keyword">register</span> <span class="keyword">int</span> a;</span><br><span class="line">     return <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h2><p>总结可得，定义变量需要2个条件：变量类型、变量名。代码如下：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第3行定义了一个名字为i的整型变量，说明i只能存储整型数据；在第5行定义了一个名字为c的字符型变量，说明c只能存储字符型数据。第3、5、7行的代码都称为“语句”，每条语句后面都有个分号“;”。</p>
-<p>于是，系统就会在内存中分别为变量i、c分配一定的存储空间，如下图所示，i和c各占用一块存储空间：</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png" alt=""></p>
-<p>如果是同一种类型的变量，可以连续定义，变量名之间用逗号,隔开。格式为：变量类型  变量名1, 变量名2, 变量名3, … ;</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第3行定义了一个名字为i的整型变量，说明i只能存储整型数据；在第5行定义了一个名字为c的字符型变量，说明c只能存储字符型数据。</li>
+<li>于是，系统就会在内存中分别为变量i、c分配一定的存储空间，如下图所示，i和c各占用一块存储空间：<br><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png" alt=""></li>
+</ul>
+<p>如果是同一种类型的变量，可以连续定义，变量名之间用逗号,隔开。代码如下：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, c;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第3行代码的意思是定义了2个int类型的变量，变量名分别为a、c。</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第3行代码的意思是定义了2个int类型的变量，变量名分别为a、c。</li>
+</ul>
 <h2 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h2><h3 id="先定义，再初始化"><a href="#先定义，再初始化" class="headerlink" title="先定义，再初始化"></a>先定义，再初始化</h3><p>前面已经定义了两个变量，但是这两个变量并没有存储任何值，我们需要给变量进行第一次赋值，也叫做“初始化”。</p>
 <p>变量赋值的格式是：变量名 = 值;</p>
-<p>这个等号”=”是一个赋值运算符，将右边的值赋值给左边的变量，也就是将右边的值存储到左边变量的存储空间中。</p>
+<p>这个等号”=”是一个赋值运算符，将右边的值赋值给左边的变量，也就是将右边的值存储到左边变量的存储空间中：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    c = <span class="string">'A'</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第4行给变量i赋值一个整型常量10，在第7行给变量c赋值一个字符型常量’A’。像第4、7行这样的赋值操作，称为“赋值运算”。</p>
-<p>内存中大致如下图所示，整数10存储在i的存储空间中，字母A存储在c的存储空间中。（其实我这个图并不是很准确，因为内存中的所有数据都是以0和1的形式存储的，比如10，它会存储成1010；字母 A ，它会存储成1000001。这里为了达到直观的效果，就没有写成二进制形式）</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png" alt=""></p>
-<h3 id="定义的同时初始化"><a href="#定义的同时初始化" class="headerlink" title="定义的同时初始化"></a>定义的同时初始化</h3><p>上面的代码也可以写成下面这样，在定义变量的同时进行初始化：变量类型  变量名 = 值;</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第4行给变量i赋值一个整型常量10，在第7行给变量c赋值一个字符型常量’A’。像第4、7行这样的赋值操作，称为“赋值运算”。</li>
+<li>内存中大致如下图所示，整数10存储在i的存储空间中，字母A存储在c的存储空间中。（其实我这个图并不是很准确，因为内存中的所有数据都是以0和1的形式存储的，比如10，它会存储成1010；字母 A ，它会存储成1000001。这里为了达到直观的效果，就没有写成二进制形式）<br><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png" alt=""></li>
+</ul>
+<h3 id="定义的同时初始化"><a href="#定义的同时初始化" class="headerlink" title="定义的同时初始化"></a>定义的同时初始化</h3><p>上面的代码也可以写成下面这样，在定义变量的同时进行初始化：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">float</span> f = <span class="number">10.9f</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> d = <span class="number">9.8</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607174035683-177628936.png" alt=""></p>
-<h3 id="可以不断修改"><a href="#可以不断修改" class="headerlink" title="可以不断修改"></a>可以不断修改</h3><p>既然i是个变量，说明它的值可以不断地改变，看下面的代码</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>内存分析如下：<br><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607174035683-177628936.png" alt=""></li>
+</ul>
+<h3 id="可以不断修改"><a href="#可以不断修改" class="headerlink" title="可以不断修改"></a>可以不断修改</h3><p>既然i是个变量，说明它的值可以不断地改变，看下面的代码：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    i = <span class="number">89</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">'A'</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第3行定义了变量i，并且初始值为10。紧接着在第5行把i的值改为89，这个89会覆盖以前存储的10。</p>
-<h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><p>刚才提到，默认情况下，变量的值是可以不断改变的。不过，有时候我们会希望变量的值只在定义的时候初始化一次，以后都不能再改变，这个时候我们就可以使用<code>const</code>关键字来修饰变量。</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第3行定义了变量i，并且初始值为10。紧接着在第5行把i的值改为89，这个89会覆盖以前存储的10。</li>
+</ul>
+<h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><p>刚才提到，默认情况下，变量的值是可以不断改变的。不过，有时候我们会希望变量的值只在定义的时候初始化一次，以后都不能再改变，这个时候我们就可以使用<code>const</code>关键字来修饰变量：</p>
+<p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    i = <span class="number">11</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意第3行，在<code>int</code>的前面加了个<code>const</code>关键字。表示变量i的值只会初始化一次，也就是说i的值永远都是一开始的10，以后都不能再改了。所以编译器会报第5行代码的错误，不允许再次修改i的值。</p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>注意第3行，在<code>int</code>的前面加了个<code>const</code>关键字。表示变量i的值只会初始化一次，也就是说i的值永远都是一开始的10，以后都不能再改了。所以编译器会报第5行代码的错误，不允许再次修改i的值。</li>
+</ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 
@@ -585,7 +589,7 @@ border-left-color: #228B22;    /*左边框颜色*/
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -675,7 +679,7 @@ border-left-color: #228B22;    /*左边框颜色*/
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2014 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -683,16 +687,9 @@ border-left-color: #228B22;    /*左边框颜色*/
   <span class="author" itemprop="copyrightHolder">Sanfordy</span>
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+
+
 
         
 
@@ -701,11 +698,7 @@ border-left-color: #228B22;    /*左边框颜色*/
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
-  
 
-  
-    <span class="site-pv">本站访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
   
   
 </div>

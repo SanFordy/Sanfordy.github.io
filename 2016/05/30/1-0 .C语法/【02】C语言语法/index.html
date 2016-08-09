@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Sanfordy`s　blog">
 <meta property="og:description" content="C语言属于一门高级语言，其实所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的Objective-C，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607104437855-2085184487.png">
-<meta property="og:updated_time" content="2016-08-06T13:11:55.000Z">
+<meta property="og:updated_time" content="2016-08-08T14:46:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【02】C语言语法">
 <meta name="twitter:description" content="C语言属于一门高级语言，其实所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的Objective-C，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。">
@@ -116,27 +116,6 @@
     }
   };
 </script>
-
-
-
-
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
-
-
-<style>
-.pace .pace-progress {
-background: #228B22; /*进度条颜色*/
-height: 3px;
-}
-.pace .pace-progress-inner {
-box-shadow: 0 0 10px #228B22, 0 0 5px     #228B22; /*阴影颜色*/
-}
-.pace .pace-activity {
-border-top-color: #228B22;    /*上边框颜色*/
-border-left-color: #228B22;    /*左边框颜色*/
-}
-</style>
 
 
 
@@ -370,7 +349,7 @@ border-left-color: #228B22;    /*左边框颜色*/
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>C语言属于一门高级语言，其实所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的Objective-C，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。</p>
 <h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="什么是关键字"><a href="#什么是关键字" class="headerlink" title="什么是关键字"></a>什么是关键字</h3><p>关键字就是C语言提供的有特殊含义的符号，有些地方也叫做“保留字”。</p>
-<h3 id="都有哪些关键字"><a href="#都有哪些关键字" class="headerlink" title="都有哪些关键字"></a>都有哪些关键字</h3><p>C语言一共提供了32个关键字，这些关键字都被C语言赋予了特殊含义。</p>
+<h3 id="都有哪些关键字"><a href="#都有哪些关键字" class="headerlink" title="都有哪些关键字"></a>都有哪些关键字</h3><p>C语言一共提供了32个关键字，这些关键字都被C语言赋予了特殊含义：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> <span class="keyword">double</span> <span class="keyword">int</span> <span class="keyword">struct</span> <span class="keyword">break</span> <span class="keyword">else</span> <span class="keyword">long</span> <span class="keyword">switch</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">case</span> <span class="keyword">enum</span> <span class="keyword">register</span> <span class="keyword">typedef</span> <span class="keyword">char</span> <span class="keyword">extern</span> return <span class="keyword">union</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> <span class="keyword">short</span> <span class="keyword">unsigned</span> <span class="keyword">continue</span> <span class="keyword">for</span> <span class="keyword">signed</span> <span class="keyword">void</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">default</span> <span class="keyword">goto</span> <span class="keyword">sizeof</span> <span class="keyword">volatile</span> <span class="keyword">do</span> <span class="keyword">if</span> <span class="keyword">while</span> <span class="keyword">static</span></span><br></pre></td></tr></table></figure>
 <p>大致浏览一遍即可，不用去百度每个关键字的作用，这些关键字以后会经常用到的，到时候你想不记住都难。</p>
 <h3 id="如何辨别关键字"><a href="#如何辨别关键字" class="headerlink" title="如何辨别关键字"></a>如何辨别关键字</h3><p>这些关键字会经常跟其他符号混在一起使用，一个程序里面这么多英文符号，我怎么知道那些是关键字呢？关键字有2大特征：</p>
@@ -528,7 +507,7 @@ border-left-color: #228B22;    /*左边框颜色*/
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -618,7 +597,7 @@ border-left-color: #228B22;    /*左边框颜色*/
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2014 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -626,16 +605,9 @@ border-left-color: #228B22;    /*左边框颜色*/
   <span class="author" itemprop="copyrightHolder">Sanfordy</span>
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+
+
 
         
 
@@ -644,11 +616,7 @@ border-left-color: #228B22;    /*左边框颜色*/
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
-  
 
-  
-    <span class="site-pv">本站访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
   
   
 </div>
