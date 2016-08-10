@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-08-09T14:19:54.000Z</updated>
+  <updated>2016-08-10T07:08:13.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -16,11 +16,164 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【14】字符串</title>
+    <link href="http://sanfordy.com/2016/08/01/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9014%E3%80%91%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://sanfordy.com/2016/08/01/1-0 .C语法/【14】字符串/</id>
+    <published>2016-08-01T03:52:05.000Z</published>
+    <updated>2016-08-10T07:08:13.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;字符串简介&quot;&gt;&lt;a href=&quot;#字符串简介&quot; class=&quot;headerlink&quot; title=&quot;字符串简介&quot;&gt;&lt;/a&gt;字符串简介&lt;/h2&gt;&lt;p&gt;在Java中，一个字符串可以用String类型来存储：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;String s = &lt;span class=&quot;string&quot;&gt;&quot;string&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串。&lt;/p&gt;
+&lt;p&gt;字符串可以看做是一个特殊的字符数组，为了跟普通的字符数组区分开来，应该在字符串的尾部添加了一个结束标志’\0’。’\0’是一个ASCII码值为0的字符，是一个空操作符，表示什么也不干。所以采用字符数组存放字符串，赋值时应包含结束标志’\0’。&lt;/p&gt;
+&lt;p&gt;字符串”mj”的存储情况如下（假设用字符数组char a[]来存储）：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201608/776348-20160810115159324-73374550.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：尾部有个’\0’，如果没有这个结束标记，说明这个字符数组存储的并不是字符串。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;字符串的初始化&quot;&gt;&lt;a href=&quot;#字符串的初始化&quot; class=&quot;headerlink&quot; title=&quot;字符串的初始化&quot;&gt;&lt;/a&gt;字符串的初始化&lt;/h2&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  一&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; a[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;] = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  二&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; b[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;b[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;b[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;b[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  三&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; c[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&quot;mj&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  四&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; d[] = &lt;span class=&quot;string&quot;&gt;&quot;mj&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一般我们使用第11行的初始化方式，系统会自动在字符串尾部加上一个\0结束符。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：字符串所占的空间至少要比字符串长度大1，因为字符串以 ‘\0’ 表⽰结束。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;字符串的输入&quot;&gt;&lt;a href=&quot;#字符串的输入&quot; class=&quot;headerlink&quot; title=&quot;字符串的输入&quot;&gt;&lt;/a&gt;字符串的输入&lt;/h2&gt;&lt;p&gt;stdio.h中有2个函数可以用来接收用户输入的字符串，分别是scanf和gets。&lt;/p&gt;
+&lt;h3 id=&quot;scanf&quot;&gt;&lt;a href=&quot;#scanf&quot; class=&quot;headerlink&quot; title=&quot;scanf&quot;&gt;&lt;/a&gt;scanf&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; a[&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;scanf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%s&quot;&lt;/span&gt;, a);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;scanf函数会从a的首地址开始存放用户输入的字符，存放完毕后，系统会自动在尾部加上一个结束标记’\0’。&lt;/li&gt;
+&lt;li&gt;不要写成scanf(“%s”, &amp;amp;a)，因为a已经代表了数组的地址，没必要再加上&amp;amp;这个地址运算符。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;gets&quot;&gt;&lt;a href=&quot;#gets&quot; class=&quot;headerlink&quot; title=&quot;gets&quot;&gt;&lt;/a&gt;gets&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight dns&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;char a[&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gets(a)&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;gets跟scanf一样，会从a的首地址开始存放用户输入的字符，存放完毕后，系统会自动在尾部加上一个结束标记’\0’。&lt;/li&gt;
+&lt;li&gt;gets一次只能读取一个字符串，scanf则可以同时读取多个字符串。&lt;/li&gt;
+&lt;li&gt;gets可以读入包含空格、tab的字符串，直到遇到回车为止；scanf不能用来读取空格、tab。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;字符串的输出&quot;&gt;&lt;a href=&quot;#字符串的输出&quot; class=&quot;headerlink&quot; title=&quot;字符串的输出&quot;&gt;&lt;/a&gt;字符串的输出&lt;/h2&gt;&lt;p&gt;我们可以使用stdio.h中两个函数来输出字符串，分别是printf和puts函数。&lt;/p&gt;
+&lt;h3 id=&quot;printf&quot;&gt;&lt;a href=&quot;#printf&quot; class=&quot;headerlink&quot; title=&quot;printf&quot;&gt;&lt;/a&gt;printf&lt;/h3&gt;&lt;p&gt;这个函数我们已经用过很多遍了，用格式符%s表示需要输出一个字符串：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; a[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;] = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%s\n&quot;&lt;/span&gt;, a);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mj&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;最后面那个\0是不可能输出的，它只是个空字符，只是字符串结束的标记。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;说到这里，有人可能会想：这样看来，似乎把最后的\0去掉也没什么影响吧，输出结果应该还是一样的啊，都是”mj”。我们可以试一下，把最后面的\0去掉，再进行输出：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; a[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;] = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%s&quot;&lt;/span&gt;, a);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mj&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;跟上面添加了\0的输出结果是一样的。别高兴地太早了，我只能说你这是侥幸一样的，运气好了一点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们再来看一个例子：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  添加了结束符\0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; a[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;] = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  假设忘记添加结束符\0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; b[] = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;i&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;s&#39;&lt;/span&gt;&amp;#125;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 输出字符串a&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;字符串a：%s\n&quot;&lt;/span&gt;, a); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 输出字符串b&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;字符串b：%s\n&quot;&lt;/span&gt;, b); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  打印a的地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;a的地址：%x\n&quot;&lt;/span&gt;, a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  打印b的地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;b的地址：%x\n&quot;&lt;/span&gt;, b);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;字符串a：mj&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;字符串&lt;span class=&quot;keyword&quot;&gt;b：ismj&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;a的地址：&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;fbff809&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;b的地址：5fbff807&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;Program&lt;/span&gt; ended with exit &lt;span class=&quot;meta&quot;&gt;code&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;看清楚了，第4行的字符数组b后面没有添加结束符\0，因此b不算是个正宗的字符串。&lt;/li&gt;
+&lt;li&gt;按照你的猜想，字符串b的输出应该就是”is”，但是当我们尝试输出b的时候，把a也输出了。要搞清楚为什么，首先要看看a和b的内存地址：&lt;br&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201608/776348-20160810143638949-521231888.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;可以看出来，数组b和a的内存地址是连续的。我们再看第9行代码，%s表示期望输出一个字符串，因此printf函数会从b的首地址开始按顺序输出字符，一直到\0字符为止，因为\0是字符串的结束标记。所以，如果想要创建一个字符串，记得加上结束符\0，不然后果很严重，会访问到一些垃圾数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;puts函数&quot;&gt;&lt;a href=&quot;#puts函数&quot; class=&quot;headerlink&quot; title=&quot;puts函数&quot;&gt;&lt;/a&gt;puts函数&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; a[] = &lt;span class=&quot;string&quot;&gt;&quot;mj&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;puts&lt;/span&gt;(a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;puts&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;lmj&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mj&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;lmj&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;看第2行代码，puts函数会从a的首地址开始输出字符，一直到\0字符为止。&lt;/li&gt;
+&lt;li&gt;从输出结果可以看出puts函数输出一个字符串后会自动换行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：puts函数一次只能输出一个字符串，printf函数则可以同时输出多个字符串。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;字符串常用处理函数&quot;&gt;&lt;a href=&quot;#字符串常用处理函数&quot; class=&quot;headerlink&quot; title=&quot;字符串常用处理函数&quot;&gt;&lt;/a&gt;字符串常用处理函数&lt;/h2&gt;&lt;p&gt;下面介绍的字符串处理函数都是在string.h头文件中声明的，使用前要包含这个头文件。&lt;/p&gt;
+&lt;p&gt;系统提供的字符串处理函数都是根据 ‘\0’ 来判断字符串是否结束。&lt;/p&gt;
+&lt;h3 id=&quot;strlen&quot;&gt;&lt;a href=&quot;#strlen&quot; class=&quot;headerlink&quot; title=&quot;strlen&quot;&gt;&lt;/a&gt;strlen&lt;/h3&gt;&lt;p&gt;这个函数可以用来测量字符串的字符个数，不包括\0：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; size = &lt;span class=&quot;built_in&quot;&gt;strlen&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;mj&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;// 长度为2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; s1[] = &lt;span class=&quot;string&quot;&gt;&quot;lmj&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; size1 = &lt;span class=&quot;built_in&quot;&gt;strlen&lt;/span&gt;(s1); &lt;span class=&quot;comment&quot;&gt;// 长度为3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; s2[] = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;l&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; size2 = &lt;span class=&quot;built_in&quot;&gt;strlen&lt;/span&gt;(s2); &lt;span class=&quot;comment&quot;&gt;// 长度为2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;看一下第7行，strlen函数会从s2的首地址开始计算字符个数，直到遇到空字符\0为止。因为s2的第1个\0之前只有mj这2个字符，所以长度为2。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;strcpy&quot;&gt;&lt;a href=&quot;#strcpy&quot; class=&quot;headerlink&quot; title=&quot;strcpy&quot;&gt;&lt;/a&gt;strcpy&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; s[&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;strcpy&lt;/span&gt;(s, &lt;span class=&quot;string&quot;&gt;&quot;lmj&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;strcpy函数会将右边的”lmj”字符串拷贝到字符数组s中。从s的首地址开始，逐个字符拷贝，直到拷贝到\0为止。当然，在s的尾部肯定会保留一个\0。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;假设右边的字符串中有好几个\0，strcpy函数只会拷贝第1个\0之前的内容，后面的内容不拷贝：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; s[&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; c[] = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;l&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;strcpy&lt;/span&gt;(s, c);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;最后字符串s中的内容为：mj。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;strcat&quot;&gt;&lt;a href=&quot;#strcat&quot; class=&quot;headerlink&quot; title=&quot;strcat&quot;&gt;&lt;/a&gt;strcat&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; s1[&lt;span class=&quot;number&quot;&gt;30&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&quot;LOVE&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;strcat&lt;/span&gt;(s1, &lt;span class=&quot;string&quot;&gt;&quot;OC&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;strcat函数会将右边的”OC”字符串拼接到s1的尾部，最后s1的内容就变成了”LOVEOC”：&lt;br&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201608/776348-20160810145929012-605081378.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;strcat函数会从s1的第1个\0字符开始连接字符串，s1的第1个\0字符会被右边的字符串覆盖，连接完毕后在s1的尾部保留一个\0。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意下面的情况：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; s1[&lt;span class=&quot;number&quot;&gt;30&lt;/span&gt;] = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;L&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;j&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;L&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;o&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;v&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;e&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;strcat&lt;/span&gt;(s1, &lt;span class=&quot;string&quot;&gt;&quot;OC&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%s\n&quot;&lt;/span&gt;, s1);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;LmjOC&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第1行初始化的s1有2个\0，经过第2行的strcat函数后：&lt;br&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201608/776348-20160810145937762-2089615226.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;strcmp&quot;&gt;&lt;a href=&quot;#strcmp&quot; class=&quot;headerlink&quot; title=&quot;strcmp&quot;&gt;&lt;/a&gt;strcmp&lt;/h3&gt;&lt;p&gt;这个函数可以用来比较2个字符串的大小。调用形式为：strcmp(字符串1, 字符串2)。&lt;/p&gt;
+&lt;p&gt;两个字符串从左至右逐个字符比较（按照字符的ASCII码值的大小），直到字符不相同或者遇见’\0’为止。如果全部字符都相同，则返回值为0。如果不相同，则返回两个字符串中第一个不相同的字符ASCII码值的差。即字符串1大于字符串2时函数返回值为正，否则为负：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight mipsasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;char &lt;span class=&quot;built_in&quot;&gt;s1&lt;/span&gt;[] = &lt;span class=&quot;string&quot;&gt;&quot;abc&quot;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char &lt;span class=&quot;built_in&quot;&gt;s2&lt;/span&gt;[] = &lt;span class=&quot;string&quot;&gt;&quot;abc&quot;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char &lt;span class=&quot;built_in&quot;&gt;s3&lt;/span&gt;[] = &lt;span class=&quot;string&quot;&gt;&quot;aBc&quot;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char &lt;span class=&quot;built_in&quot;&gt;s4&lt;/span&gt;[] = &lt;span class=&quot;string&quot;&gt;&quot;ccb&quot;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;printf(&lt;span class=&quot;string&quot;&gt;&quot;%d, %d, %d\n&quot;&lt;/span&gt;, strcmp(&lt;span class=&quot;built_in&quot;&gt;s1&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;s2&lt;/span&gt;), strcmp(&lt;span class=&quot;built_in&quot;&gt;s1&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;s3&lt;/span&gt;), strcmp(&lt;span class=&quot;built_in&quot;&gt;s1&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;s4&lt;/span&gt;))&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;32&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;s1和s2相同，所以返回0。&lt;/li&gt;
+&lt;li&gt;s1和s3是第2个字符不相同，b的ASCII码值是98，B的ASCII码值是66，b - B = 32，所以返回32。&lt;/li&gt;
+&lt;li&gt;s1和s4是第1个字符就不相同，a的ASCII码值是97，c的ASCII码值是99，a - c = -2，所以返回-2。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="1.0　【C语法】" scheme="http://sanfordy.com/categories/1-0-%E3%80%90C%E8%AF%AD%E6%B3%95%E3%80%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>【13】数组</title>
     <link href="http://sanfordy.com/2016/08/01/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9013%E3%80%91%E6%95%B0%E7%BB%84/"/>
     <id>http://sanfordy.com/2016/08/01/1-0 .C语法/【13】数组/</id>
     <published>2016-08-01T02:52:05.000Z</published>
-    <updated>2016-08-09T14:19:54.000Z</updated>
+    <updated>2016-08-10T01:39:46.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;定义数组时，系统将按照数组类型和个数分配一段连续的存储空间来存储数组元素，如int a[3]占据了连续的6字节存储空间（在16位编译器环境下，一个int类型占用2个字节）。要注意的是，数组名代表着整个数组的地址，也就是数组的起始地址。&lt;/p&gt;
@@ -95,8 +248,8 @@
 &lt;p&gt;二维数组的存放顺序是按行存放的，先存放第一行的元素，再存放第2行的元素。例如int a[2][3]的存放顺序是：a[0][0] → a[0][1] → a[0][2] → a[1][0] → a[1][1] → a[1][2]。&lt;/p&gt;
 &lt;p&gt;再来看看在内存中的存储情况，例如int a[2][2]：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201608/776348-20160809215954371-182260266.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;a[0]、a[1]也是数组，是一维数组，而且a[0]、a[1]就是数组名，因此a[0]、a[1]就代表着这个一维数组的地址)。&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;a[0]、a[1]也是数组，是一维数组，而且a[0]、a[1]就是数组名，因此a[0]、a[1]就代表着这个一维数组的地址。&lt;/li&gt;
 &lt;li&gt;数组a的地址是ffc1，数组a[0]的地址也是ffc1，即a = a[0]；&lt;/li&gt;
 &lt;li&gt;元素a[0][0]的地址是ffc1，所以数组a[0]的地址和元素a[0][0]的地址相同，即a[0] = &amp;amp;a[0][0]；&lt;/li&gt;
 &lt;li&gt;最终可以得出结论：a = a[0] = &amp;amp;a[0][0]，以此类推，可以得出a[1] = &amp;amp;a[1][0]&lt;/li&gt;
@@ -136,11 +289,13 @@
 &lt;p&gt;如果要存储多个字符串，比如一个班所有学生的名字，则需要二维字符数组，char names[15][20]可以存放15个学生的姓名(假设姓名不超过20字符)。&lt;/p&gt;
 &lt;p&gt;如果要存储两个班的学生姓名，那么可以用三维字符数组char names[2][15][20]。&lt;/p&gt;
 &lt;h3 id=&quot;字符串数组的初始化&quot;&gt;&lt;a href=&quot;#字符串数组的初始化&quot; class=&quot;headerlink&quot; title=&quot;字符串数组的初始化&quot;&gt;&lt;/a&gt;字符串数组的初始化&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; names[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;] = &amp;#123; &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;J&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;y&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125;, &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;J&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;i&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; names2[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;] = &amp;#123; &amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;Jay&quot;&lt;/span&gt;&amp;#125;, &amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;Jim&quot;&lt;/span&gt;&amp;#125; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; names3[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;] = &amp;#123; &lt;span class=&quot;string&quot;&gt;&quot;Jay&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;Jim&quot;&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; names[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;] = &amp;#123; &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;J&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;y&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125;, &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;J&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;i&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;m&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;&amp;#125; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; names2[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;] = &amp;#123; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;Jay&quot;&lt;/span&gt;&amp;#125;, &amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;Jim&quot;&lt;/span&gt;&amp;#125; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; names3[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;][&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;] = &amp;#123; &lt;span class=&quot;string&quot;&gt;&quot;Jay&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;Jim&quot;&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;可以把字符串数组看作是一维数组，它的元素是字符串。字符串数组names由字符串”Jay”和字符串”Jim”构成。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
 </content>
     
     <summary type="html">
@@ -1746,24 +1901,13 @@
     <link href="http://sanfordy.com/2016/05/11/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9000%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
     <id>http://sanfordy.com/2016/05/11/1-0 .C语法/【00】C语言简介/</id>
     <published>2016-05-11T15:24:05.000Z</published>
-    <updated>2016-08-09T15:04:21.000Z</updated>
+    <updated>2016-08-09T15:51:14.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;C语言于1972年发明，首次使用是用于重写&lt;code&gt;UNIX&lt;/code&gt;操作系统（&lt;code&gt;UNIX&lt;/code&gt;以前是用汇编写的）。随着&lt;code&gt;UNIX&lt;/code&gt;操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;计算机常识&quot;&gt;&lt;a href=&quot;#计算机常识&quot; class=&quot;headerlink&quot; title=&quot;计算机常识&quot;&gt;&lt;/a&gt;计算机常识&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;编号条目下面可以接&lt;code&gt;圆点条目&lt;/code&gt;，不用隔一行：&lt;ul&gt;
-&lt;li&gt;这是圆点条目，圆点条目下没有内容。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;编号条目下面可以接&lt;code&gt;图片&lt;/code&gt;，不用隔一行：&lt;br&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201607/776348-20160707155851108-1963224110.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;这是图片的解释。&lt;/li&gt;
-&lt;li&gt;编号条目下可以接&lt;code&gt;注意/说明/总结&lt;/code&gt;，不用隔一行：&lt;blockquote&gt;
-&lt;p&gt;这是注意 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;在学习C语言之前，先要了解一些计算机常识&lt;/p&gt;
+&lt;h2 id=&quot;计算机常识&quot;&gt;&lt;a href=&quot;#计算机常识&quot; class=&quot;headerlink&quot; title=&quot;计算机常识&quot;&gt;&lt;/a&gt;计算机常识&lt;/h2&gt;&lt;p&gt;在学习C语言之前，先要了解一些计算机常识。&lt;/p&gt;
 &lt;h3 id=&quot;计算机只能识别0和1&quot;&gt;&lt;a href=&quot;#计算机只能识别0和1&quot; class=&quot;headerlink&quot; title=&quot;计算机只能识别0和1&quot;&gt;&lt;/a&gt;计算机只能识别0和1&lt;/h3&gt;&lt;p&gt;大家都知道，计算机要通电才能工作，说白了，它跟电视、洗衣机一样，都是电器。电器都有个共同的能力：懂得判断通电还是断电，通电就能工作，断电就停止工作。因此，从根本上讲，计算机只能识别电信号：高电平信号（通电）、低电平信号（断电），它只知道某个开关是通电还是断电。我们用1代表高电平，0代表低电平。也就说，&lt;code&gt;计算机只能识别0和1。&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&quot;二进制&quot;&gt;&lt;a href=&quot;#二进制&quot; class=&quot;headerlink&quot; title=&quot;二进制&quot;&gt;&lt;/a&gt;二进制&lt;/h3&gt;&lt;p&gt;因为计算机只能识别0和1，因此计算机所能识别的指令和数据都是用二进制数（0和1）来表示的。所谓二进制，就是用0和1来表示所有的数。不过我们日常生活中最常用的是十进制，用0~9来表示所有的数。&lt;/p&gt;
 &lt;h4 id=&quot;二进制指令&quot;&gt;&lt;a href=&quot;#二进制指令&quot; class=&quot;headerlink&quot; title=&quot;二进制指令&quot;&gt;&lt;/a&gt;二进制指令&lt;/h4&gt;&lt;p&gt;给计算机灌输一些指令，它就能执行相应的操作，而计算机只能识别由0和1组成的指令。在计算机发展初期，计算机的指令长度为16，即以16个二进制数（0或1）组成一条指令，例如，用1011011000000000这条指令，是让计算机进行一次加法运算。因此，如果要想计算机执行一系列的操作，就必须编写许多条由0和1组成的指令，可以想象的到，这个工作量是如此巨大。&lt;/p&gt;

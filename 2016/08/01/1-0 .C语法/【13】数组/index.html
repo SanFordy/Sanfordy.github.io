@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160809214541777-1132269344.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160809215946137-1142619093.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160809215954371-182260266.png">
-<meta property="og:updated_time" content="2016-08-09T14:19:54.000Z">
+<meta property="og:updated_time" content="2016-08-10T01:39:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【13】数组">
 <meta name="twitter:description" content="定义数组时，系统将按照数组类型和个数分配一段连续的存储空间来存储数组元素，如int a[3]占据了连续的6字节存储空间（在16位编译器环境下，一个int类型占用2个字节）。要注意的是，数组名代表着整个数组的地址，也就是数组的起始地址。">
@@ -419,8 +419,8 @@
 <p>二维数组的存放顺序是按行存放的，先存放第一行的元素，再存放第2行的元素。例如int a[2][3]的存放顺序是：a[0][0] → a[0][1] → a[0][2] → a[1][0] → a[1][1] → a[1][2]。</p>
 <p>再来看看在内存中的存储情况，例如int a[2][2]：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160809215954371-182260266.png" alt=""></p>
-<p>a[0]、a[1]也是数组，是一维数组，而且a[0]、a[1]就是数组名，因此a[0]、a[1]就代表着这个一维数组的地址)。</p>
 <ul>
+<li>a[0]、a[1]也是数组，是一维数组，而且a[0]、a[1]就是数组名，因此a[0]、a[1]就代表着这个一维数组的地址。</li>
 <li>数组a的地址是ffc1，数组a[0]的地址也是ffc1，即a = a[0]；</li>
 <li>元素a[0][0]的地址是ffc1，所以数组a[0]的地址和元素a[0][0]的地址相同，即a[0] = &amp;a[0][0]；</li>
 <li>最终可以得出结论：a = a[0] = &amp;a[0][0]，以此类推，可以得出a[1] = &amp;a[1][0]</li>
@@ -460,11 +460,13 @@
 <p>如果要存储多个字符串，比如一个班所有学生的名字，则需要二维字符数组，char names[15][20]可以存放15个学生的姓名(假设姓名不超过20字符)。</p>
 <p>如果要存储两个班的学生姓名，那么可以用三维字符数组char names[2][15][20]。</p>
 <h3 id="字符串数组的初始化"><a href="#字符串数组的初始化" class="headerlink" title="字符串数组的初始化"></a>字符串数组的初始化</h3><p>&lt; 代码示例 &gt;</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> names[<span class="number">2</span>][<span class="number">10</span>] = &#123; &#123;<span class="string">'J'</span>,<span class="string">'a'</span>,<span class="string">'y'</span>,<span class="string">'\0'</span>&#125;, &#123;<span class="string">'J'</span>,<span class="string">'i'</span>,<span class="string">'m'</span>,<span class="string">'\0'</span>&#125; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> names2[<span class="number">2</span>][<span class="number">10</span>] = &#123; &#123;<span class="string">"Jay"</span>&#125;, &#123;<span class="string">"Jim"</span>&#125; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> names3[<span class="number">2</span>][<span class="number">10</span>] = &#123; <span class="string">"Jay"</span>, <span class="string">"Jim"</span> &#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">char</span> names[<span class="number">2</span>][<span class="number">10</span>] = &#123; &#123;<span class="string">'J'</span>,<span class="string">'a'</span>,<span class="string">'y'</span>,<span class="string">'\0'</span>&#125;, &#123;<span class="string">'J'</span>,<span class="string">'i'</span>,<span class="string">'m'</span>,<span class="string">'\0'</span>&#125; &#125;;</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">char</span> names2[<span class="number">2</span>][<span class="number">10</span>] = &#123; &#123;</span><br><span class="line"></span><br><span class="line"><span class="string">"Jay"</span>&#125;, &#123;<span class="string">"Jim"</span>&#125; &#125;;</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">char</span> names3[<span class="number">2</span>][<span class="number">10</span>] = &#123; <span class="string">"Jay"</span>, <span class="string">"Jim"</span> &#125;;</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>可以把字符串数组看作是一维数组，它的元素是字符串。字符串数组names由字符串”Jay”和字符串”Jim”构成。</li>
 </ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
 
       
     </div>
@@ -516,6 +518,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/01/1-0 .C语法/【14】字符串/" rel="prev" title="【14】字符串">
+                【14】字符串 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -587,7 +593,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -667,7 +673,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#地址"><span class="nav-number">1.</span> <span class="nav-text">地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一维数组"><span class="nav-number">2.</span> <span class="nav-text">一维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组的定义"><span class="nav-number">2.1.</span> <span class="nav-text">一维数组的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组的存储"><span class="nav-number">2.2.</span> <span class="nav-text">一维数组的存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组的初始化"><span class="nav-number">2.3.</span> <span class="nav-text">一维数组的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组与函数参数"><span class="nav-number">2.4.</span> <span class="nav-text">一维数组与函数参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组"><span class="nav-number">3.</span> <span class="nav-text">二维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组的定义"><span class="nav-number">3.1.</span> <span class="nav-text">二维数组的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组的存储"><span class="nav-number">3.2.</span> <span class="nav-text">二维数组的存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组的初始化"><span class="nav-number">3.3.</span> <span class="nav-text">二维数组的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组与函数参数"><span class="nav-number">3.4.</span> <span class="nav-text">二维数组与函数参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符数组"><span class="nav-number">4.</span> <span class="nav-text">字符数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串数组"><span class="nav-number">5.</span> <span class="nav-text">字符串数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">5.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串数组的初始化"><span class="nav-number">5.2.</span> <span class="nav-text">字符串数组的初始化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#地址"><span class="nav-number">1.</span> <span class="nav-text">地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一维数组"><span class="nav-number">2.</span> <span class="nav-text">一维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组的定义"><span class="nav-number">2.1.</span> <span class="nav-text">一维数组的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组的存储"><span class="nav-number">2.2.</span> <span class="nav-text">一维数组的存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组的初始化"><span class="nav-number">2.3.</span> <span class="nav-text">一维数组的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组与函数参数"><span class="nav-number">2.4.</span> <span class="nav-text">一维数组与函数参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组"><span class="nav-number">3.</span> <span class="nav-text">二维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组的定义"><span class="nav-number">3.1.</span> <span class="nav-text">二维数组的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组的存储"><span class="nav-number">3.2.</span> <span class="nav-text">二维数组的存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组的初始化"><span class="nav-number">3.3.</span> <span class="nav-text">二维数组的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组与函数参数"><span class="nav-number">3.4.</span> <span class="nav-text">二维数组与函数参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符数组"><span class="nav-number">4.</span> <span class="nav-text">字符数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串数组"><span class="nav-number">5.</span> <span class="nav-text">字符串数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">5.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串数组的初始化"><span class="nav-number">5.2.</span> <span class="nav-text">字符串数组的初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
