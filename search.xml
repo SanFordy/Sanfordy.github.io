@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[【15】指针]]></title>
-      <url>http://sanfordy.com/2016/08/01/%E3%80%9015%E3%80%91%E6%8C%87%E9%92%88/</url>
+      <url>http://sanfordy.com/2016/08/01/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9015%E3%80%91%E6%8C%87%E9%92%88/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串</p>
 </blockquote>
