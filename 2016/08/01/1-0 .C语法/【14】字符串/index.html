@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810143638949-521231888.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810145929012-605081378.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810145937762-2089615226.png">
-<meta property="og:updated_time" content="2016-08-10T07:08:13.000Z">
+<meta property="og:updated_time" content="2016-08-10T09:24:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【14】字符串">
 <meta name="twitter:description" content="C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串">
@@ -157,7 +157,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">Your achievement depends on how many people you can face to talk</p>
+  <p class="site-subtitle">　　　　　　　</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -414,7 +414,7 @@
 <li>看清楚了，第4行的字符数组b后面没有添加结束符\0，因此b不算是个正宗的字符串。</li>
 <li>按照你的猜想，字符串b的输出应该就是”is”，但是当我们尝试输出b的时候，把a也输出了。要搞清楚为什么，首先要看看a和b的内存地址：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810143638949-521231888.png" alt=""><br>可以看出来，数组b和a的内存地址是连续的。我们再看第9行代码，%s表示期望输出一个字符串，因此printf函数会从b的首地址开始按顺序输出字符，一直到\0字符为止，因为\0是字符串的结束标记。所以，如果想要创建一个字符串，记得加上结束符\0，不然后果很严重，会访问到一些垃圾数据。</li>
 </ul>
-<h3 id="puts函数"><a href="#puts函数" class="headerlink" title="puts函数"></a>puts函数</h3><p>&lt; 代码示例 &gt;</p>
+<h3 id="puts"><a href="#puts" class="headerlink" title="puts"></a>puts</h3><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> a[] = <span class="string">"mj"</span>;</span><br><span class="line"><span class="built_in">puts</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="built_in">puts</span>(<span class="string">"lmj"</span>);</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
 <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mj</span><br><span class="line">lmj</span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
@@ -529,6 +529,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/08/01/【15】指针/" rel="prev" title="【15】指针">
+                【15】指针 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -594,12 +598,12 @@
                src="/images/kedaya.jpg"
                alt="Sanfordy" />
           <p class="site-author-name" itemprop="name">Sanfordy</p>
-          <p class="site-description motion-element" itemprop="description">A happy programmer</p>
+          <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -679,7 +683,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串简介"><span class="nav-number">1.</span> <span class="nav-text">字符串简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的初始化"><span class="nav-number">2.</span> <span class="nav-text">字符串的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的输入"><span class="nav-number">3.</span> <span class="nav-text">字符串的输入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scanf"><span class="nav-number">3.1.</span> <span class="nav-text">scanf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gets"><span class="nav-number">3.2.</span> <span class="nav-text">gets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的输出"><span class="nav-number">4.</span> <span class="nav-text">字符串的输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#printf"><span class="nav-number">4.1.</span> <span class="nav-text">printf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#puts函数"><span class="nav-number">4.2.</span> <span class="nav-text">puts函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常用处理函数"><span class="nav-number">5.</span> <span class="nav-text">字符串常用处理函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#strlen"><span class="nav-number">5.1.</span> <span class="nav-text">strlen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strcpy"><span class="nav-number">5.2.</span> <span class="nav-text">strcpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strcat"><span class="nav-number">5.3.</span> <span class="nav-text">strcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strcmp"><span class="nav-number">5.4.</span> <span class="nav-text">strcmp</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串简介"><span class="nav-number">1.</span> <span class="nav-text">字符串简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的初始化"><span class="nav-number">2.</span> <span class="nav-text">字符串的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的输入"><span class="nav-number">3.</span> <span class="nav-text">字符串的输入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scanf"><span class="nav-number">3.1.</span> <span class="nav-text">scanf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gets"><span class="nav-number">3.2.</span> <span class="nav-text">gets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的输出"><span class="nav-number">4.</span> <span class="nav-text">字符串的输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#printf"><span class="nav-number">4.1.</span> <span class="nav-text">printf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#puts"><span class="nav-number">4.2.</span> <span class="nav-text">puts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常用处理函数"><span class="nav-number">5.</span> <span class="nav-text">字符串常用处理函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#strlen"><span class="nav-number">5.1.</span> <span class="nav-text">strlen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strcpy"><span class="nav-number">5.2.</span> <span class="nav-text">strcpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strcat"><span class="nav-number">5.3.</span> <span class="nav-text">strcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#strcmp"><span class="nav-number">5.4.</span> <span class="nav-text">strcmp</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
