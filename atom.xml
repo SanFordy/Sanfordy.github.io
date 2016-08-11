@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Sanfordy`s　blog</title>
-  <subtitle>　　　　　　　</subtitle>
+  <title>Sanfordy`s　Blog</title>
+  <subtitle>　　　　　　</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
