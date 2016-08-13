@@ -89,15 +89,18 @@
 
 
 
-<meta name="description" content="I am a happy programmer.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sanfordy`s　Blog">
-<meta property="og:url" content="http://sanfordy.com/index.html">
+<meta name="description" content="前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【16】指针和数组">
+<meta property="og:url" content="http://sanfordy.com/2016/08/02/1-0 .C语法/【16】指针和数组/index.html">
 <meta property="og:site_name" content="Sanfordy`s　Blog">
-<meta property="og:description" content="I am a happy programmer.">
+<meta property="og:description" content="前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160812104203671-31848389.png">
+<meta property="og:updated_time" content="2016-08-12T02:44:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sanfordy`s　Blog">
-<meta name="twitter:description" content="I am a happy programmer.">
+<meta name="twitter:title" content="【16】指针和数组">
+<meta name="twitter:description" content="前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160812104203671-31848389.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -116,7 +119,7 @@
 
 
 
-  <title> Sanfordy`s　Blog </title>
+  <title> 【16】指针和数组 | Sanfordy`s　Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -137,9 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,9 +250,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -271,10 +272,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/08/02/1-0 .C语法/【16】指针和数组/" itemprop="url">
-                  【16】指针和数组
-                </a>
+                【16】指针和数组
               
             
           </h1>
@@ -329,6 +327,11 @@
           
 
           
+              &nbsp; | &nbsp;
+              <span class="page-pv">
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次数阅读
+              </span>
+          
         </div>
       </header>
     
@@ -340,24 +343,58 @@
       
 
       
-        
-          <blockquote>
+        <blockquote>
 <p>前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。</p>
 </blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/02/1-0 .C语法/【16】指针和数组/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。</p>
+<h2 id="用指针指向一维数组的元素"><a href="#用指针指向一维数组的元素" class="headerlink" title="用指针指向一维数组的元素"></a>用指针指向一维数组的元素</h2><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个int类型的数组</span></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个int类型的指针</span></span><br><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让指针指向数组的第0个元素</span></span><br><span class="line">p = &amp;a[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改所指向元素的值</span></span><br><span class="line">*p = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印第一个元素的值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"a[0] = %d\n"</span>, a[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line">Program ended with exit <span class="selector-tag">code</span>: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>输出结果说明已经通过指针间接修改了数组元素的值，跟指向一个普通int类型变量是一样的。</li>
+<li>由于数组名代表着数组的首地址，即a == &amp;a[0]，因此第8行代码等价于：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="comment">// 让指针指向数组的第0个元素</span></span><br><span class="line"><span class="number">2</span> p = a;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>内存分析图如下，一个指针变量占用2个字节，一个int类型的数组元素占用2个字节：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160812104203671-31848389.png" alt=""></li>
+</ul>
+
       
     </div>
     
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+<div>想请我吃辣条吗？</div>
+<button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+<span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+</button>
+<div id="QR" style="display: none;">
+
+<div id="wechat" style="display: inline-block">
+<img id="wechat_qr" src="http://i4.piimg.com/508f386ab6942876.jpg" alt="Sanfordy WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>微信打赏</p>
+</div>
+
+
+<div id="alipay" style="display: inline-block">
+<img id="alipay_qr" src="http://i4.piimg.com/481cbcc6ec69d37b.png" alt="Sanfordy Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>支付宝打赏</p>
+</div>
+
+</div>
+</div>
+
       
     </div>
 
@@ -365,519 +402,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/08/01/1-0 .C语法/【15】指针/" rel="next" title="【15】指针">
+                <i class="fa fa-chevron-left"></i> 【15】指针
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/08/01/1-0 .C语法/【15】指针/" itemprop="url">
-                  【15】指针
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-01T11:59:05+08:00" content="2016-08-01">
-              2016-08-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/1-0-【C语法】/" itemprop="url" rel="index">
-                    <span itemprop="name">1.0　【C语法】</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/01/1-0 .C语法/【15】指针/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/1-0 .C语法/【15】指针/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote>
-<p>C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/01/1-0 .C语法/【15】指针/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/01/1-0 .C语法/【14】字符串/" itemprop="url">
-                  【14】字符串
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-01T11:52:05+08:00" content="2016-08-01">
-              2016-08-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/1-0-【C语法】/" itemprop="url" rel="index">
-                    <span itemprop="name">1.0　【C语法】</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/01/1-0 .C语法/【14】字符串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/1-0 .C语法/【14】字符串/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/01/1-0 .C语法/【14】字符串/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/01/1-0 .C语法/【13】数组/" itemprop="url">
-                  【13】数组
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-01T10:52:05+08:00" content="2016-08-01">
-              2016-08-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/1-0-【C语法】/" itemprop="url" rel="index">
-                    <span itemprop="name">1.0　【C语法】</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/01/1-0 .C语法/【13】数组/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/1-0 .C语法/【13】数组/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>定义数组时，系统将按照数组类型和个数分配一段连续的存储空间来存储数组元素，如int a[3]占据了连续的6字节存储空间（在16位编译器环境下，一个int类型占用2个字节）。要注意的是，数组名代表着整个数组的地址，也就是数组的起始地址。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/01/1-0 .C语法/【13】数组/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/01/1-0 .C语法/【12】基本运算/" itemprop="url">
-                  【12】基本运算
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-01T08:52:05+08:00" content="2016-08-01">
-              2016-08-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/1-0-【C语法】/" itemprop="url" rel="index">
-                    <span itemprop="name">1.0　【C语法】</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/01/1-0 .C语法/【12】基本运算/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/01/1-0 .C语法/【12】基本运算/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>计算机的基本能力就是计算，所以一门程序设计语言的计算能力是非常重要的。C语言之所以无所不能，是因为它不仅有丰富的数据类型，还有强大的计算能力。C语言一共有34种运算符，包括了常见的加减乘除运算。这讲就对C语言中的运算符做一个详细介绍。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/01/1-0 .C语法/【12】基本运算/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -885,6 +435,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/02/1-0 .C语法/【16】指针和数组/"
+           data-title="【16】指针和数组" data-url="http://sanfordy.com/2016/08/02/1-0 .C语法/【16】指针和数组/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -904,8 +462,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/kedaya.jpg"
@@ -989,6 +556,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用指针指向一维数组的元素"><span class="nav-number">2.</span> <span class="nav-text">用指针指向一维数组的元素</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1090,6 +668,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

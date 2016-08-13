@@ -4,6 +4,30 @@
   
     
     <entry>
+      <title><![CDATA[【16】指针和数组]]></title>
+      <url>http://sanfordy.com/2016/08/02/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9016%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。</p>
+<h2 id="用指针指向一维数组的元素"><a href="#用指针指向一维数组的元素" class="headerlink" title="用指针指向一维数组的元素"></a>用指针指向一维数组的元素</h2><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个int类型的数组</span></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个int类型的指针</span></span><br><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让指针指向数组的第0个元素</span></span><br><span class="line">p = &amp;a[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改所指向元素的值</span></span><br><span class="line">*p = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印第一个元素的值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"a[0] = %d\n"</span>, a[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line">Program ended with exit <span class="selector-tag">code</span>: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>输出结果说明已经通过指针间接修改了数组元素的值，跟指向一个普通int类型变量是一样的。</li>
+<li>由于数组名代表着数组的首地址，即a == &amp;a[0]，因此第8行代码等价于：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="comment">// 让指针指向数组的第0个元素</span></span><br><span class="line"><span class="number">2</span> p = a;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>内存分析图如下，一个指针变量占用2个字节，一个int类型的数组元素占用2个字节：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160812104203671-31848389.png" alt=""></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[【15】指针]]></title>
       <url>http://sanfordy.com/2016/08/01/1-0%20.C%E8%AF%AD%E6%B3%95/%E3%80%9015%E3%80%91%E6%8C%87%E9%92%88/</url>
       <content type="html"><![CDATA[<blockquote>
