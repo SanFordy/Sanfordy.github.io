@@ -1,0 +1,992 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <link rel="apple-touch-icon" href="touch-icon-mac.png">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|comic sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sanfordy`s　Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【19】预处理指令 -- 宏定义">
+<meta property="og:url" content="http://sanfordy.com/2016/08/19/〖A〗【1-0】C-语法/【19】预处理指令-宏定义/index.html">
+<meta property="og:site_name" content="Sanfordy`s　Blog">
+<meta property="og:description" content="C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160819091059593-183579287.png">
+<meta property="og:updated_time" content="2016-08-19T01:27:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【19】预处理指令 -- 宏定义">
+<meta name="twitter:description" content="C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160819091059593-183579287.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+  <title> 【19】预处理指令 -- 宏定义 | Sanfordy`s　Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sanfordy`s　Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">　　　　　　</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【19】预处理指令 -- 宏定义
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-19T08:56:08+08:00" content="2016-08-19">
+              2016-08-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/〖A〗【1-0】C-语法/" itemprop="url" rel="index">
+                    <span itemprop="name">〖A〗【1-0】C-语法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/19/〖A〗【1-0】C-语法/【19】预处理指令-宏定义/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/19/〖A〗【1-0】C-语法/【19】预处理指令-宏定义/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次数阅读
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="预处理指令简介"><a href="#预处理指令简介" class="headerlink" title="预处理指令简介"></a>预处理指令简介</h2><p>C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。</p>
+<p>为了区分预处理指令和一般的C语句，所有预处理指令都以符号”#”开头，并且结尾不用分号。</p>
+<p>预处理指令可以出现在程序的任何位置，它的作用范围是从它出现的位置到文件尾。习惯上我们尽可能将预处理指令写在源程序开头，这种情况下，它的作用范围就是整个源程序文件。</p>
+<p>C语言提供的预处理指令主要有：宏定义、文件包含、条件编译。</p>
+<p>这一讲先介绍一下宏定义，宏定义可以分为2种：不带参数的宏定义和带参数的宏定义。</p>
+<h2 id="不带参数的宏定义"><a href="#不带参数的宏定义" class="headerlink" title="不带参数的宏定义"></a>不带参数的宏定义</h2><h3 id="一般形式"><a href="#一般形式" class="headerlink" title="一般形式"></a>一般形式</h3><p>#define 宏名 字符串。</p>
+<p>比如#define ABC 10。</p>
+<p>右边的字符串也可以省略，比如#define ABC。</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>它的作用是在编译预处理时，将源程序中所有”宏名”替换成右边的”字符串”，常用来定义常量。</p>
+<p>接下来写个程序根据圆的半径计算周长：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 源程序中所有的宏名PI在编译预处理的时候都会被3.14所代替</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.14</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据圆的半径计radius算周长</span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">girth</span><span class="params">(<span class="keyword">float</span> radius)</span> </span>&#123;</span><br><span class="line">    return <span class="number">2</span> * PI *radius;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> g = girth(<span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"周长为：%f\n"</span>, g);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">周长为：<span class="number">12.560000</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第4行定义了一个叫PI的宏，在编译预处理之后，第8行中的2 <em> PI </em>radius就会变成2 <em> 3.14 </em> radius。</li>
+</ul>
+<h3 id="使用习惯与注意"><a href="#使用习惯与注意" class="headerlink" title="使用习惯与注意"></a>使用习惯与注意</h3><p>宏名一般用大写字母，以便与变量名区别开来，但用小写也没有语法错误。</p>
+<p>在编译预处理用字符串替换宏名时，不作语法检查，只是简单的字符串替换。只有在编译的时候才对已经展开宏名的源程序进行语法检查：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> I 100</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i[<span class="number">3</span>] = I;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在做编译预处理的时候，不管语法对不对，第4行的I都会被替换为100。不过在编译的时候就会报第4行的错。</li>
+</ul>
+<p>宏名的有效范围是从定义位置到文件结束。如果需要终止宏定义的作用域，可以用#undef命令：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.14</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> PI</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>PI这个宏在第1行到第8行之间是有效的，第8行后就无效了。</li>
+</ul>
+<p>定义一个宏时可以引用已经定义的宏名：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> R  3.0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.14</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> L  2*PI*R</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> S  PI*R*R</span></span><br></pre></td></tr></table></figure>
+<h2 id="带参数的宏定义"><a href="#带参数的宏定义" class="headerlink" title="带参数的宏定义"></a>带参数的宏定义</h2><h3 id="一般形式-1"><a href="#一般形式-1" class="headerlink" title="一般形式"></a>一般形式</h3><p>#define 宏名(参数列表) 字符串</p>
+<h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><p>在编译预处理时，将源程序中所有宏名替换成字符串，并且将 字符串中的参数 用 宏名右边参数列表 中的参数替换：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> average(a, b) (a+b)/2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = average(<span class="number">10</span>, <span class="number">4</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"平均值：%d\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">平均值：<span class="number">7</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第3行中定义了一个带有2个参数的宏average，第7行其实会被替换成：int a = (10 + 4)/2;，输出结果为：。是不是感觉这个宏有点像函数呢？</li>
+</ul>
+<h3 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h3><h4 id="宏名和参数列表之间不能有空格"><a href="#宏名和参数列表之间不能有空格" class="headerlink" title="宏名和参数列表之间不能有空格"></a>宏名和参数列表之间不能有空格</h4><p>宏名和参数列表之间不能有空格，否则空格后面的所有字符串都作为替换的字符串：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> average (a, b) (a+b)/2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = average(<span class="number">10</span>, <span class="number">4</span>);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; BuildFaild &gt;</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160819091059593-183579287.png" alt=""></p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>注意第1行的宏定义，宏名average跟(a, b)之间是有空格的，于是，第5行就变成了这样：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  这个肯定是编译不通过的。</span></span><br><span class="line"><span class="keyword">int</span> a = (a, b) (a+b)/<span class="number">2</span>(<span class="number">10</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="字符串中的参数用小括号扩起来"><a href="#字符串中的参数用小括号扩起来" class="headerlink" title="字符串中的参数用小括号扩起来"></a>字符串中的参数用小括号扩起来</h4><p>带参数的宏在展开时，只作简单的字符和参数的替换，不进行任何计算操作。所以在定义宏时，一般用一个小括号括住字符串的参数。</p>
+<p>下面定义一个宏D(a)，作用是返回a的2倍数值。</p>
+<p>如果定义宏的时候不用小括号括住参数：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> D(a) 2*a</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b = D(<span class="number">3</span>+<span class="number">4</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, b);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第7行将被替换成int b = 2*3+4;</li>
+</ul>
+<p>如果定义宏的时候用小括号括住参数：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> D(a) 2*(a)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b = D(<span class="number">3</span>+<span class="number">4</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, b);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>注意右边的a是有括号的，第7行将被替换成int b = 2*(3+4);</li>
+</ul>
+<h4 id="计算结果也用括号括起来"><a href="#计算结果也用括号括起来" class="headerlink" title="计算结果也用括号括起来"></a>计算结果也用括号括起来</h4><p>下面定义一个宏P(a)，作用是返回a的平方。</p>
+<p>如果不用小括号括住计算结果：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Pow(a) (a) * (a)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b = Pow(<span class="number">10</span>) / Pow(<span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, b);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">100</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>注意第3行，没有用小括号扩住计算结果，只是括住了参数而已。第6行代码被替换为：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b = (<span class="number">10</span>) * (<span class="number">10</span>) / (<span class="number">2</span>) * (<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>如果用小括号括住计算结果：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Pow(a) ( (a) * (a) )</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b = Pow(<span class="number">10</span>) / Pow(<span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, b);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">25</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>那么第6行被替换为：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b = ( (<span class="number">10</span>) * (<span class="number">10</span>) ) / ( (<span class="number">2</span>) * (<span class="number">2</span>) );</span><br></pre></td></tr></table></figure>
+<h3 id="与函数的区别"><a href="#与函数的区别" class="headerlink" title="与函数的区别"></a>与函数的区别</h3><p>从整个使用过程可以发现，带参数的宏定义，在源程序中出现的形式与函数很像。但是两者是有本质区别的：</p>
+<ol>
+<li>宏定义不涉及存储空间的分配、参数类型匹配、参数传递、返回值问题。</li>
+<li>函数调用在程序运行时执行，而宏替换只在编译预处理阶段进行。所以带参数的宏比函数具有更高的执行效率。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+<div>想请我吃辣条吗？</div>
+<button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+<span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+</button>
+<div id="QR" style="display: none;">
+
+<div id="wechat" style="display: inline-block">
+<img id="wechat_qr" src="http://i4.piimg.com/508f386ab6942876.jpg" alt="Sanfordy WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>微信打赏</p>
+</div>
+
+
+<div id="alipay" style="display: inline-block">
+<img id="alipay_qr" src="http://i4.piimg.com/481cbcc6ec69d37b.png" alt="Sanfordy Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>支付宝打赏</p>
+</div>
+
+</div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/18/〖A〗【1-0】C-语法/【18】指针和函数/" rel="next" title="【18】指针和函数">
+                <i class="fa fa-chevron-left"></i> 【18】指针和函数
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/19/〖A〗【1-0】C-语法/【19】预处理指令-宏定义/"
+           data-title="【19】预处理指令 -- 宏定义" data-url="http://sanfordy.com/2016/08/19/〖A〗【1-0】C-语法/【19】预处理指令-宏定义/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="Sanfordy" />
+          <p class="site-author-name" itemprop="name">Sanfordy</p>
+          <p class="site-description motion-element" itemprop="description">I am a happy programmer.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter-square"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-facebook-square"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-book"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Douban">
+                  
+                    <i class="fa fa-coffee"></i>
+                  
+                  Douban
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.guijj.com/pics/201404/535a0243a9698.gif" title="biggift" target="_blank">biggift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#预处理指令简介"><span class="nav-number">1.</span> <span class="nav-text">预处理指令简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不带参数的宏定义"><span class="nav-number">2.</span> <span class="nav-text">不带参数的宏定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一般形式"><span class="nav-number">2.1.</span> <span class="nav-text">一般形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用"><span class="nav-number">2.2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用习惯与注意"><span class="nav-number">2.3.</span> <span class="nav-text">使用习惯与注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带参数的宏定义"><span class="nav-number">3.</span> <span class="nav-text">带参数的宏定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一般形式-1"><span class="nav-number">3.1.</span> <span class="nav-text">一般形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用-1"><span class="nav-number">3.2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用注意"><span class="nav-number">3.3.</span> <span class="nav-text">使用注意</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#宏名和参数列表之间不能有空格"><span class="nav-number">3.3.1.</span> <span class="nav-text">宏名和参数列表之间不能有空格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串中的参数用小括号扩起来"><span class="nav-number">3.3.2.</span> <span class="nav-text">字符串中的参数用小括号扩起来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算结果也用括号括起来"><span class="nav-number">3.3.3.</span> <span class="nav-text">计算结果也用括号括起来</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与函数的区别"><span class="nav-number">3.4.</span> <span class="nav-text">与函数的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sanfordy</span>
+</div>
+
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sanfordy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>

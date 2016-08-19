@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-08-18T06:10:40.000Z</updated>
+  <updated>2016-08-19T01:27:08.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -16,11 +16,291 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【19】预处理指令 -- 宏定义</title>
+    <link href="http://sanfordy.com/2016/08/19/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9019%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4-%E5%AE%8F%E5%AE%9A%E4%B9%89/"/>
+    <id>http://sanfordy.com/2016/08/19/〖A〗【1-0】C-语法/【19】预处理指令-宏定义/</id>
+    <published>2016-08-19T00:56:08.000Z</published>
+    <updated>2016-08-19T01:27:08.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;预处理指令简介&quot;&gt;&lt;a href=&quot;#预处理指令简介&quot; class=&quot;headerlink&quot; title=&quot;预处理指令简介&quot;&gt;&lt;/a&gt;预处理指令简介&lt;/h2&gt;&lt;p&gt;C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。&lt;/p&gt;
+&lt;p&gt;为了区分预处理指令和一般的C语句，所有预处理指令都以符号”#”开头，并且结尾不用分号。&lt;/p&gt;
+&lt;p&gt;预处理指令可以出现在程序的任何位置，它的作用范围是从它出现的位置到文件尾。习惯上我们尽可能将预处理指令写在源程序开头，这种情况下，它的作用范围就是整个源程序文件。&lt;/p&gt;
+&lt;p&gt;C语言提供的预处理指令主要有：宏定义、文件包含、条件编译。&lt;/p&gt;
+&lt;p&gt;这一讲先介绍一下宏定义，宏定义可以分为2种：不带参数的宏定义和带参数的宏定义。&lt;/p&gt;
+&lt;h2 id=&quot;不带参数的宏定义&quot;&gt;&lt;a href=&quot;#不带参数的宏定义&quot; class=&quot;headerlink&quot; title=&quot;不带参数的宏定义&quot;&gt;&lt;/a&gt;不带参数的宏定义&lt;/h2&gt;&lt;h3 id=&quot;一般形式&quot;&gt;&lt;a href=&quot;#一般形式&quot; class=&quot;headerlink&quot; title=&quot;一般形式&quot;&gt;&lt;/a&gt;一般形式&lt;/h3&gt;&lt;p&gt;#define 宏名 字符串。&lt;/p&gt;
+&lt;p&gt;比如#define ABC 10。&lt;/p&gt;
+&lt;p&gt;右边的字符串也可以省略，比如#define ABC。&lt;/p&gt;
+&lt;h3 id=&quot;作用&quot;&gt;&lt;a href=&quot;#作用&quot; class=&quot;headerlink&quot; title=&quot;作用&quot;&gt;&lt;/a&gt;作用&lt;/h3&gt;&lt;p&gt;它的作用是在编译预处理时，将源程序中所有”宏名”替换成右边的”字符串”，常用来定义常量。&lt;/p&gt;
+&lt;p&gt;接下来写个程序根据圆的半径计算周长：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 源程序中所有的宏名PI在编译预处理的时候都会被3.14所代替&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; PI 3.14&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 根据圆的半径计radius算周长&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;girth&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; radius)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; * PI *radius;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; g = girth(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;周长为：%f\n&quot;&lt;/span&gt;, g);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;周长为：&lt;span class=&quot;number&quot;&gt;12.560000&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在第4行定义了一个叫PI的宏，在编译预处理之后，第8行中的2 &lt;em&gt; PI &lt;/em&gt;radius就会变成2 &lt;em&gt; 3.14 &lt;/em&gt; radius。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;使用习惯与注意&quot;&gt;&lt;a href=&quot;#使用习惯与注意&quot; class=&quot;headerlink&quot; title=&quot;使用习惯与注意&quot;&gt;&lt;/a&gt;使用习惯与注意&lt;/h3&gt;&lt;p&gt;宏名一般用大写字母，以便与变量名区别开来，但用小写也没有语法错误。&lt;/p&gt;
+&lt;p&gt;在编译预处理用字符串替换宏名时，不作语法检查，只是简单的字符串替换。只有在编译的时候才对已经展开宏名的源程序进行语法检查：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; I 100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i[&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;] = I;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在做编译预处理的时候，不管语法对不对，第4行的I都会被替换为100。不过在编译的时候就会报第4行的错。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;宏名的有效范围是从定义位置到文件结束。如果需要终止宏定义的作用域，可以用#undef命令：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; PI 3.14&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;undef&lt;/span&gt; PI&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PI这个宏在第1行到第8行之间是有效的，第8行后就无效了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;定义一个宏时可以引用已经定义的宏名：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; R  3.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; PI 3.14&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; L  2*PI*R&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; S  PI*R*R&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;带参数的宏定义&quot;&gt;&lt;a href=&quot;#带参数的宏定义&quot; class=&quot;headerlink&quot; title=&quot;带参数的宏定义&quot;&gt;&lt;/a&gt;带参数的宏定义&lt;/h2&gt;&lt;h3 id=&quot;一般形式-1&quot;&gt;&lt;a href=&quot;#一般形式-1&quot; class=&quot;headerlink&quot; title=&quot;一般形式&quot;&gt;&lt;/a&gt;一般形式&lt;/h3&gt;&lt;p&gt;#define 宏名(参数列表) 字符串&lt;/p&gt;
+&lt;h3 id=&quot;作用-1&quot;&gt;&lt;a href=&quot;#作用-1&quot; class=&quot;headerlink&quot; title=&quot;作用&quot;&gt;&lt;/a&gt;作用&lt;/h3&gt;&lt;p&gt;在编译预处理时，将源程序中所有宏名替换成字符串，并且将 字符串中的参数 用 宏名右边参数列表 中的参数替换：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; average(a, b) (a+b)/2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = average(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;平均值：%d\n&quot;&lt;/span&gt;, a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;平均值：&lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第3行中定义了一个带有2个参数的宏average，第7行其实会被替换成：int a = (10 + 4)/2;，输出结果为：。是不是感觉这个宏有点像函数呢？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;使用注意&quot;&gt;&lt;a href=&quot;#使用注意&quot; class=&quot;headerlink&quot; title=&quot;使用注意&quot;&gt;&lt;/a&gt;使用注意&lt;/h3&gt;&lt;h4 id=&quot;宏名和参数列表之间不能有空格&quot;&gt;&lt;a href=&quot;#宏名和参数列表之间不能有空格&quot; class=&quot;headerlink&quot; title=&quot;宏名和参数列表之间不能有空格&quot;&gt;&lt;/a&gt;宏名和参数列表之间不能有空格&lt;/h4&gt;&lt;p&gt;宏名和参数列表之间不能有空格，否则空格后面的所有字符串都作为替换的字符串：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; average (a, b) (a+b)/2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = average(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; BuildFaild &amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201608/776348-20160819091059593-183579287.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注意第1行的宏定义，宏名average跟(a, b)之间是有空格的，于是，第5行就变成了这样：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  这个肯定是编译不通过的。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a = (a, b) (a+b)/&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;字符串中的参数用小括号扩起来&quot;&gt;&lt;a href=&quot;#字符串中的参数用小括号扩起来&quot; class=&quot;headerlink&quot; title=&quot;字符串中的参数用小括号扩起来&quot;&gt;&lt;/a&gt;字符串中的参数用小括号扩起来&lt;/h4&gt;&lt;p&gt;带参数的宏在展开时，只作简单的字符和参数的替换，不进行任何计算操作。所以在定义宏时，一般用一个小括号括住字符串的参数。&lt;/p&gt;
+&lt;p&gt;下面定义一个宏D(a)，作用是返回a的2倍数值。&lt;/p&gt;
+&lt;p&gt;如果定义宏的时候不用小括号括住参数：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; D(a) 2*a&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = D(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;+&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d\n&quot;&lt;/span&gt;, b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第7行将被替换成int b = 2*3+4;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果定义宏的时候用小括号括住参数：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; D(a) 2*(a)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = D(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;+&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d\n&quot;&lt;/span&gt;, b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;14&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注意右边的a是有括号的，第7行将被替换成int b = 2*(3+4);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;计算结果也用括号括起来&quot;&gt;&lt;a href=&quot;#计算结果也用括号括起来&quot; class=&quot;headerlink&quot; title=&quot;计算结果也用括号括起来&quot;&gt;&lt;/a&gt;计算结果也用括号括起来&lt;/h4&gt;&lt;p&gt;下面定义一个宏P(a)，作用是返回a的平方。&lt;/p&gt;
+&lt;p&gt;如果不用小括号括住计算结果：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; Pow(a) (a) * (a)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; argc, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; * argv[])&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = Pow(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) / Pow(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d\n&quot;&lt;/span&gt;, b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注意第3行，没有用小括号扩住计算结果，只是括住了参数而已。第6行代码被替换为：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = (&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) * (&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) / (&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) * (&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果用小括号括住计算结果：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; Pow(a) ( (a) * (a) )&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; argc, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; * argv[])&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = Pow(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) / Pow(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d\n&quot;&lt;/span&gt;, b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;那么第6行被替换为：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b = ( (&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) * (&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) ) / ( (&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) * (&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) );&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;与函数的区别&quot;&gt;&lt;a href=&quot;#与函数的区别&quot; class=&quot;headerlink&quot; title=&quot;与函数的区别&quot;&gt;&lt;/a&gt;与函数的区别&lt;/h3&gt;&lt;p&gt;从整个使用过程可以发现，带参数的宏定义，在源程序中出现的形式与函数很像。但是两者是有本质区别的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;宏定义不涉及存储空间的分配、参数类型匹配、参数传递、返回值问题。&lt;/li&gt;
+&lt;li&gt;函数调用在程序运行时执行，而宏替换只在编译预处理阶段进行。所以带参数的宏比函数具有更高的执行效率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【18】指针和函数</title>
+    <link href="http://sanfordy.com/2016/08/18/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9018%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E5%87%BD%E6%95%B0/"/>
+    <id>http://sanfordy.com/2016/08/18/〖A〗【1-0】C-语法/【18】指针和函数/</id>
+    <published>2016-08-18T15:21:51.000Z</published>
+    <updated>2016-08-19T00:51:10.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;指针可以根据地址直接操作内存中的数据，使用得当的话，不仅能使代码量变少，还能优化内存管理、提升程序性能。关于指针的内容还非常多，比如指针数组、指向数组的指针、指向指针的指针，那些不常见，现在只讲述在iOS开发中指针的最常见用法，比如这一章的内容—-返回指针的函数 与 指向函数的指针。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;指针可以根据地址直接操作内存中的数据，使用得当的话，不仅能使代码量变少，还能优化内存管理、提升程序性能。关于指针的内容还非常多，比如指针数组、指向数组的指针、指向指针的指针，那些不常见，现在只讲述在iOS开发中指针的最常见用法，比如这一章的内容—-返回指针的函数 与 指向函数的指针。&lt;/p&gt;
+&lt;h2 id=&quot;返回指针的函数&quot;&gt;&lt;a href=&quot;#返回指针的函数&quot; class=&quot;headerlink&quot; title=&quot;返回指针的函数&quot;&gt;&lt;/a&gt;返回指针的函数&lt;/h2&gt;&lt;p&gt;指针也是C语言中的一种数据类型，因此一个函数的返回值肯定可以是指针类型的。&lt;/p&gt;
+&lt;p&gt;返回指针的函数的一般形式为：类型名 * 函数名(参数列表)，比如下面这个函数，返回一个指向char类型变量的指针：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  将字符串str中的小写字母变成大写，并返回改变后的字符串。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  注意：这里的参数要char *类型，不能传字符串常量。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *&lt;span class=&quot;title&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; argc, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; * argv[])&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//  定义一个字符串变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; str1[] = &lt;span class=&quot;string&quot;&gt;&quot;wo shi sb&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//  当传入str2时会崩溃，因为str2指向的是一段字符串常量，字符串常量所在的这段内存只能用来存储字符串常量，并不能存储其他类型的数组，正因为如此，不可以对这段内存存储的进行改写。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//    char *str2 = &quot;wo shi sb&quot;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//    printf(&quot;%s&quot;,upper(str2));&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//  调用函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%s\n&quot;&lt;/span&gt;,upper(str1));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *&lt;span class=&quot;title&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *str)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//  先保留最初的地址，因为等会儿str指向的位置会变来变去的。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *temp = str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//  当str指向的不是空字符时&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (*str != &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (*str &amp;gt;= &lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt; &amp;amp;&amp;amp; *str &amp;lt;= &lt;span class=&quot;string&quot;&gt;&#39;z&#39;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//  变为大写字母，小写和大写字母的ASCII值有个固定的差值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            *str -= &lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt; - &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        str++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//  返回当初指向这段字符串的指针&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return temp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;WO SHI SB&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;指向函数的指针&quot;&gt;&lt;a href=&quot;#指向函数的指针&quot; class=&quot;headerlink&quot; title=&quot;指向函数的指针&quot;&gt;&lt;/a&gt;指向函数的指针&lt;/h2&gt;&lt;h3 id=&quot;为什么指针可以指向一个函数&quot;&gt;&lt;a href=&quot;#为什么指针可以指向一个函数&quot; class=&quot;headerlink&quot; title=&quot;为什么指针可以指向一个函数&quot;&gt;&lt;/a&gt;为什么指针可以指向一个函数&lt;/h3&gt;&lt;p&gt;函数作为一段程序，在内存中也要占据部分存储空间，它也有一个起始地址，即函数的入口地址。函数有自己的地址，那就好办了，我们的指针变量就是用来存储地址的。因此，可以利用一个指针指向一个函数。其中，&lt;code&gt;函数名就代表着函数的地址&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;指向函数的指针的定义&quot;&gt;&lt;a href=&quot;#指向函数的指针的定义&quot; class=&quot;headerlink&quot; title=&quot;指向函数的指针的定义&quot;&gt;&lt;/a&gt;指向函数的指针的定义&lt;/h3&gt;&lt;p&gt;定义的一般形式：函数的返回值类型 (*指针变量名)(形式参数1, 形式参数2, …);&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return a + b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 定义一个指针变量p，指向sum函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; (*p)(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b) = sum;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 或者 int (*p)(int, int) = sum;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 或者 int (*p)() = sum;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 利用指针变量p调用函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; result = (*p)(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 或者 int result = p(1, 3);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%d\n&quot;&lt;/span&gt;, result);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先在第3行定义了一个sum函数，接收2个int类型的参数，返回值类型为int&lt;/li&gt;
+&lt;li&gt;然后在第10行定义了一个指向sum函数的指针变量p。注意p的定义形式：&lt;code&gt;int (*p)(int a, int b)&lt;/code&gt;，第1个int代表sum函数的返回值是int类型，然后*p是用括号()包住的，后面的int a和int b代表着sum函数的形参，其实完全可以省略。第10行、11行、12行都是可行&lt;/li&gt;
+&lt;li&gt;在第15行，先利用*p取出指向的函数，再传入参数调用函数。也可以采用第16行中的做法，这样就跟调用普通函数没什么区别。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;指向函数的指针变量主要有两个用途&quot;&gt;&lt;a href=&quot;#指向函数的指针变量主要有两个用途&quot; class=&quot;headerlink&quot; title=&quot;指向函数的指针变量主要有两个用途&quot;&gt;&lt;/a&gt;指向函数的指针变量主要有两个用途&lt;/h3&gt;&lt;h4 id=&quot;调用函数&quot;&gt;&lt;a href=&quot;#调用函数&quot; class=&quot;headerlink&quot; title=&quot;调用函数&quot;&gt;&lt;/a&gt;调用函数&lt;/h4&gt;&lt;p&gt;这里就不举例了。&lt;/p&gt;
+&lt;h4 id=&quot;将函数作为参数在函数间传递&quot;&gt;&lt;a href=&quot;#将函数作为参数在函数间传递&quot; class=&quot;headerlink&quot; title=&quot;将函数作为参数在函数间传递&quot;&gt;&lt;/a&gt;将函数作为参数在函数间传递&lt;/h4&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#include &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  减法运算&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; minus(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a - b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  加法运算&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; sum(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a + b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  乘法运算&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; multiply(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a * b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  这个counting函数是用来做a和b之间的计算，至于做加法还是减法运算，由函数的第1个参数决定&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; counting(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;(*p)(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;),&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; b)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; result = p(a,b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    printf(&lt;span class=&quot;string&quot;&gt;&quot;计算结果为：%d\n&quot;&lt;/span&gt;,result);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; main(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; argc, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; * argv[]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//  进行减法运算&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    counting(minus, &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//  进行加法运算&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    counting(sum, &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//  进行乘法运算&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    counting(multiply, &lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;计算结果为：&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;计算结果为：&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;计算结果为：&lt;span class=&quot;number&quot;&gt;24&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;使用注意&quot;&gt;&lt;a href=&quot;#使用注意&quot; class=&quot;headerlink&quot; title=&quot;使用注意&quot;&gt;&lt;/a&gt;使用注意&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;由于这类指针变量存储的是一个函数的入口地址，所以对它们作加减运算(比如p++)是无意义的。难道p++就会指向下一个函数了？可笑至极！！没这回事。&lt;/li&gt;
+&lt;li&gt;返回指针的函数的定义&lt;code&gt;int *p(int a,int b)&lt;/code&gt; 和指向函数的指针的定义&lt;code&gt;int (*p)(int a, int b)&lt;/code&gt;非常相似，使用时特别注意区分。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;函数返回值是函数指针&quot;&gt;&lt;a href=&quot;#函数返回值是函数指针&quot; class=&quot;headerlink&quot; title=&quot;函数返回值是函数指针&quot;&gt;&lt;/a&gt;函数返回值是函数指针&lt;/h2&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; (*func(bool real))(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;你觉得它的返回值是什么？&lt;/p&gt;
+&lt;p&gt;这里就涉及到了如何理解指向函数的指针的问题了。一些来自C++教材的建议是从里向外解读这个表达式，这里所谓的里面就是func(bool real)，那么剩下的部分就是所谓的返回值了？有点生硬吧。下面就让我们循序渐进地看看如何理解更好？&lt;/p&gt;
+&lt;p&gt;要解决问题通常需要找出问题所在，这里是基于这样一种思维定势，那就是我们通常习惯于这样一种声明变量的方式：&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这里我们声明a是一个int类型的变量。而对于返回值，我们通常也是采用类似的方式，如一个返回值为int类型的函数通常可以以下面的方式进行声明：&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;　　&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;([params])&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;因此我们惯性地认为返回值就是最左侧的一个类型名，虽然这通常是对的，但是针对上面的那个例子则显得十分尴尬。&lt;/p&gt;
+&lt;p&gt;让我们看看一个指向函数的指针的声明式：&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; (*pCompare)(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这个指针的名字就是pCompare，令人奇怪的是pCompare并不是在整个声明式的最右边，类型也肯定不是int，而是一个复杂的表达式。让我们用typedef来声明就会发现typedef的使用也不太一样：&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;(*PF)&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们发现跟惯用的typedef &lt;em&gt;*&lt;/em&gt; ???;的方式也截然不同，在上面这个typedef过后，整个表达式可以被简化成：&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;　　PF pCompare;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;现在我们似乎就一见如故了，现在的表达式看起来中规中矩，普通的声明都是类型名加变量名完成声明，而函数指针的声明则是在一个表达式中一个固定的位置进行声明。&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;　　&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; (*_)(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在上文中划线的部分即为声明的部分，也就是这点不同让我们逐渐迷失了方向。&lt;/p&gt;
+&lt;p&gt;现在让我们写一个返回指向函数的指针的函数，也就是返回值的类型是PF的函数，这就像我们从返回int类型的变量到返回int类型值的函数一样，因此使用以下方式即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  PF是一个函数指针类型，所以该函数的返回值是一个函数指针类型的数。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;　　&lt;span class=&quot;function&quot;&gt;PF &lt;span class=&quot;title&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;([params])&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;现在让我们扩展PF，将它还原，也就是把右侧的func([params])部分移到那个横线的位置上。现在我们就可以很轻松地理解本文开头的那个函数，原来是返回值为int (*)(int, int)的函数&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;　　&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; (*func(bool real))(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;以上&lt;code&gt;func(bool real)&lt;/code&gt;也就是一个函数扣除返回值的部分。也就等价于&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;　　&lt;span class=&quot;function&quot;&gt;PF &lt;span class=&quot;title&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt; real)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;至此你应该能够分析更加复杂的表达式了。&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;指针可以根据地址直接操作内存中的数据，使用得当的话，不仅能使代码量变少，还能优化内存管理、提升程序性能。关于指针的内容还非常多，比如指针数组、指向数组的指针、指向指针的指针，那些不常见，现在只讲述在iOS开发中指针的最常见用法，比如这一章的内容—-返回指针的函数 与 指向函数的指针。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【17】指针和字符串</title>
+    <link href="http://sanfordy.com/2016/08/18/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9017%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://sanfordy.com/2016/08/18/〖A〗【1-0】C-语法/【17】指针和字符串/</id>
+    <published>2016-08-18T13:59:11.000Z</published>
+    <updated>2016-08-19T00:53:14.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;strlen函数中的形参是指向字符变量的指针类型，我们可以将一个字符数组名传进去，这一点又说明了指针与数组的密切关系，肯定有JQ。其实，调用strlen函数时，你传一个地址给它就行了，它会从这个地址开始计算字符的个数，直到遇到空字符’\0’位置，因此传入指针变量或者数组名都可以。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;用指针遍历字符串的所有字符&quot;&gt;&lt;a href=&quot;#用指针遍历字符串的所有字符&quot; class=&quot;headerlink&quot; title=&quot;用指针遍历字符串的所有字符&quot;&gt;&lt;/a&gt;用指针遍历字符串的所有字符&lt;/h2&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 定义一个指针p&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *p;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 定义一个数组s存放字符串&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; s[] = &lt;span class=&quot;string&quot;&gt;&quot;mj&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 指针p指向字符串的首字符&#39;m&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;p = s; &lt;span class=&quot;comment&quot;&gt;// 或者 p = &amp;amp;s[0];&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (; *p != &lt;span class=&quot;string&quot;&gt;&#39;\0&#39;&lt;/span&gt;; p++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%c \n&quot;&lt;/span&gt;, *p);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;m &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;j &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;执行完第8行后，内存分布如下图：&lt;br&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/776348/201608/776348-20160818221337328-1437035902.png&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;li&gt;有了前面指针与数组的基础相信大家能看到第9行之后的代码了：每次遍历之前先判断p当前指向的字符是否为空字符\0，如果不是空字符，就打印当前字符，然后执行p++让指针p指向下一个字符元素。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;用指针直接指向字符串&quot;&gt;&lt;a href=&quot;#用指针直接指向字符串&quot; class=&quot;headerlink&quot; title=&quot;用指针直接指向字符串&quot;&gt;&lt;/a&gt;用指针直接指向字符串&lt;/h2&gt;&lt;p&gt;从前面可以看出，指针确实可以指向字符串并操作字符串。不过前面的做法是：先定义一个字符串数组存放字符串，然后将数组首地址传给指针p，让p指向字符串的首字符。&lt;/p&gt;
+&lt;p&gt;我们也可以直接用指针指向一个字符串，省略定义字符数组这个步骤：&lt;/p&gt;
+&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;string.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;// 定义一个字符串，用指针s指向这个字符串&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *s = &lt;span class=&quot;string&quot;&gt;&quot;mj&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 使用strlen函数测量字符串长度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; len = (unsigned int)&lt;span class=&quot;built_in&quot;&gt;strlen&lt;/span&gt;(s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;字符串：%s\n&quot;&lt;/span&gt;, s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;字符串长度：%d\n&quot;&lt;/span&gt;, len);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight delphi&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;字符串：mj&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;字符串长度：&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;Program&lt;/span&gt; ended &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt; code: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注意第7行，我们直接用指针s指向了字符串”mj”，并没有先创建一个字符数组。看第10行，将指针s传入到strlen函数中，说明之前所学习的字符串处理函数依然可以正常使用。&lt;/li&gt;
+&lt;li&gt;我们再来看看strlen函数在string.h中的声明：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  strlen函数中的形参是指向字符变量的指针类型，我们可以将一个字符数组名传进去，这一点又说明了指针与数组的密切关系，肯定有JQ。其实，调用strlen函数时，你传一个地址给它就行了，它会从这个地址开始计算字符的个数，直到遇到空字符&#39;\0&#39;位置，因此传入指针变量或者数组名都可以。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;size_t&lt;/span&gt;     &lt;span class=&quot;built_in&quot;&gt;strlen&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;其他字符串处理函数也是一样的：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  它们的参数都是指向字符变量的指针类型，因此可以传入指针变量或者数组名。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  1.字符串拷贝函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt;    *&lt;span class=&quot;title&quot;&gt;strcpy&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  2.字符串拼接函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt;    *&lt;span class=&quot;title&quot;&gt;strcat&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *)&lt;/span&gt;&lt;/span&gt;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  3.字符串比较函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;     &lt;span class=&quot;title&quot;&gt;strcmp&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;指针处理字符串的注意&quot;&gt;&lt;a href=&quot;#指针处理字符串的注意&quot; class=&quot;headerlink&quot; title=&quot;指针处理字符串的注意&quot;&gt;&lt;/a&gt;指针处理字符串的注意&lt;/h2&gt;&lt;h3 id=&quot;正确代码&quot;&gt;&lt;a href=&quot;#正确代码&quot; class=&quot;headerlink&quot; title=&quot;正确代码&quot;&gt;&lt;/a&gt;正确代码&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *s;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s = &lt;span class=&quot;string&quot;&gt;&quot;mj&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先定义指针变量，再指向字符串。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;错误代码一&quot;&gt;&lt;a href=&quot;#错误代码一&quot; class=&quot;headerlink&quot; title=&quot;错误代码一&quot;&gt;&lt;/a&gt;错误代码一&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; s[&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s = &lt;span class=&quot;string&quot;&gt;&quot;mj&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;编译器肯定报第2行的错，因为s是个常量，代表数组的首地址，不能进行赋值运算。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;错误代码二&quot;&gt;&lt;a href=&quot;#错误代码二&quot; class=&quot;headerlink&quot; title=&quot;错误代码二&quot;&gt;&lt;/a&gt;错误代码二&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *s = &lt;span class=&quot;string&quot;&gt;&quot;mj&quot;&lt;/span&gt;;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*s = &lt;span class=&quot;string&quot;&gt;&quot;like&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第2行代码相当于把字符串”like”存进s指向的那一块内存空间，由第1行代码可以看出，s指向的是”mj”的首字符’m’，也就是说s指向的一块char类型的存储空间，只有1个字节，要”like”存进1个字节的空间内，肯定内存溢出&lt;/li&gt;
+&lt;li&gt;由第1行代码可以看出，指针s指向的是字符串常量”mj”！因此是不能再通过指针来修改字符串内容的！就算是*s = ‘A’这样”看起来似乎正确”的写法也是错误的，因为s指向的一个常量字符串，不允许修改它内部的字符。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;strlen函数中的形参是指向字符变量的指针类型，我们可以将一个字符数组名传进去，这一点又说明了指针与数组的密切关系，肯定有JQ。其实，调用strlen函数时，你传一个地址给它就行了，它会从这个地址开始计算字符的个数，直到遇到空字符’\0’位置，因此传入指针变量或者数组名都可以。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>【16】指针和数组</title>
-    <link href="http://sanfordy.com/2016/08/02/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9016%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84/"/>
-    <id>http://sanfordy.com/2016/08/02/【1-0】C-语法/【16】指针和数组/</id>
+    <link href="http://sanfordy.com/2016/08/02/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9016%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84/"/>
+    <id>http://sanfordy.com/2016/08/02/〖A〗【1-0】C-语法/【16】指针和数组/</id>
     <published>2016-08-02T03:59:05.000Z</published>
-    <updated>2016-08-18T06:10:40.000Z</updated>
+    <updated>2016-08-18T13:54:51.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。&lt;/p&gt;
@@ -135,17 +415,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【15】指针</title>
-    <link href="http://sanfordy.com/2016/08/01/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9015%E3%80%91%E6%8C%87%E9%92%88/"/>
-    <id>http://sanfordy.com/2016/08/01/【1-0】C-语法/【15】指针/</id>
+    <link href="http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9015%E3%80%91%E6%8C%87%E9%92%88/"/>
+    <id>http://sanfordy.com/2016/08/01/〖A〗【1-0】C-语法/【15】指针/</id>
     <published>2016-08-01T03:59:05.000Z</published>
-    <updated>2016-08-16T06:48:14.000Z</updated>
+    <updated>2016-08-18T13:54:47.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串&lt;/p&gt;
@@ -318,17 +598,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【14】字符串</title>
-    <link href="http://sanfordy.com/2016/08/01/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9014%E3%80%91%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    <id>http://sanfordy.com/2016/08/01/【1-0】C-语法/【14】字符串/</id>
+    <link href="http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9014%E3%80%91%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://sanfordy.com/2016/08/01/〖A〗【1-0】C-语法/【14】字符串/</id>
     <published>2016-08-01T03:52:05.000Z</published>
-    <updated>2016-08-16T06:48:11.000Z</updated>
+    <updated>2016-08-18T13:54:42.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串&lt;/p&gt;
@@ -471,17 +751,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【13】数组</title>
-    <link href="http://sanfordy.com/2016/08/01/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9013%E3%80%91%E6%95%B0%E7%BB%84/"/>
-    <id>http://sanfordy.com/2016/08/01/【1-0】C-语法/【13】数组/</id>
+    <link href="http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9013%E3%80%91%E6%95%B0%E7%BB%84/"/>
+    <id>http://sanfordy.com/2016/08/01/〖A〗【1-0】C-语法/【13】数组/</id>
     <published>2016-08-01T02:52:05.000Z</published>
-    <updated>2016-08-16T06:48:08.000Z</updated>
+    <updated>2016-08-18T13:54:39.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;定义数组时，系统将按照数组类型和个数分配一段连续的存储空间来存储数组元素，如int a[3]占据了连续的6字节存储空间（在16位编译器环境下，一个int类型占用2个字节）。要注意的是，数组名代表着整个数组的地址，也就是数组的起始地址。&lt;/p&gt;
@@ -614,17 +894,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【12】基本运算</title>
-    <link href="http://sanfordy.com/2016/08/01/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9012%E3%80%91%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/"/>
-    <id>http://sanfordy.com/2016/08/01/【1-0】C-语法/【12】基本运算/</id>
+    <link href="http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9012%E3%80%91%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/"/>
+    <id>http://sanfordy.com/2016/08/01/〖A〗【1-0】C-语法/【12】基本运算/</id>
     <published>2016-08-01T00:52:05.000Z</published>
-    <updated>2016-08-16T06:48:04.000Z</updated>
+    <updated>2016-08-18T13:54:35.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;计算机的基本能力就是计算，所以一门程序设计语言的计算能力是非常重要的。C语言之所以无所不能，是因为它不仅有丰富的数据类型，还有强大的计算能力。C语言一共有34种运算符，包括了常见的加减乘除运算。这讲就对C语言中的运算符做一个详细介绍。&lt;/p&gt;
@@ -875,17 +1155,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【11】流程控制</title>
-    <link href="http://sanfordy.com/2016/07/31/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9011%E3%80%91%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/"/>
-    <id>http://sanfordy.com/2016/07/31/【1-0】C-语法/【11】流程控制/</id>
+    <link href="http://sanfordy.com/2016/07/31/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9011%E3%80%91%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/"/>
+    <id>http://sanfordy.com/2016/07/31/〖A〗【1-0】C-语法/【11】流程控制/</id>
     <published>2016-07-31T14:32:18.000Z</published>
-    <updated>2016-08-16T06:47:59.000Z</updated>
+    <updated>2016-08-18T13:54:31.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;为了方便我们控制程序的运行流程，C语言提供3种流程结构，不同的流程结构可以实现不同的运行流程。这3种流程结构分别是：&lt;/p&gt;
@@ -1166,17 +1446,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【10】函数</title>
-    <link href="http://sanfordy.com/2016/07/07/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9010%E3%80%91%E5%87%BD%E6%95%B0/"/>
-    <id>http://sanfordy.com/2016/07/07/【1-0】C-语法/【10】函数/</id>
+    <link href="http://sanfordy.com/2016/07/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9010%E3%80%91%E5%87%BD%E6%95%B0/"/>
+    <id>http://sanfordy.com/2016/07/07/〖A〗【1-0】C-语法/【10】函数/</id>
     <published>2016-07-07T07:55:37.000Z</published>
-    <updated>2016-08-16T06:47:56.000Z</updated>
+    <updated>2016-08-18T13:54:24.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;任何一个C语言程序都是由一个或者多个程序段（小程序）构成的，每个程序段都有自己的功能，我们一般称这些程序段为“函数”。所以，你可以说C语言程序是由函数构成的。&lt;/p&gt;
@@ -1433,17 +1713,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【09】ASCII码</title>
-    <link href="http://sanfordy.com/2016/06/19/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9009%E3%80%91ASCII%E7%A0%81/"/>
-    <id>http://sanfordy.com/2016/06/19/【1-0】C-语法/【09】ASCII码/</id>
+    <link href="http://sanfordy.com/2016/06/19/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9009%E3%80%91ASCII%E7%A0%81/"/>
+    <id>http://sanfordy.com/2016/06/19/〖A〗【1-0】C-语法/【09】ASCII码/</id>
     <published>2016-06-19T14:23:16.000Z</published>
-    <updated>2016-08-16T06:47:52.000Z</updated>
+    <updated>2016-08-18T13:54:19.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;ASCII码是基于拉丁字母的一套电脑编码系统，是现今最通用的单字节编码系统，全称是“American Standard Code for Information Interchange”。编码系统，看起来好像很高级，其实就是一个字符集—字符的集合。&lt;/p&gt;
@@ -1484,17 +1764,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【08】进制</title>
-    <link href="http://sanfordy.com/2016/06/19/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9008%E3%80%91%E8%BF%9B%E5%88%B6/"/>
-    <id>http://sanfordy.com/2016/06/19/【1-0】C-语法/【08】进制/</id>
+    <link href="http://sanfordy.com/2016/06/19/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9008%E3%80%91%E8%BF%9B%E5%88%B6/"/>
+    <id>http://sanfordy.com/2016/06/19/〖A〗【1-0】C-语法/【08】进制/</id>
     <published>2016-06-19T14:23:15.000Z</published>
-    <updated>2016-08-16T06:47:43.000Z</updated>
+    <updated>2016-08-18T13:54:15.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;我们先来看看平时是如何表示一个整数的，最常见的肯定是用阿拉伯数字表示，比如“十二”，我们可以用12来表示，其实这种表示方式是基于一种叫做“十进制”的计数方式。“进制”是一种计数方式，编程中常见的进制有4种：十进制、二进制、八进制、十六进制。也就是说，同一个整数，我们至少有4种表示方式。&lt;/p&gt;
@@ -1559,17 +1839,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【07】变量（三）</title>
-    <link href="http://sanfordy.com/2016/06/18/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9007%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://sanfordy.com/2016/06/18/【1-0】C-语法/【07】变量（三）/</id>
+    <link href="http://sanfordy.com/2016/06/18/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9007%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>http://sanfordy.com/2016/06/18/〖A〗【1-0】C-语法/【07】变量（三）/</id>
     <published>2016-06-18T14:23:15.000Z</published>
-    <updated>2016-08-16T06:47:49.000Z</updated>
+    <updated>2016-08-18T13:54:12.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能存储的数据范围就变大了。&lt;/p&gt;
@@ -1692,17 +1972,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【06】变量（二）</title>
-    <link href="http://sanfordy.com/2016/06/07/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9006%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://sanfordy.com/2016/06/07/【1-0】C-语法/【06】变量（二）/</id>
+    <link href="http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9006%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://sanfordy.com/2016/06/07/〖A〗【1-0】C-语法/【06】变量（二）/</id>
     <published>2016-06-07T14:40:54.000Z</published>
-    <updated>2016-08-16T06:47:33.000Z</updated>
+    <updated>2016-08-18T13:54:09.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;在C语言中，你声明一个局部变量后，没有经过初始化赋值是可以使用的，但这是很危险的，不建议这样做。大多数人应该觉得变量b打印出来应该是0，其实不是。因为系统会随意给变量b赋值，得到的是垃圾数据。&lt;/p&gt;
@@ -1817,17 +2097,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【05】变量（一）</title>
-    <link href="http://sanfordy.com/2016/06/07/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9005%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://sanfordy.com/2016/06/07/【1-0】C-语法/【05】变量（一）/</id>
+    <link href="http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9005%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://sanfordy.com/2016/06/07/〖A〗【1-0】C-语法/【05】变量（一）/</id>
     <published>2016-06-07T07:31:04.000Z</published>
-    <updated>2016-08-16T06:47:28.000Z</updated>
+    <updated>2016-08-18T13:54:05.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;常量表示的数据是不可以改的，而用变量表示的数据是可以经常修改的。&lt;/p&gt;
@@ -1949,17 +2229,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【04】常量</title>
-    <link href="http://sanfordy.com/2016/06/07/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9004%E3%80%91%E5%B8%B8%E9%87%8F/"/>
-    <id>http://sanfordy.com/2016/06/07/【1-0】C-语法/【04】常量/</id>
+    <link href="http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9004%E3%80%91%E5%B8%B8%E9%87%8F/"/>
+    <id>http://sanfordy.com/2016/06/07/〖A〗【1-0】C-语法/【04】常量/</id>
     <published>2016-06-07T07:13:20.000Z</published>
-    <updated>2016-08-16T06:47:25.000Z</updated>
+    <updated>2016-08-18T13:54:02.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;“量”表示数据。常量，则表示一些固定的数据，也就是不能改变的数据。&lt;/p&gt;
@@ -1987,17 +2267,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【03】数据</title>
-    <link href="http://sanfordy.com/2016/06/07/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9003%E3%80%91%E6%95%B0%E6%8D%AE/"/>
-    <id>http://sanfordy.com/2016/06/07/【1-0】C-语法/【03】数据/</id>
+    <link href="http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9003%E3%80%91%E6%95%B0%E6%8D%AE/"/>
+    <id>http://sanfordy.com/2016/06/07/〖A〗【1-0】C-语法/【03】数据/</id>
     <published>2016-06-07T06:27:08.000Z</published>
-    <updated>2016-08-16T06:47:19.000Z</updated>
+    <updated>2016-08-18T13:53:59.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;在我们使用计算机的过程中，会接触到各种各样的数据，有文档数据、图片数据、视频数据，还有聊QQ时产生的文字数据、用迅雷下载的文件数据等。这讲我们就来介绍C语言中数据的处理。&lt;/p&gt;
@@ -2049,17 +2329,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【02】C语言语法</title>
-    <link href="http://sanfordy.com/2016/05/30/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9002%E3%80%91C%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/"/>
-    <id>http://sanfordy.com/2016/05/30/【1-0】C-语法/【02】C语言语法/</id>
+    <link href="http://sanfordy.com/2016/05/30/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9002%E3%80%91C%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/"/>
+    <id>http://sanfordy.com/2016/05/30/〖A〗【1-0】C-语法/【02】C语言语法/</id>
     <published>2016-05-30T02:23:42.000Z</published>
-    <updated>2016-08-16T06:47:16.000Z</updated>
+    <updated>2016-08-18T13:53:53.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;C语言属于一门高级语言，其实所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的Objective-C，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。&lt;/p&gt;
@@ -2101,17 +2381,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【01】第一个C程序代码分析</title>
-    <link href="http://sanfordy.com/2016/05/17/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAC%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/"/>
-    <id>http://sanfordy.com/2016/05/17/【1-0】C-语法/【01】第一个C程序代码分析/</id>
+    <link href="http://sanfordy.com/2016/05/17/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAC%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    <id>http://sanfordy.com/2016/05/17/〖A〗【1-0】C-语法/【01】第一个C程序代码分析/</id>
     <published>2016-05-17T14:49:20.000Z</published>
-    <updated>2016-08-16T06:47:12.000Z</updated>
+    <updated>2016-08-18T13:52:41.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;#include&lt;/code&gt;是C语言的预处理指令之一，所谓预处理，就是在编译之前做的处理，预处理指令一般以&lt;code&gt;#&lt;/code&gt;开头。&lt;/p&gt;
@@ -2199,17 +2479,17 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>【00】C语言简介</title>
-    <link href="http://sanfordy.com/2016/05/11/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9000%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
-    <id>http://sanfordy.com/2016/05/11/【1-0】C-语法/【00】C语言简介/</id>
+    <link href="http://sanfordy.com/2016/05/11/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9000%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/"/>
+    <id>http://sanfordy.com/2016/05/11/〖A〗【1-0】C-语法/【00】C语言简介/</id>
     <published>2016-05-11T15:24:05.000Z</published>
-    <updated>2016-08-18T10:22:39.000Z</updated>
+    <updated>2016-08-18T13:51:44.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;C语言于1972年发明，首次使用是用于重写&lt;code&gt;UNIX&lt;/code&gt;操作系统（&lt;code&gt;UNIX&lt;/code&gt;以前是用汇编写的）。随着&lt;code&gt;UNIX&lt;/code&gt;操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。&lt;/p&gt;
@@ -2281,7 +2561,7 @@
     
     </summary>
     
-      <category term="【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
