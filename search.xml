@@ -4,8 +4,849 @@
   
     
     <entry>
+      <title><![CDATA[【02】类和对象、成员变量]]></title>
+      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9002%E3%80%91%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>OC相对于C语言多了面向对象特性，因此它也有类、对象、静态\动态方法、成员变量的概念。但是OC又没有其他面向对象语言那么多语法特性，OC本身对面向对象进行了精简。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面已经简单介绍过OC的基础知识，让大家对OC有个大致的印象，今天将重点解释OC面向对象的特性。OC相对于C语言多了面向对象特性，因此它也有类、对象、静态\动态方法、成员变量的概念。但是OC又没有其他面向对象语言那么多语法特性，OC本身对面向对象进行了精简。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li>类的定义：具有相同特征和行为的事物的抽象。</li>
+<li>类和对象是面向对象的核心。</li>
+<li>对象是类的实例。类是对象的类型。</li>
+<li>类是模板，对象是具体表现，任何对象都要占⽤内存空间。创建对象分两步：<ul>
+<li>分配内存空间：根据类中声明的成员变量为对象分配内存，将所有成员变量置为默认值0，并返回首地址。</li>
+<li>初始化：为对象的成员变量设置初始值。</li>
+</ul>
+</li>
+<li>万事万物皆对象，例如：一只猫，一个饼干，一张火车票， 一个水杯，⼀个订单等。 </li>
+<li>面向对象编程中使用对象完成程序。</li>
+<li>开发中先创建类，再创建对象，然后使用对象。创建类包含接口部分和实现部分两部分：<ul>
+<li>接口部分:对外声明类的特征和⾏为（类似于说明书）。</li>
+<li>实现部分:对内实现行为（内部的具体实现）。</li>
+</ul>
+</li>
+<li>指针存储对象的地址，代指对象。OC中使用指针代指对象，进⾏操作。 </li>
+<li>抽象类的概念：抽象类是不完整的，它只能用作基类 。在面向对象编程中，抽象类主要用来进行类型隐藏和充当全局变量的角色。在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息（所以说它是不完整的）来描绘一个具体的对象，这样的类就是抽象类。比如，圆、 三角形这样一些具体概念，它们是不同的，但是它们又都属于形状这样一个概念 ， 形状这个概念在问题领域并不是直接存在的，它就是一个抽象概念 。而正是因为抽象的概念在问题领域没有对应的具体概念 ，所以用以表征抽象概念的抽象类是不能够实例化的。</li>
+</ol>
+<h2 id="类的创建"><a href="#类的创建" class="headerlink" title="类的创建"></a>类的创建</h2><p>在C#、Java等其他高级语言中定义一个类是相当简单点的，直接一个关键字class加一对大括号基本就完成了，但是在OC中类的定义相对变化比较大。现在假设需要定义一个Person类。</p>
+<p>在Xcode中添加文件，选择Cocoa Class：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821112138261-1295824583.png" alt=""></p>
+<p>输入类名Person（一般使用类名命名文件，通常类名的第一个字母大写，且不能有下划线，如果有多个单词则使用驼峰标识，⽂件和类本质没有关系），并选择父类为NSObject：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821112148761-533158696.png" alt=""></p>
+<p>默认生成如下两个文件（在OC中定义一个类需要两个文件.h和.m）：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>Person.h</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p><em>Person.m</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li><code>Person.h</code>：.h文件称为接口文件或头文件。放类的声明，包括成员变量、属性和方法声明。.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写方法内部的代码。</li>
+<li><code>Person.h</code>：关键字@interface声明一个类，同时它必须以@end结束，在这两个关键字中间声明相关成员。</li>
+<li><code>Person.h</code>：类名Person后面的冒号”:”表示继承，即第3行代码的意思是Student继承自NSObject。NSObject是OC的基类，所有的类最终都继承于这个类（但是需要注意OC中的基类并不只有一个，例如NSProxy也是OC的基类）。</li>
+<li><code>Person.h</code>：因为NSObject被声明在Foundation.h中，所以导入了<foundation foundaton.h="">（这么描述的意思是导入Foundation框架中的Foundation.h声明文件）</foundation></li>
+<li><code>Person.m</code>：.m称为实现⽂件。放属性、方法的具体实现。</li>
+<li><code>Person.m</code>：关键字@implementation来实现一个类，@implementation后面紧跟的类名，表示究竟要实现哪一个类，同时必须以@end结尾。</li>
+<li><code>Person.m</code>：在这两个关键字中间实现具体的属性、方法；由于.m中使用了Person类，所以需要导入声明文件“Person.h”。</li>
+</ul>
+<h2 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h2><p>假设在Person类中包含人员姓名（name）、年龄（age）、民族（nation）、身高（height）四个成员变量，同时姓名和年龄两个成员变量是私有的，身高是公开的，民族则限制为只有子类可以访问：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>Person.h</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span>&#123;</span><br><span class="line">    <span class="keyword">@private</span></span><br><span class="line">    <span class="comment">//  在OC中推荐成员变量名以_开头</span></span><br><span class="line">    <span class="built_in">NSString</span> *_name;</span><br><span class="line">    <span class="keyword">int</span> _age;</span><br><span class="line">    <span class="keyword">@protected</span></span><br><span class="line">    <span class="built_in">NSString</span> *_nation;</span><br><span class="line">    <span class="keyword">@public</span></span><br><span class="line">    <span class="keyword">float</span> _height;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>成员变量定义在.h文件中，同时必须定义在类后面的{}内。成员的可访问性通过四个关键字声明：（1）<code>@private</code>私有的，成员变量只有在当前类内部可以操作（所谓的内部，指的是响应类的􏰴􏰕􏰗􏰵􏰶􏰝􏰕@implementation和@end之间􏰷􏰸 ）。（2）<code>@protected</code>受保护的，成员变量只有当前类或子类可以操作（如果没有添加任何修饰则默认为@protected）。（3）<code>@public</code>公共的，所有类均可操作（对公共成员的操作使用“-&gt;”操作符 ）。（4）<code>@package</code>框架级别的，它类似于C#中的internal在框架内是公共的，但是框架外是私有的（也就是只能在一个框架内可以访问）。</li>
+</ul>
+<p>成员变量作用域的注意事项：</p>
+<ol>
+<li>在类的实现即.m文件中也可以声明成员变量，但是因为在其他文件中通常都只是包含头文件而不会包含实现文件，所以在这里声明的成员变量是@private的。在.m中定义的成员变量不能和它的头文件.h中的成员变量同名，在这期间使用@public等关键字也是徒劳的。</li>
+<li>一个类继承了另一个类，那么就拥有了父类的所有成员变量和方法，注意所有的成员变量它都拥有，只是有的它不能直接访问。</li>
+<li>为什么不推荐使用@public？答：使用@public关键字暴露了类内部的细节，不符合面向对象语言的三大特性之封装性。</li>
+</ol>
+<h2 id="对象的使用"><a href="#对象的使用" class="headerlink" title="对象的使用"></a>对象的使用</h2><p>那么既然身高是公共的，外界怎么访问呢？</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.m</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">     <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">         Person *p=[Person alloc];</span><br><span class="line">         p=[p init];</span><br><span class="line">         <span class="comment">//上面两句代码可以直接写成：Person *p=[[Person alloc] init];</span></span><br><span class="line">         <span class="comment">//还可以写成：Person *p=[Person new];</span></span><br><span class="line">        p-&gt;_height=<span class="number">1.72</span>;</span><br><span class="line">        [p release];</span><br><span class="line">        <span class="comment">//结果：height=1.72</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"height=%.2f"</span>,p-_&gt;height);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>OC中使用[]进行方法调用，在OC中方法调用的本质就是给这个对象或类发送一个消息。</li>
+<li>OC中所有的对象类型的变量都必须加上”*“，在OC中对象其实就是一个指针（例如之前看到的NSString也是如此，但是基本类型不用加”*”）。</li>
+<li>在OC中类的实例化需要两个步骤：（1）分配内存：+ (id)alloc; +表示这个方法属于类，只能类执行。id返回值类型，表示任意类型的对象，即创建好的对象。（2）初始化：- (id)init; -表示这个方法属于对象，只能对象执行。id返回值类型,表示初始化完成的对象。</li>
+<li>类的初始化调用了父类的init方法，如果使用默认初始化方法进行初始化（没有参数），内存分配和初始化可以简写成[Person new]。</li>
+<li>由于OC不支持垃圾回收，因此当不再使用某个对象时，需要调用对象的release方法释放此对象。我们在第11行销毁了p对象。这个release方法在这里调用一次即可，不要觉得多调用多几次，对象就会释放地干净一点，这样做会很危险，容易造成野指针错误。</li>
+<li>前面我们调用了Person的alloc、init方法，但是你会发现Person.h中并没有声明这些方法，为什么能够调用呢？原因很简单，这些方法都是父类NSObject的，子类当然可以调用父类的方法。</li>
+</ul>
+<h2 id="简单的内存分析"><a href="#简单的内存分析" class="headerlink" title="简单的内存分析"></a>简单的内存分析</h2><h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>类本身也是一个对象，在OC中被定义为一个结构体，该结构体包含以下内容：</p>
+<ol>
+<li><code>Class isa</code>：isa指针指向类的元类，元类中存放着类的类方法列表（即这张表中存放着类中所有的类方法名，而方法名也就是方法的地址），[NSObject alloc]当给类发送这样消息时，runtime会根据类的isa指针找到类的元类，从元类及元类父类的类方法列表中找到alloc方法并执行。因为OC的类的本身也是一个对象，为了处理这个关系runtime就创造了元类，每个类都有对应的元类，每个元类也有父类（其实就是类的父类的元类），最终所有的元类会分别通过自己的isa指向NSObject的元类。</li>
+<li><code>Class super_class</code>：super_class指针指向了类的父类。</li>
+<li><code>const char *name</code>：本类的类名。</li>
+<li><code>long version</code>：类的版本信息，默认为0。</li>
+<li><code>long info</code>：类信息，供运行期使用的一些位标识。</li>
+<li><code>long instance_size</code>：该类的成员变量大小。</li>
+<li><code>struct objc_ivar_list *ivars</code>：该类的成员变量列表（只是列表，成员变量本身并不存在于类中而是存在于对象中）。</li>
+<li><code>struct objc_method_list **methodLists</code>：类的对象的方法列表（其实这是一个指向结构体指针的指针，最终访问到的结构体中存放着该类的所有对象方法名，而方法名也就是方法的地址）。</li>
+<li><code>struct objc_cache *cache</code>：方法缓存，对象接到一个消息会根据isa指针在本类及父类的methodLists中遍历，如果找到便会cache，再次调用同样的方法时就能够提高调用的效率。</li>
+<li><code>struct objc_protocol_list *protocols</code>：协议列表。</li>
+</ol>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>每个对象都有相同的结构，如下图所示：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821112158573-327676209.png" alt=""></p>
+<p>从上到下依次是：</p>
+<ol>
+<li>ISA指针.</li>
+<li>根类的实例变量（根类就是NSobject，它的superclass指针指向nil）。</li>
+<li>倒数第二层父类的实例变量。</li>
+<li>….</li>
+<li>父类的实例变量。</li>
+<li>类的实例变量</li>
+</ol>
+<p>可以看出，在对象中有一个isa指针指向了本类，并且对象包含了本类及所有父类的成员变量。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>类既然称为对象，那它也是一个实例。类对象中也有一个isa指针指向它的元类（meta class），即类对象是元类的实例。元类内部存放的是类方法列表，根元类的isa指针指向自己，superclass指针指向NSObject类。如下图所示：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821112258558-1102035295.png" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【01】第一个OC程序解析]]></title>
+      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAOC%E7%A8%8B%E5%BA%8F%E8%A7%A3%E6%9E%90/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="创建程序"><a href="#创建程序" class="headerlink" title="创建程序"></a>创建程序</h2><ol>
+<li>打开Xcode，创建一个新项目<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821102959933-926120850.png" alt=""></li>
+<li>选择命令行程序<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103006386-344731754.png" alt=""></li>
+<li>选择程序语言为Ojbective-C并输入项目名称<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103024120-2107595196.png" alt=""></li>
+<li>选择保存目录<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103032855-631290928.png" alt=""></li>
+<li>默认生成一个基本的项目结构<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103045620-1717099193.png" alt=""></li>
+<li>上面是通过Xcode创建的第一个OC程序，这是一个经典的“Hello,World！”。运行结果如下：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103053870-1257989906.png" alt=""></li>
+</ol>
+<h2 id="解析程序"><a href="#解析程序" class="headerlink" title="解析程序"></a>解析程序</h2><p>程序源代码：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// insert code here...</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Hello, World!"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="import"><a href="#import" class="headerlink" title="#import"></a>#import</h3><p>#import是一个预处理指令，作用跟C语言的#include类似，都是包含（拷贝）某个文件的内容到预处理指令所在的位置。</p>
+<p>在C\C++中，我们用#include来包含头文件，缺点就是同一个头文件可能被包含多次。为了解决这个问题，一般会这样写头文件：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _TEST_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _TEST_H_</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*.....*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>我们在OC中，就使用#import来包含头文件，优点是可以自动防止同一个头文件被包含多次（即使文件被多次包含，也只拷贝一份）。</li>
+</ul>
+<p>与#include类似，导入系统类库使用&lt;…&gt;，导入自定义类库使用”…”。<code>#import &lt;Foundation/Foundation.h&gt;</code>表示包含Foundation框架中的Foundation.h文件到当前位置。Foundation框架中包含了很多常用的类和函数，比如字符串处理类NSString、日志输出函数NSLog。Foundation.h是Foundation框架中的头文件，这是OC中的一个基础类库，基本上后面我们用到的所有OC的代码都需要引入这个类库。.h称为头文件，一般用来声明一些函数，想要使用这些函数，就必须用#import包含函数所在的头文件。我们在第9行中使用的NSLog函数存在于Foundation.h文件中，因此要先包含Foundation.h文件才能使用NSLog函数。</p>
+<h3 id="main函数"><a href="#main函数" class="headerlink" title="main函数"></a>main函数</h3><p>跟C程序一样，OC程序的入口点依然是main函数。在main.m的第3行已定义了一个main函数。</p>
+<h3 id="autoreleasepool"><a href="#autoreleasepool" class="headerlink" title="@autoreleasepool"></a>@autoreleasepool</h3><p>@autoreleasepool是OC的关键字，它的作用是对包含在这个关键字后面大包括内的程序会自动进行内存回收，不需要开发人员手动释放无用的对象；当然表面上看起来这有点类似于C#和Java的内存垃圾回收机制，但是事实上他们的原理完全不同，以后再做具体解释。你只需要记住：以后的OC代码都写在@autoreleasepool的{}内部。</p>
+<h3 id="NSLog"><a href="#NSLog" class="headerlink" title="NSLog"></a>NSLog</h3><p>NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【00】Objective-C简介]]></title>
+      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9000%E3%80%91Objective-C%E7%AE%80%E4%BB%8B/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>目前来说，Objective-C(简称OC)是iOS开发的核心语言，在开发过程中也会配合着使用C语言、C++，OC主要负责UI界面，C语言、C++可用于图形处理。 </p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>目前来说，Objective-C(简称OC)是iOS开发的核心语言，在开发过程中也会配合着使用C语言、C++，OC主要负责UI界面，C语言、C++可用于图形处理。</p>
+<h2 id="OC简介"><a href="#OC简介" class="headerlink" title="OC简介"></a>OC简介</h2><h3 id="基于C语言"><a href="#基于C语言" class="headerlink" title="基于C语言"></a>基于C语言</h3><p>C语言是一门面向过程的语言，OC是在C语言的基础上，增加了一层最小的面向对象语法，为什么说是最小的面向对象语法呢？因为OC把一些比较复杂的面向对象语法都去掉了，剩下的都是面向对象的精华，因此OC是一门面向对象的语言，而且会比C++简单很多。因为OC是基于C语言的，所以完全兼容C语言，也就是说我们在开发iOS程序过程中，可以在OC代码中混入C语言代码，甚至是C++代码。</p>
+<h3 id="OC的特点"><a href="#OC的特点" class="headerlink" title="OC的特点"></a>OC的特点</h3><ol>
+<li>C语言的超集，允许在OC中使用C语言代码或C++代码，编译器兼容C、C++。</li>
+<li>具备完善的面向对象特性。<ul>
+<li>面向对象的三大特性：封装、继承和多态。</li>
+<li>面向对象的核心：类和对象。</li>
+</ul>
+</li>
+<li>包含一个运行时系统。</li>
+<li>类库丰富。</li>
+</ol>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>我们可以使用OC开发Mac OS X平台和iOS平台的应用程序。</p>
+<p>这里简单说明一下Mac OS X和iOS：</p>
+<ol>
+<li>Mac OS X是苹果公司为Mac系列产品开发的专属操作系统，目前搭载这款操作系统的设备有：MacBook、iMac、Mac mini。</li>
+<li>iOS是由苹果公司开发的手持设备操作系统，目前搭载这款操作系统的设备有：iPhone、iPad、iPod touch、iPad mini。</li>
+</ol>
+<h3 id="拓展名"><a href="#拓展名" class="headerlink" title="拓展名"></a>拓展名</h3><p>c语言-&gt;.c ，OC语言-&gt;.m  ，兼容C++-&gt;.cpp。</p>
+<h2 id="OC语法预览"><a href="#OC语法预览" class="headerlink" title="OC语法预览"></a>OC语法预览</h2><h3 id="没有包名的概念"><a href="#没有包名的概念" class="headerlink" title="没有包名的概念"></a>没有包名的概念</h3><p>在Java中，为了防止两个类名相同的类冲突，你可以将这2个类放在不同的包里面。OC中并没有”包”的概念，取而代之的是开发人员给类名加上前缀，使用前缀可以有效的防止类名冲突。比如NSString（OC中的字符串类）、NSArray（OC的数组类），它们的前缀都是NS。</p>
+<blockquote>
+<p><strong>说明</strong>：NS其实是NeXTSTEP缩写，是乔布斯离开苹果后在NeXT公司所开发的系统，这个操作系统在当时虽然没有获得广泛认同，但是却为后面Mac OX奠定了基础。</p>
+</blockquote>
+<h3 id="关键字以-开头"><a href="#关键字以-开头" class="headerlink" title="关键字以@开头"></a>关键字以@开头</h3><p>我在前面说到，OC代码中是可以混入C语言、C++代码的，而C语言和C++作为一门编程语言，都有自己的关键字。为了防止跟C语言、C++关键字冲突，OC基本上所有的关键字都是以@开头的，少部分没有以@开头，如id，_cmd等。下面列举一些常见的关键字，看一眼就行了：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span>，@<span class="title">implementation</span>，@<span class="title">end</span></span></span><br><span class="line"><span class="keyword">@public</span>、<span class="keyword">@protected</span>、<span class="keyword">@private</span>，<span class="keyword">@selector</span></span><br><span class="line"><span class="keyword">@try</span>、<span class="keyword">@catch</span>、<span class="keyword">@throw</span>、<span class="keyword">@finally</span> </span><br><span class="line"><span class="class"><span class="keyword">@protocol</span>，@<span class="title">class</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// OC 2.0中引入的新关键字有</span></span><br><span class="line"><span class="keyword">@property</span>，<span class="keyword">@synthesize</span></span><br><span class="line"><span class="keyword">@optional</span>，<span class="keyword">@required</span>，<span class="keyword">@dynamic</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串以-开头"><a href="#字符串以-开头" class="headerlink" title="字符串以@开头"></a>字符串以@开头</h3><p>为了与C语言中的字符串做区别，OC中的字符串也必须加上@，比如@”Hello”是OC中的字符串，而”Hello”则是C语言中的字符串。</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>在OC中的数据类型除了C语言中的char、int、float、double之外还有：</p>
+<ol>
+<li>BOOL类型，包含两个值YES和NO，其实OC中的布尔类型就是整数1和</li>
+<li>id类型，是一个对象类型，可以表示所有对象。</li>
+<li>NSString是Fundation框架中定义的字符串类型。</li>
+</ol>
+<p>关于上面id类型在这里不做过多的解释，后面我们会专门说到，下面列出常用格式符：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821101932667-1485118536.png" alt=""></p>
+<ul>
+<li>%i与%d的区别：在C或者OC中整形可以使用%i也可以使用%d来格式化，只有使用scanf()输入的时候二者才有区别（由于%d始终被编译器解释为decimal intergeer所以即使输入010会被认为是整形10，而%i则会将前面的0或者0x认为此输入是八进制或十六进制整数）。</li>
+<li>%p与%x的区别：%p本质就是输出指针地址，在32位编译器下对于一个指针类型使用%x输出和%p输出其实是一样的，只是后者会在前面加上“ox”用以区别该数是16进制（注意在64位编译器下由于指针长度8byte，而整形只有4byte所以%x输出的内容只是%p的低位数据）。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【28】动态内存分配]]></title>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9028%E3%80%91%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>暂无摘要。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="内存区划分"><a href="#内存区划分" class="headerlink" title="内存区划分"></a>内存区划分</h2><p>内存区按内存地址从大到小可以划分为以下几部分：</p>
+<ol>
+<li>栈区：由编译器自动分配、释放，存放函数的参数值、局部变量的值等。eg：int a = 3;</li>
+<li>堆区：由程序员自己管理，如果程序员没有释放掉，那么在程序结束后，操作系统会自动回收。eg：malloc(255);</li>
+<li>静态区：全局变量和静态变量被分配在这里。eg：static float h = 1.36;</li>
+<li>常量区：这是一块比较特殊的存储区，他们里面存放的是常量，不允许修改。eg：”songshuhao”</li>
+<li>代码区：void func(){…};</li>
+</ol>
+<h2 id="栈区"><a href="#栈区" class="headerlink" title="栈区"></a>栈区</h2><p>栈内存的错误使用：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">char</span> *<span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">//  注意此处是把常量区的字符串“iphone”拷贝到栈内存中。 </span></span><br><span class="line">  <span class="keyword">char</span> <span class="built_in">string</span>[] = “iphone”;</span><br><span class="line">  <span class="comment">//  栈内存返回是不安全的，禁止!!</span></span><br><span class="line">  return <span class="built_in">string</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="堆区"><a href="#堆区" class="headerlink" title="堆区"></a>堆区</h2><p>malloc 等内存分配函数分配的内存，手动分配，手动释放。</p>
+<h2 id="静态区"><a href="#静态区" class="headerlink" title="静态区"></a>静态区</h2><p>在局部变量定义的类型前加static，则该变量存储在静态区。静态区有以下几个特点</p>
+<ol>
+<li>只初始化一次。</li>
+<li>如果初始没给值，默认为0。</li>
+<li>只有程序退出才释放（否则永远存在）。</li>
+</ol>
+<h2 id="常量区"><a href="#常量区" class="headerlink" title="常量区"></a>常量区</h2><ol>
+<li>字符常量：”a”</li>
+<li>整形常量：5</li>
+<li>字符串常量：”iPhone”</li>
+</ol>
+<h2 id="代码区"><a href="#代码区" class="headerlink" title="代码区"></a>代码区</h2><p>所有的语句编译后会生成CPU指令存储在代码区。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【27】typedef]]></title>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9027%E3%80%91typedef/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>我们可以使用typedef关键字为各种数据类型定义一个新名字（别名）</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="typedef的作用简介"><a href="#typedef的作用简介" class="headerlink" title="typedef的作用简介"></a>typedef的作用简介</h2><p>我们可以使用typedef关键字为各种数据类型定义一个新名字（别名）：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"> <span class="keyword">typedef</span> <span class="keyword">int</span> Integer;</span><br><span class="line"> <span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> UInterger;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">typedef</span> <span class="keyword">float</span> Float;</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">     Integer i = <span class="number">-10</span>;</span><br><span class="line">     UInterger ui = <span class="number">11</span>;</span><br><span class="line">    </span><br><span class="line">    Float f = <span class="number">12.39f</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d  %d  %.2f\n"</span>, i, ui, f);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">10</span>  <span class="number">11</span>  <span class="number">12.39</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第3、第4、第6行分别给int、unsigned int、float起了个别名，然后在main函数中使用别名定义变量，用来跟原来的基本类型是完全一样的。</li>
+<li>当然，给类型起别名后，原来的int、float还是可以正常使用的。</li>
+</ul>
+<p>也可以在别名的基础上再起一个别名：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Integer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> Integer MyInteger;</span><br></pre></td></tr></table></figure>
+<h2 id="typedef与指针"><a href="#typedef与指针" class="headerlink" title="typedef与指针"></a>typedef与指针</h2><p>除开可以给基本数据类型起别名，typedef也可以给指针起别名：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> *String;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  相当于char *str = "This is a string!";</span></span><br><span class="line">     String str = <span class="string">"This is a string!"</span>;</span><br><span class="line"></span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, str);</span><br><span class="line"></span><br><span class="line">     return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">This <span class="keyword">is</span> a <span class="built_in">string</span>!</span><br><span class="line">Program ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第3给指针类型char *起别名为String，然后在第7行使用String定义了一个字符串。</li>
+</ul>
+<h2 id="typedef于结构体"><a href="#typedef于结构体" class="headerlink" title="typedef于结构体"></a>typedef于结构体</h2><p>给结构体起别名可以使代码更加简洁明：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个结构体类型</span></span><br><span class="line"><span class="keyword">struct</span> MyPoint &#123;</span><br><span class="line">    <span class="keyword">float</span> x;</span><br><span class="line">    <span class="keyword">float</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 起别名</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> MyPoint Point;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义结构体变量</span></span><br><span class="line">    Point p;</span><br><span class="line">    p.x = <span class="number">10.0f</span>;</span><br><span class="line">    p.y = <span class="number">20.0f</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>我们在第8行给结构体MyPoint起了个别名叫做Point，然后在12行使用Point定义了一个结构体变量p，不用再带上struct关键字了。</li>
+<li>其实在上面第1~第8行的代码可以简写为：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个结构体，顺便起别名</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> MyPoint &#123;</span><br><span class="line">    <span class="keyword">float</span> x;</span><br><span class="line">    <span class="keyword">float</span> y;</span><br><span class="line">&#125; Point;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>甚至可以省略结构体名称：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">float</span> x;</span><br><span class="line">    <span class="keyword">float</span> y;</span><br><span class="line">&#125; Point;</span><br></pre></td></tr></table></figure>
+<h2 id="typedef与指向结构体的指针"><a href="#typedef与指向结构体的指针" class="headerlink" title="typedef与指向结构体的指针"></a>typedef与指向结构体的指针</h2><p>typedef可以给指针、结构体起别名，当然也可以给指向结构体的指针起别名：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个结构体并起别名</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">float</span> x;</span><br><span class="line">    <span class="keyword">float</span> y;</span><br><span class="line">&#125; Point;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 起别名</span></span><br><span class="line"><span class="keyword">typedef</span> Point *PP;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义结构体变量</span></span><br><span class="line">    Point point = &#123;<span class="number">10</span>, <span class="number">20</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 定义指针变量</span></span><br><span class="line">    PP p = &amp;point;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 利用指针变量访问结构体成员</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"x=%f，y=%f\n"</span>, p-&gt;x, p-&gt;y);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">10.000000</span>，y=<span class="number">20.000000</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第4行定义了一个结构体，顺便起了个别名叫Point，第10行为指向结构体的指针定义了别名PP。然后在main函数中使用这2个别名。</li>
+</ul>
+<h2 id="typedef与枚举类型"><a href="#typedef与枚举类型" class="headerlink" title="typedef与枚举类型"></a>typedef与枚举类型</h2><p>使用typedef给枚举类型起别名也可以使代码简洁。</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义枚举类型</span></span><br><span class="line"><span class="keyword">enum</span> Season &#123;spring, summer, autumn, winter&#125;;</span><br><span class="line"><span class="comment">// 给枚举类型起别名</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> Season Season;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义枚举变量</span></span><br><span class="line">    Season s = spring;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第2行定义了枚举类型，在第4行起了别名为Season，然后在第8行直接使用别名定义枚举变量，不用再带上enum关键字了。</li>
+<li>上面的第1行~第4行代码可以简化为：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义枚举类型，并且起别名</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> Season &#123;spring, summer, autumn, winter&#125; Season;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>甚至可以省略枚举名称，简化为：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> &#123;spring, summer, autumn, winter&#125; Season;</span><br></pre></td></tr></table></figure>
+<h2 id="typedef与指向函数的指针"><a href="#typedef与指向函数的指针" class="headerlink" title="typedef与指向函数的指针"></a>typedef与指向函数的指针</h2><p>先来回顾下函数指针的知识：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个sum函数，计算a跟b的和</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c = a + b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d + %d = %d\n"</span>, a, b, c);</span><br><span class="line">    return c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  定义一个指向sum函数的指针变量p</span></span><br><span class="line">    <span class="keyword">int</span> (*p)(<span class="keyword">int</span>, <span class="keyword">int</span>) = sum;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  调用了p指向的sum函数</span></span><br><span class="line">    (*p)(<span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> + <span class="number">5</span> = <span class="number">9</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第4行定义了一个sum函数，第12行定义了一个指向sum函数的指针变量p，可以发现，这个指针变量p的定义比一般的指针变量看来复杂多了，不利于理解。</li>
+</ul>
+<p>为了简化代码和方便理解，我们可以使用typedef给指向函数的指针类型起别名：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个sum函数，计算a跟b的和</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c = a + b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d + %d = %d\n"</span>, a, b, c);</span><br><span class="line">    return c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">int</span> <span class="params">(*MySum)</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义一个指向sum函数的指针变量p</span></span><br><span class="line">    MySum p = sum;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 利用指针变量p调用sum函数</span></span><br><span class="line">    (*p)(<span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> + <span class="number">5</span> = <span class="number">9</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>看第10行，意思是：给指向函数的指针类型，起了个别名叫MySum，被指向的函数接收2个int类型的参数，返回值为int类型。</li>
+<li>在第14行直接用别名MySum定义一个指向sum函数的指针变量p，这样看起来简单舒服多了。第17行的函数调用是一样的。</li>
+</ul>
+<h2 id="typedef与-define"><a href="#typedef与-define" class="headerlink" title="typedef与#define"></a>typedef与#define</h2><p>先来看看下面的两段代码有什么区别（注意每一段的第1行代码）：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> *String;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"This is a string!"</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> String char *</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"This is a string!"</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>上面的两段代码只是第1行代码不一样，运行的效果都是一样的：定义了一个字符串”This is a string!”。</li>
+<li>但它们的实现方式是不一样的：第1段代码是用typedef给char *定义别名为String；第2段代码是用char *代替代码中的宏名String。</li>
+<li>只看上面两段代码，似乎看不太出typedef和#define的区别。</li>
+</ul>
+<p>再来看一段代码：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  给char *起了个别名String1</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> *String1;</span><br><span class="line"><span class="comment">//  定义了宏String2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> String2 char *</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    String1 str1, str2;</span><br><span class="line">    String2 str3, str4;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在这种情况下，只有str1、str2、str3才是指向char类型的指针变量，str4只是个char类型的变量，因为宏定义纯粹是字符串替换，用char *代替String2，所以第9行代码相当于：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  下面的代码相当于：char * str3; char str4;</span></span><br><span class="line"><span class="keyword">char</span> * str3, str4;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以看出，只有str4是基本数据类型，str1、str2、str3都是指针类型。所以，以后给类型起别名，最好使用typedef，而不是使用#define。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【26】枚举]]></title>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9026%E3%80%91%E6%9E%9A%E4%B8%BE/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>枚举是C语言中的一种基本数据类型，并不是构造类型，它可以用于声明一组常数。当一个变量有几个固定的可能取值时，可以将这个变量定义为枚举类型。比如，你可以用一个枚举类型的变量来表示季节，因为季节只有4种可能的取值：春天、夏天、秋天、冬天。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="枚举的概念"><a href="#枚举的概念" class="headerlink" title="枚举的概念"></a>枚举的概念</h2><p>枚举是C语言中的一种基本数据类型，并不是构造类型，它可以用于声明一组常数。当一个变量有几个固定的可能取值时，可以将这个变量定义为枚举类型。比如，你可以用一个枚举类型的变量来表示季节，因为季节只有4种可能的取值：春天、夏天、秋天、冬天。</p>
+<p>目的：提高程序的可读性。</p>
+<p>作用：将人能看懂的标识符与计算机能识别的数字建立对应关系。 </p>
+<h2 id="枚举类型的定义"><a href="#枚举类型的定义" class="headerlink" title="枚举类型的定义"></a>枚举类型的定义</h2><p>一般形式为：enum 枚举名 {枚举元素1,枚举元素2,……};</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> season&#123;</span><br><span class="line">    spring = <span class="number">1</span>, <span class="comment">//默认从0开始</span></span><br><span class="line">    summer,</span><br><span class="line">    autumn,</span><br><span class="line">    winter</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="枚举变量的定义"><a href="#枚举变量的定义" class="headerlink" title="枚举变量的定义"></a>枚举变量的定义</h2><p>前面只是定义了枚举类型，接下来就可以利用定义好的枚举类型定义变量。</p>
+<p>跟结构体一样，有3种方式定义枚举变量，下面三种方式定义的都是枚举变量s：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  先定义枚举类型，再定义枚举变量  //</span></span><br><span class="line"><span class="keyword">enum</span> Season &#123;spring, summer, autumn, winter&#125;;</span><br><span class="line"><span class="keyword">enum</span> Season s;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  定义枚举类型的同时定义枚举变量</span></span><br><span class="line"><span class="keyword">enum</span> Season &#123;spring, summer, autumn, winter&#125; s;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  省略枚举名称，直接定义枚举变量</span></span><br><span class="line"><span class="keyword">enum</span> &#123;spring, summer, autumn, winter&#125; s;</span><br></pre></td></tr></table></figure>
+<h2 id="枚举使用的注意"><a href="#枚举使用的注意" class="headerlink" title="枚举使用的注意"></a>枚举使用的注意</h2><p>C语言编译器会将枚举元素（spring、summer等）作为整型常量处理，称为枚举常量。</p>
+<p>枚举元素的值取决于定义时各枚举元素排列的先后顺序。默认情况下，第一个枚举元素的值为0，第二个为1，依次顺序加1：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Season &#123;spring, summer, autumn, winter&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>也就是说spring的值为0，summer的值为1，autumn的值为2，winter的值为3。</li>
+<li>也可以在定义枚举类型时改变枚举元素的值：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  没有指定值的枚举元素，其值为前一元素加1。也就说spring的值为0，summer的值为3，autumn的值为4，winter的值为5。</span></span><br><span class="line"><span class="keyword">enum</span> season &#123;spring, summer=<span class="number">3</span>, autumn, winter&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="枚举变量的基本操作"><a href="#枚举变量的基本操作" class="headerlink" title="枚举变量的基本操作"></a>枚举变量的基本操作</h2><h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><p>可以给枚举变量赋枚举常量或者整型值：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Season &#123;spring, summer, autumn, winter&#125; s;</span><br><span class="line"></span><br><span class="line">s = spring; <span class="comment">// 等价于 s = 0;</span></span><br><span class="line"></span><br><span class="line">s = <span class="number">3</span>; <span class="comment">// 等价于 s = winter;</span></span><br></pre></td></tr></table></figure>
+<h3 id="遍历枚举元素"><a href="#遍历枚举元素" class="headerlink" title="遍历枚举元素"></a>遍历枚举元素</h3><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Season &#123;spring, summer, autumn, winter&#125; s;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历枚举元素</span></span><br><span class="line"><span class="keyword">for</span> (s = spring; s &lt;= winter; s++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"枚举元素：%d \n"</span>, s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">枚举元素：<span class="number">0</span> </span><br><span class="line">枚举元素：<span class="number">1</span> </span><br><span class="line">枚举元素：<span class="number">2</span> </span><br><span class="line">枚举元素：<span class="number">3</span> </span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【25】结构体]]></title>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9025%E3%80%91%E7%BB%93%E6%9E%84%E4%BD%93/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。</p>
+<p>在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。为此，C语言专门提供了一种构造类型来解决上述问题，这就是结构体，它允许内部的元素是不同类型的。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="结构体的概念"><a href="#结构体的概念" class="headerlink" title="结构体的概念"></a>结构体的概念</h2><p>在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。</p>
+<p>在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。为此，C语言专门提供了一种构造类型来解决上述问题，这就是结构体，它允许内部的元素是不同类型的。</p>
+<h2 id="结构体类型的定义"><a href="#结构体类型的定义" class="headerlink" title="结构体类型的定义"></a>结构体类型的定义</h2><h3 id="定义形式"><a href="#定义形式" class="headerlink" title="定义形式"></a>定义形式</h3><p>结构体内部的元素，也就是组成成分，我们一般称为”成员”。</p>
+<p>结构体类型的一般定义形式为：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span>　结构体名&#123;</span><br><span class="line">    </span><br><span class="line">    类型名<span class="number">1</span>　成员名<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    类型名<span class="number">2</span>　成员名<span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    ……</span><br><span class="line">    </span><br><span class="line">    类型名n　成员名n;　　　</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>struct是关键字，是结构体类型的标志。</li>
+</ul>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>比如，我们定义一个学生的结构体类型：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name; <span class="comment">// 姓名</span></span><br><span class="line">    <span class="keyword">int</span> age; <span class="comment">// 年龄</span></span><br><span class="line">    <span class="keyword">float</span> height; <span class="comment">// 身高</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>上面定义了一个叫做Student的结构体类型，共有name、age、height3个成员。看到这里是否有点面向对象的味道呢，其实这跟面向对象完全是两码事，只能说感觉有点像。</li>
+</ul>
+<h2 id="结构体变量的初始化"><a href="#结构体变量的初始化" class="headerlink" title="结构体变量的初始化"></a>结构体变量的初始化</h2><p>前面只是定义了名字为Student的结构体类型，并非定义了一个结构体变量，就像int一样，只是一种类型。</p>
+<h3 id="整体初始化"><a href="#整体初始化" class="headerlink" title="整体初始化"></a>整体初始化</h3><p>先定义结构体类型，再定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//  注意：struct和Student是连着使用的。</span></span><br><span class="line"><span class="keyword">struct</span> Student stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>结构体变量名为stu。</li>
+</ul>
+<p>定义结构体类型的同时定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125; stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>结构体变量名为stu。</li>
+</ul>
+<p>省略类型名，直接定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125; stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结构体变量名为stu。</li>
+</ul>
+<p>结构体变量在<code>整体初始化</code>时，不能先定义变量再拿变量来整体初始化：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  这种写法是错误的</span></span><br><span class="line">stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="成员单独初始化"><a href="#成员单独初始化" class="headerlink" title="成员单独初始化"></a>成员单独初始化</h3><p>成员单独初始化时需要先拿到定义好的结构体变量（我们在（1.整体初始化）中已经学会了怎么定义结构体变量）：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stu.name = <span class="string">"小明"</span>;</span><br><span class="line">stu.age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="结构体的注意点"><a href="#结构体的注意点" class="headerlink" title="结构体的注意点"></a>结构体的注意点</h2><h3 id="不允许对结构体本身递归定义"><a href="#不允许对结构体本身递归定义" class="headerlink" title="不允许对结构体本身递归定义"></a>不允许对结构体本身递归定义</h3><p>如下做法是错误的，注意第3行：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">struct</span> Student stu;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="结构体内可以包含别的结构体"><a href="#结构体内可以包含别的结构体" class="headerlink" title="结构体内可以包含别的结构体"></a>结构体内可以包含别的结构体</h3><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Date &#123;</span><br><span class="line">    <span class="keyword">int</span> year;</span><br><span class="line">    <span class="keyword">int</span> month;</span><br><span class="line">    <span class="keyword">int</span> day;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="comment">//  包含了其他结构体</span></span><br><span class="line">    <span class="keyword">struct</span> Date birthday;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="内存问题一"><a href="#内存问题一" class="headerlink" title="内存问题一"></a>内存问题一</h3><p>定义结构体类型，只是说明了该类型的组成情况，并没有给它分配存储空间，就像系统不为int类型本身分配空间一样。只有当定义属于结构体类型的变量时，系统才会分配存储空间给该变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第1~4行并没有分配存储空间，当执行到第6行时，系统才会分配存储空间给stu变量。</li>
+</ul>
+<h3 id="内存问题二"><a href="#内存问题二" class="headerlink" title="内存问题二"></a>内存问题二</h3><p>结构体变量占用的内存的大小是其成员所占内存之和，用成员中类型所占的最大内存为分配单位，按结构体成员声明顺序⾃上而下分配，分配空间不足以存储成员时，分配新的单位：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">struct</span> A &#123;</span><br><span class="line">　　<span class="keyword">int</span> a,</span><br><span class="line">　　<span class="keyword">float</span> b,</span><br><span class="line">　　<span class="keyword">char</span> [<span class="number">10</span>],</span><br><span class="line">　　<span class="keyword">double</span> d</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>因为其中占内存最大的类型是double所以分配空间时以8个字节为一个单位分配空间。总共占：8*1+0*1+8*2+8=32个字节。</li>
+</ul>
+<h2 id="结构体的使用"><a href="#结构体的使用" class="headerlink" title="结构体的使用"></a>结构体的使用</h2><p>一般对结构体变量的操作是以成员为单位进行的，引用的一般形式为：结构体变量名.成员名：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问stu的age成员</span></span><br><span class="line">stu.age = <span class="number">27</span>;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第9行对结构体的age成员进行了赋值。”.”称为成员运算符，它在所有运算符中优先级最高。</li>
+</ul>
+<p>如果某个成员也是结构体变量，可以连续使用成员运算符”.”访问最低一级成员：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Date &#123;</span><br><span class="line">     <span class="keyword">int</span> year;</span><br><span class="line">     <span class="keyword">int</span> month;</span><br><span class="line">     <span class="keyword">int</span> day;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">struct</span> Date birthday;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu;</span><br><span class="line"></span><br><span class="line">stu.birthday.year = <span class="number">1986</span>;</span><br><span class="line">stu.birthday.month = <span class="number">9</span>;</span><br><span class="line">stu.birthday.day = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>注意第14行以后的代码。</li>
+</ul>
+<p>相同类型的结构体变量之间可以进行整体赋值：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu1 = &#123;<span class="string">"MJ"</span>, <span class="number">27</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  将stu1直接赋值给stu2</span></span><br><span class="line"><span class="keyword">struct</span> Student stu2 = stu1;</span><br><span class="line"></span><br><span class="line">printf(<span class="string">"age is %d\n"</span>, stu2.age);</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age <span class="keyword">is</span> <span class="number">27</span></span><br><span class="line">Program ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="结构体数组的初始化"><a href="#结构体数组的初始化" class="headerlink" title="结构体数组的初始化"></a>结构体数组的初始化</h2><p>结构体数组中存放的是结构体变量，结构体数组的初始化跟结构体变量差不多。</p>
+<h3 id="整体初始化-1"><a href="#整体初始化-1" class="headerlink" title="整体初始化"></a>整体初始化</h3><p>先定义结构体类型，再定义结构体数组，同时整体初始化结构体数组：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu[<span class="number">2</span>] = &#123;&#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;,&#123;<span class="string">"小蛋"</span>,<span class="number">20</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>定义结构体类型的同时定义结构体数组，同时整体化结构体数组：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;stu[<span class="number">2</span>] =&#123;&#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;,&#123;<span class="string">"小蛋"</span>,<span class="number">20</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>省略类型名，直接定义结构体数组，同时整体初始化结构体数组：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;stu[<span class="number">2</span>] =&#123;&#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;,&#123;<span class="string">"小蛋"</span>,<span class="number">20</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="成员单独初始化-1"><a href="#成员单独初始化-1" class="headerlink" title="成员单独初始化"></a>成员单独初始化</h3><p>成员单独初始化时需要先拿到定义好的结构体数组（我们在（1.整体初始化）中已经学会了怎么定义结构体数组）：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stu[<span class="number">1</span>].name = <span class="string">"小明"</span>;</span><br><span class="line">stu[<span class="number">1</span>].age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<p>用数组下标访问每一个结构体元素，跟普通数组的用法是一样的。但是不能直接给结构体元素整体赋值：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  stu[1]是stu数组中的第二个结构体变量，这样赋值是错误的</span></span><br><span class="line">stu[<span class="number">1</span>] = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="结构体作为函数参数"><a href="#结构体作为函数参数" class="headerlink" title="结构体作为函数参数"></a>结构体作为函数参数</h2><p>将结构体变量作为函数参数进行传递时，其实传递的是全部成员的值，也就是将实参中成员的值一一赋值给对应的形参成员。因此，形参的改变不会影响到实参：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个结构体</span></span><br><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> test(<span class="keyword">struct</span> Student stu) &#123;</span><br><span class="line">    printf(<span class="string">"修改前的形参：%d \n"</span>, stu.age);</span><br><span class="line">    <span class="comment">// 修改实参中的age</span></span><br><span class="line">    stu.age = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    printf(<span class="string">"修改后的形参：%d \n"</span>, stu.age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">struct</span> Student stu = &#123;<span class="number">30</span>&#125;;</span><br><span class="line">    printf(<span class="string">"修改前的实参：%d \n"</span>, stu.age);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 调用test函数</span></span><br><span class="line">    test(stu);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    printf(<span class="string">"修改后的实参：%d \n"</span>, stu.age);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">修改前的实参：<span class="number">30</span> </span><br><span class="line">修改前的形参：<span class="number">30</span> </span><br><span class="line">修改后的形参：<span class="number">10</span> </span><br><span class="line">修改后的实参：<span class="number">30</span> </span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>首先在第4行定义了一个结构体类型Student。</li>
+<li>在第18行定义了一个结构体变量stu，并在第22行将其作为实参传入到test函数。</li>
+<li>根据输出结果可知形参是改变了，但是实参一直没有变过。</li>
+</ul>
+<h2 id="结构体指针"><a href="#结构体指针" class="headerlink" title="结构体指针"></a>结构体指针</h2><p>结构体指针就是指向了结构体的指针，每个结构体变量都有自己的存储空间和地址，因此指针也可以指向结构体变量。</p>
+<p>结构体指针变量的定义形式：struct 结构体名称 *指针变量名。</p>
+<p>有了指向结构体的指针，那么就有3种访问结构体成员的方式。</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="comment">//  定义一个结构体类型：Student</span></span><br><span class="line">    <span class="keyword">struct</span> Student &#123;</span><br><span class="line">        <span class="keyword">char</span> *name;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  定义一个结构体变量</span></span><br><span class="line">    <span class="keyword">struct</span> Student stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  定义一个指向结构体的指针变量，指向了stu</span></span><br><span class="line">    <span class="keyword">struct</span> Student *p = &amp;stu;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     *  这时候可以有三种方式访问结构体的成员</span><br><span class="line">     */</span></span><br><span class="line">    <span class="comment">//  方式1：结构体变量名.成员名</span></span><br><span class="line">    printf(<span class="string">"name = %s, age = %d \n"</span>,stu.name,stu.age);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  方式2：（*结构体变量名）.成员名</span></span><br><span class="line">    printf(<span class="string">"name = %s, age = %d \n"</span>,(*p).name,(*p).age);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  方式3：指针变量名-&gt;成员名</span></span><br><span class="line">    printf(<span class="string">"name = %s, age = %d \n"</span>,p-&gt;name,p-&gt;age);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name</span> = 小明, <span class="attr">age</span> = <span class="number">18</span> </span><br><span class="line"><span class="attr">name</span> = 小明, <span class="attr">age</span> = <span class="number">18</span> </span><br><span class="line"><span class="attr">name</span> = 小明, <span class="attr">age</span> = <span class="number">18</span> </span><br><span class="line">Program ended <span class="keyword">with</span> exit code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【24】const关键字用法小结]]></title>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9024%E3%80%91const%E5%85%B3%E9%94%AE%E5%AD%97%E7%94%A8%E6%B3%95%E5%B0%8F%E7%BB%93/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>const修饰的数据类型是指常类型，常类型的变量或对象的值是不能被更新的。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>const修饰的数据类型是指常类型，常类型的变量或对象的值是不能被更新的。</p>
+<h2 id="const的普通用法"><a href="#const的普通用法" class="headerlink" title="const的普通用法"></a>const的普通用法</h2><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  n是一个只读变量，程序不可以直接修改其值。</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> n = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="const用于指针"><a href="#const用于指针" class="headerlink" title="const用于指针"></a>const用于指针</h2><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p；<span class="comment">//　　常量指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *p；<span class="comment">//　　常量指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p；<span class="comment">//　　指针常量</span></span><br></pre></td></tr></table></figure>
+<h2 id="const用于函数参数"><a href="#const用于函数参数" class="headerlink" title="const用于函数参数"></a>const用于函数参数</h2><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  该函数将不会通过参数p（指针）修改p所指的数据。</span></span><br><span class="line"><span class="keyword">void</span> foo(<span class="keyword">const</span> <span class="keyword">int</span> *p);</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【23】extern和static关键字 -- 对变量的作用]]></title>
+      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9023%E3%80%91extern%E5%92%8Cstatic%E5%85%B3%E9%94%AE%E5%AD%97%20--%20%E5%AF%B9%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>这里稍微说一下，其实就是变量定义和变量声明的区别，变量定义使用“数据类型+变量名称”的形式，编译器需要给他分配内存单元的。而变量声明使用“extern 变量类型+变量名称”的形式，是告诉编译器我这个变量将在其他外部c文件中定义，我这里只是在外部用它。编译器就不给他分配内存空间，而等到真正遇到变量定义的时候再给他分配内存空间。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里稍微说一下，其实就是变量定义和变量声明的区别，变量定义使用“数据类型+变量名称”的形式，编译器需要给他分配内存单元的。而变量声明使用“extern 变量类型+变量名称”的形式，是告诉编译器我这个变量将在其他外部c文件中定义，我这里只是在外部用它。编译器就不给他分配内存空间，而等到真正遇到变量定义的时候再给他分配内存空间。</p>
+<h2 id="extern与变量"><a href="#extern与变量" class="headerlink" title="extern与变量"></a>extern与变量</h2><h3 id="全局变量定义的位置是有限制的"><a href="#全局变量定义的位置是有限制的" class="headerlink" title="全局变量定义的位置是有限制的"></a>全局变量定义的位置是有限制的</h3><p>extern可以用来声明一个全局变量，但是不能用来定义变量，在C语言中，全局变量定义的位置是有限制的：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br></pre></td></tr></table></figure>
+<p>&lt; ERROR &gt;</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160823152939558-1361951111.png" alt=""></p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第3行定义的main函数中尝试访问第8行定义的变量a，编译器直接报错了。</li>
+</ul>
+<p>解决这个上面代码错误的话，有2种办法：</p>
+<p>&lt; 代码示例1 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//  将变量a定义在main函数的前面，这样做编译器就不会找你麻烦了。</span></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码示例2 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//  在main函数前面对变量a进行提前声明，也就是让main函数知道变量a的存在就行了，至于变量a定义在哪个位置，main函数不用管。</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>变量声明不能省略extern关键字。</li>
+<li>第3行是对变量a进行声明，第10行是定义变量a，再次强调，声明和定义是两码事。在第6行操作的就是第10行定义的变量a。</li>
+<li>不能省略第10行的定义，只留下第3行的声明，因为extern是用来声明一个已经定义过的变量。</li>
+</ul>
+<h3 id="重复定义同一个变量"><a href="#重复定义同一个变量" class="headerlink" title="重复定义同一个变量"></a>重复定义同一个变量</h3><p>其实，你也可以直接在main函数前面再定义一次a：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>看到这一幕，你可能很惊讶，但编译器是不会报错的。在这种情况下，第3行和第10行的变量a代表着同一个变量。</li>
+<li>以此类推，如果我们写了无数遍全局变量int a;，它们代表的都是同一个变量：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> a;</span><br></pre></td></tr></table></figure>
+<p>还要注意的一点是，我们也可以将全局变量a声明为局部变量后再使用：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160823160439526-2135612256.png" alt=""></p>
+<ul>
+<li>第11、第14、第15、第19行都代表着同一个变量。其实，从第15行a的颜色(浅绿色)都可以看出，这个a依然是个全局变量。</li>
+<li>这是Xcode的特性，如果在函数内部访问了全局变量，全局变量就会显示浅绿色，如果函数内部访问的是局部变量，局部变量就显示普通的白色。当然，不同的开发工具有不同的显示方案。</li>
+<li>但是，如果你将第14行的extern去掉，那情况就完全不一样了，相信有编程经验的你都懂得这是什么情况了：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160823160447417-160326584.png" alt=""></li>
+</ul>
+<h3 id="不同源文件中的同名变量"><a href="#不同源文件中的同名变量" class="headerlink" title="不同源文件中的同名变量"></a>不同源文件中的同名变量</h3><p>假如在不同的源文件中定义了相同的变量，那么Xcode编译器会报错：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.c</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>test.c</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br></pre></td></tr></table></figure>
+<p>&lt; ERROR &gt;</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160823165309683-477236422.png" alt=""></p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>报错是由于标识符重复引起的。</li>
+</ul>
+<p>当使用extern关键字时可以解决上面标识符重复的问题，并且这这两个源文件的所有全局变量a;都代表着同一个变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.c</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="comment">//  声明test函数</span></span><br><span class="line"><span class="keyword">void</span> test();</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="comment">//  修改a的值</span></span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//  调用test函数</span></span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>test.c</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a;</span><br><span class="line"><span class="comment">//  用来打印a的值</span></span><br><span class="line"><span class="keyword">void</span> test()&#123;</span><br><span class="line">    printf(<span class="string">"test.c中的a为：%d\n"</span>,a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test.c中的a为：<span class="number">10</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>根据输出结果可知，test.c和main.c中使用的全局变量a都还是代表着同一个变量。</li>
+<li>当然也可以让main.c中变量a使用extern修饰，这时候test.c中的a就不能用extern修饰了。</li>
+<li>不可以两个文件的所有全局变量a都用extern，因为extern是用来声明一个已经定义过的变量，这两个文件都是在声明变量，没有人定义变量，在链接的时候肯定报错：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160823172248573-104558019.png" alt=""><br>大致错误意思是：标示符a未定义</li>
+</ul>
+<h2 id="static与变量"><a href="#static与变量" class="headerlink" title="static与变量"></a>static与变量</h2><p>很多时候，我们并不想让源文件中的全局变量跟其他源文件共享，相当于私有的全局变量，那么你就得用static关键字来定义变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.c</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="comment">//  声明test函数</span></span><br><span class="line"><span class="keyword">void</span> test();</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="comment">//  修改a的值</span></span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//  调用test函数</span></span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>test.c</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> a;</span><br><span class="line"><span class="comment">//  用来打印a的值</span></span><br><span class="line"><span class="keyword">void</span> test()&#123;</span><br><span class="line">    printf(<span class="string">"test.c中的a为：%d\n"</span>,a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test.c中的a为：<span class="number">0</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>这样写完，test.c和main.c的变量a分别代表着不同的变量，它们是没有联系的、互不干扰的。也就是说，main.c无法访问test.c中的变量a，因此在main.c中将a修改为10后，test.c中的a依然为0。</li>
+</ul>
+<p>因为main.c已经没有权限访问test.c中的变量a了，所以下面的写法是错误的：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.c</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line"></span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>test.c</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> a;</span><br></pre></td></tr></table></figure>
+<p>&lt; ERROR &gt;</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160823173204433-1099493774.png" alt=""></p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>链接的时候报错的理由是标示符a未定义。</li>
+<li>extern是用来声明已经定义过而且能够访问的变量，虽然test.c中有定义过变量a，但是test.c中变量a的作用域是只限于test.c文件，main.c没有访问权限，所以main.c中的extern是废的。</li>
+<li>除非main.c自己定义一个变量a，这样子extern才是有效的，不过这时候main.c和test.c中的变量a是分别代表着不同变量。</li>
+</ul>
+<h2 id="extern、static与变量的总结"><a href="#extern、static与变量的总结" class="headerlink" title="extern、static与变量的总结"></a>extern、static与变量的总结</h2><h3 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h3><p>extern可以用来声明一个全局变量，但是不能用来定义变量。</p>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><p>如果在定义全局变量的时候加上static关键字，此时static的作用在于限制该全局变量的作用域，只能在定义该全局变量的文件中才能使用，跟其他源文件中的同名变量互不干扰。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【22】extern和static关键字 -- 对函数的作用]]></title>
+      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9022%E3%80%91extern%E5%92%8Cstatic%E5%85%B3%E9%94%AE%E5%AD%97%20--%20%E5%AF%B9%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>在定义函数时，如果在函数的最左边加上关键字extern，则表示此函数是外部函数，可供其他文件调用。C语言规定，如果在定义函数时省略extern，则隐含为外部函数。</p>
+<p>在定义函数时，在函数的最左边加上static可以把该函数声明为内部函数(又叫静态函数)，这样该函数就只能在其定义所在的文件中使用。如果在不同的文件中有同名的内部函数，则互不干扰。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果一个程序中有多个源文件（.c），编译成功会生成对应的多个目标文件（.obj），这些目标文件还不能单独运行，因为这些目标文件之间可能会有关联，比如a.obj可能会调用c.obj中定义的一个函数。将这些相关联的目标文件链接在一起后才能生成可执行文件。</p>
+<p>在学习extern和static之前先来理解2个概念：</p>
+<ol>
+<li>外部函数：如果在当前文件中定义的函数允许其他文件访问、调用，就称为外部函数。<code>C语言规定，不允许有同名的外部函数</code>。</li>
+<li>内部函数：如果在当前文件中定义的函数不允许其他文件访问、调用，只能在内部使用，就称为内部函数。<code>C语言规定不同的源文件可以有同名的内部函数，并且互不干扰</code>。</li>
+</ol>
+<h2 id="extern与函数"><a href="#extern与函数" class="headerlink" title="extern与函数"></a>extern与函数</h2><p>接下来演示两个错误和一个正确示例，即在源文件中调用另外一个源文件定义的函数，比如在main.c中调用one.c中定义的one函数。</p>
+<h3 id="错误示例1"><a href="#错误示例1" class="headerlink" title="错误示例1"></a>错误示例1</h3><p>&lt; 代码示例 &gt;</p>
+<p><em>main.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  调用one.c中的one函数。</span></span><br><span class="line">    one();</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>one.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//  如果你想让这个one函数可以被`main.c`访问，那么one函数就必须是外部函数。完整的定义是要加上extern关键字。extern跟auto关键字一样废，完全可以省略，因为默认情况下，所有的函数就是外部函数。</span></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">one</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"调用了one函数\n"</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">调用了one函数</span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li><code>main.c</code>：第6行代码虽然可以正常输出，但是在标准C编译器里面会报错的，但是在Xcode中只是个警告：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820183820078-1577562353.png" alt=""></li>
+</ul>
+<h3 id="错误示例2"><a href="#错误示例2" class="headerlink" title="错误示例2"></a>错误示例2</h3><p>&lt; 代码示例 &gt;</p>
+<p><em>main.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"one.c"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  调用one.c中的one函数。</span></span><br><span class="line">    one();</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>one.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">one</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"调用了one函数\n"</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; BuildFaild &gt;</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820185543625-1854041435.png" alt=""></p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li><code>duplicate symbol _one</code>是说one这个标识符重复了。</li>
+<li><code>linker</code>是指链接器</li>
+<li>大家都知道#include的作用纯粹就是内容拷贝，所以<code>#include&quot;onc.c&quot;</code>又相当于：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">one</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"调用了one函数\n"</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>哎，这么一看好像是对的，在main函数前面定义了个one函数，然后在main函数中调用了这个one函数。从语法上看是对的，所以编译是没问题的。但是这个程序不可能运行成功，因为在链接的时候会报错。我们已经在one.c中定义了one函数，现在又在main.c中定义one函数，C语言规定不允许有同名的外部函数，链接的时候链接器会发现在one.obj和main.obj中定义了同一个函数，会直接报错。</li>
+</ul>
+<h3 id="正确示例"><a href="#正确示例" class="headerlink" title="正确示例"></a>正确示例</h3><p>上面的2种想法都是不可行的，其实思路是一致的：让main函数知道one函数的存在。正确的做法应该是在main函数前面对one函数进行提前声明（看清楚，是声明，不是定义，定义和声明是两码事）。</p>
+<p>你想要把其他源文件中定义的外部函数拿过来声明，完整的做法，应该使用extern关键字，表示引用别人的”外部函数”：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  调用one.c中的one函数。</span></span><br><span class="line">    one();</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>one.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">one</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"调用了one函数\n"</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">调用了one函数</span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li><code>main.c</code>：上述就是extern关键字对函数的作用：用来定义和声明一个外部函数。其实extern又跟auto一样废，完全可以省略。于是，我们可以简化成这样：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  省去extern关键字</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  调用one.c中的one函数。</span></span><br><span class="line">    one();</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了模块化地开发，在正规的项目里面，我们会把one函数的声明写到另一个头文件中，当然，这个头文件的命名最好有意义、规范一点，比如叫one.h。以后，谁想调用这个one函数，包含one.h这个头文件就行了。于是最后的代码结构是这样的：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"one.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  one.c中的one函数。</span></span><br><span class="line">    one();</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>one.h</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> one_h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> one_h</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p><em>one.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"one.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">one</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"调用了one函数\n"</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">调用了one函数</span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h2 id="static与函数"><a href="#static与函数" class="headerlink" title="static与函数"></a>static与函数</h2><h3 id="定义内部函数"><a href="#定义内部函数" class="headerlink" title="定义内部函数"></a>定义内部函数</h3><p>从上面的例子可以看出，one.c中定义的one函数是可以被其他源文件访问的。其实有时候，我们可能想定义一个”内部函数”，也就是不想让其他文件访问本文件中定义的函数。这个非常简单，你只需要在定义函数的时候加个<code>static</code>关键字即可：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"one.c"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  调用one.c中的one函数。</span></span><br><span class="line">    one();</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>one.c</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  我在void one()的前面加了个static，代表one函数是个内部函数。</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">one</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"调用了one函数\n"</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; BuildFaild &gt;</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160823113846605-1032450553.png" alt=""></p>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>程序运行不起来，在链接的时候就报错了。报错的原因很简单：我们在main.c中调用了one.c中定义的one函数，但是现在one.c的one函数是个”内部函数”，不允许其他文件访问。第1个红框中的Undefined symbols…意思是one这个标识符没有被定义，也就是找不到one；第2个红框的linker表明是链接器报错了。</li>
+<li>但这个程序是可以编译成功的，因为我们在main函数前面声明了one函（函数的声明和定义是两码事），这个函数声明可以理解为：在语法上，骗一下main函数，告诉它one函数是存在的，所以从语法的角度上main函数是可以调用one函数的。究竟这个one函数存不存在呢，有没有被定义呢？编译器是不管的。在编译阶段，编译器只会检测单个源文件的语法合不合理，并不检测函数有没有定义，只有在链接的时候才会检测这个函数存不存在，也就是有没有被定义。</li>
+<li><code>所谓编译</code>，就是单独检查每个源文件的语法是否合理，并不会检查每个源文件之间的关联关系，一个源文件编译成功就生成一个目标文件。<code>所谓链接</code>，就是检查目标文件的关联关系，将相关联的目标文件组合在一起，生成可执行文件。</li>
+</ul>
+<h3 id="声明内部函数"><a href="#声明内部函数" class="headerlink" title="声明内部函数"></a>声明内部函数</h3><p>我们还可以用static声明一个内部函数：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> test();</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span><br><span class="line">&#123;</span><br><span class="line">    test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> test() &#123;</span><br><span class="line">    printf(<span class="string">"调用了test函数\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">调用了test函数</span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第11行定义了一个test函数，这是一个内部函数，接着在第3行对test函数进行提前声明，然后就可以在第7行可以调用test()函数了。</li>
+</ul>
+<h2 id="extern、static与函数的总结"><a href="#extern、static与函数的总结" class="headerlink" title="extern、static与函数的总结"></a>extern、static与函数的总结</h2><ol>
+<li>extern<ul>
+<li>在定义函数时，如果在函数的最左边加上关键字extern，则表示此函数是外部函数，可供其他文件调用。C语言规定，如果在定义函数时省略extern，则隐含为外部函数。</li>
+<li>在一个文件中要调用其他文件中的外部函数，则需要在当前文件中用extern声明该外部函数，然后就可以使用，这里的extern也可以省略。</li>
+</ul>
+</li>
+<li>static<ul>
+<li>在定义函数时，在函数的最左边加上static可以把该函数声明为内部函数(又叫静态函数)，这样该函数就只能在其定义所在的文件中使用。如果在不同的文件中有同名的内部函数，则互不干扰。</li>
+<li>static也可以用来声明一个内部函数。</li>
+</ul>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【21】预处理指令 -- 文件包含]]></title>
+      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9021%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4%20--%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>其实我们早就有接触文件包含这个指令了， 就是#include，它可以将一个文件的全部内容拷贝另一个文件中。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实我们早就有接触文件包含这个指令了， 就是#include，它可以将一个文件的全部内容拷贝另一个文件中。</p>
+<h2 id="一般形式"><a href="#一般形式" class="headerlink" title="一般形式"></a>一般形式</h2><h3 id="include-lt-文件名-gt"><a href="#include-lt-文件名-gt" class="headerlink" title="#include　&lt;文件名&gt;"></a>#include　&lt;文件名&gt;</h3><p>直接到C语言库函数头文件所在的目录中寻找文件。</p>
+<h3 id="include-“文件名”"><a href="#include-“文件名”" class="headerlink" title="#include　“文件名”"></a>#include　“文件名”</h3><p>系统会先在源程序当前目录下寻找，若找不到，再到操作系统的path路径中查找，最后才到C语言库函数头文件所在目录中查找。</p>
+<h2 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h2><h3 id="嵌套包含和递归包含"><a href="#嵌套包含和递归包含" class="headerlink" title="嵌套包含和递归包含"></a>嵌套包含和递归包含</h3><p>#include指令允许嵌套包含但是<code>不允许</code>递归包含：</p>
+<ol>
+<li>嵌套包含：比如a.h包含b.h，b.h包含c.h。</li>
+<li>递归包含：比如 a.h 包含 b.h，b.h 包含 a.h，下面的做法是错误的：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145127343-2070603187.png" alt=""><br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145134640-1258787116.png" alt=""></li>
+</ol>
+<h3 id="重复包含"><a href="#重复包含" class="headerlink" title="重复包含"></a>重复包含</h3><p>使用#include指令可能导致多次包含同一个头文件，降低编译效率，比如下面的情况：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145139890-235930232.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145148062-173132178.png" alt=""></p>
+<p>在one.h中声明了一个one函数；在two.h中包含了one.h，顺便声明了一个two函数。（这里就不写函数的实现了，也就是函数的定义）。</p>
+<p>假如我想在main.c中使用one和two两个函数，而且有时候我们并不一定知道two.h中包含了one.h，所以可能会这样做：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145154750-1306087584.png" alt=""></p>
+<p>编译预处理之后main.c的代码是这样的：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">two</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line"></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第1行是由#include “one.h”导致的，第2、3行是由#include “two.h”导致的(因为two.h里面包含了one.h)。可以看出来，one函数被声明了2遍，根本就没有必要，这样会降低编译效率。</li>
+</ul>
+<p>为了解决这种重复包含同一个头文件的问题，一般我们会这样写头文件内容： </p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145202281-1455136960.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145210000-705717918.png" alt=""></p>
+<p>大致解释一下意思，就拿one.h为例：当我们第一次#include “one.h”时，因为没有定义_ONE<em>H</em>，所以第9行的条件成立，接着在第10行定义了_ONE<em>H</em>这个宏，然后在13行声明one函数，最后在15行结束条件编译。当第二次#include “one.h”，因为之前已经定义过_ONE<em>H</em>这个宏，所以第9行的条件不成立，直接跳到第15行的#endif，结束条件编译。就是这么简单的3句代码，防止了one.h的内容被重复包含。</p>
+<p>这样子的话，main.c中的：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"one.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"two.h"</span></span></span><br></pre></td></tr></table></figure>
+<p>就变成了：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// #include "one.h"</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _ONE_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _ONE_H_</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// #include "two.h"</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _TWO_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _TWO_H_</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// #include "one.h"</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _ONE_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _ONE_H_</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">two</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第2~第7行是#include “one.h”导致的，第10~第23行是#include “two.h”导致的。编译预处理之后就变为了：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  这才是我们想要的结果。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">two</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[【20】预处理指令 -- 条件编译]]></title>
+      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9020%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4%20--%20%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>在很多情况下，我们希望程序的其中一部分代码只有在满足一定条件时才进行编译，否则不参与编译（只有参与编译的代码最终才能被执行），条件编译其实就是在编译之前预处理器根据预处理指令判断对应的条件，如果条件满足就将对应的代码编译进去，否则代码就根本不进入编译环节（相当于根本就没有这段代码）。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="条件编译的概念"><a href="#条件编译的概念" class="headerlink" title="条件编译的概念"></a>条件编译的概念</h2><p>在很多情况下，我们希望程序的其中一部分代码只有在满足一定条件时才进行编译，否则不参与编译（只有参与编译的代码最终才能被执行），条件编译其实就是在编译之前预处理器根据预处理指令判断对应的条件，如果条件满足就将对应的代码编译进去，否则代码就根本不进入编译环节（相当于根本就没有这段代码）。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#if 条件1</span></span><br><span class="line"> ...code1...</span><br><span class="line"><span class="meta">#elif 条件2</span></span><br><span class="line"> ...code2...</span><br><span class="line"><span class="meta">#else</span></span><br><span class="line"> ...code3...</span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>如果条件1成立，那么编译器就会把#if 与 #elif之间的code1代码编译进去（注意：是编译进去，不是执行，跟平时用的if-else是不一样的）。</li>
+<li>如果条件1不成立、条件2成立，那么编译器就会把#elif 与 #else之间的code2代码编译进去。</li>
+<li>如果条件1、2都不成立，那么编译器就会把#else 与 #endif之间的code3编译进去。</li>
+<li>注意，条件编译结束后，要在最后面加一个#endif，不然后果很严重。</li>
+<li>#if 和 #elif后面的条件一般是判断宏定义而不是判断变量，因为条件编译是在编译之前做的判断，宏定义也是编译之前定义的，而变量是在运行时才产生的、才有使用的意义。</li>
+</ul>
+<h2 id="举个🌰"><a href="#举个🌰" class="headerlink" title="举个🌰"></a>举个🌰</h2><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 11</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> MAX == 0</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"MAX是0\n"</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> MAX &gt; 0</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"MAX大于0\n"</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"MAX小于0\n"</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">MAX</span>大于<span class="number">0</span></span><br><span class="line"><span class="function"><span class="keyword">Program</span></span> ended with <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第3行定义了一个宏MAX，当然在开发中这个MAX可能被定义在其他头文件中，现在只是为了方便演示，就写到main函数上面了。注意第7到第13行的条件编译语句。由于MAX为11，所以#elif的条件成立，第10行代码将会被编译进去，其实编译预处理后的代码是这样的：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*stdio.h文件中的内容将会代替#include &lt;stdio.h&gt;的位置*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"MAX大于0"</span>);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="其他用法"><a href="#其他用法" class="headerlink" title="其他用法"></a>其他用法</h2><h3 id="if-defined-、-if-defined"><a href="#if-defined-、-if-defined" class="headerlink" title="#if defined()、#if !defined()"></a>#if defined()、#if !defined()</h3><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> defined(MAX)</span></span><br><span class="line">    ...code...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>如果前面已经定义过MAX这个宏，就将code编译进去。它不会管MAX的值是多少，只要定义过MAX，条件就成立。</li>
+</ul>
+<p>条件也可以取反：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> !defined(MAX)</span></span><br><span class="line">    ...code...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>如果前面没有定义过MAX这个宏，就将code编译进去。</li>
+</ul>
+<h3 id="ifdef、-ifndef"><a href="#ifdef、-ifndef" class="headerlink" title="#ifdef、#ifndef"></a>#ifdef、#ifndef</h3><p>#ifdef的使用和<code>#if defined()</code>的用法基本一致：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> MAX</span></span><br><span class="line">    ...code...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>如果前面已经定义过MAX这个宏，就将code编译进去。</li>
+</ul>
+<p>#ifndef又和<code>#if !defined()</code>的用法基本一致：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MAX</span></span><br><span class="line">    ...code...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>如果前面没有定义过MAX这个宏，就将code编译进去。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[【19】预处理指令 -- 宏定义]]></title>
-      <url>http://sanfordy.com/2016/08/19/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9019%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4-%E5%AE%8F%E5%AE%9A%E4%B9%89/</url>
+      <url>http://sanfordy.com/2016/08/19/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9019%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4%20--%20%E5%AE%8F%E5%AE%9A%E4%B9%89/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。</p>
 </blockquote>
@@ -60,7 +901,7 @@
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> average (a, b) (a+b)/2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = average(<span class="number">10</span>, <span class="number">4</span>);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt; BuildFaild &gt;</p>
-<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160819091059593-183579287.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820003421421-1488127531.png" alt=""></p>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>注意第1行的宏定义，宏名average跟(a, b)之间是有空格的，于是，第5行就变成了这样：</li>
