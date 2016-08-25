@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175044058-1682041607.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175049808-92091325.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175104058-1189198860.png">
-<meta property="og:updated_time" content="2016-08-24T10:43:32.000Z">
+<meta property="og:updated_time" content="2016-08-25T07:05:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【03】方法和属性">
 <meta name="twitter:description" content="通常一个成员变量的访问不会直接通过成员变量而是通过属性暴漏给外界。在OC中属性定义方式是通过对应的setter和getter方法进行实现。没错，上面setName其实就是属性的setter方法，但是在OC中gettter方法通常使用变量名，而不加”get”。">
@@ -435,9 +435,33 @@
 <li>如果手动实现了get方法，那么编译器（@synthesize）就只生成set方法和成员变量。</li>
 <li>如果set和get方法都是手动实现的，那么编译器（@synthesize）将不会生成成员变量。</li>
 </ol>
-<p>&lt; 代码示例 &gt;</p>
-<p><em>main.m</em></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Dog</span> : <span class="title">NSObject</span></span>&#123;</span><br><span class="line">    <span class="comment">//  可以省略这里的成员变量</span></span><br><span class="line">    <span class="keyword">int</span> _age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  使用@property关键字生成成员变量的set和get方法的声明和实现</span></span><br><span class="line"><span class="keyword">@property</span> <span class="keyword">int</span> age;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Dog</span></span></span><br><span class="line"><span class="comment">//  自定义了成员变量的get方法</span></span><br><span class="line">- (<span class="keyword">int</span>)age&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        Dog *adog = [[Dog alloc] init];</span><br><span class="line">        <span class="comment">//  使用点语法调用set方法设置age的值为5，因为没自定义age的set方法，所以编译器在编译时自动生成了age的set方法。</span></span><br><span class="line">        adog.age = <span class="number">5</span>;</span><br><span class="line">        <span class="comment">//  因为自定义了age的get方法，所以xcode会调用age自定义的get方法，请注意输出结果</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"adog.age : %d"</span>,adog.age);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="生成成员变量的注意事项"><a href="#生成成员变量的注意事项" class="headerlink" title="生成成员变量的注意事项"></a>生成成员变量的注意事项</h3><ol>
+<li>只使用@property，不使用@synthesize：<ul>
+<li>即使不使用@synthesize也会默认会在.m生成@synthersize property = _property;</li>
+<li>编译器会自动生成一个名为_property的私有成员变量（对照自定义的成员变量列表，名字重复则用自定义[作用域由自己决定]，不重复则生成[作用域为私有]），并生成property属性的setter、getter方法的声明和实现。</li>
+</ul>
+</li>
+<li>既使用@property，也使用@syntheszie（相当于重写系统默认的@synthersize）：<ul>
+<li><code>@synthesize property;</code>：编译器会自动生成一个名为property的私有成员变量（对照自定义的成员变量列表，名字重复则用自定义[作用域由自己决定]，不重复则生成[作用域为私有]），并生成属性property的setter、getter方法的声明和实现。</li>
+<li><code>@synthesize properyty = memberName;</code>（成员变量的名字一般使用下划线加属性名，比如这里：_property）：编译器会生成一个名为memberName的成员变量，（对照自定义的成员变量列表，名字重复则用自定义[作用域由自己决定]，不重复则生成[作用域为私有]），并生成属性property的setter、getter方法的声明和实现。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：有时候生成的成员变量跟自定义成员变量名字稍有差异（比如下划线），如果名字不一样则生成新的成员变量，如果名字一样则使用自定义成员变量，新的成员变量（比如_property）和自定义中名字相似的成员变量（比如property）是两个不同的成员变量。</p>
+<p><strong>总结</strong>：现在一般直接使用@property，除非需要我们会重写@synthesize，@synthesize才是生成成员变量的关键，当生成成员变量后编译器会对照自定义的成员变量列表，如果生成的成员变量和自定义成员变量有冲突，则使用自定义的成员变量而不生成额外的成员变量。</p>
+</blockquote>
+<h2 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>懒加载——也称为延迟加载，即在需要的时候才加载（效率低，占用内存小）。所谓懒加载，写的是其get方法。</p>
+<blockquote>
+<p><strong>注意</strong>：如果是懒加载的话则一定要注意先判断是否已经有了，如果没有那么再去进行实例化</p>
+</blockquote>
+<h3 id="使用懒加载的好处"><a href="#使用懒加载的好处" class="headerlink" title="使用懒加载的好处"></a>使用懒加载的好处</h3><ol>
+<li>不必将创建对象的代码全部写在viewDidLoad方法中，代码的可读性更强。</li>
+<li>每个控件的getter方法中分别负责各自的实例化处理，代码彼此之间的独立性强，松耦合。</li>
+<li>通过重写属性的getter方法可以完成lazyloading（懒加载）模式，使用lazyloding可以将代码按照模块封装，同时提高类的灵活度，也可以在一定时期内节省内存的使用。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
 
       
     </div>
@@ -489,6 +513,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/25/〖A〗【2-0】OC-语法/【04】关键字self、点语法/" rel="prev" title="【04】关键字self、点语法">
+                【04】关键字self、点语法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -560,7 +588,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">归档</span>
             </a>
           </div>
@@ -691,7 +719,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的概念"><span class="nav-number">1.1.</span> <span class="nav-text">方法的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法名"><span class="nav-number">1.2.</span> <span class="nav-text">方法名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不带参数的方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">不带参数的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带参数的方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">带参数的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的定义"><span class="nav-number">1.3.</span> <span class="nav-text">方法的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法和属性的调用"><span class="nav-number">3.</span> <span class="nav-text">方法和属性的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#property、-synthesize-关键字"><span class="nav-number">4.</span> <span class="nav-text">@property、@synthesize 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字的使用"><span class="nav-number">4.1.</span> <span class="nav-text">关键字的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字使用注意"><span class="nav-number">4.2.</span> <span class="nav-text">关键字使用注意</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的概念"><span class="nav-number">1.1.</span> <span class="nav-text">方法的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法名"><span class="nav-number">1.2.</span> <span class="nav-text">方法名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不带参数的方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">不带参数的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带参数的方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">带参数的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的定义"><span class="nav-number">1.3.</span> <span class="nav-text">方法的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法和属性的调用"><span class="nav-number">3.</span> <span class="nav-text">方法和属性的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#property、-synthesize-关键字"><span class="nav-number">4.</span> <span class="nav-text">@property、@synthesize 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字的使用"><span class="nav-number">4.1.</span> <span class="nav-text">关键字的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字使用注意"><span class="nav-number">4.2.</span> <span class="nav-text">关键字使用注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成成员变量的注意事项"><span class="nav-number">4.3.</span> <span class="nav-text">生成成员变量的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒加载"><span class="nav-number">5.</span> <span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">5.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用懒加载的好处"><span class="nav-number">5.2.</span> <span class="nav-text">使用懒加载的好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
@@ -728,11 +756,7 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
-  
 
-  
-    <span class="site-pv">本站访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
   
   
 </div>
