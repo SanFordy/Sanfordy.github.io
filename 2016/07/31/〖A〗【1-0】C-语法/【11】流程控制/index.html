@@ -369,7 +369,7 @@
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello-1\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello-2\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello-3\n"</span>);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hello-<span class="number">1</span></span><br><span class="line">Hello-<span class="number">2</span></span><br><span class="line">Hello-<span class="number">3</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hello-1</span><br><span class="line">Hello-2</span><br><span class="line">Hello-3</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <h3 id="其他运行流程"><a href="#其他运行流程" class="headerlink" title="其他运行流程"></a>其他运行流程</h3><p>但很多时候，我们并不想要按照默认的运行流程去走，比如想在某个条件成立的情况下才执行某一段代码，否则不执行。比如微信的这个界面：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160731215744731-1017647345.png" alt=""></p>
 <p>如果用户点击了注册按钮，我们就执行“跳转到注册界面”的代码；如果用户点击了登录按钮，我们就执行“跳转到登录界面”的代码。如果用户没做出任何操作，就不执行前面所说的两段代码。要想实现这种功能，那就要学会如何去控制程序的运行流程。</p>
@@ -392,7 +392,7 @@
 <h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">7</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ( a )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"条件a成立\n"</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"a的值为真\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">条件a成立</span><br><span class="line">a的值为真</span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">条件a成立</span><br><span class="line">a的值为真</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>C语言规定所有非0值都为“真”，而a的值是7，因此第3行的条件是成立的，接着就会执行第5、6行代码。</li>
@@ -409,7 +409,7 @@
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( a &gt; <span class="number">9</span> )</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"aaa\n"</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"bbb\n"</span>);</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bbb</span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bbb</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>因为第3行的a&gt;9是不成立的，所以不会执行第4行代码。而第5行代码跟if语句是没有任何联系的，因此，第5行代码照常执行。</li>
@@ -467,7 +467,7 @@
 <h4 id="举例-2"><a href="#举例-2" class="headerlink" title="举例"></a>举例</h4><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> ( a==<span class="number">0</span> ) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a等于0"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>( a&gt;<span class="number">0</span> ) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a大于0"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a小于0"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a大于<span class="number">0</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a大于0</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>第2行中的a==0不成立，接着会检查第4行。第4行的a&gt;0成立，因此会执行第5行代码。</li>
@@ -485,7 +485,7 @@
 <h3 id="举例-3"><a href="#举例-3" class="headerlink" title="举例"></a>举例</h3><p>&lt; 代码分析 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (a) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"这是一个0"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"这是一个5"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"这是一个10"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"什么也不是"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个<span class="number">10</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是一个10</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>因为a的值刚好等于第10行case后面的10，所以会执行第11行代码，输出结果：</li>
@@ -746,8 +746,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">归档</span>
             </a>
           </div>
 
@@ -914,7 +914,11 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
 
+  
+    <span class="site-pv">本站访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
   
   
 </div>

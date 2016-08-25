@@ -367,7 +367,7 @@
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> a = <span class="number">10.0</span> / <span class="number">4</span>;</span><br><span class="line"><span class="keyword">double</span> b = <span class="number">10</span> / <span class="number">4</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"a=%f, b=%f \n"</span>, a, b);</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">2.500000</span>, b=<span class="number">2.000000</span> </span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=2.500000, b=2.000000 </span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>第1行中的10.0是浮点型，4是整型，因此会将4自动类型提升为浮点型后再进行运算，最后变量b的值是2.5。</li>
@@ -446,7 +446,7 @@
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> c;</span><br><span class="line"></span><br><span class="line">c = (++a, a *= <span class="number">2</span>, b = a / <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"c = %d"</span>, c);</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = <span class="number">2</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = 2</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>++a的结果为3，a *= 2的结果为6，b = a / 3的结果为2。</li>
@@ -455,7 +455,7 @@
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = ++a, a *= <span class="number">2</span>, b = a / <span class="number">3</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"c = %d"</span>, c);</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = <span class="number">3</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = 3</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>因为c = ++a也属于逗号表达式的一部分，跟后面的a *= 2以及b = a / 3是相互独立的。</li>
@@ -565,7 +565,7 @@
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> size = <span class="keyword">sizeof</span>(<span class="number">10</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"10所占的字节数：%d"</span>, size);</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span>所占的字节数：<span class="number">4</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10所占的字节数：4</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>10是int类型的数据，在64bit编译器环境下，int类型需要占用4个字节。</li>
@@ -708,8 +708,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">归档</span>
             </a>
           </div>
 
@@ -876,7 +876,11 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
 
+  
+    <span class="site-pv">本站访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
   
   
 </div>

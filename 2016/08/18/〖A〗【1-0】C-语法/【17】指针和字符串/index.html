@@ -350,7 +350,7 @@
 <h2 id="用指针遍历字符串的所有字符"><a href="#用指针遍历字符串的所有字符" class="headerlink" title="用指针遍历字符串的所有字符"></a>用指针遍历字符串的所有字符</h2><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个指针p</span></span><br><span class="line"><span class="keyword">char</span> *p;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个数组s存放字符串</span></span><br><span class="line"><span class="keyword">char</span> s[] = <span class="string">"mj"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指针p指向字符串的首字符'm'</span></span><br><span class="line">p = s; <span class="comment">// 或者 p = &amp;s[0];</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (; *p != <span class="string">'\0'</span>; p++) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c \n"</span>, *p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m </span><br><span class="line">j </span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m </span><br><span class="line">j </span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>执行完第8行后，内存分布如下图：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818221337328-1437035902.png" alt=""></li>
@@ -361,7 +361,7 @@
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="comment">// 定义一个字符串，用指针s指向这个字符串</span></span><br><span class="line">    <span class="keyword">char</span> *s = <span class="string">"mj"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 使用strlen函数测量字符串长度</span></span><br><span class="line">    <span class="keyword">int</span> len = (unsigned int)<span class="built_in">strlen</span>(s);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"字符串：%s\n"</span>, s);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"字符串长度：%d\n"</span>, len);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">字符串：mj</span><br><span class="line">字符串长度：<span class="number">2</span></span><br><span class="line"><span class="keyword">Program</span> ended <span class="keyword">with</span> <span class="keyword">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">字符串：mj</span><br><span class="line">字符串长度：2</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>注意第7行，我们直接用指针s指向了字符串”mj”，并没有先创建一个字符数组。看第10行，将指针s传入到strlen函数中，说明之前所学习的字符串处理函数依然可以正常使用。</li>
@@ -518,8 +518,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">归档</span>
             </a>
           </div>
 
@@ -686,7 +686,11 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
 
+  
+    <span class="site-pv">本站访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
   
   
 </div>
