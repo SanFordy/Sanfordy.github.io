@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Sanfordy`s　Blog">
 <meta property="og:description" content="在C#、Java中都有一个关键字this用于表示当前方法的调用者，其实在OC中也有一个类似的关键字self（self是一个指针），只是self不仅可以表示当前对象还可以表示类本身，也就是说它既可以用在静态方法中又可以用在动态方法中。">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160825153645351-1838771832.png">
-<meta property="og:updated_time" content="2016-08-25T07:48:00.000Z">
+<meta property="og:updated_time" content="2016-08-25T08:01:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【04】关键字self、点语法">
 <meta name="twitter:description" content="在C#、Java中都有一个关键字this用于表示当前方法的调用者，其实在OC中也有一个类似的关键字self（self是一个指针），只是self不仅可以表示当前对象还可以表示类本身，也就是说它既可以用在静态方法中又可以用在动态方法中。">
@@ -369,7 +369,7 @@
 <blockquote>
 <p><strong>注意</strong>：在OC中访问成员变量只有一种方式即使用-&gt; 如stu-&gt;age，这种情况要求在@public的前提下。</p>
 </blockquote>
-<h2 id="传统的get方法和set方法"><a href="#传统的get方法和set方法" class="headerlink" title="传统的get方法和set方法"></a>传统的get方法和set方法</h2><p>在正式学习OC的点语法之前，先来看一下传统的get方法和set方法。定义一个Student类，拥有一个成员变量age和对应的get\set方法：</p>
+<h3 id="传统的get方法和set方法"><a href="#传统的get方法和set方法" class="headerlink" title="传统的get方法和set方法"></a>传统的get方法和set方法</h3><p>在正式学习OC的点语法之前，先来看一下传统的get方法和set方法。定义一个Student类，拥有一个成员变量age和对应的get\set方法：</p>
 <p>&lt; 代码示例 &gt;</p>
 <p><em>Student.h</em></p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Student</span> : <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  定义了一个成员变量age，是@protected权限的，所以外界不能直接访问它。</span></span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  声明了age变量的set方法。</span></span><br><span class="line">- (<span class="keyword">void</span>)setAge:(<span class="keyword">int</span>)newAge;</span><br><span class="line"><span class="comment">//  声明了age变量的get方法。</span></span><br><span class="line">- (<span class="keyword">int</span>)age;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
@@ -461,6 +461,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/08/25/〖A〗【2-0】OC-语法/【05】构造方法和description方法/" rel="prev" title="【05】构造方法和description方法">
+                【05】构造方法和description方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -531,7 +535,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">归档</span>
             </a>
           </div>
@@ -662,7 +666,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字self"><span class="nav-number">1.</span> <span class="nav-text">关键字self</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点语法"><span class="nav-number">2.</span> <span class="nav-text">点语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点语法的作用"><span class="nav-number">2.1.</span> <span class="nav-text">点语法的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#点语法的本质"><span class="nav-number">2.2.</span> <span class="nav-text">点语法的本质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统的get方法和set方法"><span class="nav-number">3.</span> <span class="nav-text">传统的get方法和set方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用点语法代替传统的set和get方法"><span class="nav-number">3.1.</span> <span class="nav-text">使用点语法代替传统的set和get方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点语法和self的陷阱"><span class="nav-number">4.</span> <span class="nav-text">点语法和self的陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一点小建议"><span class="nav-number">5.</span> <span class="nav-text">一点小建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字self"><span class="nav-number">1.</span> <span class="nav-text">关键字self</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点语法"><span class="nav-number">2.</span> <span class="nav-text">点语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点语法的作用"><span class="nav-number">2.1.</span> <span class="nav-text">点语法的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#点语法的本质"><span class="nav-number">2.2.</span> <span class="nav-text">点语法的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传统的get方法和set方法"><span class="nav-number">2.3.</span> <span class="nav-text">传统的get方法和set方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用点语法代替传统的set和get方法"><span class="nav-number">2.4.</span> <span class="nav-text">使用点语法代替传统的set和get方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点语法和self的陷阱"><span class="nav-number">3.</span> <span class="nav-text">点语法和self的陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一点小建议"><span class="nav-number">4.</span> <span class="nav-text">一点小建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>

@@ -99,7 +99,8 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175044058-1682041607.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175049808-92091325.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175104058-1189198860.png">
-<meta property="og:updated_time" content="2016-08-25T07:05:31.000Z">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160830111935808-1922086063.png">
+<meta property="og:updated_time" content="2016-08-30T03:34:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【03】方法和属性">
 <meta name="twitter:description" content="通常一个成员变量的访问不会直接通过成员变量而是通过属性暴漏给外界。在OC中属性定义方式是通过对应的setter和getter方法进行实现。没错，上面setName其实就是属性的setter方法，但是在OC中gettter方法通常使用变量名，而不加”get”。">
@@ -460,6 +461,27 @@
 <li>每个控件的getter方法中分别负责各自的实例化处理，代码彼此之间的独立性强，松耦合。</li>
 <li>通过重写属性的getter方法可以完成lazyloading（懒加载）模式，使用lazyloding可以将代码按照模块封装，同时提高类的灵活度，也可以在一定时期内节省内存的使用。</li>
 </ol>
+<h2 id="SEL"><a href="#SEL" class="headerlink" title="SEL"></a>SEL</h2><h3 id="基本简介"><a href="#基本简介" class="headerlink" title="基本简介"></a>基本简介</h3><p>SEL：全称Selector，表示方法的地址。</p>
+<p>下面演示一下寻找方法的过程：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person *p=[[Person alloc] init];</span><br><span class="line">　　[p test];</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>方法在内存中是这么存储的：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160830111935808-1922086063.png" alt=""></li>
+<li>首先把test这个方法名包装成SEL类型的数据（SEL数据存放着方法的地址）；沿着isa找到本类，根据SEL数据在本类及所有父类中找到相同的方法地址；根据方法地址调用相应的方法。</li>
+<li>在这个操作过程中有缓存，第一次找的时候是一个一个的找，非常耗性能，之后再用到的时候就直接使用。</li>
+<li>SEL其实是对方法的一种包装，将方法包装成一个SEL类型的数据，去寻找对应的方法地址，找到方法地址后就可以调用方法。这些都是运行时特性，发消息就是发送SEL，然后根据SEL找到地址，调用方法。</li>
+</ul>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><ol>
+<li>SEL 变量名 = @selector(方法名字);</li>
+<li>SEL 变量名 = NSSelectorFromString(方法名字的字符串);</li>
+<li>NSString *变量名 = NSStringFromSelector(SEL变量);</li>
+<li>[对象　performSelector:SEL变量　withObject:参数];<ul>
+<li>这样的机制大大的增加了我们的程序的灵活性，我们可以通过给一个方法传递SEL变量，让这个方法动态的执行某一个方法。我们也可以通过配置文件指定需要执行的方法，程序读取配置文件之后把方法的字符串翻译成为SEL变量然后给相应的对象发送这个消息。</li>
+<li>从效率的角度上来说，执行的时候不是通过方法名字而是方法地址也就是一个整数来查找方法，由于整数的查找和匹配比字符串要快得多，所以这样可以在某种程度上提高执行的效率。</li>
+</ul>
+</li>
+</ol>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 
@@ -588,7 +610,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">归档</span>
             </a>
           </div>
@@ -719,7 +741,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的概念"><span class="nav-number">1.1.</span> <span class="nav-text">方法的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法名"><span class="nav-number">1.2.</span> <span class="nav-text">方法名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不带参数的方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">不带参数的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带参数的方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">带参数的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的定义"><span class="nav-number">1.3.</span> <span class="nav-text">方法的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法和属性的调用"><span class="nav-number">3.</span> <span class="nav-text">方法和属性的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#property、-synthesize-关键字"><span class="nav-number">4.</span> <span class="nav-text">@property、@synthesize 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字的使用"><span class="nav-number">4.1.</span> <span class="nav-text">关键字的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字使用注意"><span class="nav-number">4.2.</span> <span class="nav-text">关键字使用注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成成员变量的注意事项"><span class="nav-number">4.3.</span> <span class="nav-text">生成成员变量的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒加载"><span class="nav-number">5.</span> <span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">5.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用懒加载的好处"><span class="nav-number">5.2.</span> <span class="nav-text">使用懒加载的好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的概念"><span class="nav-number">1.1.</span> <span class="nav-text">方法的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法名"><span class="nav-number">1.2.</span> <span class="nav-text">方法名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不带参数的方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">不带参数的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带参数的方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">带参数的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的定义"><span class="nav-number">1.3.</span> <span class="nav-text">方法的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法和属性的调用"><span class="nav-number">3.</span> <span class="nav-text">方法和属性的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#property、-synthesize-关键字"><span class="nav-number">4.</span> <span class="nav-text">@property、@synthesize 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字的使用"><span class="nav-number">4.1.</span> <span class="nav-text">关键字的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字使用注意"><span class="nav-number">4.2.</span> <span class="nav-text">关键字使用注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成成员变量的注意事项"><span class="nav-number">4.3.</span> <span class="nav-text">生成成员变量的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒加载"><span class="nav-number">5.</span> <span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">5.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用懒加载的好处"><span class="nav-number">5.2.</span> <span class="nav-text">使用懒加载的好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEL"><span class="nav-number">6.</span> <span class="nav-text">SEL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本简介"><span class="nav-number">6.1.</span> <span class="nav-text">基本简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单使用"><span class="nav-number">6.2.</span> <span class="nav-text">简单使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
