@@ -570,7 +570,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[【8】OC面向对象特性（二）：继承]]></title>
+      <title><![CDATA[【08】OC面向对象特性（二）：继承]]></title>
       <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9008%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E7%BB%A7%E6%89%BF/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>程序的世界和人类的“对象”世界在思想上是没有设么区别的，富二代继承了父母，自然就拥有了父母拥有的所有资源，既然OC是面向对象语言，当然同样支持继承，子类继承了父类同样就拥有了父类所有的方法和属性（成员变量）。</p>
