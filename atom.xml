@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sanfordy.com/"/>
-  <updated>2016-08-31T14:10:33.000Z</updated>
+  <updated>2016-09-08T14:39:48.000Z</updated>
   <id>http://sanfordy.com/</id>
   
   <author>
@@ -16,11 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【00】px、pt、ppi</title>
+    <link href="http://sanfordy.com/2016/09/02/%E3%80%9000%E3%80%91px%E3%80%81pt%E3%80%81ppi/"/>
+    <id>http://sanfordy.com/2016/09/02/【00】px、pt、ppi/</id>
+    <published>2016-09-02T10:14:16.000Z</published>
+    <updated>2016-09-08T14:39:48.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;做了几个移动端的项目之后，深感UI设计移动端尺寸换算的必要性，在此做个总结。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;做了几个移动端的项目之后，深感UI设计移动端尺寸换算的必要性，在此做个总结。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;px&lt;/code&gt;：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元，&lt;code&gt;没有大小&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pt&lt;/code&gt;: point，点，印刷行业常用单位，等于1/72英寸，&lt;code&gt;有具体的大小&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ppi&lt;/code&gt;: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;做了几个移动端的项目之后，深感UI设计移动端尺寸换算的必要性，在此做个总结。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="〖A〗【1-0-0】OC-iOS-高级" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0-0%E3%80%91OC-iOS-%E9%AB%98%E7%BA%A7/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>【16】Foundation框架</title>
     <link href="http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9016%E3%80%91Foundation%E6%A1%86%E6%9E%B6/"/>
     <id>http://sanfordy.com/2016/08/31/〖A〗【2-0】OC-语法/【16】Foundation框架/</id>
     <published>2016-08-31T10:12:06.000Z</published>
-    <updated>2016-08-31T14:10:33.000Z</updated>
+    <updated>2016-09-08T14:52:29.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Foundation：基础框架。框架中包含了很多开发中常用的数据类型，如结构体，枚举，类等，是其他ios框架的基础。&lt;/p&gt;
@@ -207,7 +237,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -217,7 +247,7 @@
     <link href="http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9015%E3%80%91%E9%94%AE%E5%80%BC%E7%9B%91%E5%90%AC%EF%BC%88KVO%EF%BC%89/"/>
     <id>http://sanfordy.com/2016/08/31/〖A〗【2-0】OC-语法/【15】键值监听（KVO）/</id>
     <published>2016-08-31T09:45:38.000Z</published>
-    <updated>2016-08-31T10:05:01.000Z</updated>
+    <updated>2016-09-02T10:12:10.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;KVO（Key Value Observing）其实是一种观察者模式，利用它可以很容易实现&lt;code&gt;视图组件&lt;/code&gt;和&lt;code&gt;数据模型&lt;/code&gt;的分离，当数据模型的属性值改变之后作为观察者的视图组件就会接到通知，接到通知后观察者就会进行回调。&lt;/p&gt;
@@ -267,7 +297,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -277,7 +307,7 @@
     <link href="http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9014%E3%80%91%E9%94%AE%E5%80%BC%E7%BC%96%E7%A0%81%EF%BC%88KVC%EF%BC%89/"/>
     <id>http://sanfordy.com/2016/08/31/〖A〗【2-0】OC-语法/【14】键值编码（KVC）/</id>
     <published>2016-08-31T09:33:23.000Z</published>
-    <updated>2016-08-31T09:43:57.000Z</updated>
+    <updated>2016-09-02T10:12:04.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;类的对象可以在类的外部对成员变量（就算成员变量是private也可以）进行动态读写，这种方式就是Key Value Coding（简称KVC）。&lt;/p&gt;
@@ -315,7 +345,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -325,7 +355,7 @@
     <link href="http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9013%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E5%BB%B6%E5%B1%95Extension/"/>
     <id>http://sanfordy.com/2016/08/31/〖A〗【2-0】OC-语法/【13】OC语法特性（四）：延展Extension/</id>
     <published>2016-08-31T09:26:14.000Z</published>
-    <updated>2016-08-31T09:31:33.000Z</updated>
+    <updated>2016-09-02T10:11:59.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;在设计一个类的时候，有些方法需要对外公开（我们称之为接口），有些方法仅仅在内部使用，这时候可以借助延展（Extension）。&lt;/p&gt;
@@ -368,7 +398,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -378,7 +408,7 @@
     <link href="http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9012%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E5%88%86%E7%B1%BBCategory/"/>
     <id>http://sanfordy.com/2016/08/30/〖A〗【2-0】OC-语法/【12】OC语法特性（三）：分类Category/</id>
     <published>2016-08-30T15:07:48.000Z</published>
-    <updated>2016-08-30T15:32:19.000Z</updated>
+    <updated>2016-09-02T10:11:55.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;当我们不改变原有代码为一个类扩展其他功能时我们可以考虑继承这个类进行实现，但是这样一来使用时就必须定义成新实现的子类才能拥有扩展的新功能。如何在不改变原有类的情况下扩展新功能又可以在使用时不必定义新类型呢？&lt;/p&gt;
@@ -454,7 +484,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -464,7 +494,7 @@
     <link href="http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9011%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%9D%97%E8%AF%AD%E6%B3%95Block/"/>
     <id>http://sanfordy.com/2016/08/30/〖A〗【2-0】OC-语法/【11】OC语法特性（二）：块语法Block/</id>
     <published>2016-08-30T14:35:32.000Z</published>
-    <updated>2016-08-30T15:04:07.000Z</updated>
+    <updated>2016-09-02T10:11:52.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Block：块语法，本质上是匿名函数（没有名称的函数），苹果推荐的类型，效率高，用来封装和保存代码，Block可以在任何时候执行。&lt;/p&gt;
@@ -552,7 +582,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -562,7 +592,7 @@
     <link href="http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9010%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%8D%8F%E8%AE%AEprotocol/"/>
     <id>http://sanfordy.com/2016/08/30/〖A〗【2-0】OC-语法/【10】OC语法特性（一）：协议protocol/</id>
     <published>2016-08-30T14:18:24.000Z</published>
-    <updated>2016-08-30T14:31:33.000Z</updated>
+    <updated>2016-09-02T10:11:47.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;协议是一套标准（一堆方法的声明），只有.h文件。就像一张任务清单，上面写了一堆需要处理的事，清单交给谁，谁就要去完成清单上规定的任务。&lt;/p&gt;
@@ -625,7 +655,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -635,7 +665,7 @@
     <link href="http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9009%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E5%A4%9A%E6%80%81/"/>
     <id>http://sanfordy.com/2016/08/30/〖A〗【2-0】OC-语法/【09】OC面向对象特性（三）：多态/</id>
     <published>2016-08-30T14:09:33.000Z</published>
-    <updated>2016-08-30T14:17:00.000Z</updated>
+    <updated>2016-09-02T10:11:43.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;不同类型对象在响应同一个方法时的不同实现叫做多态。意思就是假设生物类（life）都用有一个相同的方法-eat;那人类属于生物，猪也属于生物，都继承了life后，实现各自的eat，但是调用是我们只需调用各自的eat方法。也就是不同的对象以 自己的方式响应了相同的消息（响应了eat这个选择器）。&lt;/p&gt;
@@ -704,7 +734,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -714,7 +744,7 @@
     <link href="http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9008%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E7%BB%A7%E6%89%BF/"/>
     <id>http://sanfordy.com/2016/08/30/〖A〗【2-0】OC-语法/【08】OC面向对象特性（二）：继承/</id>
     <published>2016-08-30T03:57:11.000Z</published>
-    <updated>2016-08-31T15:17:56.000Z</updated>
+    <updated>2016-09-02T10:11:40.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;程序的世界和人类的“对象”世界在思想上是没有设么区别的，富二代继承了父母，自然就拥有了父母拥有的所有资源，既然OC是面向对象语言，当然同样支持继承，子类继承了父类同样就拥有了父类所有的方法和属性（成员变量）。&lt;/p&gt;
@@ -778,7 +808,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -788,7 +818,7 @@
     <link href="http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9007%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%B0%81%E8%A3%85/"/>
     <id>http://sanfordy.com/2016/08/30/〖A〗【2-0】OC-语法/【07】OC面向对象特性（一）：封装/</id>
     <published>2016-08-30T03:37:05.000Z</published>
-    <updated>2016-08-30T03:58:15.000Z</updated>
+    <updated>2016-09-02T10:11:36.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;封装是对象和类概念的主要特性。它是隐藏内部实现，稳定外部接口，可以看作是“包装”。&lt;/p&gt;
@@ -847,7 +877,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -857,7 +887,7 @@
     <link href="http://sanfordy.com/2016/08/25/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9006%E3%80%91%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
     <id>http://sanfordy.com/2016/08/25/〖A〗【2-0】OC-语法/【06】内存管理/</id>
     <published>2016-08-25T09:03:26.000Z</published>
-    <updated>2016-08-29T15:46:44.000Z</updated>
+    <updated>2016-09-02T10:11:32.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;由于移动设备的内存极其有限，所以每个app所占的内存也是有限制的，当app所占用的内存较多时，系统就会发出内存警告，这时需要回收一些不需要再继续使用的内存空间，比如回收一些不再使用的对象和变量等。&lt;/p&gt;
@@ -1142,7 +1172,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -1152,7 +1182,7 @@
     <link href="http://sanfordy.com/2016/08/25/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9005%E3%80%91%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E5%92%8Cdescription%E6%96%B9%E6%B3%95/"/>
     <id>http://sanfordy.com/2016/08/25/〖A〗【2-0】OC-语法/【05】构造方法和description方法/</id>
     <published>2016-08-25T08:11:35.000Z</published>
-    <updated>2016-08-25T09:01:27.000Z</updated>
+    <updated>2016-09-02T10:11:29.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;默认的构造方法，也就是init方法，它是不接收任何参数的。因此，在实际开发中，为了方便，会经常自定义构造方法。&lt;/p&gt;
@@ -1283,7 +1313,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -1293,7 +1323,7 @@
     <link href="http://sanfordy.com/2016/08/25/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9004%E3%80%91%E5%85%B3%E9%94%AE%E5%AD%97self%E3%80%81%E7%82%B9%E8%AF%AD%E6%B3%95/"/>
     <id>http://sanfordy.com/2016/08/25/〖A〗【2-0】OC-语法/【04】关键字self、点语法/</id>
     <published>2016-08-25T07:10:25.000Z</published>
-    <updated>2016-08-25T08:01:34.000Z</updated>
+    <updated>2016-09-02T10:11:25.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;在C#、Java中都有一个关键字this用于表示当前方法的调用者，其实在OC中也有一个类似的关键字self（self是一个指针），只是self不仅可以表示当前对象还可以表示类本身，也就是说它既可以用在静态方法中又可以用在动态方法中。&lt;/p&gt;
@@ -1371,7 +1401,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -1381,7 +1411,7 @@
     <link href="http://sanfordy.com/2016/08/24/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9003%E3%80%91%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7/"/>
     <id>http://sanfordy.com/2016/08/24/〖A〗【2-0】OC-语法/【03】方法和属性/</id>
     <published>2016-08-24T06:59:29.000Z</published>
-    <updated>2016-08-30T03:34:50.000Z</updated>
+    <updated>2016-09-02T10:11:22.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;通常一个成员变量的访问不会直接通过成员变量而是通过属性暴漏给外界。在OC中属性定义方式是通过对应的setter和getter方法进行实现。没错，上面setName其实就是属性的setter方法，但是在OC中gettter方法通常使用变量名，而不加”get”。&lt;/p&gt;
@@ -1530,7 +1560,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -1540,7 +1570,7 @@
     <link href="http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9002%E3%80%91%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/"/>
     <id>http://sanfordy.com/2016/08/22/〖A〗【2-0】OC-语法/【02】类和对象、成员变量/</id>
     <published>2016-08-22T03:27:06.000Z</published>
-    <updated>2016-08-21T05:38:58.000Z</updated>
+    <updated>2016-09-02T10:11:18.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;OC相对于C语言多了面向对象特性，因此它也有类、对象、静态\动态方法、成员变量的概念。但是OC又没有其他面向对象语言那么多语法特性，OC本身对面向对象进行了精简。&lt;/p&gt;
@@ -1653,7 +1683,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -1663,7 +1693,7 @@
     <link href="http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAOC%E7%A8%8B%E5%BA%8F%E8%A7%A3%E6%9E%90/"/>
     <id>http://sanfordy.com/2016/08/22/〖A〗【2-0】OC-语法/【01】第一个OC程序解析/</id>
     <published>2016-08-22T02:27:06.000Z</published>
-    <updated>2016-08-29T14:12:04.000Z</updated>
+    <updated>2016-09-02T10:11:15.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。&lt;/p&gt;
@@ -1703,7 +1733,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -1713,7 +1743,7 @@
     <link href="http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9000%E3%80%91Objective-C%E7%AE%80%E4%BB%8B/"/>
     <id>http://sanfordy.com/2016/08/22/〖A〗【2-0】OC-语法/【00】Objective-C简介/</id>
     <published>2016-08-22T02:22:48.000Z</published>
-    <updated>2016-08-25T01:46:15.000Z</updated>
+    <updated>2016-09-02T10:11:11.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;目前来说，Objective-C(简称OC)是iOS开发的核心语言，在开发过程中也会配合着使用C语言、C++，OC主要负责UI界面，C语言、C++可用于图形处理。 &lt;/p&gt;
@@ -1770,7 +1800,7 @@
     
     </summary>
     
-      <category term="〖A〗【2-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【1-0】OC-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -1780,7 +1810,7 @@
     <link href="http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9028%E3%80%91%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/"/>
     <id>http://sanfordy.com/2016/08/21/〖A〗【1-0】C-语法/【28】动态内存分配/</id>
     <published>2016-08-21T13:16:37.000Z</published>
-    <updated>2016-08-24T06:27:52.000Z</updated>
+    <updated>2016-09-02T10:09:46.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;暂无摘要。&lt;/p&gt;
@@ -1822,7 +1852,7 @@
     
     </summary>
     
-      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【0-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%900-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>
@@ -1832,7 +1862,7 @@
     <link href="http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9027%E3%80%91typedef/"/>
     <id>http://sanfordy.com/2016/08/21/〖A〗【1-0】C-语法/【27】typedef/</id>
     <published>2016-08-21T12:33:09.000Z</published>
-    <updated>2016-08-21T02:06:17.000Z</updated>
+    <updated>2016-09-02T10:09:41.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;我们可以使用typedef关键字为各种数据类型定义一个新名字（别名）&lt;/p&gt;
@@ -1946,64 +1976,7 @@
     
     </summary>
     
-      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>【26】枚举</title>
-    <link href="http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9026%E3%80%91%E6%9E%9A%E4%B8%BE/"/>
-    <id>http://sanfordy.com/2016/08/21/〖A〗【1-0】C-语法/【26】枚举/</id>
-    <published>2016-08-21T00:50:09.000Z</published>
-    <updated>2016-08-21T02:04:03.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;枚举是C语言中的一种基本数据类型，并不是构造类型，它可以用于声明一组常数。当一个变量有几个固定的可能取值时，可以将这个变量定义为枚举类型。比如，你可以用一个枚举类型的变量来表示季节，因为季节只有4种可能的取值：春天、夏天、秋天、冬天。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;枚举的概念&quot;&gt;&lt;a href=&quot;#枚举的概念&quot; class=&quot;headerlink&quot; title=&quot;枚举的概念&quot;&gt;&lt;/a&gt;枚举的概念&lt;/h2&gt;&lt;p&gt;枚举是C语言中的一种基本数据类型，并不是构造类型，它可以用于声明一组常数。当一个变量有几个固定的可能取值时，可以将这个变量定义为枚举类型。比如，你可以用一个枚举类型的变量来表示季节，因为季节只有4种可能的取值：春天、夏天、秋天、冬天。&lt;/p&gt;
-&lt;p&gt;目的：提高程序的可读性。&lt;/p&gt;
-&lt;p&gt;作用：将人能看懂的标识符与计算机能识别的数字建立对应关系。 &lt;/p&gt;
-&lt;h2 id=&quot;枚举类型的定义&quot;&gt;&lt;a href=&quot;#枚举类型的定义&quot; class=&quot;headerlink&quot; title=&quot;枚举类型的定义&quot;&gt;&lt;/a&gt;枚举类型的定义&lt;/h2&gt;&lt;p&gt;一般形式为：enum 枚举名 {枚举元素1,枚举元素2,……};&lt;/p&gt;
-&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; season&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    spring = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//默认从0开始&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    summer,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    autumn,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    winter&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;枚举变量的定义&quot;&gt;&lt;a href=&quot;#枚举变量的定义&quot; class=&quot;headerlink&quot; title=&quot;枚举变量的定义&quot;&gt;&lt;/a&gt;枚举变量的定义&lt;/h2&gt;&lt;p&gt;前面只是定义了枚举类型，接下来就可以利用定义好的枚举类型定义变量。&lt;/p&gt;
-&lt;p&gt;跟结构体一样，有3种方式定义枚举变量，下面三种方式定义的都是枚举变量s：&lt;/p&gt;
-&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  先定义枚举类型，再定义枚举变量  //&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; Season &amp;#123;spring, summer, autumn, winter&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; Season s;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  定义枚举类型的同时定义枚举变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; Season &amp;#123;spring, summer, autumn, winter&amp;#125; s;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  省略枚举名称，直接定义枚举变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; &amp;#123;spring, summer, autumn, winter&amp;#125; s;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;枚举使用的注意&quot;&gt;&lt;a href=&quot;#枚举使用的注意&quot; class=&quot;headerlink&quot; title=&quot;枚举使用的注意&quot;&gt;&lt;/a&gt;枚举使用的注意&lt;/h2&gt;&lt;p&gt;C语言编译器会将枚举元素（spring、summer等）作为整型常量处理，称为枚举常量。&lt;/p&gt;
-&lt;p&gt;枚举元素的值取决于定义时各枚举元素排列的先后顺序。默认情况下，第一个枚举元素的值为0，第二个为1，依次顺序加1：&lt;/p&gt;
-&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; Season &amp;#123;spring, summer, autumn, winter&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;也就是说spring的值为0，summer的值为1，autumn的值为2，winter的值为3。&lt;/li&gt;
-&lt;li&gt;也可以在定义枚举类型时改变枚举元素的值：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  没有指定值的枚举元素，其值为前一元素加1。也就说spring的值为0，summer的值为3，autumn的值为4，winter的值为5。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; season &amp;#123;spring, summer=&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, autumn, winter&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;枚举变量的基本操作&quot;&gt;&lt;a href=&quot;#枚举变量的基本操作&quot; class=&quot;headerlink&quot; title=&quot;枚举变量的基本操作&quot;&gt;&lt;/a&gt;枚举变量的基本操作&lt;/h2&gt;&lt;h3 id=&quot;赋值&quot;&gt;&lt;a href=&quot;#赋值&quot; class=&quot;headerlink&quot; title=&quot;赋值&quot;&gt;&lt;/a&gt;赋值&lt;/h3&gt;&lt;p&gt;可以给枚举变量赋枚举常量或者整型值：&lt;/p&gt;
-&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; Season &amp;#123;spring, summer, autumn, winter&amp;#125; s;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s = spring; &lt;span class=&quot;comment&quot;&gt;// 等价于 s = 0;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s = &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// 等价于 s = winter;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;遍历枚举元素&quot;&gt;&lt;a href=&quot;#遍历枚举元素&quot; class=&quot;headerlink&quot; title=&quot;遍历枚举元素&quot;&gt;&lt;/a&gt;遍历枚举元素&lt;/h3&gt;&lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; Season &amp;#123;spring, summer, autumn, winter&amp;#125; s;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 遍历枚举元素&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (s = spring; s &amp;lt;= winter; s++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;枚举元素：%d \n&quot;&lt;/span&gt;, s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&amp;lt; 输出结果 &amp;gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;枚举元素：0 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;枚举元素：1 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;枚举元素：2 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;枚举元素：3 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Program ended with exit code: 0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/mjios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;M了个J的博客&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;枚举是C语言中的一种基本数据类型，并不是构造类型，它可以用于声明一组常数。当一个变量有几个固定的可能取值时，可以将这个变量定义为枚举类型。比如，你可以用一个枚举类型的变量来表示季节，因为季节只有4种可能的取值：春天、夏天、秋天、冬天。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="〖A〗【1-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
+      <category term="〖A〗【0-0】C-语法" scheme="http://sanfordy.com/categories/%E3%80%96A%E3%80%97%E3%80%900-0%E3%80%91C-%E8%AF%AD%E6%B3%95/"/>
     
     
   </entry>

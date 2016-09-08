@@ -4,6 +4,20 @@
   
     
     <entry>
+      <title><![CDATA[【00】px、pt、ppi]]></title>
+      <url>http://sanfordy.com/2016/09/02/%E3%80%9000%E3%80%91px%E3%80%81pt%E3%80%81ppi/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>做了几个移动端的项目之后，深感UI设计移动端尺寸换算的必要性，在此做个总结。</p>
+</blockquote>
+<a id="more"></a>
+<p>做了几个移动端的项目之后，深感UI设计移动端尺寸换算的必要性，在此做个总结。</p>
+<p><code>px</code>：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元，<code>没有大小</code>。</p>
+<p><code>pt</code>: point，点，印刷行业常用单位，等于1/72英寸，<code>有具体的大小</code>。</p>
+<p><code>ppi</code>: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[【16】Foundation框架]]></title>
       <url>http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9016%E3%80%91Foundation%E6%A1%86%E6%9E%B6/</url>
       <content type="html"><![CDATA[<blockquote>
