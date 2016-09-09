@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[【00】px、pt、ppi]]></title>
-      <url>http://sanfordy.com/2016/09/02/%E3%80%9000%E3%80%91px%E3%80%81pt%E3%80%81ppi/</url>
+      <url>http://sanfordy.com/2016/09/02/%E3%80%96A%E3%80%97OC-iOS-%E9%AB%98%E7%BA%A7/%E3%80%9000%E3%80%91px%E3%80%81pt%E3%80%81ppi/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>做了几个移动端的项目之后，深感UI设计移动端尺寸换算的必要性，在此做个总结。</p>
 </blockquote>
@@ -19,7 +19,7 @@
     
     <entry>
       <title><![CDATA[【16】Foundation框架]]></title>
-      <url>http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9016%E3%80%91Foundation%E6%A1%86%E6%9E%B6/</url>
+      <url>http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97OC/%E3%80%9016%E3%80%91Foundation%E6%A1%86%E6%9E%B6/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>Foundation：基础框架。框架中包含了很多开发中常用的数据类型，如结构体，枚举，类等，是其他ios框架的基础。</p>
 </blockquote>
@@ -200,7 +200,7 @@
     
     <entry>
       <title><![CDATA[【15】键值监听（KVO）]]></title>
-      <url>http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9015%E3%80%91%E9%94%AE%E5%80%BC%E7%9B%91%E5%90%AC%EF%BC%88KVO%EF%BC%89/</url>
+      <url>http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97OC/%E3%80%9015%E3%80%91%E9%94%AE%E5%80%BC%E7%9B%91%E5%90%AC%EF%BC%88KVO%EF%BC%89/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>KVO（Key Value Observing）其实是一种观察者模式，利用它可以很容易实现<code>视图组件</code>和<code>数据模型</code>的分离，当数据模型的属性值改变之后作为观察者的视图组件就会接到通知，接到通知后观察者就会进行回调。</p>
 </blockquote>
@@ -244,7 +244,7 @@
     
     <entry>
       <title><![CDATA[【14】键值编码（KVC）]]></title>
-      <url>http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9014%E3%80%91%E9%94%AE%E5%80%BC%E7%BC%96%E7%A0%81%EF%BC%88KVC%EF%BC%89/</url>
+      <url>http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97OC/%E3%80%9014%E3%80%91%E9%94%AE%E5%80%BC%E7%BC%96%E7%A0%81%EF%BC%88KVC%EF%BC%89/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>类的对象可以在类的外部对成员变量（就算成员变量是private也可以）进行动态读写，这种方式就是Key Value Coding（简称KVC）。</p>
 </blockquote>
@@ -276,7 +276,7 @@
     
     <entry>
       <title><![CDATA[【13】OC语法特性（四）：延展Extension]]></title>
-      <url>http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9013%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E5%BB%B6%E5%B1%95Extension/</url>
+      <url>http://sanfordy.com/2016/08/31/%E3%80%96A%E3%80%97OC/%E3%80%9013%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E5%BB%B6%E5%B1%95Extension/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>在设计一个类的时候，有些方法需要对外公开（我们称之为接口），有些方法仅仅在内部使用，这时候可以借助延展（Extension）。</p>
 </blockquote>
@@ -313,7 +313,7 @@
     
     <entry>
       <title><![CDATA[【12】OC语法特性（三）：分类Category]]></title>
-      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9012%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E5%88%86%E7%B1%BBCategory/</url>
+      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97OC/%E3%80%9012%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E5%88%86%E7%B1%BBCategory/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>当我们不改变原有代码为一个类扩展其他功能时我们可以考虑继承这个类进行实现，但是这样一来使用时就必须定义成新实现的子类才能拥有扩展的新功能。如何在不改变原有类的情况下扩展新功能又可以在使用时不必定义新类型呢？</p>
 </blockquote>
@@ -383,7 +383,7 @@
     
     <entry>
       <title><![CDATA[【11】OC语法特性（二）：块语法Block]]></title>
-      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9011%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%9D%97%E8%AF%AD%E6%B3%95Block/</url>
+      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97OC/%E3%80%9011%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%9D%97%E8%AF%AD%E6%B3%95Block/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>Block：块语法，本质上是匿名函数（没有名称的函数），苹果推荐的类型，效率高，用来封装和保存代码，Block可以在任何时候执行。</p>
 </blockquote>
@@ -465,7 +465,7 @@
     
     <entry>
       <title><![CDATA[【10】OC语法特性（一）：协议protocol]]></title>
-      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9010%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%8D%8F%E8%AE%AEprotocol/</url>
+      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97OC/%E3%80%9010%E3%80%91OC%E8%AF%AD%E6%B3%95%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%8D%8F%E8%AE%AEprotocol/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>协议是一套标准（一堆方法的声明），只有.h文件。就像一张任务清单，上面写了一堆需要处理的事，清单交给谁，谁就要去完成清单上规定的任务。</p>
 </blockquote>
@@ -522,7 +522,7 @@
     
     <entry>
       <title><![CDATA[【09】OC面向对象特性（三）：多态]]></title>
-      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9009%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E5%A4%9A%E6%80%81/</url>
+      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97OC/%E3%80%9009%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E5%A4%9A%E6%80%81/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>不同类型对象在响应同一个方法时的不同实现叫做多态。意思就是假设生物类（life）都用有一个相同的方法-eat;那人类属于生物，猪也属于生物，都继承了life后，实现各自的eat，但是调用是我们只需调用各自的eat方法。也就是不同的对象以 自己的方式响应了相同的消息（响应了eat这个选择器）。</p>
 </blockquote>
@@ -585,7 +585,7 @@
     
     <entry>
       <title><![CDATA[【08】OC面向对象特性（二）：继承]]></title>
-      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9008%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E7%BB%A7%E6%89%BF/</url>
+      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97OC/%E3%80%9008%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E7%BB%A7%E6%89%BF/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>程序的世界和人类的“对象”世界在思想上是没有设么区别的，富二代继承了父母，自然就拥有了父母拥有的所有资源，既然OC是面向对象语言，当然同样支持继承，子类继承了父类同样就拥有了父类所有的方法和属性（成员变量）。</p>
 </blockquote>
@@ -643,7 +643,7 @@
     
     <entry>
       <title><![CDATA[【07】OC面向对象特性（一）：封装]]></title>
-      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9007%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%B0%81%E8%A3%85/</url>
+      <url>http://sanfordy.com/2016/08/30/%E3%80%96A%E3%80%97OC/%E3%80%9007%E3%80%91OC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%B0%81%E8%A3%85/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>封装是对象和类概念的主要特性。它是隐藏内部实现，稳定外部接口，可以看作是“包装”。</p>
 </blockquote>
@@ -696,7 +696,7 @@
     
     <entry>
       <title><![CDATA[【06】内存管理]]></title>
-      <url>http://sanfordy.com/2016/08/25/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9006%E3%80%91%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</url>
+      <url>http://sanfordy.com/2016/08/25/%E3%80%96A%E3%80%97OC/%E3%80%9006%E3%80%91%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>由于移动设备的内存极其有限，所以每个app所占的内存也是有限制的，当app所占用的内存较多时，系统就会发出内存警告，这时需要回收一些不需要再继续使用的内存空间，比如回收一些不再使用的对象和变量等。</p>
 </blockquote>
@@ -975,7 +975,7 @@
     
     <entry>
       <title><![CDATA[【05】构造方法和description方法]]></title>
-      <url>http://sanfordy.com/2016/08/25/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9005%E3%80%91%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E5%92%8Cdescription%E6%96%B9%E6%B3%95/</url>
+      <url>http://sanfordy.com/2016/08/25/%E3%80%96A%E3%80%97OC/%E3%80%9005%E3%80%91%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E5%92%8Cdescription%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>默认的构造方法，也就是init方法，它是不接收任何参数的。因此，在实际开发中，为了方便，会经常自定义构造方法。</p>
 </blockquote>
@@ -1100,7 +1100,7 @@
     
     <entry>
       <title><![CDATA[【04】关键字self、点语法]]></title>
-      <url>http://sanfordy.com/2016/08/25/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9004%E3%80%91%E5%85%B3%E9%94%AE%E5%AD%97self%E3%80%81%E7%82%B9%E8%AF%AD%E6%B3%95/</url>
+      <url>http://sanfordy.com/2016/08/25/%E3%80%96A%E3%80%97OC/%E3%80%9004%E3%80%91%E5%85%B3%E9%94%AE%E5%AD%97self%E3%80%81%E7%82%B9%E8%AF%AD%E6%B3%95/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>在C#、Java中都有一个关键字this用于表示当前方法的调用者，其实在OC中也有一个类似的关键字self（self是一个指针），只是self不仅可以表示当前对象还可以表示类本身，也就是说它既可以用在静态方法中又可以用在动态方法中。</p>
 </blockquote>
@@ -1172,7 +1172,7 @@
     
     <entry>
       <title><![CDATA[【03】方法和属性]]></title>
-      <url>http://sanfordy.com/2016/08/24/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9003%E3%80%91%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7/</url>
+      <url>http://sanfordy.com/2016/08/24/%E3%80%96A%E3%80%97OC/%E3%80%9003%E3%80%91%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>通常一个成员变量的访问不会直接通过成员变量而是通过属性暴漏给外界。在OC中属性定义方式是通过对应的setter和getter方法进行实现。没错，上面setName其实就是属性的setter方法，但是在OC中gettter方法通常使用变量名，而不加”get”。</p>
 </blockquote>
@@ -1315,7 +1315,7 @@
     
     <entry>
       <title><![CDATA[【02】类和对象、成员变量]]></title>
-      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9002%E3%80%91%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</url>
+      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97OC/%E3%80%9002%E3%80%91%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>OC相对于C语言多了面向对象特性，因此它也有类、对象、静态\动态方法、成员变量的概念。但是OC又没有其他面向对象语言那么多语法特性，OC本身对面向对象进行了精简。</p>
 </blockquote>
@@ -1422,7 +1422,7 @@
     
     <entry>
       <title><![CDATA[【01】第一个OC程序解析]]></title>
-      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAOC%E7%A8%8B%E5%BA%8F%E8%A7%A3%E6%9E%90/</url>
+      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97OC/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAOC%E7%A8%8B%E5%BA%8F%E8%A7%A3%E6%9E%90/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。</p>
 </blockquote>
@@ -1456,7 +1456,7 @@
     
     <entry>
       <title><![CDATA[【00】Objective-C简介]]></title>
-      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97%E3%80%902-0%E3%80%91OC-%E8%AF%AD%E6%B3%95/%E3%80%9000%E3%80%91Objective-C%E7%AE%80%E4%BB%8B/</url>
+      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97OC/%E3%80%9000%E3%80%91Objective-C%E7%AE%80%E4%BB%8B/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>目前来说，Objective-C(简称OC)是iOS开发的核心语言，在开发过程中也会配合着使用C语言、C++，OC主要负责UI界面，C语言、C++可用于图形处理。 </p>
 </blockquote>
@@ -1507,7 +1507,7 @@
     
     <entry>
       <title><![CDATA[【28】动态内存分配]]></title>
-      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9028%E3%80%91%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</url>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97C/%E3%80%9028%E3%80%91%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>暂无摘要。</p>
 </blockquote>
@@ -1543,7 +1543,7 @@
     
     <entry>
       <title><![CDATA[【27】typedef]]></title>
-      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9027%E3%80%91typedef/</url>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97C/%E3%80%9027%E3%80%91typedef/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>我们可以使用typedef关键字为各种数据类型定义一个新名字（别名）</p>
 </blockquote>
@@ -1651,7 +1651,7 @@
     
     <entry>
       <title><![CDATA[【26】枚举]]></title>
-      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9026%E3%80%91%E6%9E%9A%E4%B8%BE/</url>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97C/%E3%80%9026%E3%80%91%E6%9E%9A%E4%B8%BE/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>枚举是C语言中的一种基本数据类型，并不是构造类型，它可以用于声明一组常数。当一个变量有几个固定的可能取值时，可以将这个变量定义为枚举类型。比如，你可以用一个枚举类型的变量来表示季节，因为季节只有4种可能的取值：春天、夏天、秋天、冬天。</p>
 </blockquote>
@@ -1692,7 +1692,7 @@
     
     <entry>
       <title><![CDATA[【25】结构体]]></title>
-      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9025%E3%80%91%E7%BB%93%E6%9E%84%E4%BD%93/</url>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97C/%E3%80%9025%E3%80%91%E7%BB%93%E6%9E%84%E4%BD%93/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。</p>
 <p>在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。为此，C语言专门提供了一种构造类型来解决上述问题，这就是结构体，它允许内部的元素是不同类型的。</p>
@@ -1820,7 +1820,7 @@
     
     <entry>
       <title><![CDATA[【24】const关键字用法小结]]></title>
-      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9024%E3%80%91const%E5%85%B3%E9%94%AE%E5%AD%97%E7%94%A8%E6%B3%95%E5%B0%8F%E7%BB%93/</url>
+      <url>http://sanfordy.com/2016/08/21/%E3%80%96A%E3%80%97C/%E3%80%9024%E3%80%91const%E5%85%B3%E9%94%AE%E5%AD%97%E7%94%A8%E6%B3%95%E5%B0%8F%E7%BB%93/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>const修饰的数据类型是指常类型，常类型的变量或对象的值是不能被更新的。</p>
 </blockquote>
@@ -1839,7 +1839,7 @@
     
     <entry>
       <title><![CDATA[【23】extern和static关键字 -- 对变量的作用]]></title>
-      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9023%E3%80%91extern%E5%92%8Cstatic%E5%85%B3%E9%94%AE%E5%AD%97%20--%20%E5%AF%B9%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97C/%E3%80%9023%E3%80%91extern%E5%92%8Cstatic%E5%85%B3%E9%94%AE%E5%AD%97%20--%20%E5%AF%B9%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>这里稍微说一下，其实就是变量定义和变量声明的区别，变量定义使用“数据类型+变量名称”的形式，编译器需要给他分配内存单元的。而变量声明使用“extern 变量类型+变量名称”的形式，是告诉编译器我这个变量将在其他外部c文件中定义，我这里只是在外部用它。编译器就不给他分配内存空间，而等到真正遇到变量定义的时候再给他分配内存空间。</p>
 </blockquote>
@@ -1942,7 +1942,7 @@
     
     <entry>
       <title><![CDATA[【22】extern和static关键字 -- 对函数的作用]]></title>
-      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9022%E3%80%91extern%E5%92%8Cstatic%E5%85%B3%E9%94%AE%E5%AD%97%20--%20%E5%AF%B9%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97C/%E3%80%9022%E3%80%91extern%E5%92%8Cstatic%E5%85%B3%E9%94%AE%E5%AD%97%20--%20%E5%AF%B9%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>在定义函数时，如果在函数的最左边加上关键字extern，则表示此函数是外部函数，可供其他文件调用。C语言规定，如果在定义函数时省略extern，则隐含为外部函数。</p>
 <p>在定义函数时，在函数的最左边加上static可以把该函数声明为内部函数(又叫静态函数)，这样该函数就只能在其定义所在的文件中使用。如果在不同的文件中有同名的内部函数，则互不干扰。</p>
@@ -2049,7 +2049,7 @@
     
     <entry>
       <title><![CDATA[【21】预处理指令 -- 文件包含]]></title>
-      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9021%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4%20--%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</url>
+      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97C/%E3%80%9021%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4%20--%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>其实我们早就有接触文件包含这个指令了， 就是#include，它可以将一个文件的全部内容拷贝另一个文件中。</p>
 </blockquote>
@@ -2097,7 +2097,7 @@
     
     <entry>
       <title><![CDATA[【20】预处理指令 -- 条件编译]]></title>
-      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9020%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4%20--%20%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
+      <url>http://sanfordy.com/2016/08/20/%E3%80%96A%E3%80%97C/%E3%80%9020%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4%20--%20%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>在很多情况下，我们希望程序的其中一部分代码只有在满足一定条件时才进行编译，否则不参与编译（只有参与编译的代码最终才能被执行），条件编译其实就是在编译之前预处理器根据预处理指令判断对应的条件，如果条件满足就将对应的代码编译进去，否则代码就根本不进入编译环节（相当于根本就没有这段代码）。</p>
 </blockquote>
@@ -2156,7 +2156,7 @@
     
     <entry>
       <title><![CDATA[【19】预处理指令 -- 宏定义]]></title>
-      <url>http://sanfordy.com/2016/08/19/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9019%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4%20--%20%E5%AE%8F%E5%AE%9A%E4%B9%89/</url>
+      <url>http://sanfordy.com/2016/08/19/%E3%80%96A%E3%80%97C/%E3%80%9019%E3%80%91%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4%20--%20%E5%AE%8F%E5%AE%9A%E4%B9%89/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>C语言在对源程序进行编译之前，会先对一些特殊的预处理指令作解释（比如之前使用的#include文件包含指令），产生一个新的源程序（这个过程称为编译预处理），之后再进行通常的编译。</p>
 </blockquote>
@@ -2269,7 +2269,7 @@
     
     <entry>
       <title><![CDATA[【18】指针和函数]]></title>
-      <url>http://sanfordy.com/2016/08/18/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9018%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E5%87%BD%E6%95%B0/</url>
+      <url>http://sanfordy.com/2016/08/18/%E3%80%96A%E3%80%97C/%E3%80%9018%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E5%87%BD%E6%95%B0/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>指针可以根据地址直接操作内存中的数据，使用得当的话，不仅能使代码量变少，还能优化内存管理、提升程序性能。关于指针的内容还非常多，比如指针数组、指向数组的指针、指向指针的指针，那些不常见，现在只讲述在iOS开发中指针的最常见用法，比如这一章的内容—-返回指针的函数 与 指向函数的指针。</p>
 </blockquote>
@@ -2333,7 +2333,7 @@
     
     <entry>
       <title><![CDATA[【17】指针和字符串]]></title>
-      <url>http://sanfordy.com/2016/08/18/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9017%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+      <url>http://sanfordy.com/2016/08/18/%E3%80%96A%E3%80%97C/%E3%80%9017%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>strlen函数中的形参是指向字符变量的指针类型，我们可以将一个字符数组名传进去，这一点又说明了指针与数组的密切关系，肯定有JQ。其实，调用strlen函数时，你传一个地址给它就行了，它会从这个地址开始计算字符的个数，直到遇到空字符’\0’位置，因此传入指针变量或者数组名都可以。</p>
 </blockquote>
@@ -2388,7 +2388,7 @@
     
     <entry>
       <title><![CDATA[【16】指针和数组]]></title>
-      <url>http://sanfordy.com/2016/08/02/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9016%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84/</url>
+      <url>http://sanfordy.com/2016/08/02/%E3%80%96A%E3%80%97C/%E3%80%9016%E3%80%91%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。</p>
 </blockquote>
@@ -2497,7 +2497,7 @@
     
     <entry>
       <title><![CDATA[【15】指针]]></title>
-      <url>http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9015%E3%80%91%E6%8C%87%E9%92%88/</url>
+      <url>http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97C/%E3%80%9015%E3%80%91%E6%8C%87%E9%92%88/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串</p>
 </blockquote>
@@ -2664,7 +2664,7 @@
     
     <entry>
       <title><![CDATA[【14】字符串]]></title>
-      <url>http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9014%E3%80%91%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+      <url>http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97C/%E3%80%9014%E3%80%91%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串</p>
 </blockquote>
@@ -2801,7 +2801,7 @@
     
     <entry>
       <title><![CDATA[【13】数组]]></title>
-      <url>http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9013%E3%80%91%E6%95%B0%E7%BB%84/</url>
+      <url>http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97C/%E3%80%9013%E3%80%91%E6%95%B0%E7%BB%84/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>定义数组时，系统将按照数组类型和个数分配一段连续的存储空间来存储数组元素，如int a[3]占据了连续的6字节存储空间（在16位编译器环境下，一个int类型占用2个字节）。要注意的是，数组名代表着整个数组的地址，也就是数组的起始地址。</p>
 </blockquote>
@@ -2928,7 +2928,7 @@
     
     <entry>
       <title><![CDATA[【12】基本运算]]></title>
-      <url>http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9012%E3%80%91%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/</url>
+      <url>http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97C/%E3%80%9012%E3%80%91%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>计算机的基本能力就是计算，所以一门程序设计语言的计算能力是非常重要的。C语言之所以无所不能，是因为它不仅有丰富的数据类型，还有强大的计算能力。C语言一共有34种运算符，包括了常见的加减乘除运算。这讲就对C语言中的运算符做一个详细介绍。</p>
 </blockquote>
@@ -3173,7 +3173,7 @@
     
     <entry>
       <title><![CDATA[【11】流程控制]]></title>
-      <url>http://sanfordy.com/2016/07/31/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9011%E3%80%91%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
+      <url>http://sanfordy.com/2016/07/31/%E3%80%96A%E3%80%97C/%E3%80%9011%E3%80%91%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>为了方便我们控制程序的运行流程，C语言提供3种流程结构，不同的流程结构可以实现不同的运行流程。这3种流程结构分别是：</p>
 <ol>
@@ -3443,7 +3443,7 @@
     
     <entry>
       <title><![CDATA[【10】函数]]></title>
-      <url>http://sanfordy.com/2016/07/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9010%E3%80%91%E5%87%BD%E6%95%B0/</url>
+      <url>http://sanfordy.com/2016/07/07/%E3%80%96A%E3%80%97C/%E3%80%9010%E3%80%91%E5%87%BD%E6%95%B0/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>任何一个C语言程序都是由一个或者多个程序段（小程序）构成的，每个程序段都有自己的功能，我们一般称这些程序段为“函数”。所以，你可以说C语言程序是由函数构成的。</p>
 </blockquote>
@@ -3694,7 +3694,7 @@
     
     <entry>
       <title><![CDATA[【09】ASCII码]]></title>
-      <url>http://sanfordy.com/2016/06/19/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9009%E3%80%91ASCII%E7%A0%81/</url>
+      <url>http://sanfordy.com/2016/06/19/%E3%80%96A%E3%80%97C/%E3%80%9009%E3%80%91ASCII%E7%A0%81/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>ASCII码是基于拉丁字母的一套电脑编码系统，是现今最通用的单字节编码系统，全称是“American Standard Code for Information Interchange”。编码系统，看起来好像很高级，其实就是一个字符集—字符的集合。</p>
 </blockquote>
@@ -3729,7 +3729,7 @@
     
     <entry>
       <title><![CDATA[【08】进制]]></title>
-      <url>http://sanfordy.com/2016/06/19/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9008%E3%80%91%E8%BF%9B%E5%88%B6/</url>
+      <url>http://sanfordy.com/2016/06/19/%E3%80%96A%E3%80%97C/%E3%80%9008%E3%80%91%E8%BF%9B%E5%88%B6/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>我们先来看看平时是如何表示一个整数的，最常见的肯定是用阿拉伯数字表示，比如“十二”，我们可以用12来表示，其实这种表示方式是基于一种叫做“十进制”的计数方式。“进制”是一种计数方式，编程中常见的进制有4种：十进制、二进制、八进制、十六进制。也就是说，同一个整数，我们至少有4种表示方式。</p>
 </blockquote>
@@ -3788,7 +3788,7 @@
     
     <entry>
       <title><![CDATA[【07】变量（三）]]></title>
-      <url>http://sanfordy.com/2016/06/18/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9007%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+      <url>http://sanfordy.com/2016/06/18/%E3%80%96A%E3%80%97C/%E3%80%9007%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%89%EF%BC%89/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能存储的数据范围就变大了。</p>
 </blockquote>
@@ -3905,7 +3905,7 @@
     
     <entry>
       <title><![CDATA[【06】变量（二）]]></title>
-      <url>http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9006%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+      <url>http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97C/%E3%80%9006%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>在C语言中，你声明一个局部变量后，没有经过初始化赋值是可以使用的，但这是很危险的，不建议这样做。大多数人应该觉得变量b打印出来应该是0，其实不是。因为系统会随意给变量b赋值，得到的是垃圾数据。</p>
 </blockquote>
@@ -4014,7 +4014,7 @@
     
     <entry>
       <title><![CDATA[【05】变量（一）]]></title>
-      <url>http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9005%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      <url>http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97C/%E3%80%9005%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%80%EF%BC%89/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>常量表示的数据是不可以改的，而用变量表示的数据是可以经常修改的。</p>
 </blockquote>
@@ -4130,7 +4130,7 @@
     
     <entry>
       <title><![CDATA[【04】常量]]></title>
-      <url>http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9004%E3%80%91%E5%B8%B8%E9%87%8F/</url>
+      <url>http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97C/%E3%80%9004%E3%80%91%E5%B8%B8%E9%87%8F/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>“量”表示数据。常量，则表示一些固定的数据，也就是不能改变的数据。</p>
 </blockquote>
@@ -4152,7 +4152,7 @@
     
     <entry>
       <title><![CDATA[【03】数据]]></title>
-      <url>http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9003%E3%80%91%E6%95%B0%E6%8D%AE/</url>
+      <url>http://sanfordy.com/2016/06/07/%E3%80%96A%E3%80%97C/%E3%80%9003%E3%80%91%E6%95%B0%E6%8D%AE/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>在我们使用计算机的过程中，会接触到各种各样的数据，有文档数据、图片数据、视频数据，还有聊QQ时产生的文字数据、用迅雷下载的文件数据等。这讲我们就来介绍C语言中数据的处理。</p>
 </blockquote>
@@ -4198,7 +4198,7 @@
     
     <entry>
       <title><![CDATA[【02】C语言语法]]></title>
-      <url>http://sanfordy.com/2016/05/30/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9002%E3%80%91C%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/</url>
+      <url>http://sanfordy.com/2016/05/30/%E3%80%96A%E3%80%97C/%E3%80%9002%E3%80%91C%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>C语言属于一门高级语言，其实所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的Objective-C，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。</p>
 </blockquote>
@@ -4234,7 +4234,7 @@
     
     <entry>
       <title><![CDATA[【01】第一个C程序代码分析]]></title>
-      <url>http://sanfordy.com/2016/05/17/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAC%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
+      <url>http://sanfordy.com/2016/05/17/%E3%80%96A%E3%80%97C/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAC%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
       <content type="html"><![CDATA[<blockquote>
 <p><code>#include</code>是C语言的预处理指令之一，所谓预处理，就是在编译之前做的处理，预处理指令一般以<code>#</code>开头。</p>
 </blockquote>
@@ -4316,7 +4316,7 @@
     
     <entry>
       <title><![CDATA[【00】C语言简介]]></title>
-      <url>http://sanfordy.com/2016/05/11/%E3%80%96A%E3%80%97%E3%80%901-0%E3%80%91C-%E8%AF%AD%E6%B3%95/%E3%80%9000%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/</url>
+      <url>http://sanfordy.com/2016/05/11/%E3%80%96A%E3%80%97C/%E3%80%9000%E3%80%91C%E8%AF%AD%E8%A8%80%E7%AE%80%E4%BB%8B/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>C语言于1972年发明，首次使用是用于重写<code>UNIX</code>操作系统（<code>UNIX</code>以前是用汇编写的）。随着<code>UNIX</code>操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。</p>
 </blockquote>

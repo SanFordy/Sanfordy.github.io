@@ -1,0 +1,1022 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <link rel="apple-touch-icon" href="touch-icon-mac.png">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|comic sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SanFordy`s　magic" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。
+在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。为此，C语言专门提供了一种构造类型来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【25】结构体">
+<meta property="og:url" content="http://sanfordy.com/2016/08/21/〖A〗C/【25】结构体/index.html">
+<meta property="og:site_name" content="SanFordy`s　magic">
+<meta property="og:description" content="在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。
+在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。为此，C语言专门提供了一种构造类型来">
+<meta property="og:updated_time" content="2016-09-09T04:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【25】结构体">
+<meta name="twitter:description" content="在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。
+在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。为此，C语言专门提供了一种构造类型来">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+  <title> 【25】结构体 | SanFordy`s　magic </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SanFordy`s　magic</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">　　　　　　</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【25】结构体
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-21T07:50:09+08:00" content="2016-08-21">
+              2016-08-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/〖A〗C/" itemprop="url" rel="index">
+                    <span itemprop="name">〖A〗C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/21/〖A〗C/【25】结构体/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/〖A〗C/【25】结构体/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次数阅读
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。</p>
+<p>在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。为此，C语言专门提供了一种构造类型来解决上述问题，这就是结构体，它允许内部的元素是不同类型的。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="结构体的概念"><a href="#结构体的概念" class="headerlink" title="结构体的概念"></a>结构体的概念</h2><p>在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。</p>
+<p>在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。为此，C语言专门提供了一种构造类型来解决上述问题，这就是结构体，它允许内部的元素是不同类型的。</p>
+<h2 id="结构体类型的定义"><a href="#结构体类型的定义" class="headerlink" title="结构体类型的定义"></a>结构体类型的定义</h2><h3 id="定义形式"><a href="#定义形式" class="headerlink" title="定义形式"></a>定义形式</h3><p>结构体内部的元素，也就是组成成分，我们一般称为”成员”。</p>
+<p>结构体类型的一般定义形式为：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span>　结构体名&#123;</span><br><span class="line">    </span><br><span class="line">    类型名<span class="number">1</span>　成员名<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    类型名<span class="number">2</span>　成员名<span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    ……</span><br><span class="line">    </span><br><span class="line">    类型名n　成员名n;　　　</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>struct是关键字，是结构体类型的标志。</li>
+</ul>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>比如，我们定义一个学生的结构体类型：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name; <span class="comment">// 姓名</span></span><br><span class="line">    <span class="keyword">int</span> age; <span class="comment">// 年龄</span></span><br><span class="line">    <span class="keyword">float</span> height; <span class="comment">// 身高</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>上面定义了一个叫做Student的结构体类型，共有name、age、height3个成员。看到这里是否有点面向对象的味道呢，其实这跟面向对象完全是两码事，只能说感觉有点像。</li>
+</ul>
+<h2 id="结构体变量的初始化"><a href="#结构体变量的初始化" class="headerlink" title="结构体变量的初始化"></a>结构体变量的初始化</h2><p>前面只是定义了名字为Student的结构体类型，并非定义了一个结构体变量，就像int一样，只是一种类型。</p>
+<h3 id="整体初始化"><a href="#整体初始化" class="headerlink" title="整体初始化"></a>整体初始化</h3><p>先定义结构体类型，再定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//  注意：struct和Student是连着使用的。</span></span><br><span class="line"><span class="keyword">struct</span> Student stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>结构体变量名为stu。</li>
+</ul>
+<p>定义结构体类型的同时定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125; stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>结构体变量名为stu。</li>
+</ul>
+<p>省略类型名，直接定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125; stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结构体变量名为stu。</li>
+</ul>
+<p>结构体变量在<code>整体初始化</code>时，不能先定义变量再拿变量来整体初始化：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  这种写法是错误的</span></span><br><span class="line">stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="成员单独初始化"><a href="#成员单独初始化" class="headerlink" title="成员单独初始化"></a>成员单独初始化</h3><p>成员单独初始化时需要先拿到定义好的结构体变量（我们在（1.整体初始化）中已经学会了怎么定义结构体变量）：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stu.name = <span class="string">"小明"</span>;</span><br><span class="line">stu.age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="结构体的注意点"><a href="#结构体的注意点" class="headerlink" title="结构体的注意点"></a>结构体的注意点</h2><h3 id="不允许对结构体本身递归定义"><a href="#不允许对结构体本身递归定义" class="headerlink" title="不允许对结构体本身递归定义"></a>不允许对结构体本身递归定义</h3><p>如下做法是错误的，注意第3行：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">struct</span> Student stu;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="结构体内可以包含别的结构体"><a href="#结构体内可以包含别的结构体" class="headerlink" title="结构体内可以包含别的结构体"></a>结构体内可以包含别的结构体</h3><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Date &#123;</span><br><span class="line">    <span class="keyword">int</span> year;</span><br><span class="line">    <span class="keyword">int</span> month;</span><br><span class="line">    <span class="keyword">int</span> day;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="comment">//  包含了其他结构体</span></span><br><span class="line">    <span class="keyword">struct</span> Date birthday;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="内存问题一"><a href="#内存问题一" class="headerlink" title="内存问题一"></a>内存问题一</h3><p>定义结构体类型，只是说明了该类型的组成情况，并没有给它分配存储空间，就像系统不为int类型本身分配空间一样。只有当定义属于结构体类型的变量时，系统才会分配存储空间给该变量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第1~4行并没有分配存储空间，当执行到第6行时，系统才会分配存储空间给stu变量。</li>
+</ul>
+<h3 id="内存问题二"><a href="#内存问题二" class="headerlink" title="内存问题二"></a>内存问题二</h3><p>结构体变量占用的内存的大小是其成员所占内存之和，用成员中类型所占的最大内存为分配单位，按结构体成员声明顺序⾃上而下分配，分配空间不足以存储成员时，分配新的单位：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">struct</span> A &#123;</span><br><span class="line">　　<span class="keyword">int</span> a,</span><br><span class="line">　　<span class="keyword">float</span> b,</span><br><span class="line">　　<span class="keyword">char</span> [<span class="number">10</span>],</span><br><span class="line">　　<span class="keyword">double</span> d</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>因为其中占内存最大的类型是double所以分配空间时以8个字节为一个单位分配空间。总共占：8*1+0*1+8*2+8=32个字节。</li>
+</ul>
+<h2 id="结构体的使用"><a href="#结构体的使用" class="headerlink" title="结构体的使用"></a>结构体的使用</h2><p>一般对结构体变量的操作是以成员为单位进行的，引用的一般形式为：结构体变量名.成员名：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问stu的age成员</span></span><br><span class="line">stu.age = <span class="number">27</span>;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第9行对结构体的age成员进行了赋值。”.”称为成员运算符，它在所有运算符中优先级最高。</li>
+</ul>
+<p>如果某个成员也是结构体变量，可以连续使用成员运算符”.”访问最低一级成员：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Date &#123;</span><br><span class="line">     <span class="keyword">int</span> year;</span><br><span class="line">     <span class="keyword">int</span> month;</span><br><span class="line">     <span class="keyword">int</span> day;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">struct</span> Date birthday;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu;</span><br><span class="line"></span><br><span class="line">stu.birthday.year = <span class="number">1986</span>;</span><br><span class="line">stu.birthday.month = <span class="number">9</span>;</span><br><span class="line">stu.birthday.day = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>注意第14行以后的代码。</li>
+</ul>
+<p>相同类型的结构体变量之间可以进行整体赋值：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu1 = &#123;<span class="string">"MJ"</span>, <span class="number">27</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  将stu1直接赋值给stu2</span></span><br><span class="line"><span class="keyword">struct</span> Student stu2 = stu1;</span><br><span class="line"></span><br><span class="line">printf(<span class="string">"age is %d\n"</span>, stu2.age);</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age is 27</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<h2 id="结构体数组的初始化"><a href="#结构体数组的初始化" class="headerlink" title="结构体数组的初始化"></a>结构体数组的初始化</h2><p>结构体数组中存放的是结构体变量，结构体数组的初始化跟结构体变量差不多。</p>
+<h3 id="整体初始化-1"><a href="#整体初始化-1" class="headerlink" title="整体初始化"></a>整体初始化</h3><p>先定义结构体类型，再定义结构体数组，同时整体初始化结构体数组：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Student stu[<span class="number">2</span>] = &#123;&#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;,&#123;<span class="string">"小蛋"</span>,<span class="number">20</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>定义结构体类型的同时定义结构体数组，同时整体化结构体数组：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;stu[<span class="number">2</span>] =&#123;&#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;,&#123;<span class="string">"小蛋"</span>,<span class="number">20</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>省略类型名，直接定义结构体数组，同时整体初始化结构体数组：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;stu[<span class="number">2</span>] =&#123;&#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;,&#123;<span class="string">"小蛋"</span>,<span class="number">20</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="成员单独初始化-1"><a href="#成员单独初始化-1" class="headerlink" title="成员单独初始化"></a>成员单独初始化</h3><p>成员单独初始化时需要先拿到定义好的结构体数组（我们在（1.整体初始化）中已经学会了怎么定义结构体数组）：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stu[<span class="number">1</span>].name = <span class="string">"小明"</span>;</span><br><span class="line">stu[<span class="number">1</span>].age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<p>用数组下标访问每一个结构体元素，跟普通数组的用法是一样的。但是不能直接给结构体元素整体赋值：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  stu[1]是stu数组中的第二个结构体变量，这样赋值是错误的</span></span><br><span class="line">stu[<span class="number">1</span>] = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="结构体作为函数参数"><a href="#结构体作为函数参数" class="headerlink" title="结构体作为函数参数"></a>结构体作为函数参数</h2><p>将结构体变量作为函数参数进行传递时，其实传递的是全部成员的值，也就是将实参中成员的值一一赋值给对应的形参成员。因此，形参的改变不会影响到实参：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个结构体</span></span><br><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> test(<span class="keyword">struct</span> Student stu) &#123;</span><br><span class="line">    printf(<span class="string">"修改前的形参：%d \n"</span>, stu.age);</span><br><span class="line">    <span class="comment">// 修改实参中的age</span></span><br><span class="line">    stu.age = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    printf(<span class="string">"修改后的形参：%d \n"</span>, stu.age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">struct</span> Student stu = &#123;<span class="number">30</span>&#125;;</span><br><span class="line">    printf(<span class="string">"修改前的实参：%d \n"</span>, stu.age);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 调用test函数</span></span><br><span class="line">    test(stu);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    printf(<span class="string">"修改后的实参：%d \n"</span>, stu.age);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">修改前的实参：30 </span><br><span class="line">修改前的形参：30 </span><br><span class="line">修改后的形参：10 </span><br><span class="line">修改后的实参：30 </span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>首先在第4行定义了一个结构体类型Student。</li>
+<li>在第18行定义了一个结构体变量stu，并在第22行将其作为实参传入到test函数。</li>
+<li>根据输出结果可知形参是改变了，但是实参一直没有变过。</li>
+</ul>
+<h2 id="结构体指针"><a href="#结构体指针" class="headerlink" title="结构体指针"></a>结构体指针</h2><p>结构体指针就是指向了结构体的指针，每个结构体变量都有自己的存储空间和地址，因此指针也可以指向结构体变量。</p>
+<p>结构体指针变量的定义形式：struct 结构体名称 *指针变量名。</p>
+<p>有了指向结构体的指针，那么就有3种访问结构体成员的方式。</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="comment">//  定义一个结构体类型：Student</span></span><br><span class="line">    <span class="keyword">struct</span> Student &#123;</span><br><span class="line">        <span class="keyword">char</span> *name;</span><br><span class="line">        <span class="keyword">int</span> age;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  定义一个结构体变量</span></span><br><span class="line">    <span class="keyword">struct</span> Student stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  定义一个指向结构体的指针变量，指向了stu</span></span><br><span class="line">    <span class="keyword">struct</span> Student *p = &amp;stu;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     *  这时候可以有三种方式访问结构体的成员</span><br><span class="line">     */</span></span><br><span class="line">    <span class="comment">//  方式1：结构体变量名.成员名</span></span><br><span class="line">    printf(<span class="string">"name = %s, age = %d \n"</span>,stu.name,stu.age);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  方式2：（*结构体变量名）.成员名</span></span><br><span class="line">    printf(<span class="string">"name = %s, age = %d \n"</span>,(*p).name,(*p).age);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  方式3：指针变量名-&gt;成员名</span></span><br><span class="line">    printf(<span class="string">"name = %s, age = %d \n"</span>,p-&gt;name,p-&gt;age);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name = 小明, age = 18 </span><br><span class="line">name = 小明, age = 18 </span><br><span class="line">name = 小明, age = 18 </span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+<div>想请我吃辣条吗？</div>
+<button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+<span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+</button>
+<div id="QR" style="display: none;">
+
+<div id="wechat" style="display: inline-block">
+<img id="wechat_qr" src="http://i4.piimg.com/508f386ab6942876.jpg" alt="SanFordy WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>微信打赏</p>
+</div>
+
+
+<div id="alipay" style="display: inline-block">
+<img id="alipay_qr" src="http://i4.piimg.com/481cbcc6ec69d37b.png" alt="SanFordy Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>支付宝打赏</p>
+</div>
+
+</div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/21/〖A〗C/【24】const关键字用法小结/" rel="next" title="【24】const关键字用法小结">
+                <i class="fa fa-chevron-left"></i> 【24】const关键字用法小结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/21/〖A〗C/【26】枚举/" rel="prev" title="【26】枚举">
+                【26】枚举 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/21/〖A〗C/【25】结构体/"
+           data-title="【25】结构体" data-url="http://sanfordy.com/2016/08/21/〖A〗C/【25】结构体/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="SanFordy" />
+          <p class="site-author-name" itemprop="name">SanFordy</p>
+          <p class="site-description motion-element" itemprop="description">是时候表演真正的技术啦！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">归档</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter-square"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-facebook-square"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-book"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Douban">
+                  
+                    <i class="fa fa-coffee"></i>
+                  
+                  Douban
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.guijj.com/pics/201404/535a0243a9698.gif" title="biggift" target="_blank">biggift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体的概念"><span class="nav-number">1.</span> <span class="nav-text">结构体的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体类型的定义"><span class="nav-number">2.</span> <span class="nav-text">结构体类型的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义形式"><span class="nav-number">2.1.</span> <span class="nav-text">定义形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举例"><span class="nav-number">2.2.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体变量的初始化"><span class="nav-number">3.</span> <span class="nav-text">结构体变量的初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整体初始化"><span class="nav-number">3.1.</span> <span class="nav-text">整体初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员单独初始化"><span class="nav-number">3.2.</span> <span class="nav-text">成员单独初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体的注意点"><span class="nav-number">4.</span> <span class="nav-text">结构体的注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不允许对结构体本身递归定义"><span class="nav-number">4.1.</span> <span class="nav-text">不允许对结构体本身递归定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构体内可以包含别的结构体"><span class="nav-number">4.2.</span> <span class="nav-text">结构体内可以包含别的结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存问题一"><span class="nav-number">4.3.</span> <span class="nav-text">内存问题一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存问题二"><span class="nav-number">4.4.</span> <span class="nav-text">内存问题二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体的使用"><span class="nav-number">5.</span> <span class="nav-text">结构体的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体数组的初始化"><span class="nav-number">6.</span> <span class="nav-text">结构体数组的初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整体初始化-1"><span class="nav-number">6.1.</span> <span class="nav-text">整体初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员单独初始化-1"><span class="nav-number">6.2.</span> <span class="nav-text">成员单独初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体作为函数参数"><span class="nav-number">7.</span> <span class="nav-text">结构体作为函数参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体指针"><span class="nav-number">8.</span> <span class="nav-text">结构体指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SanFordy</span>
+</div>
+
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sanfordy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>

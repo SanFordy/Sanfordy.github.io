@@ -1,0 +1,1010 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <link rel="apple-touch-icon" href="touch-icon-mac.png">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|comic sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SanFordy`s　magic" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【07】变量（三）">
+<meta property="og:url" content="http://sanfordy.com/2016/06/18/〖A〗C/【07】变量（三）/index.html">
+<meta property="og:site_name" content="SanFordy`s　magic">
+<meta property="og:description" content="我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png">
+<meta property="og:updated_time" content="2016-09-09T03:58:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【07】变量（三）">
+<meta name="twitter:description" content="我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+  <title> 【07】变量（三） | SanFordy`s　magic </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SanFordy`s　magic</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">　　　　　　</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【07】变量（三）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-18T22:23:15+08:00" content="2016-06-18">
+              2016-06-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/〖A〗C/" itemprop="url" rel="index">
+                    <span itemprop="name">〖A〗C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/18/〖A〗C/【07】变量（三）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/18/〖A〗C/【07】变量（三）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次数阅读
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能存储的数据范围就变大了。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="类型修饰符"><a href="#类型修饰符" class="headerlink" title="类型修饰符"></a>类型修饰符</h2><h3 id="什么是类型修饰符"><a href="#什么是类型修饰符" class="headerlink" title="什么是类型修饰符"></a>什么是类型修饰符</h3><p>我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能存储的数据范围就变大了。</p>
+<p>C语言提供了以下4种类型修饰符，4个都属于关键字：</p>
+<ol>
+<li>short  短型。</li>
+<li>long  长型。</li>
+<li>signed  有符号型。</li>
+<li>unsigned  无符号型。</li>
+</ol>
+<p>按照用途进行分类，short和long是一类，signed和unsigned是一类。</p>
+<h3 id="用法演示"><a href="#用法演示" class="headerlink" title="用法演示"></a>用法演示</h3><p>这些说明符一般就是用来修饰int类型的，所以在使用时可以省略int：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">short</span> <span class="keyword">int</span> s1 = <span class="number">1</span>;</span><br><span class="line"> <span class="keyword">short</span> s2 = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">long</span> <span class="keyword">int</span> l1 = <span class="number">2</span>;</span><br><span class="line"> <span class="keyword">long</span> l2 = <span class="number">2</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 可以连续使用2个long</span></span><br><span class="line"> <span class="keyword">long</span> <span class="keyword">long</span> ll = <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">signed</span> <span class="keyword">int</span> si1 = <span class="number">3</span>;</span><br><span class="line"> <span class="keyword">signed</span> si2 = <span class="number">3</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 下面两种写法是等价的</span></span><br><span class="line"> <span class="keyword">unsigned</span> <span class="keyword">int</span> us1 = <span class="number">4</span>;</span><br><span class="line"> <span class="keyword">unsigned</span> us2 = <span class="number">4</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 也可以同时使用2种修饰符</span></span><br><span class="line"> <span class="keyword">signed</span> <span class="keyword">short</span> <span class="keyword">int</span> ss = <span class="number">5</span>;</span><br><span class="line"> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> ul = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>第2行中的short int和第3行中的short是等价的。</li>
+<li>看第10行，可以连续使用两个long。long的作用会在后面解释。</li>
+<li>注意第21和22行，可以同时使用两种不同的说明符。但是不能同时使用相同类型的修饰符，也就是说不能同时使用short和long 或者 不能同时使用signed和unsigned。</li>
+</ul>
+<h3 id="short和long"><a href="#short和long" class="headerlink" title="short和long"></a>short和long</h3><p>short和long可以提供不同长度的整型数，也就是可以改变整型数的取值范围。在64bit编译器环境下，int占用4个字节（32bit），取值范围是-231~231-1；short占用2个字节（16bit），取值范围是-215~215-1；long占用8个字节（64bit），取值范围是-263~263-1。</p>
+<p>在64位编译器环境下，short占2个字节(16位)，int占4个字节(32位)，long占8个字节(64位)。因此，如果使用的整数不是很大的话，可以使用short代替int，这样的话，更节省内存开销。</p>
+<p>世界上的编译器林林总总，不同编译器环境下，int、short、long的取值范围和占用的长度又是不一样的。比如在16bit编译器环境下，long只占用4个字节。不过幸运的是，ANSI \ ISO制定了以下规则：</p>
+<ol>
+<li>short跟int至少为16位（2字节）。</li>
+<li>long至少为32位（4字节）。</li>
+<li>short的长度不能大于int，int的长度不能大于long。</li>
+<li>char一定为为8位（1字节），毕竟char是我们编程能用的最小数据类型。</li>
+</ol>
+<p>可以连续使用2个long，也就是long long。一般来说，long long的范围是不小于long的，比如在32bit编译器环境下，long long占用8个字节，long占用4个字节。不过在64bit编译器环境下，long long跟long是一样的，都占用8个字节。</p>
+<p>还有一点要明确的是：short int等价于short，long int等价于long，long long int等价于long long。</p>
+<h3 id="long的使用注意"><a href="#long的使用注意" class="headerlink" title="long的使用注意"></a>long的使用注意</h3><h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>long和int都能够存储整型常量，为了区分long和int，一般会在整型常量后面加个小写字母l，比如100l，表示long类型的常量。如果是long long类型呢，就加2个l，比如100ll。如果什么都不加，就是int类型的常量。因此，100是int类型的常量，100l是long类型的常量，100ll是long long类型的常量：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">100</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">long</span> b = <span class="number">100l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> c = <span class="number">100l</span>l;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>变量a、b、c最终存储的值其实都是100，只不过占用的字节不相同，变量a用4个字节来存储100，变量b、c则用8个字节来存储100。</li>
+</ul>
+<p>其实，你直接将100赋值给long类型的变量也是没问题的，照样使用。因为100是个int类型的常量，只要有4个字节，就能存储它，而long类型的变量b有8个字节，那肯定可以装下100啦：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> b = <span class="number">100</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">100000000000l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1215752192</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在第5行定义了long类型变量a，在第7行尝试输出a的值。注意了，这里用的是%d，表示以十进制整数格式输出，%d会把a当做int类型来输出，它认为a是4个字节的。由于a是long类型的，占用8个字节，但是输出a的时候，只会取其中4个字节的内容进行输出，所以输出结果又是传说的垃圾数据。</li>
+</ul>
+<p>那怎样才能完整地输出long类型呢？应该用格式符%ld：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a = <span class="number">100000000000l</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%ld\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1000000000000</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意第7行，双引号里面的是%ld，表示输出1个long类型的整数。</li>
+</ul>
+<p>如果是long long类型，应该用%lld：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> a = <span class="number">100000000000l</span>l;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, a);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1000000000000</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<h3 id="signed和unsigned"><a href="#signed和unsigned" class="headerlink" title="signed和unsigned"></a>signed和unsigned</h3><p>首先要明确的：<code>signed int</code>等价于<code>signed</code>，<code>unsigned int</code>等价于<code>unsigned</code>。</p>
+<p><code>signed</code>和<code>unsigned</code>的区别就是它们的最高位是否要当做符号位，并不会像<code>short</code>和<code>long</code>那样改变数据的长度，即所占的字节数。</p>
+<h4 id="signed"><a href="#signed" class="headerlink" title="signed"></a>signed</h4><p><code>signed</code>表示有符号，也就是说最高位要当做符号位，所以包括正数、负数和0。其实int的最高位本来就是符号位，已经包括了正负数和0了，因此signed和int是一样的，signed等价于signed int，也等价于int。signed的取值范围是-231 ~ 231 - 1。</p>
+<h4 id="unsigned"><a href="#unsigned" class="headerlink" title="unsigned"></a>unsigned</h4><p><code>unsigned</code>表示无符号，也就是说最高位并不当做符号位，所以不包括负数。在64bit编译器环境下面，int占用4个字节（32bit），因此unsigned的取值范围是：0000 0000 0000 0000 0000 0000 0000 0000 ~ 1111 1111 1111 1111 1111 1111 1111 1111，也就是0 ~ 232 - 1。</p>
+<blockquote>
+<p><strong>注意</strong>：signed、unsigned也可以修饰char，long还可以修饰double。</p>
+</blockquote>
+<h3 id="不同数据类型所占用的存储空间"><a href="#不同数据类型所占用的存储空间" class="headerlink" title="不同数据类型所占用的存储空间"></a>不同数据类型所占用的存储空间</h3><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png" alt=""></p>
+<h2 id="自动类型提升"><a href="#自动类型提升" class="headerlink" title="自动类型提升"></a>自动类型提升</h2><h3 id="什么是自动类型提升"><a href="#什么是自动类型提升" class="headerlink" title="什么是自动类型提升"></a>什么是自动类型提升</h3><p>先来看看下面的一则运算：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> d = a + <span class="number">9.5</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%f \n"</span>, d);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">19.500000</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在第5行定义了一个int类型的变量a，赋值了一个整数10。</li>
+<li>接着在第7行取出a的值10，加上浮点数9.5，这里做了一个“加法运算”，并且将“和”赋值给d。所以d的值应该是19.5。</li>
+<li>在第9行使用格式符%f输出浮点型变量d，默认是保留6位小数的。</li>
+<li>看似这么简单的运算，其实包含了一些语法细节在里面。严格来说，相同数据类型的值才能进行运算（比如加法运算），而且运算结果依然是同一种数据类型。第7行的情况是：变量a的值10是int类型（4字节），9.5是double类型（8字节）。很明显，10和9.5并不是相同数据类型。按理来说，10和9.5是不允许进行加法运算的。但是，系统会自动对占用内存较少的类型做一个“自动类型提升”的操作，也就把10提升为double类型。也就是说，本来是用4个字节来存放10的，现在改为用8个字节来存放10。因此，10和9.5现在都是用8个字节来存放的，都是double类型，然后就可以进行运算了。并且把运算结果赋值给double类型的变量d。</li>
+<li>需要注意的是：经过第7行代码后，变量a一直都还是int类型的，并没有变成double类型。1个变量在它定义的时候是什么类型，那么就一直都是什么类型。“自动类型提升”只是在运算过程中进行的。</li>
+</ul>
+<h3 id="常见的自动类型提升"><a href="#常见的自动类型提升" class="headerlink" title="常见的自动类型提升"></a>常见的自动类型提升</h3><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> a = <span class="number">10</span> + <span class="number">3.45f</span>;<span class="comment">// int 提升为 float</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> b = <span class="string">'A'</span> + <span class="number">32</span>; <span class="comment">// char 提升为 int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> c = <span class="number">10.3f</span> + <span class="number">5.7</span>; <span class="comment">// float 提升为 double</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意第5行，系统会将字符’A’提升为int类型数据，也就是转为’A’的ASCII值后再跟32进行加法运算。’A’的ASCII值是65，因此变量b的值为65+32=97。</li>
+<li>这个自动类型提升，知道有这么一回事就行了，不用死记这规则，因为系统会自动执行这个操作。</li>
+</ul>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><h3 id="什么是强制类型转换"><a href="#什么是强制类型转换" class="headerlink" title="什么是强制类型转换"></a>什么是强制类型转换</h3><p>先来看看下面的代码：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">10.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, i);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> j = (int) <span class="number">10.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, j);</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10 </span><br><span class="line">10 </span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意第5行，我们将一个8个字节的浮点数10.7赋值给了只有4个字节存储空间的整型变量i。可以想象得到，把8个字节的内容塞给4个字节，肯定会损失精度。这里面也有一点语法细节，其实第5行做了一个“强制类型转换”的操作：由于左边是int类型的变量i，那么就会强制把double类型的10.7转换为int类型的10，并且把转换后的值赋值给了整型变量i。由于C语言是语法限制不严格，所以系统会自动强制转换，如果换做是其他语法严格的语言，比如Java，第5行代码早就报错了。</li>
+<li>如果写得严格一点，明显地进行“强制类型转换”，应该写成第8行，在10.7的前面加了个(int)，表示强制转换为int类型的数据。这样就绝对不会有语法问题了。总之你将一个浮点型数据转换为整型数据，就会丢失小数部分的值。</li>
+</ul>
+<h3 id="常见的强制类型转换"><a href="#常见的强制类型转换" class="headerlink" title="常见的强制类型转换"></a>常见的强制类型转换</h3><p>这个强制类型转换，知道有这么一回事就行了，不用死记这规则，因为很多时候系统会自动执行这个操作：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">198l</span>; <span class="comment">// long 转换为 int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> b = <span class="number">65</span>; <span class="comment">// int 转换为 char</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">19.5f</span>; <span class="comment">// float 转换为 int</span></span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="其他用法"><a href="#其他用法" class="headerlink" title="其他用法"></a>其他用法</h3><p>前面看到的强制转换好像都是“大类型”转为“小类型”，其实这是不一样的，也可以由“小类型”转为“大类型”：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> b = (double)a  + <span class="number">9.6</span>;</span><br><span class="line">    </span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>注意第5行，先将a的值强制转换为double类型后，再跟9.6进行加法运算。这样的话，系统就不用执行“自动类型提升”的操作了。其实你不强转也可以的，因为系统会做一个“自动类型提升”的操作，将变量a的值10提升为double类型。知道有这用法就行了，以后某些地方会用得上。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+<div>想请我吃辣条吗？</div>
+<button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+<span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+</button>
+<div id="QR" style="display: none;">
+
+<div id="wechat" style="display: inline-block">
+<img id="wechat_qr" src="http://i4.piimg.com/508f386ab6942876.jpg" alt="SanFordy WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>微信打赏</p>
+</div>
+
+
+<div id="alipay" style="display: inline-block">
+<img id="alipay_qr" src="http://i4.piimg.com/481cbcc6ec69d37b.png" alt="SanFordy Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>支付宝打赏</p>
+</div>
+
+</div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/07/〖A〗C/【06】变量（二）/" rel="next" title="【06】变量（二）">
+                <i class="fa fa-chevron-left"></i> 【06】变量（二）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/19/〖A〗C/【08】进制/" rel="prev" title="【08】进制">
+                【08】进制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/18/〖A〗C/【07】变量（三）/"
+           data-title="【07】变量（三）" data-url="http://sanfordy.com/2016/06/18/〖A〗C/【07】变量（三）/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="SanFordy" />
+          <p class="site-author-name" itemprop="name">SanFordy</p>
+          <p class="site-description motion-element" itemprop="description">是时候表演真正的技术啦！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">归档</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter-square"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-facebook-square"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-book"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Douban">
+                  
+                    <i class="fa fa-coffee"></i>
+                  
+                  Douban
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.guijj.com/pics/201404/535a0243a9698.gif" title="biggift" target="_blank">biggift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类型修饰符"><span class="nav-number">1.</span> <span class="nav-text">类型修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是类型修饰符"><span class="nav-number">1.1.</span> <span class="nav-text">什么是类型修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法演示"><span class="nav-number">1.2.</span> <span class="nav-text">用法演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#short和long"><span class="nav-number">1.3.</span> <span class="nav-text">short和long</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#long的使用注意"><span class="nav-number">1.4.</span> <span class="nav-text">long的使用注意</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常量"><span class="nav-number">1.4.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出"><span class="nav-number">1.4.2.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#signed和unsigned"><span class="nav-number">1.5.</span> <span class="nav-text">signed和unsigned</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#signed"><span class="nav-number">1.5.1.</span> <span class="nav-text">signed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unsigned"><span class="nav-number">1.5.2.</span> <span class="nav-text">unsigned</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同数据类型所占用的存储空间"><span class="nav-number">1.6.</span> <span class="nav-text">不同数据类型所占用的存储空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动类型提升"><span class="nav-number">2.</span> <span class="nav-text">自动类型提升</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是自动类型提升"><span class="nav-number">2.1.</span> <span class="nav-text">什么是自动类型提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的自动类型提升"><span class="nav-number">2.2.</span> <span class="nav-text">常见的自动类型提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换"><span class="nav-number">3.</span> <span class="nav-text">强制类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是强制类型转换"><span class="nav-number">3.1.</span> <span class="nav-text">什么是强制类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的强制类型转换"><span class="nav-number">3.2.</span> <span class="nav-text">常见的强制类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他用法"><span class="nav-number">3.3.</span> <span class="nav-text">其他用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SanFordy</span>
+</div>
+
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sanfordy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>
