@@ -509,7 +509,7 @@ pre,
   overflow: auto;
   margin: 20px 0;
   padding: 15px;
-  font-size: 13px;
+  font-size: 14px;
   color: #ccc;
   background: #2d2d2d;
   line-height: 1.6;
@@ -521,10 +521,10 @@ code {
 code {
   padding: 2px 4px;
   word-break: break-all;
-  color: #fff;
-  background: #999;
-  border-radius: 4px;
-  font-size: 13px;
+  color: #fc6423;
+  background: #ebebeb;
+  border-radius: 2px;
+  font-size: 14px;
 }
 pre code {
   padding: 0;
@@ -671,14 +671,14 @@ pre .javascript .function {
 .page-post-detail .post-type-quote blockquote::before {
   top: -20px;
   background-image: url("../images/quote-l.svg");
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ebebeb;
 }
 .blockquote-center::after,
 .page-home .post-type-quote blockquote::after,
 .page-post-detail .post-type-quote blockquote::after {
   bottom: -20px;
   background-image: url("../images/quote-r.svg");
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ebebeb;
   background-position: 100% 8px;
 }
 .blockquote-center p,
@@ -808,8 +808,8 @@ pre .javascript .function {
 }
 .pagination .page-number.current {
   color: #fff;
-  background: #ccc;
-  border-top-color: #ccc;
+  background: #ebebeb;
+  border-top-color: #ebebeb;
 }
 @media (max-width: 767px) {
   .pagination {
@@ -1065,7 +1065,7 @@ pre .javascript .function {
 .posts-expand .post-body h6 .header-anchor {
   float: right;
   margin-left: 10px;
-  color: #ccc;
+  color: #ebebeb;
   border-bottom-style: none;
   visibility: hidden;
 }
@@ -1158,7 +1158,7 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: border;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed #ebebeb;
 }
 .posts-collapse .post-header::before {
   content: " ";
@@ -1351,7 +1351,7 @@ pre .javascript .function {
   margin: 80px auto 60px;
   width: 8%;
   height: 1px;
-  background: #ccc;
+  background: #ebebeb;
   text-align: center;
 }
 .post:last-child .post-eof.post-eof.post-eof {
@@ -1534,7 +1534,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7cff6e;
+  background: #ff4420;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1613,8 +1613,8 @@ pre .javascript .function {
   border-bottom-color: #555;
 }
 .post-toc ol a:hover {
-  color: #ccc;
-  border-bottom-color: #ccc;
+  color: #ebebeb;
+  border-bottom-color: #ebebeb;
 }
 .post-toc .nav-item {
   overflow: hidden;
