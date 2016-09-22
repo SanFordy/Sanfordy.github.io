@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://sanfordy.com/2016/05/11/〖A〗C/【00】C语言简介/index.html">
 <meta property="og:site_name" content="SanFordy`s　magic">
 <meta property="og:description" content="C语言于1972年发明，首次使用是用于重写UNIX操作系统（UNIX以前是用汇编写的）。随着UNIX操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。">
-<meta property="og:updated_time" content="2016-09-09T03:58:09.000Z">
+<meta property="og:updated_time" content="2016-09-22T07:37:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【00】C语言简介">
 <meta name="twitter:description" content="C语言于1972年发明，首次使用是用于重写UNIX操作系统（UNIX以前是用汇编写的）。随着UNIX操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。">
@@ -200,16 +200,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
@@ -221,9 +211,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -333,11 +346,11 @@
 </blockquote>
 <a id="more"></a>
 <h2 id="计算机常识"><a href="#计算机常识" class="headerlink" title="计算机常识"></a>计算机常识</h2><p>在学习C语言之前，先要了解一些计算机常识。</p>
-<h3 id="计算机只能识别0和1"><a href="#计算机只能识别0和1" class="headerlink" title="计算机只能识别0和1"></a>计算机只能识别0和1</h3><p>大家都知道，计算机要通电才能工作，说白了，它跟电视、洗衣机一样，都是电器。电器都有个共同的能力：懂得判断通电还是断电，通电就能工作，断电就停止工作。因此，从根本上讲，计算机只能识别电信号：高电平信号（通电）、低电平信号（断电），它只知道某个开关是通电还是断电。我们用1代表高电平，0代表低电平。也就说，<code>计算机只能识别0和1。</code></p>
+<h3 id="计算机只能识别0和1"><a href="#计算机只能识别0和1" class="headerlink" title="计算机只能识别0和1"></a>计算机只能识别0和1</h3><p>大家都知道，计算机要通电才能工作，说白了，它跟电视、洗衣机一样，都是电器。电器都有个共同的能力：懂得判断通电还是断电，通电就能工作，断电就停止工作。因此，从根本上讲，计算机只能识别电信号：高电平信号（通电）、低电平信号（断电），它只知道某个开关是通电还是断电。我们用1代表高电平，0代表低电平。也就说，<strong>计算机只能识别0和1</strong>。</p>
 <h3 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h3><p>因为计算机只能识别0和1，因此计算机所能识别的指令和数据都是用二进制数（0和1）来表示的。所谓二进制，就是用0和1来表示所有的数。不过我们日常生活中最常用的是十进制，用0~9来表示所有的数。</p>
 <h4 id="二进制指令"><a href="#二进制指令" class="headerlink" title="二进制指令"></a>二进制指令</h4><p>给计算机灌输一些指令，它就能执行相应的操作，而计算机只能识别由0和1组成的指令。在计算机发展初期，计算机的指令长度为16，即以16个二进制数（0或1）组成一条指令，例如，用1011011000000000这条指令，是让计算机进行一次加法运算。因此，如果要想计算机执行一系列的操作，就必须编写许多条由0和1组成的指令，可以想象的到，这个工作量是如此巨大。</p>
 <h4 id="二进制数据"><a href="#二进制数据" class="headerlink" title="二进制数据"></a>二进制数据</h4><p>平时我们在计算机中存储的一些数据，比如文档、照片、视频等，都是以0和1的形式存储的。只不过计算机解析了这一大堆的0和1，以图形界面的形式将数据展示在我们眼前。</p>
-<h2 id="程序设计语言的发展史"><a href="#程序设计语言的发展史" class="headerlink" title="程序设计语言的发展史"></a>程序设计语言的发展史</h2><p>我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：<code>机器语言</code>、<code>汇编语言</code>、<code>高级语言</code>。其中， C语言属于高级语言。</p>
+<h2 id="程序设计语言的发展史"><a href="#程序设计语言的发展史" class="headerlink" title="程序设计语言的发展史"></a>程序设计语言的发展史</h2><p>我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：<strong>机器语言</strong>、<strong>汇编语言</strong>、<strong>高级语言</strong>。其中， C语言属于高级语言。</p>
 <h3 id="机器语言"><a href="#机器语言" class="headerlink" title="机器语言"></a>机器语言</h3><h4 id="什么是机器语言"><a href="#什么是机器语言" class="headerlink" title="什么是机器语言"></a>什么是机器语言</h4><p>在计算器诞生初期， 所有的计算机程序都是直接用计算机能识别的二进制指令来编写的，也就是说所有的代码里面只有0和1。这种程序设计语言就是“机器语言”。这些由0和1组成的二进制指令，又叫做“机器指令”。</p>
 <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
 <li>执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。</li>
@@ -349,7 +362,7 @@
 <li>可移植性差：由于机器语言是直接对硬件产生作用的，对硬件的依赖性很强，因此不同型号计算机的机器语言又不一样。也就是说，如果2台不同型号的机器想实现一样的功能，需要编写2套完全不同的代码。</li>
 </ol>
 <blockquote>
-<p><strong>说明</strong>：机器语言很难掌握和推广，现在除了计算机生产厂家的专业人员外，绝大多数的程序员已经不再去学习机器语言了。</p>
+<p>说明：机器语言很难掌握和推广，现在除了计算机生产厂家的专业人员外，绝大多数的程序员已经不再去学习机器语言了。</p>
 </blockquote>
 <h3 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h3><h4 id="什么是汇编语言"><a href="#什么是汇编语言" class="headerlink" title="什么是汇编语言"></a>什么是汇编语言</h4><p>由于机器语言的种种弊端，严重影响开发效率，后面就出现了汇编语言。汇编语言其实就是符号化的机器语言，它用一个符号（英文单词、数字）来代表一条机器指令。比如，在机器语言中，用1011011000000000这条指令，是让计算机进行一次加法运算；而在汇编语言中，用英文单词 “ADD”就可以表示加法运算。一个有意义的英文单词，很明显比一串又臭又长的二进制指令，直观好记多了。</p>
 <p>由于计算机只能识别0和1，用汇编语言编写的代码是不能被计算机所识别的，像刚才的”ADD”，计算机肯定不知道是什么意思。因此，用汇编语言编写的代码需要翻译成二进制指令后，才能被计算机识别。这个翻译的工作交给编译器去做。</p>
@@ -370,11 +383,11 @@
 <li>可移植性好：用高级语言编写的同一个程序还可以在不同的机器上运行，具有可移植性。</li>
 </ol>
 <blockquote>
-<p><strong>注意</strong>：用高级语言编写的程序不能直接被计算机识别，需要经编译器翻译成二进制指令后，才能运行到计算机上。</p>
+<p>注意：用高级语言编写的程序不能直接被计算机识别，需要经编译器翻译成二进制指令后，才能运行到计算机上。</p>
 </blockquote>
 <h2 id="C语言简史"><a href="#C语言简史" class="headerlink" title="C语言简史"></a>C语言简史</h2><p>C语言于1972年发明，首次使用是用于重写<code>UNIX</code>操作系统（<code>UNIX</code>以前是用汇编写的）。随着<code>UNIX</code>操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。</p>
 <blockquote>
-<p><strong>注意</strong>：C语言是一门面向过程的语言，非面向对象的语言。</p>
+<p>注意：C语言是一门面向过程的语言，非面向对象的语言。</p>
 </blockquote>
 <h2 id="C语言的优点"><a href="#C语言的优点" class="headerlink" title="C语言的优点"></a>C语言的优点</h2><h3 id="丰富的运算符"><a href="#丰富的运算符" class="headerlink" title="丰富的运算符"></a>丰富的运算符</h3><p>计算机的基本功能就是计算，因此一门程序设计语言的计算能力是非常重要的。C语言提供了34种运算符，计算类型及其丰富，其中包括了最基本的加减乘除运算。</p>
 <h3 id="丰富的数据类型"><a href="#丰富的数据类型" class="headerlink" title="丰富的数据类型"></a>丰富的数据类型</h3><p>C语言之所以生命力如何强大，很大一部分是因为它拥有丰富的数据类型。C语言的数据类型有：整型（int）、实型（float）、字符型（char）、数组类型（int []）、指针类型（void *）、结构体类型（struct）、共用体类型（union）等。众多数据类型中，最强大的是指针，通过指针我们可以直接访问内存地址。指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说 C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。正因为C语言数据类型丰富，运算能力极强，因此很多数据库都是用C语言编写的，比如<code>DB2</code>、<code>Oracle</code>等。</p>
@@ -436,8 +449,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/17/〖A〗C/【01】第一个C程序代码分析/" rel="prev" title="【01】第一个C程序代码分析">
-                【01】第一个C程序代码分析 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/17/〖A〗C/【01】第一个C程序代码分析/" rel="prev" title="【01】Hello World">
+                【01】Hello World <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -524,13 +537,6 @@
             </div>
           
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
         </nav>
@@ -794,6 +800,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
   
 
   

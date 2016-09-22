@@ -226,51 +226,51 @@ h6 {
   margin: 20px 0 15px;
 }
 h1 {
-  font-size: 37px;
+  font-size: 29px;
 }
 @media (max-width: 767px) {
   h1 {
-    font-size: 33px;
+    font-size: 25px;
   }
 }
 h2 {
-  font-size: 30px;
+  font-size: 25px;
 }
 @media (max-width: 767px) {
   h2 {
-    font-size: 26px;
+    font-size: 21px;
   }
 }
 h3 {
-  font-size: 23px;
+  font-size: 21px;
 }
 @media (max-width: 767px) {
   h3 {
-    font-size: 19px;
+    font-size: 17px;
   }
 }
 h4 {
-  font-size: 16px;
+  font-size: 17px;
 }
 @media (max-width: 767px) {
   h4 {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 h5 {
-  font-size: 9px;
+  font-size: 13px;
 }
 @media (max-width: 767px) {
   h5 {
-    font-size: 5px;
+    font-size: 9px;
   }
 }
 h6 {
-  font-size: 2px;
+  font-size: 9px;
 }
 @media (max-width: 767px) {
   h6 {
-    font-size: -2px;
+    font-size: 5px;
   }
 }
 p {
@@ -301,10 +301,9 @@ img {
 }
 hr {
   margin: 40px 0;
-  height: 3px;
+  height: 1px;
   border: none;
-  background-color: #ddd;
-  background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
+  background-color: #ebebeb;
 }
 blockquote {
   padding: 0 15px;
@@ -1534,7 +1533,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4061ee;
+  background: #455bff;
 }
 .links-of-blogroll {
   font-size: 13px;

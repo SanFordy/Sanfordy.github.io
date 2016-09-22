@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="SanFordy`s　magic">
 <meta property="og:description" content="C语言属于一门高级语言，其实所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的Objective-C，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607104437855-2085184487.png">
-<meta property="og:updated_time" content="2016-09-09T03:58:19.000Z">
+<meta property="og:updated_time" content="2016-09-22T07:37:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【02】C语言语法">
 <meta name="twitter:description" content="C语言属于一门高级语言，其实所有的高级语言的基本语法组成部分都是一样的，只是表现形式不太一样。就好像亚洲人和非洲人，大家都有人类的结构：2只手、2只脚、1个头，只是他们外表不太一样，比如肤色、脸型。因此，你掌握好了一门高级语言，再去学习其他高级语言，那是相当快的。而且，很多其他高级语言，比如后面要学习的Objective-C，都是基于C语言、从C语言衍生出来的，好好学习C语言吧，绝对不吃亏。">
@@ -202,16 +202,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
@@ -223,9 +213,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -347,17 +360,18 @@
 <p>比如下面这段C程序在UltraEdit中呈现的样子：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607104437855-2085184487.png" alt=""></p>
 <p>在这段代码中，只有int和return是关键字，C语言中的所有关键字在UltraEdit中都会显示蓝色！可以看出，main并不是关键字。至于int和return究竟有什么特殊含义，这里先不做讨论，后面会详细介绍。</p>
-<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><h3 id="什么是标识符"><a href="#什么是标识符" class="headerlink" title="什么是标识符"></a>什么是标识符</h3><p>在程序中使用的变量名、函数名、标号等统称为标识符。除库函数的函数名由系统定义外，其余都由用户自定义。C规定，标识符只能是字母(A～Z，a～z)、数字(0～9)、下划线(_)组成的字符串，并且其第一个字符不能是数字。</p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>在程序中使用的变量名、函数名、标号等统称为标识符。除库函数的函数名由系统定义外，其余都由用户自定义。C规定，标识符只能是字母(A～Z，a～z)、数字(0～9)、下划线(_)组成的字符串，并且其第一个字符不能是数字。</p>
+<p>使用标识符需要注意以下几点：</p>
+<ol>
 <li>标准C不限制标识符的长度，但它受各种版本的C语言编译系统限制，同时也受到具体机器的限制。例如在某版本C中规定标识符前八位有效，当两个标识符前八位相同时，则被认为是同一个标识符。</li>
 <li>在标识符中，大小写是有区别的。例如BOOK和book是两个不同的标识符。</li>
 <li>标识符虽然可由程序员随意定义，但标识符是用于标识某个量的符号。因此，命名应尽量有相应的意义，以便阅读理解，作到“顾名思义”。如果标识符中含有多个单词，可以使用驼峰标识（除开第一个单词，后面每个单词的首字母都是大写）：firstName、myFirstName，或者使用下划线_来连接：first_name、my_first_name。</li>
 </ol>
 <h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p>表达式是由常量、变量与运算符组成的。例如：3+5，a += b!</p>
 <blockquote>
-<p><strong>注意</strong>：表达式都会返回值。</p>
+<p>注意：表达式都会返回值。</p>
 </blockquote>
-<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>语句是程序执⾏的最小单位，以分号结尾。 </p>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>语句是程序执⾏的最小单位，以<code>;</code>结尾。 </p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
 
@@ -404,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/17/〖A〗C/【01】第一个C程序代码分析/" rel="next" title="【01】第一个C程序代码分析">
-                <i class="fa fa-chevron-left"></i> 【01】第一个C程序代码分析
+              <a href="/2016/05/17/〖A〗C/【01】第一个C程序代码分析/" rel="next" title="【01】Hello World">
+                <i class="fa fa-chevron-left"></i> 【01】Hello World
               </a>
             
           </div>
@@ -500,13 +514,6 @@
             </div>
           
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
         </nav>
@@ -624,7 +631,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字"><span class="nav-number">2.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是关键字"><span class="nav-number">2.1.</span> <span class="nav-text">什么是关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#都有哪些关键字"><span class="nav-number">2.2.</span> <span class="nav-text">都有哪些关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何辨别关键字"><span class="nav-number">2.3.</span> <span class="nav-text">如何辨别关键字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">3.</span> <span class="nav-text">标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是标识符"><span class="nav-number">3.1.</span> <span class="nav-text">什么是标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">3.2.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表达式"><span class="nav-number">4.</span> <span class="nav-text">表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句"><span class="nav-number">5.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字"><span class="nav-number">2.</span> <span class="nav-text">关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是关键字"><span class="nav-number">2.1.</span> <span class="nav-text">什么是关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#都有哪些关键字"><span class="nav-number">2.2.</span> <span class="nav-text">都有哪些关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何辨别关键字"><span class="nav-number">2.3.</span> <span class="nav-text">如何辨别关键字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">3.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表达式"><span class="nav-number">4.</span> <span class="nav-text">表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句"><span class="nav-number">5.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
@@ -770,6 +777,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
   
 
   

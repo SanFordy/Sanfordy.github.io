@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143719574-1356202246.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143724168-1786196972.jpg">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143728402-1476722878.png">
-<meta property="og:updated_time" content="2016-09-09T03:58:23.000Z">
+<meta property="og:updated_time" content="2016-09-22T07:37:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【03】数据">
 <meta name="twitter:description" content="在我们使用计算机的过程中，会接触到各种各样的数据，有文档数据、图片数据、视频数据，还有聊QQ时产生的文字数据、用迅雷下载的文件数据等。这讲我们就来介绍C语言中数据的处理。">
@@ -205,16 +205,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
@@ -226,9 +216,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -346,7 +359,7 @@
 <p>存储的时长：计算机关闭之后，这些临时数据就会被清除。</p>
 <p>哪些是动态数据：当运行某个程序（软件）时，整个程序就会被加载到内存中，在程序运行过程中，会产生各种各样的临时数据，这些临时数据都是存储在内存中的。当程序停止运行或者计算机被强制关闭时，这个程序产生的所有临时数据都会被清除。</p>
 <blockquote>
-<p><strong>说明</strong>：你可能会问，既然硬盘的存储空间这么大，为何不把所有的应用程序加载到硬盘中去执行呢？有个主要原因是内存的访问速度比硬盘快N倍。</p>
+<p>说明：你可能会问，既然硬盘的存储空间这么大，为何不把所有的应用程序加载到硬盘中去执行呢？有个主要原因是内存的访问速度比硬盘快N倍。</p>
 </blockquote>
 <h4 id="动态数据和静态数据的转换"><a href="#动态数据和静态数据的转换" class="headerlink" title="动态数据和静态数据的转换"></a>动态数据和静态数据的转换</h4><p>硬盘和内存是计算机使用最频繁的两个硬件，它们之间的数据经常要进行转换。</p>
 <p>比如，硬盘上有个叫做“C语言.mp4”的视频文件，现在要使用暴风影音来播放：</p>
@@ -361,13 +374,13 @@
 <h2 id="数据的类型"><a href="#数据的类型" class="headerlink" title="数据的类型"></a>数据的类型</h2><p>C语言有丰富的数据类型，因此它很适合用来编写数据库，如DB2、Oracle都是C语言写的。</p>
 <p>作为程序员，最关心的肯定是内存中的动态数据，因为我们写的程序就是运行在内存中的。程序在运行过程中，会产生各种各样的动态临时数据，为了方便数据的运算和操作，C语言对这些数据进行了分类，提供了丰富的数据类型。大致如下图所示：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143724168-1786196972.jpg" alt=""></p>
-<p>在图中众多数据类型中，最常用的是4种基本数据类型：char、int、float、double，而最重要的是指针类型，指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。</p>
+<p>在图中众多数据类型中，最常用的是4种基本数据类型：<code>char</code>、<code>int</code>、<code>float</code>、<code>double</code>，而最重要的是<strong>指针类型</strong>，指针使用得当的话，不仅可以节省代码量，还可以优化内存管理、提高性能。因此，指针是一个非常重要的概念，必须重视。如果你说C语言中除了指针，其他都学得挺好的，那你干脆说你没学过C语言。</p>
 <p>这些丰富的数据在C语言中可以用常量或者变量来表示（后面会介绍常量和变量的使用）。</p>
 <h2 id="数据的访问"><a href="#数据的访问" class="headerlink" title="数据的访问"></a>数据的访问</h2><p>数据访问一般分为直接访问和间接访问。</p>
 <h3 id="直接访问"><a href="#直接访问" class="headerlink" title="直接访问"></a>直接访问</h3><p>直接访问内存单元中的内容。例如: a = 20; b = 2 * a等。</p>
 <h3 id="间接访问"><a href="#间接访问" class="headerlink" title="间接访问"></a>间接访问</h3><p>通过内存单元编号以及数据所占字节数访问内存中数据。</p>
 <blockquote>
-<p><strong>注意</strong>：指针是间接访问的常用方式。</p>
+<p>注意：指针是间接访问的常用方式。</p>
 </blockquote>
 <h2 id="不同编译器环境下基本数据类型的存储长度"><a href="#不同编译器环境下基本数据类型的存储长度" class="headerlink" title="不同编译器环境下基本数据类型的存储长度"></a>不同编译器环境下基本数据类型的存储长度</h2><p>红色的代表常用的数据类型：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607143728402-1476722878.png" alt=""></p>
@@ -513,13 +526,6 @@
             </div>
           
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
         </nav>
@@ -783,6 +789,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
   
 
   
