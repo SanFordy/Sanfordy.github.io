@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820183820078-1577562353.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820185543625-1854041435.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160823113846605-1032450553.png">
-<meta property="og:updated_time" content="2016-09-09T03:59:35.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:31:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【22】extern和static关键字 -- 对函数的作用">
 <meta name="twitter:description" content="在定义函数时，如果在函数的最左边加上关键字extern，则表示此函数是外部函数，可供其他文件调用。C语言规定，如果在定义函数时省略extern，则隐含为外部函数。
@@ -356,8 +356,8 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果一个程序中有多个源文件（.c），编译成功会生成对应的多个目标文件（.obj），这些目标文件还不能单独运行，因为这些目标文件之间可能会有关联，比如a.obj可能会调用c.obj中定义的一个函数。将这些相关联的目标文件链接在一起后才能生成可执行文件。</p>
 <p>在学习extern和static之前先来理解2个概念：</p>
 <ol>
-<li>外部函数：如果在当前文件中定义的函数允许其他文件访问、调用，就称为外部函数。<code>C语言规定，不允许有同名的外部函数</code>。</li>
-<li>内部函数：如果在当前文件中定义的函数不允许其他文件访问、调用，只能在内部使用，就称为内部函数。<code>C语言规定不同的源文件可以有同名的内部函数，并且互不干扰</code>。</li>
+<li>外部函数：如果在当前文件中定义的函数允许其他文件访问、调用，就称为外部函数。<strong>C语言规定，不允许有同名的外部函数</strong>。</li>
+<li>内部函数：如果在当前文件中定义的函数不允许其他文件访问、调用，只能在内部使用，就称为内部函数。<strong>C语言规定不同的源文件可以有同名的内部函数，并且互不干扰</strong>。</li>
 </ol>
 <h2 id="extern与函数"><a href="#extern与函数" class="headerlink" title="extern与函数"></a>extern与函数</h2><p>接下来演示两个错误和一个正确示例，即在源文件中调用另外一个源文件定义的函数，比如在main.c中调用one.c中定义的one函数。</p>
 <h3 id="错误示例1"><a href="#错误示例1" class="headerlink" title="错误示例1"></a>错误示例1</h3><p>&lt; 代码示例 &gt;</p>
@@ -369,7 +369,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">调用了one函数</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
-<li><code>main.c</code>：第6行代码虽然可以正常输出，但是在标准C编译器里面会报错的，但是在Xcode中只是个警告：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820183820078-1577562353.png" alt=""></li>
+<li><em>main.c</em>：第6行代码虽然可以正常输出，但是在标准C编译器里面会报错的，但是在Xcode中只是个警告：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820183820078-1577562353.png" alt=""></li>
 </ul>
 <h3 id="错误示例2"><a href="#错误示例2" class="headerlink" title="错误示例2"></a>错误示例2</h3><p>&lt; 代码示例 &gt;</p>
 <p><em>main.c</em></p>
@@ -399,7 +399,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">调用了one函数</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
-<li><code>main.c</code>：上述就是extern关键字对函数的作用：用来定义和声明一个外部函数。其实extern又跟auto一样废，完全可以省略。于是，我们可以简化成这样：</li>
+<li><em>main.c</em>：上述就是extern关键字对函数的作用：用来定义和声明一个外部函数。其实extern又跟auto一样废，完全可以省略。于是，我们可以简化成这样：</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  省去extern关键字</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  调用one.c中的one函数。</span></span><br><span class="line">    one();</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>为了模块化地开发，在正规的项目里面，我们会把one函数的声明写到另一个头文件中，当然，这个头文件的命名最好有意义、规范一点，比如叫one.h。以后，谁想调用这个one函数，包含one.h这个头文件就行了。于是最后的代码结构是这样的：</p>
@@ -424,7 +424,7 @@
 <ul>
 <li>程序运行不起来，在链接的时候就报错了。报错的原因很简单：我们在main.c中调用了one.c中定义的one函数，但是现在one.c的one函数是个”内部函数”，不允许其他文件访问。第1个红框中的Undefined symbols…意思是one这个标识符没有被定义，也就是找不到one；第2个红框的linker表明是链接器报错了。</li>
 <li>但这个程序是可以编译成功的，因为我们在main函数前面声明了one函（函数的声明和定义是两码事），这个函数声明可以理解为：在语法上，骗一下main函数，告诉它one函数是存在的，所以从语法的角度上main函数是可以调用one函数的。究竟这个one函数存不存在呢，有没有被定义呢？编译器是不管的。在编译阶段，编译器只会检测单个源文件的语法合不合理，并不检测函数有没有定义，只有在链接的时候才会检测这个函数存不存在，也就是有没有被定义。</li>
-<li><code>所谓编译</code>，就是单独检查每个源文件的语法是否合理，并不会检查每个源文件之间的关联关系，一个源文件编译成功就生成一个目标文件。<code>所谓链接</code>，就是检查目标文件的关联关系，将相关联的目标文件组合在一起，生成可执行文件。</li>
+<li><strong>所谓编译</strong>，就是单独检查每个源文件的语法是否合理，并不会检查每个源文件之间的关联关系，一个源文件编译成功就生成一个目标文件。<strong>所谓链接</strong>，就是检查目标文件的关联关系，将相关联的目标文件组合在一起，生成可执行文件。</li>
 </ul>
 <h3 id="声明内部函数"><a href="#声明内部函数" class="headerlink" title="声明内部函数"></a>声明内部函数</h3><p>我们还可以用static声明一个内部函数：</p>
 <p>&lt; 代码示例 &gt;</p>

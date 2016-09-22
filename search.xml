@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[【01】HTTP请求返回状态码详解]]></title>
-      <url>http://sanfordy.com/2016/09/10/%E3%80%96A%E3%80%97OC-iOS-%E9%AB%98%E7%BA%A7/%E3%80%9001%E3%80%91HTTP%E8%AF%B7%E6%B1%82%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://sanfordy.com/2016/09/10/%E3%80%96A%E3%80%97OC-iOS-Higher/%E3%80%9001%E3%80%91HTTP%E8%AF%B7%E6%B1%82%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>一当用户试图通过 HTTP 访问一台正在运行 Internet 信息服务 (IIS) 的服务器上的内容时，IIS 返回一个表示该请求的状态的数字代码。状态代码可以指明具体请求是否已成功，还可以揭示请求失败的确切原因。</p>
 </blockquote>
@@ -110,7 +110,7 @@
     
     <entry>
       <title><![CDATA[【00】px、pt、ppi]]></title>
-      <url>http://sanfordy.com/2016/09/02/%E3%80%96A%E3%80%97OC-iOS-%E9%AB%98%E7%BA%A7/%E3%80%9000%E3%80%91px%E3%80%81pt%E3%80%81ppi/</url>
+      <url>http://sanfordy.com/2016/09/02/%E3%80%96A%E3%80%97OC-iOS-Higher/%E3%80%9000%E3%80%91px%E3%80%81pt%E3%80%81ppi/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>做了几个移动端的项目之后，深感UI设计移动端尺寸换算的必要性，在此做个总结。</p>
 </blockquote>
@@ -1459,13 +1459,13 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
-<li><code>Person.h</code>：.h文件称为接口文件或头文件。放类的声明，包括成员变量、属性和方法声明。.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写方法内部的代码。</li>
-<li><code>Person.h</code>：关键字@interface声明一个类，同时它必须以@end结束，在这两个关键字中间声明相关成员。</li>
-<li><code>Person.h</code>：类名Person后面的冒号”:”表示继承，即第3行代码的意思是Student继承自NSObject。NSObject是OC的基类，所有的类最终都继承于这个类（但是需要注意OC中的基类并不只有一个，例如NSProxy也是OC的基类）。</li>
-<li><code>Person.h</code>：因为NSObject被声明在Foundation.h中，所以导入了<foundation foundaton.h="">（这么描述的意思是导入Foundation框架中的Foundation.h声明文件）</foundation></li>
-<li><code>Person.m</code>：.m称为实现⽂件。放属性、方法的具体实现。</li>
-<li><code>Person.m</code>：关键字@implementation来实现一个类，@implementation后面紧跟的类名，表示究竟要实现哪一个类，同时必须以@end结尾。</li>
-<li><code>Person.m</code>：在这两个关键字中间实现具体的属性、方法；由于.m中使用了Person类，所以需要导入声明文件“Person.h”。</li>
+<li><strong><code>Person.h</code></strong>：.h文件称为接口文件或头文件。放类的声明，包括成员变量、属性和方法声明。.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写方法内部的代码。</li>
+<li><strong><code>Person.h</code></strong>：关键字@interface声明一个类，同时它必须以@end结束，在这两个关键字中间声明相关成员。</li>
+<li><strong><code>Person.h</code></strong>：类名Person后面的冒号”:”表示继承，即第3行代码的意思是Student继承自NSObject。NSObject是OC的基类，所有的类最终都继承于这个类（但是需要注意OC中的基类并不只有一个，例如NSProxy也是OC的基类）。</li>
+<li><strong><code>Person.h</code></strong>：因为NSObject被声明在Foundation.h中，所以导入了<foundation foundaton.h="">（这么描述的意思是导入Foundation框架中的Foundation.h声明文件）</foundation></li>
+<li><strong><code>Person.m</code></strong>：.m称为实现⽂件。放属性、方法的具体实现。</li>
+<li><strong><code>Person.m</code></strong>：关键字@implementation来实现一个类，@implementation后面紧跟的类名，表示究竟要实现哪一个类，同时必须以@end结尾。</li>
+<li><strong><code>Person.m</code></strong>：在这两个关键字中间实现具体的属性、方法；由于.m中使用了Person类，所以需要导入声明文件“Person.h”。</li>
 </ul>
 <h2 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h2><p>假设在Person类中包含人员姓名（name）、年龄（age）、民族（nation）、身高（height）四个成员变量，同时姓名和年龄两个成员变量是私有的，身高是公开的，民族则限制为只有子类可以访问：</p>
 <p>&lt; 代码示例 &gt;</p>
@@ -1527,8 +1527,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[【01】第一个OC程序解析]]></title>
-      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97OC/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAOC%E7%A8%8B%E5%BA%8F%E8%A7%A3%E6%9E%90/</url>
+      <title><![CDATA[【01】Hello World]]></title>
+      <url>http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97OC/%E3%80%9001%E3%80%91Hello%20World/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。</p>
 </blockquote>
@@ -1588,7 +1588,7 @@
 <h3 id="拓展名"><a href="#拓展名" class="headerlink" title="拓展名"></a>拓展名</h3><p>c语言-&gt;.c ，OC语言-&gt;.m  ，兼容C++-&gt;.cpp。</p>
 <h2 id="OC语法预览"><a href="#OC语法预览" class="headerlink" title="OC语法预览"></a>OC语法预览</h2><h3 id="没有包名的概念"><a href="#没有包名的概念" class="headerlink" title="没有包名的概念"></a>没有包名的概念</h3><p>在Java中，为了防止两个类名相同的类冲突，你可以将这2个类放在不同的包里面。OC中并没有”包”的概念，取而代之的是开发人员给类名加上前缀，使用前缀可以有效的防止类名冲突。比如NSString（OC中的字符串类）、NSArray（OC的数组类），它们的前缀都是NS。</p>
 <blockquote>
-<p><strong>说明</strong>：NS其实是NeXTSTEP缩写，是乔布斯离开苹果后在NeXT公司所开发的系统，这个操作系统在当时虽然没有获得广泛认同，但是却为后面Mac OX奠定了基础。</p>
+<p>说明：NS其实是NeXTSTEP缩写，是乔布斯离开苹果后在NeXT公司所开发的系统，这个操作系统在当时虽然没有获得广泛认同，但是却为后面Mac OX奠定了基础。</p>
 </blockquote>
 <h3 id="关键字以-开头"><a href="#关键字以-开头" class="headerlink" title="关键字以@开头"></a>关键字以@开头</h3><p>我在前面说到，OC代码中是可以混入C语言、C++代码的，而C语言和C++作为一门编程语言，都有自己的关键字。为了防止跟C语言、C++关键字冲突，OC基本上所有的关键字都是以@开头的，少部分没有以@开头，如id，_cmd等。下面列举一些常见的关键字，看一眼就行了：</p>
 <p>&lt; 代码示例 &gt;</p>
@@ -1822,27 +1822,27 @@
 <li>上面定义了一个叫做Student的结构体类型，共有name、age、height3个成员。看到这里是否有点面向对象的味道呢，其实这跟面向对象完全是两码事，只能说感觉有点像。</li>
 </ul>
 <h2 id="结构体变量的初始化"><a href="#结构体变量的初始化" class="headerlink" title="结构体变量的初始化"></a>结构体变量的初始化</h2><p>前面只是定义了名字为Student的结构体类型，并非定义了一个结构体变量，就像int一样，只是一种类型。</p>
-<h3 id="整体初始化"><a href="#整体初始化" class="headerlink" title="整体初始化"></a>整体初始化</h3><p>先定义结构体类型，再定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<h3 id="整体初始化"><a href="#整体初始化" class="headerlink" title="整体初始化"></a>整体初始化</h3><p>先定义结构体类型，再定义结构体变量，同时<strong>整体</strong>初始化结构体变量：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//  注意：struct和Student是连着使用的。</span></span><br><span class="line"><span class="keyword">struct</span> Student stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>结构体变量名为stu。</li>
 </ul>
-<p>定义结构体类型的同时定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>定义结构体类型的同时定义结构体变量，同时<strong>整体</strong>初始化结构体变量：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125; stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>结构体变量名为stu。</li>
 </ul>
-<p>省略类型名，直接定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>省略类型名，直接定义结构体变量，同时<strong>整体</strong>初始化结构体变量：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125; stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>结构体变量名为stu。</li>
 </ul>
-<p>结构体变量在<code>整体初始化</code>时，不能先定义变量再拿变量来整体初始化：</p>
+<p>结构体变量在<strong>整体初始化</strong>时，不能先定义变量再拿变量来整体初始化：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  这种写法是错误的</span></span><br><span class="line">stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="成员单独初始化"><a href="#成员单独初始化" class="headerlink" title="成员单独初始化"></a>成员单独初始化</h3><p>成员单独初始化时需要先拿到定义好的结构体变量（我们在（1.整体初始化）中已经学会了怎么定义结构体变量）：</p>
@@ -2057,8 +2057,8 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果一个程序中有多个源文件（.c），编译成功会生成对应的多个目标文件（.obj），这些目标文件还不能单独运行，因为这些目标文件之间可能会有关联，比如a.obj可能会调用c.obj中定义的一个函数。将这些相关联的目标文件链接在一起后才能生成可执行文件。</p>
 <p>在学习extern和static之前先来理解2个概念：</p>
 <ol>
-<li>外部函数：如果在当前文件中定义的函数允许其他文件访问、调用，就称为外部函数。<code>C语言规定，不允许有同名的外部函数</code>。</li>
-<li>内部函数：如果在当前文件中定义的函数不允许其他文件访问、调用，只能在内部使用，就称为内部函数。<code>C语言规定不同的源文件可以有同名的内部函数，并且互不干扰</code>。</li>
+<li>外部函数：如果在当前文件中定义的函数允许其他文件访问、调用，就称为外部函数。<strong>C语言规定，不允许有同名的外部函数</strong>。</li>
+<li>内部函数：如果在当前文件中定义的函数不允许其他文件访问、调用，只能在内部使用，就称为内部函数。<strong>C语言规定不同的源文件可以有同名的内部函数，并且互不干扰</strong>。</li>
 </ol>
 <h2 id="extern与函数"><a href="#extern与函数" class="headerlink" title="extern与函数"></a>extern与函数</h2><p>接下来演示两个错误和一个正确示例，即在源文件中调用另外一个源文件定义的函数，比如在main.c中调用one.c中定义的one函数。</p>
 <h3 id="错误示例1"><a href="#错误示例1" class="headerlink" title="错误示例1"></a>错误示例1</h3><p>&lt; 代码示例 &gt;</p>
@@ -2070,7 +2070,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">调用了one函数</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
-<li><code>main.c</code>：第6行代码虽然可以正常输出，但是在标准C编译器里面会报错的，但是在Xcode中只是个警告：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820183820078-1577562353.png" alt=""></li>
+<li><em>main.c</em>：第6行代码虽然可以正常输出，但是在标准C编译器里面会报错的，但是在Xcode中只是个警告：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820183820078-1577562353.png" alt=""></li>
 </ul>
 <h3 id="错误示例2"><a href="#错误示例2" class="headerlink" title="错误示例2"></a>错误示例2</h3><p>&lt; 代码示例 &gt;</p>
 <p><em>main.c</em></p>
@@ -2100,7 +2100,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">调用了one函数</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
-<li><code>main.c</code>：上述就是extern关键字对函数的作用：用来定义和声明一个外部函数。其实extern又跟auto一样废，完全可以省略。于是，我们可以简化成这样：</li>
+<li><em>main.c</em>：上述就是extern关键字对函数的作用：用来定义和声明一个外部函数。其实extern又跟auto一样废，完全可以省略。于是，我们可以简化成这样：</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  省去extern关键字</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">one</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  调用one.c中的one函数。</span></span><br><span class="line">    one();</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>为了模块化地开发，在正规的项目里面，我们会把one函数的声明写到另一个头文件中，当然，这个头文件的命名最好有意义、规范一点，比如叫one.h。以后，谁想调用这个one函数，包含one.h这个头文件就行了。于是最后的代码结构是这样的：</p>
@@ -2125,7 +2125,7 @@
 <ul>
 <li>程序运行不起来，在链接的时候就报错了。报错的原因很简单：我们在main.c中调用了one.c中定义的one函数，但是现在one.c的one函数是个”内部函数”，不允许其他文件访问。第1个红框中的Undefined symbols…意思是one这个标识符没有被定义，也就是找不到one；第2个红框的linker表明是链接器报错了。</li>
 <li>但这个程序是可以编译成功的，因为我们在main函数前面声明了one函（函数的声明和定义是两码事），这个函数声明可以理解为：在语法上，骗一下main函数，告诉它one函数是存在的，所以从语法的角度上main函数是可以调用one函数的。究竟这个one函数存不存在呢，有没有被定义呢？编译器是不管的。在编译阶段，编译器只会检测单个源文件的语法合不合理，并不检测函数有没有定义，只有在链接的时候才会检测这个函数存不存在，也就是有没有被定义。</li>
-<li><code>所谓编译</code>，就是单独检查每个源文件的语法是否合理，并不会检查每个源文件之间的关联关系，一个源文件编译成功就生成一个目标文件。<code>所谓链接</code>，就是检查目标文件的关联关系，将相关联的目标文件组合在一起，生成可执行文件。</li>
+<li><strong>所谓编译</strong>，就是单独检查每个源文件的语法是否合理，并不会检查每个源文件之间的关联关系，一个源文件编译成功就生成一个目标文件。<strong>所谓链接</strong>，就是检查目标文件的关联关系，将相关联的目标文件组合在一起，生成可执行文件。</li>
 </ul>
 <h3 id="声明内部函数"><a href="#声明内部函数" class="headerlink" title="声明内部函数"></a>声明内部函数</h3><p>我们还可以用static声明一个内部函数：</p>
 <p>&lt; 代码示例 &gt;</p>
@@ -2163,7 +2163,7 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实我们早就有接触文件包含这个指令了， 就是#include，它可以将一个文件的全部内容拷贝另一个文件中。</p>
 <h2 id="一般形式"><a href="#一般形式" class="headerlink" title="一般形式"></a>一般形式</h2><h3 id="include-lt-文件名-gt"><a href="#include-lt-文件名-gt" class="headerlink" title="#include　&lt;文件名&gt;"></a>#include　&lt;文件名&gt;</h3><p>直接到C语言库函数头文件所在的目录中寻找文件。</p>
 <h3 id="include-“文件名”"><a href="#include-“文件名”" class="headerlink" title="#include　“文件名”"></a>#include　“文件名”</h3><p>系统会先在源程序当前目录下寻找，若找不到，再到操作系统的path路径中查找，最后才到C语言库函数头文件所在目录中查找。</p>
-<h2 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h2><h3 id="嵌套包含和递归包含"><a href="#嵌套包含和递归包含" class="headerlink" title="嵌套包含和递归包含"></a>嵌套包含和递归包含</h3><p>#include指令允许嵌套包含但是<code>不允许</code>递归包含：</p>
+<h2 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h2><h3 id="嵌套包含和递归包含"><a href="#嵌套包含和递归包含" class="headerlink" title="嵌套包含和递归包含"></a>嵌套包含和递归包含</h3><p>#include指令允许嵌套包含但是<strong>不允许</strong>递归包含：</p>
 <ol>
 <li>嵌套包含：比如a.h包含b.h，b.h包含c.h。</li>
 <li>递归包含：比如 a.h 包含 b.h，b.h 包含 a.h，下面的做法是错误的：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145127343-2070603187.png" alt=""><br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145134640-1258787116.png" alt=""></li>
@@ -2387,7 +2387,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//  将字符串str中的小写字母变成大写，并返回改变后的字符串。</span></span><br><span class="line"><span class="comment">//  注意：这里的参数要char *类型，不能传字符串常量。</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">upper</span><span class="params">(<span class="keyword">char</span> *)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  定义一个字符串变量</span></span><br><span class="line">    <span class="keyword">char</span> str1[] = <span class="string">"wo shi sb"</span>;</span><br><span class="line">    <span class="comment">//  当传入str2时会崩溃，因为str2指向的是一段字符串常量，字符串常量所在的这段内存只能用来存储字符串常量，并不能存储其他类型的数组，正因为如此，不可以对这段内存存储的进行改写。</span></span><br><span class="line"><span class="comment">//    char *str2 = "wo shi sb";</span></span><br><span class="line"><span class="comment">//    printf("%s",upper(str2));</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  调用函数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,upper(str1));</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">upper</span><span class="params">(<span class="keyword">char</span> *str)</span></span>&#123;</span><br><span class="line">    <span class="comment">//  先保留最初的地址，因为等会儿str指向的位置会变来变去的。</span></span><br><span class="line">    <span class="keyword">char</span> *temp = str;</span><br><span class="line">    <span class="comment">//  当str指向的不是空字符时</span></span><br><span class="line">    <span class="keyword">while</span> (*str != <span class="string">'\0'</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (*str &gt;= <span class="string">'a'</span> &amp;&amp; *str &lt;= <span class="string">'z'</span>) &#123;</span><br><span class="line">            <span class="comment">//  变为大写字母，小写和大写字母的ASCII值有个固定的差值</span></span><br><span class="line">            *str -= <span class="string">'a'</span> - <span class="string">'A'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        str++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//  返回当初指向这段字符串的指针</span></span><br><span class="line">    return temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&lt; 输出结果 &gt;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WO SHI SB</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
-<h2 id="指向函数的指针"><a href="#指向函数的指针" class="headerlink" title="指向函数的指针"></a>指向函数的指针</h2><h3 id="为什么指针可以指向一个函数"><a href="#为什么指针可以指向一个函数" class="headerlink" title="为什么指针可以指向一个函数"></a>为什么指针可以指向一个函数</h3><p>函数作为一段程序，在内存中也要占据部分存储空间，它也有一个起始地址，即函数的入口地址。函数有自己的地址，那就好办了，我们的指针变量就是用来存储地址的。因此，可以利用一个指针指向一个函数。其中，<code>函数名就代表着函数的地址</code>。</p>
+<h2 id="指向函数的指针"><a href="#指向函数的指针" class="headerlink" title="指向函数的指针"></a>指向函数的指针</h2><h3 id="为什么指针可以指向一个函数"><a href="#为什么指针可以指向一个函数" class="headerlink" title="为什么指针可以指向一个函数"></a>为什么指针可以指向一个函数</h3><p>函数作为一段程序，在内存中也要占据部分存储空间，它也有一个起始地址，即函数的入口地址。函数有自己的地址，那就好办了，我们的指针变量就是用来存储地址的。因此，可以利用一个指针指向一个函数。其中，<strong>函数名就代表着函数的地址</strong>。</p>
 <h3 id="指向函数的指针的定义"><a href="#指向函数的指针的定义" class="headerlink" title="指向函数的指针的定义"></a>指向函数的指针的定义</h3><p>定义的一般形式：函数的返回值类型 (*指针变量名)(形式参数1, 形式参数2, …);</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="comment">// 定义一个指针变量p，指向sum函数</span></span><br><span class="line">    <span class="keyword">int</span> (*p)(<span class="keyword">int</span> a, <span class="keyword">int</span> b) = sum;</span><br><span class="line">    <span class="comment">// 或者 int (*p)(int, int) = sum;</span></span><br><span class="line">    <span class="comment">// 或者 int (*p)() = sum;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 利用指针变量p调用函数</span></span><br><span class="line">    <span class="keyword">int</span> result = (*p)(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">    <span class="comment">// 或者 int result = p(1, 3);</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, result);</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2525,7 +2525,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a[0] = 1 </span><br><span class="line">a[1] = 2 </span><br><span class="line">a[2] = 3 </span><br><span class="line">a[3] = 4 </span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
-<li>内存分析图如下：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818112935203-566428571.png" alt=""><br>p的值是a[0]的地址，因此，现在我们利用指针p只能访问数组的第0个元素a[0]，用*p就可取出a[0]的值1。要想访问其他元素，就必须拿到元素的地址，可以发现每个元素的地址差值为2，因为在16位编译器环境下，一个int类型的变量占用2个字节。现在只是知道a[0]的地址值为p，怎么根据a[0]的地址获取其他元素的地址呢？其实非常简单，p+1就是a[1]的地址。注意了，这里的p+1代表着p的值加2，并不是p的值加1，比如p的值为ffc3，p+1则为ffc5，而非ffc4。依次类推，p+2就是a[2]的地址ffc7，p+3就是a[3]的地址ffc9。<code>遍历完毕后，指针变量p还是指向a[0]，因为p值一直没有变过，一直都是a[0]的地址ffc3</code>。</li>
+<li>内存分析图如下：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818112935203-566428571.png" alt=""><br>p的值是a[0]的地址，因此，现在我们利用指针p只能访问数组的第0个元素a[0]，用*p就可取出a[0]的值1。要想访问其他元素，就必须拿到元素的地址，可以发现每个元素的地址差值为2，因为在16位编译器环境下，一个int类型的变量占用2个字节。现在只是知道a[0]的地址值为p，怎么根据a[0]的地址获取其他元素的地址呢？其实非常简单，p+1就是a[1]的地址。注意了，这里的p+1代表着p的值加2，并不是p的值加1，比如p的值为ffc3，p+1则为ffc5，而非ffc4。依次类推，p+2就是a[2]的地址ffc7，p+3就是a[3]的地址ffc9。<strong>遍历完毕后，指针变量p还是指向a[0]，因为p值一直没有变过，一直都是a[0]的地址ffc3</strong>。</li>
 <li>我先解释一下，为什么p+1代表p的值加2，而不是加1呢？其实，p+1不一定代表p的值加2，也可能是加1、加4或者加8。究竟加多少，这跟指针的类型有关。下图是在16位编译器环境下的情况：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818112946031-1771197389.png" alt=""><br>聪明的你可能已经找到规律了，因为char类型的变量要占用1字节，所以p+1代表p的值加1；float类型的变量占用4字节，所以p+1代表p的值加4。从这一点，也可以很好地说明为什么指针一定要分类型，不同类型的指针，p+1的含义是不一样的。</li>
 <li>其实第10行改成下面的代码也是可以的：</li>
 </ul>
@@ -2621,7 +2621,7 @@
 <p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810180021981-656923486.png" alt=""></p>
 <p>如果程序通过”间接引用”的方式来修改a的值，可以这样做：先根据 变量名b 获取 变量b 的地址ffc2，取出变量b中存储的内容ffc1，也就是变量a的地址，再根据变量a的地址ffc1找到a的存储空间，然后修改里面的数据。</p>
 <blockquote>
-<p><strong>总结</strong>：用来存放变量地址的变量，就称为”指针变量”。在上面的情况下，变量b就是个”指针变量”，我们可以说指针变量b指向变量a。</p>
+<p>总结：用来存放变量地址的变量，就称为”指针变量”。在上面的情况下，变量b就是个”指针变量”，我们可以说指针变量b指向变量a。</p>
 </blockquote>
 <h2 id="指针的定义"><a href="#指针的定义" class="headerlink" title="指针的定义"></a>指针的定义</h2><p>一般形式：类名标识符  *指针变量名;</p>
 <p>&lt; 代码示例 &gt;</p>
@@ -2664,7 +2664,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义2个int型变量</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">6</span>, b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个指向变量b的指针变量p</span></span><br><span class="line"><span class="keyword">int</span> *p;</span><br><span class="line">p = &amp;b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将a的值赋值给变量b</span></span><br><span class="line">*p = a;</span><br></pre></td></tr></table></figure>
 <h2 id="指针的用途举例"><a href="#指针的用途举例" class="headerlink" title="指针的用途举例"></a>指针的用途举例</h2><p>前面我们通过指针变量p间接访问了变量a，在有些人看来，觉得指针变量好傻B，直接用变量名a访问变量a不就好了么，干嘛搞这么麻烦。别着急，接下来举个例子，让大家看看指针还能做什么事情。</p>
 <blockquote>
-<p><strong>说明</strong>：在16位编译器环境下，一个指针变量占用2个字节。</p>
+<p>说明：在16位编译器环境下，一个指针变量占用2个字节。</p>
 </blockquote>
 <h3 id="例子一"><a href="#例子一" class="headerlink" title="例子一"></a>例子一</h3><p>现在有个要求：写一个函数swap，接收2个整型参数，功能是互换两个实参的值。</p>
 <h4 id="不用指针"><a href="#不用指针" class="headerlink" title="不用指针"></a>不用指针</h4><p>如果没学过指针，你可能会这样写：</p>
@@ -2737,7 +2737,7 @@
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"string.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> *<span class="keyword">const</span> b = &amp;a;</span><br><span class="line">    *b = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,*b);<span class="comment">//  输出：2</span></span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><strong>总结</strong>：你可以把*读作指针，把const读作常量，那么从左到右一读就可以分辨常量指针和指针常量了。</p>
+<p>总结：你可以把<code>*</code>读作指针，把const读作常量，那么从左到右一读就可以分辨常量指针和指针常量了。</p>
 </blockquote>
 <h3 id="指针和地址"><a href="#指针和地址" class="headerlink" title="指针和地址"></a>指针和地址</h3><p>地址：是系统的用户地址空间的虚拟内存地址编号，并不是实际的内存地址编号。地址就是一个编号而已，就像门牌号，学号。这没有所谓的存储空间的说法，就是名字。而我们编程使用的地址是虚拟内存地址，就是我们常说的内存地址。</p>
 <p>指针：是一个变量，使用变量时需要系统分配一个内存才能使用。而指针是存储内存地址的一种变量，使用指针就像使用内存地址一样。而对指针的赋值只是改变指针变量存储的值，只是更新了一下变量中存储的值而已。</p>
@@ -2772,18 +2772,18 @@
       <title><![CDATA[【14】字符串]]></title>
       <url>http://sanfordy.com/2016/08/01/%E3%80%96A%E3%80%97C/%E3%80%9014%E3%80%91%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
       <content type="html"><![CDATA[<blockquote>
-<p>C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串</p>
+<p>C语言中没有<code>String</code>这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串</p>
 </blockquote>
 <a id="more"></a>
 <h2 id="字符串简介"><a href="#字符串简介" class="headerlink" title="字符串简介"></a>字符串简介</h2><p>在Java中，一个字符串可以用String类型来存储：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"string"</span>;</span><br></pre></td></tr></table></figure>
-<p>C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串。</p>
+<p>C语言中没有<code>String</code>这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串。</p>
 <p>字符串可以看做是一个特殊的字符数组，为了跟普通的字符数组区分开来，应该在字符串的尾部添加了一个结束标志’\0’。’\0’是一个ASCII码值为0的字符，是一个空操作符，表示什么也不干。所以采用字符数组存放字符串，赋值时应包含结束标志’\0’。</p>
 <p>字符串”mj”的存储情况如下（假设用字符数组char a[]来存储）：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810115159324-73374550.png" alt=""></p>
 <blockquote>
-<p><strong>注意</strong>：尾部有个’\0’，如果没有这个结束标记，说明这个字符数组存储的并不是字符串。</p>
+<p>注意：尾部有个’\0’，如果没有这个结束标记，说明这个字符数组存储的并不是字符串。</p>
 </blockquote>
 <h2 id="字符串的初始化"><a href="#字符串的初始化" class="headerlink" title="字符串的初始化"></a>字符串的初始化</h2><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  一</span></span><br><span class="line"><span class="keyword">char</span> a[<span class="number">3</span>] = &#123;<span class="string">'m'</span>, <span class="string">'j'</span>, <span class="string">'\0'</span>&#125;;</span><br><span class="line"><span class="comment">//  二</span></span><br><span class="line"><span class="keyword">char</span> b[<span class="number">3</span>];</span><br><span class="line">b[<span class="number">0</span>] = <span class="string">'m'</span>;</span><br><span class="line">b[<span class="number">1</span>] = <span class="string">'j'</span>;</span><br><span class="line">b[<span class="number">2</span>] = <span class="string">'\0'</span>;</span><br><span class="line"><span class="comment">//  三</span></span><br><span class="line"><span class="keyword">char</span> c[<span class="number">3</span>] = <span class="string">"mj"</span>;</span><br><span class="line"><span class="comment">//  四</span></span><br><span class="line"><span class="keyword">char</span> d[] = <span class="string">"mj"</span>;</span><br></pre></td></tr></table></figure>
@@ -2792,7 +2792,7 @@
 <li>一般我们使用第11行的初始化方式，系统会自动在字符串尾部加上一个\0结束符。</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：字符串所占的空间至少要比字符串长度大1，因为字符串以 ‘\0’ 表⽰结束。</p>
+<p>注意：字符串所占的空间至少要比字符串长度大1，因为字符串以 ‘\0’ 表⽰结束。</p>
 </blockquote>
 <h2 id="字符串的输入"><a href="#字符串的输入" class="headerlink" title="字符串的输入"></a>字符串的输入</h2><p>stdio.h中有2个函数可以用来接收用户输入的字符串，分别是scanf和gets。</p>
 <h3 id="scanf"><a href="#scanf" class="headerlink" title="scanf"></a>scanf</h3><p>&lt; 代码示例 &gt;</p>
@@ -2849,7 +2849,7 @@
 <li>从输出结果可以看出puts函数输出一个字符串后会自动换行。</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：puts函数一次只能输出一个字符串，printf函数则可以同时输出多个字符串。</p>
+<p>注意：puts函数一次只能输出一个字符串，printf函数则可以同时输出多个字符串。</p>
 </blockquote>
 <h2 id="字符串常用处理函数"><a href="#字符串常用处理函数" class="headerlink" title="字符串常用处理函数"></a>字符串常用处理函数</h2><p>下面介绍的字符串处理函数都是在string.h头文件中声明的，使用前要包含这个头文件。</p>
 <p>系统提供的字符串处理函数都是根据 ‘\0’ 来判断字符串是否结束。</p>
@@ -2938,7 +2938,7 @@
 <p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160809214541777-1132269344.png" alt=""></p>
 <p>数组a的地址是ffc1，a[0]的地址是ffc1，a[1]的地址是ffc3，a[2]的地址是ffc5。因此a == &amp;a[0]，即第一个元素的地址就是整个数组的地址。</p>
 <blockquote>
-<p><strong>注意</strong>：其实a不算是变量，是个常量，它代表着数组的地址。上图把a放到变量一栏是为了方便大家理解数组结构。</p>
+<p>注意：其实a不算是变量，是个常量，它代表着数组的地址。上图把a放到变量一栏是为了方便大家理解数组结构。</p>
 </blockquote>
 <h3 id="一维数组的初始化"><a href="#一维数组的初始化" class="headerlink" title="一维数组的初始化"></a>一维数组的初始化</h3><p>初始化的一般形式是：类型  数组名[元素个数] = {元素1, 元素2, …};</p>
 <p>&lt; 代码示例 &gt;</p>
@@ -3124,7 +3124,7 @@
 <li>第2段代码：a++的意思是先将a的值拷贝出来一份，然后对a执行+1操作，于是a变成了11，但是拷贝出来的值还是10，a++运算完毕后，再将拷贝出来的值10赋值给了b，所以最后变量b的值是10，变量a的值是11。</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：自减运算符也是一样的区别。</p>
+<p>注意：自减运算符也是一样的区别。</p>
 </blockquote>
 <p>再来看一个比较刁钻的例子：</p>
 <p>&lt; 代码示例 &gt;</p>
@@ -3173,7 +3173,7 @@
 <li>逻辑非：!</li>
 </ol>
 <blockquote>
-<p><strong>注意</strong>：这些都是英文字符，不要写成中文字符。跟关系运算符一样，逻辑运算的结果只有2个：“真”为1，“假”为0</p>
+<p>注意：这些都是英文字符，不要写成中文字符。跟关系运算符一样，逻辑运算的结果只有2个：“真”为1，“假”为0</p>
 </blockquote>
 <h3 id="逻辑与：-amp-amp"><a href="#逻辑与：-amp-amp" class="headerlink" title="逻辑与：&amp;&amp;"></a>逻辑与：&amp;&amp;</h3><h4 id="使用格式"><a href="#使用格式" class="headerlink" title="使用格式"></a>使用格式</h4><p>“条件A &amp;&amp; 条件B”</p>
 <h4 id="运算结果"><a href="#运算结果" class="headerlink" title="运算结果"></a>运算结果</h4><p>只有当条件A和条件B都成立时，结果才为1，也就是“真”；其余情况的结果都为0，也就是“假”。因此，条件A或条件B只要有一个不成立，结果都为0，也就是“假”</p>
@@ -3270,7 +3270,7 @@
 <h4 id="sizeof-数据类型"><a href="#sizeof-数据类型" class="headerlink" title="sizeof( 数据类型 )"></a>sizeof( 数据类型 )</h4><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sizeof</span>(<span class="keyword">float</span>);</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><strong>注意</strong>：不可以写成sizeof float。</p>
+<p>注意：不可以写成sizeof float。</p>
 </blockquote>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
@@ -3386,7 +3386,7 @@
 <li>如果所有的条件都不成立，就会执行else后面大括号{}中的内容：第15~17行</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：这么多大括号中，只有1个大括号内的代码会被执行。跟之前一样，所有的大括号都可以省略，但是不建议省略。必要的时候，最后面的else那一段（第14~17行）是可以省略的。</p>
+<p>注意：这么多大括号中，只有1个大括号内的代码会被执行。跟之前一样，所有的大括号都可以省略，但是不建议省略。必要的时候，最后面的else那一段（第14~17行）是可以省略的。</p>
 </blockquote>
 <h4 id="举例-2"><a href="#举例-2" class="headerlink" title="举例"></a>举例</h4><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> ( a==<span class="number">0</span> ) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a等于0"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>( a&gt;<span class="number">0</span> ) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a大于0"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a小于0"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -3527,7 +3527,7 @@
 <li>注意第6行的break，这个break的作用是跳出外面的for循环，并非里面的for循环。</li>
 </ul>
 <blockquote>
-<p><strong>说明</strong>：规律已经很明显了：break只会影响它所在的那个for循环。</p>
+<p>说明：规律已经很明显了：break只会影响它所在的那个for循环。</p>
 </blockquote>
 <h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue只能使用在循环结构中，它的作用是跳过这一次循环，直接进入下一次循环。</p>
 <p>这里以for循环为例子，continue也可以用在while循环、do-while循环中：</p>
@@ -3540,7 +3540,7 @@
 <li>注意第2行，当x%2==0，也就是当x是2的倍数时，就跳过这次循环，不执行第6行语句，直接进入下一次循环。输出结果：</li>
 </ul>
 <blockquote>
-<p><strong>说明</strong>：跟break一样，continue只会影响它所在的那个for循环。</p>
+<p>说明：跟break一样，continue只会影响它所在的那个for循环。</p>
 </blockquote>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>
@@ -3655,7 +3655,7 @@
 <ul>
 <li>在第3行定义了test函数，只有一个形参a。</li>
 <li>在第14行调用了test函数，接着就会分配内存给变量a。这里将变量b当做实参，那么变量b的值将传递给变量a。这个时候，内存中大致如下图所示：<br><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160707155855624-785321241.png" alt=""><blockquote>
-<p><strong>注意</strong>：其实在内存中存储的是二进制数据，这里我写成10进制是为了直观性</p>
+<p>注意：其实在内存中存储的是二进制数据，这里我写成10进制是为了直观性</p>
 </blockquote>
 </li>
 <li>执行完第5行代码后，变量a的值变成了10，但是变量b的值依然是5：<br><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160707155901561-302125664.png" alt="f"></li>
@@ -3672,7 +3672,7 @@
 </ul>
 <h3 id="数组作为实参"><a href="#数组作为实参" class="headerlink" title="数组作为实参"></a>数组作为实参</h3><p>数组元素作为参数，与普通变量一样，把数组名传入，即数组的首地址。</p>
 <blockquote>
-<p><strong>注意</strong>：此时，形参和实参实际上是同一段内存空间。</p>
+<p>注意：此时，形参和实参实际上是同一段内存空间。</p>
 </blockquote>
 <h2 id="返回值类型"><a href="#返回值类型" class="headerlink" title="返回值类型"></a>返回值类型</h2><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回值就是函数调用完后，返回给函数调用者的结果，用return关键字进行返回。定义函数时，要指明函数的返回值类型：</p>
 <p>&lt; 代码示例 &gt;</p>
@@ -3707,7 +3707,7 @@
 <li>第3行使用了return语句，将a+b的值返回给了函数调用者，因此第8行变量c的值是13</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：一个函数内部可以多次使用return语句，使用了return语句后，函数就会马上停止执行，return语句后面的代码就不再被执行</p>
+<p>注意：一个函数内部可以多次使用return语句，使用了return语句后，函数就会马上停止执行，return语句后面的代码就不再被执行</p>
 </blockquote>
 <h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><p>函数自身调用自身，即函数内部又使用到了该函数功能，这个函数就叫做递归函数。</p>
 <p>在计算机中阶乘就可以使用递归调用：</p>
@@ -3716,7 +3716,7 @@
 <p>&lt; 输出结果 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">input an number <span class="number">4</span></span><br><span class="line"><span class="number">4</span>!=<span class="number">24</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><strong>注意</strong>：递归一定要有出口。 </p>
+<p>注意：递归一定要有出口。 </p>
 </blockquote>
 <h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p>通过函数指针调用函数的函数。如果你把函数A的指针（地址）作为参数传递给另一个函数B，当这个指针被用来调用其所指向的函数A时，我们就说函数A是回调函数：</p>
 <p>&lt; 代码示例 &gt; </p>
@@ -3761,7 +3761,7 @@
 <li>如果去掉第2行中的\n，将会是这样的效果：My age is 26My age is 17</li>
 </ul>
 <blockquote>
-<p><strong>总结</strong>：左边字符串中格式符的个数 必须跟 右边格式符参数的个数一样；格式符的类型决定了格式符参数的类型，比如使用%d，说明对应的格式符参数必须是整型。</p>
+<p>总结：左边字符串中格式符的个数 必须跟 右边格式符参数的个数一样；格式符的类型决定了格式符参数的类型，比如使用%d，说明对应的格式符参数必须是整型。</p>
 </blockquote>
 <h4 id="常用的格式符及其含义"><a href="#常用的格式符及其含义" class="headerlink" title="常用的格式符及其含义"></a>常用的格式符及其含义</h4><p><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160718141032685-1803882138.png" alt=""></p>
 <h4 id="精细的格式控制"><a href="#精细的格式控制" class="headerlink" title="精细的格式控制"></a>精细的格式控制</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  输出结果：The price is　　14.</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"The price is %4d."</span>, <span class="number">14</span>);</span><br></pre></td></tr></table></figure>
@@ -3782,7 +3782,7 @@
 <li>上面的3种用法，输出的都是大写字母A。</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：putchar一次只能输出一个字符，而printf可以同时输出多个字符。</p>
+<p>注意：putchar一次只能输出一个字符，而printf可以同时输出多个字符。</p>
 </blockquote>
 <h3 id="字符输入函数getchar"><a href="#字符输入函数getchar" class="headerlink" title="字符输入函数getchar"></a>字符输入函数getchar</h3><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c;</span><br><span class="line">c = getchar();</span><br></pre></td></tr></table></figure>
@@ -3964,7 +3964,7 @@
 <h4 id="signed"><a href="#signed" class="headerlink" title="signed"></a>signed</h4><p><code>signed</code>表示有符号，也就是说最高位要当做符号位，所以包括正数、负数和0。其实int的最高位本来就是符号位，已经包括了正负数和0了，因此signed和int是一样的，signed等价于signed int，也等价于int。signed的取值范围是-231 ~ 231 - 1。</p>
 <h4 id="unsigned"><a href="#unsigned" class="headerlink" title="unsigned"></a>unsigned</h4><p><code>unsigned</code>表示无符号，也就是说最高位并不当做符号位，所以不包括负数。在64bit编译器环境下面，int占用4个字节（32bit），因此unsigned的取值范围是：0000 0000 0000 0000 0000 0000 0000 0000 ~ 1111 1111 1111 1111 1111 1111 1111 1111，也就是0 ~ 232 - 1。</p>
 <blockquote>
-<p><strong>注意</strong>：signed、unsigned也可以修饰char，long还可以修饰double。</p>
+<p>注意：signed、unsigned也可以修饰char，long还可以修饰double。</p>
 </blockquote>
 <h3 id="不同数据类型所占用的存储空间"><a href="#不同数据类型所占用的存储空间" class="headerlink" title="不同数据类型所占用的存储空间"></a>不同数据类型所占用的存储空间</h3><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png" alt=""></p>
 <h2 id="自动类型提升"><a href="#自动类型提升" class="headerlink" title="自动类型提升"></a>自动类型提升</h2><h3 id="什么是自动类型提升"><a href="#什么是自动类型提升" class="headerlink" title="什么是自动类型提升"></a>什么是自动类型提升</h3><p>先来看看下面的一则运算：</p>
@@ -4174,10 +4174,7 @@
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>第3行的变量a、第6行的变量b都是静态变量，第9行的变量c、第16行的变量i是自动变量。</li>
-<li>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用test函数时，变量b的值不会被重新初始化为0。<blockquote>
-<p>注意：虽然第6行的变量b是静态变量，但是只改变了它生命周期，并没有改变它的作用域，变量b还是只能在test函数内部使用。</p>
-</blockquote>
-</li>
+<li>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用test函数时，变量b的值不会被重新初始化为0。<strong>虽然变量b是静态变量，但是只改变了它生命周期，并没有改变它的作用域，变量b还是只能在test函数内部使用。</strong></li>
 </ul>
 <h4 id="寄存器变量"><a href="#寄存器变量" class="headerlink" title="寄存器变量"></a>寄存器变量</h4><p>定义：存储在硬件寄存器中的变量，称为寄存器变量。寄存器变量比存储在内存中的变量访问效率更高（默认情况下，自动变量和静态变量都是放在内存中的）。</p>
 <p>哪些变量是寄存器变量：被关键字<code>register</code>修饰的自动变量都是寄存器变量。</p>
@@ -4351,7 +4348,7 @@
     
     <entry>
       <title><![CDATA[【01】Hello World]]></title>
-      <url>http://sanfordy.com/2016/05/17/%E3%80%96A%E3%80%97C/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAC%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
+      <url>http://sanfordy.com/2016/05/17/%E3%80%96A%E3%80%97C/%E3%80%9001%E3%80%91Hello%20World/</url>
       <content type="html"><![CDATA[<blockquote>
 <p><code>#include</code>是C语言的预处理指令之一，所谓预处理，就是在编译之前做的处理，预处理指令一般以<code>#</code>开头。</p>
 </blockquote>
@@ -4445,6 +4442,9 @@
 <h4 id="二进制数据"><a href="#二进制数据" class="headerlink" title="二进制数据"></a>二进制数据</h4><p>平时我们在计算机中存储的一些数据，比如文档、照片、视频等，都是以0和1的形式存储的。只不过计算机解析了这一大堆的0和1，以图形界面的形式将数据展示在我们眼前。</p>
 <h2 id="程序设计语言的发展史"><a href="#程序设计语言的发展史" class="headerlink" title="程序设计语言的发展史"></a>程序设计语言的发展史</h2><p>我们可以利用程序设计语言来编写程序，再将编好的程序运行到计算机上，计算机就能够按照程序中所说的去做。从计算机诞生至今，程序设计语言大致经历了3个发展阶段：<strong>机器语言</strong>、<strong>汇编语言</strong>、<strong>高级语言</strong>。其中， C语言属于高级语言。</p>
 <h3 id="机器语言"><a href="#机器语言" class="headerlink" title="机器语言"></a>机器语言</h3><h4 id="什么是机器语言"><a href="#什么是机器语言" class="headerlink" title="什么是机器语言"></a>什么是机器语言</h4><p>在计算器诞生初期， 所有的计算机程序都是直接用计算机能识别的二进制指令来编写的，也就是说所有的代码里面只有0和1。这种程序设计语言就是“机器语言”。这些由0和1组成的二进制指令，又叫做“机器指令”。</p>
+<blockquote>
+<p>说明：机器语言很难掌握和推广，现在除了计算机生产厂家的专业人员外，绝大多数的程序员已经不再去学习机器语言了。</p>
+</blockquote>
 <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
 <li>执行效率高：由于机器语言编写出来的代码是能被计算机直接识别的，因此机器语言是直接对硬件产生作用的，程序的执行效率非常高。</li>
 <li>可操作硬件：机器语言能直接访问、控制计算机的各种硬件设备，如磁盘、存储器、CPU、I/O端口等。</li>
@@ -4454,9 +4454,6 @@
 <li>可读性差：编出的程序全是些0和1的指令代码，可读性差，还容易出错。</li>
 <li>可移植性差：由于机器语言是直接对硬件产生作用的，对硬件的依赖性很强，因此不同型号计算机的机器语言又不一样。也就是说，如果2台不同型号的机器想实现一样的功能，需要编写2套完全不同的代码。</li>
 </ol>
-<blockquote>
-<p>说明：机器语言很难掌握和推广，现在除了计算机生产厂家的专业人员外，绝大多数的程序员已经不再去学习机器语言了。</p>
-</blockquote>
 <h3 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h3><h4 id="什么是汇编语言"><a href="#什么是汇编语言" class="headerlink" title="什么是汇编语言"></a>什么是汇编语言</h4><p>由于机器语言的种种弊端，严重影响开发效率，后面就出现了汇编语言。汇编语言其实就是符号化的机器语言，它用一个符号（英文单词、数字）来代表一条机器指令。比如，在机器语言中，用1011011000000000这条指令，是让计算机进行一次加法运算；而在汇编语言中，用英文单词 “ADD”就可以表示加法运算。一个有意义的英文单词，很明显比一串又臭又长的二进制指令，直观好记多了。</p>
 <p>由于计算机只能识别0和1，用汇编语言编写的代码是不能被计算机所识别的，像刚才的”ADD”，计算机肯定不知道是什么意思。因此，用汇编语言编写的代码需要翻译成二进制指令后，才能被计算机识别。这个翻译的工作交给编译器去做。</p>
 <h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ol>
@@ -4470,14 +4467,14 @@
 <li>开发效率低：使用汇编语言必须对硬件非常了解，开发效率很低，周期长且单调。</li>
 </ol>
 <h3 id="高级语言"><a href="#高级语言" class="headerlink" title="高级语言"></a>高级语言</h3><h4 id="什么是高级语言"><a href="#什么是高级语言" class="headerlink" title="什么是高级语言"></a>什么是高级语言</h4><p>由于汇编语言依赖于硬件，代码可移植性差，符号又多又难记，于是人类就发明了非常接近自然语言的高级语言。后面要学习的C语言就是高级语言。</p>
+<blockquote>
+<p>注意：用高级语言编写的程序不能直接被计算机识别，需要经编译器翻译成二进制指令后，才能运行到计算机上。</p>
+</blockquote>
 <h4 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h4><ol>
 <li>可读性最好：语法和结构类似于普通英文，且远离对硬件的直接操作，使得一般人经过学习之后都可以编程，而不用太熟悉硬件知识。</li>
 <li>代码简洁：比如要计算2个数的和，在高级语言中可以写得非常简洁：d=a+b。但是在机器语言和汇编语言中，就需要几条甚至几十条指令，而且不同机器还要编写不同的指令代码。</li>
 <li>可移植性好：用高级语言编写的同一个程序还可以在不同的机器上运行，具有可移植性。</li>
 </ol>
-<blockquote>
-<p>注意：用高级语言编写的程序不能直接被计算机识别，需要经编译器翻译成二进制指令后，才能运行到计算机上。</p>
-</blockquote>
 <h2 id="C语言简史"><a href="#C语言简史" class="headerlink" title="C语言简史"></a>C语言简史</h2><p>C语言于1972年发明，首次使用是用于重写<code>UNIX</code>操作系统（<code>UNIX</code>以前是用汇编写的）。随着<code>UNIX</code>操作系统的成功，C语言也得到了大幅度地推广，至今还是世界上最流行、使用最广泛的高级程序设计语言之一。</p>
 <blockquote>
 <p>注意：C语言是一门面向过程的语言，非面向对象的语言。</p>

@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160707155855624-785321241.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160707155901561-302125664.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160718141032685-1803882138.png">
-<meta property="og:updated_time" content="2016-09-09T03:58:48.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:14:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【10】函数">
 <meta name="twitter:description" content="任何一个C语言程序都是由一个或者多个程序段（小程序）构成的，每个程序段都有自己的功能，我们一般称这些程序段为“函数”。所以，你可以说C语言程序是由函数构成的。">
@@ -452,7 +452,7 @@
 <ul>
 <li>在第3行定义了test函数，只有一个形参a。</li>
 <li>在第14行调用了test函数，接着就会分配内存给变量a。这里将变量b当做实参，那么变量b的值将传递给变量a。这个时候，内存中大致如下图所示：<br><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160707155855624-785321241.png" alt=""><blockquote>
-<p><strong>注意</strong>：其实在内存中存储的是二进制数据，这里我写成10进制是为了直观性</p>
+<p>注意：其实在内存中存储的是二进制数据，这里我写成10进制是为了直观性</p>
 </blockquote>
 </li>
 <li>执行完第5行代码后，变量a的值变成了10，但是变量b的值依然是5：<br><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160707155901561-302125664.png" alt="f"></li>
@@ -469,7 +469,7 @@
 </ul>
 <h3 id="数组作为实参"><a href="#数组作为实参" class="headerlink" title="数组作为实参"></a>数组作为实参</h3><p>数组元素作为参数，与普通变量一样，把数组名传入，即数组的首地址。</p>
 <blockquote>
-<p><strong>注意</strong>：此时，形参和实参实际上是同一段内存空间。</p>
+<p>注意：此时，形参和实参实际上是同一段内存空间。</p>
 </blockquote>
 <h2 id="返回值类型"><a href="#返回值类型" class="headerlink" title="返回值类型"></a>返回值类型</h2><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回值就是函数调用完后，返回给函数调用者的结果，用return关键字进行返回。定义函数时，要指明函数的返回值类型：</p>
 <p>&lt; 代码示例 &gt;</p>
@@ -504,7 +504,7 @@
 <li>第3行使用了return语句，将a+b的值返回给了函数调用者，因此第8行变量c的值是13</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：一个函数内部可以多次使用return语句，使用了return语句后，函数就会马上停止执行，return语句后面的代码就不再被执行</p>
+<p>注意：一个函数内部可以多次使用return语句，使用了return语句后，函数就会马上停止执行，return语句后面的代码就不再被执行</p>
 </blockquote>
 <h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><p>函数自身调用自身，即函数内部又使用到了该函数功能，这个函数就叫做递归函数。</p>
 <p>在计算机中阶乘就可以使用递归调用：</p>
@@ -513,7 +513,7 @@
 <p>&lt; 输出结果 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">input an number <span class="number">4</span></span><br><span class="line"><span class="number">4</span>!=<span class="number">24</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><strong>注意</strong>：递归一定要有出口。 </p>
+<p>注意：递归一定要有出口。 </p>
 </blockquote>
 <h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p>通过函数指针调用函数的函数。如果你把函数A的指针（地址）作为参数传递给另一个函数B，当这个指针被用来调用其所指向的函数A时，我们就说函数A是回调函数：</p>
 <p>&lt; 代码示例 &gt; </p>
@@ -558,7 +558,7 @@
 <li>如果去掉第2行中的\n，将会是这样的效果：My age is 26My age is 17</li>
 </ul>
 <blockquote>
-<p><strong>总结</strong>：左边字符串中格式符的个数 必须跟 右边格式符参数的个数一样；格式符的类型决定了格式符参数的类型，比如使用%d，说明对应的格式符参数必须是整型。</p>
+<p>总结：左边字符串中格式符的个数 必须跟 右边格式符参数的个数一样；格式符的类型决定了格式符参数的类型，比如使用%d，说明对应的格式符参数必须是整型。</p>
 </blockquote>
 <h4 id="常用的格式符及其含义"><a href="#常用的格式符及其含义" class="headerlink" title="常用的格式符及其含义"></a>常用的格式符及其含义</h4><p><img src="http://images2015.cnblogs.com/blog/776348/201607/776348-20160718141032685-1803882138.png" alt=""></p>
 <h4 id="精细的格式控制"><a href="#精细的格式控制" class="headerlink" title="精细的格式控制"></a>精细的格式控制</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  输出结果：The price is　　14.</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"The price is %4d."</span>, <span class="number">14</span>);</span><br></pre></td></tr></table></figure>
@@ -579,7 +579,7 @@
 <li>上面的3种用法，输出的都是大写字母A。</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：putchar一次只能输出一个字符，而printf可以同时输出多个字符。</p>
+<p>注意：putchar一次只能输出一个字符，而printf可以同时输出多个字符。</p>
 </blockquote>
 <h3 id="字符输入函数getchar"><a href="#字符输入函数getchar" class="headerlink" title="字符输入函数getchar"></a>字符输入函数getchar</h3><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c;</span><br><span class="line">c = getchar();</span><br></pre></td></tr></table></figure>

@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173556355-1508318186.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607173911043-638078260.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160607174035683-177628936.png">
-<meta property="og:updated_time" content="2016-09-22T07:37:32.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:09:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【05】变量（一）">
 <meta name="twitter:description" content="常量表示的数据是不可以改的，而用变量表示的数据是可以经常修改的。">
@@ -395,10 +395,7 @@
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>第3行的变量a、第6行的变量b都是静态变量，第9行的变量c、第16行的变量i是自动变量。</li>
-<li>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用test函数时，变量b的值不会被重新初始化为0。<blockquote>
-<p>注意：虽然第6行的变量b是静态变量，但是只改变了它生命周期，并没有改变它的作用域，变量b还是只能在test函数内部使用。</p>
-</blockquote>
-</li>
+<li>因为第6行的变量b是静态变量，所以它只会被创建一次，而且生命周期会延续到程序结束。因为它只会创建一次，所以第6行代码只会执行一次，下次再调用test函数时，变量b的值不会被重新初始化为0。<strong>虽然变量b是静态变量，但是只改变了它生命周期，并没有改变它的作用域，变量b还是只能在test函数内部使用。</strong></li>
 </ul>
 <h4 id="寄存器变量"><a href="#寄存器变量" class="headerlink" title="寄存器变量"></a>寄存器变量</h4><p>定义：存储在硬件寄存器中的变量，称为寄存器变量。寄存器变量比存储在内存中的变量访问效率更高（默认情况下，自动变量和静态变量都是放在内存中的）。</p>
 <p>哪些变量是寄存器变量：被关键字<code>register</code>修饰的自动变量都是寄存器变量。</p>

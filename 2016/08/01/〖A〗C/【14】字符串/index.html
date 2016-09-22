@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810143638949-521231888.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810145929012-605081378.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810145937762-2089615226.png">
-<meta property="og:updated_time" content="2016-09-09T03:59:04.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:20:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【14】字符串">
 <meta name="twitter:description" content="C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串">
@@ -347,18 +347,18 @@
 
       
         <blockquote>
-<p>C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串</p>
+<p>C语言中没有<code>String</code>这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串</p>
 </blockquote>
 <a id="more"></a>
 <h2 id="字符串简介"><a href="#字符串简介" class="headerlink" title="字符串简介"></a>字符串简介</h2><p>在Java中，一个字符串可以用String类型来存储：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"string"</span>;</span><br></pre></td></tr></table></figure>
-<p>C语言中没有String这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串。</p>
+<p>C语言中没有<code>String</code>这种类型。其实字符串就是字符序列，由多个字符组成，所以在C语言中，我们可以用字符数组来存储字符串。</p>
 <p>字符串可以看做是一个特殊的字符数组，为了跟普通的字符数组区分开来，应该在字符串的尾部添加了一个结束标志’\0’。’\0’是一个ASCII码值为0的字符，是一个空操作符，表示什么也不干。所以采用字符数组存放字符串，赋值时应包含结束标志’\0’。</p>
 <p>字符串”mj”的存储情况如下（假设用字符数组char a[]来存储）：</p>
 <p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160810115159324-73374550.png" alt=""></p>
 <blockquote>
-<p><strong>注意</strong>：尾部有个’\0’，如果没有这个结束标记，说明这个字符数组存储的并不是字符串。</p>
+<p>注意：尾部有个’\0’，如果没有这个结束标记，说明这个字符数组存储的并不是字符串。</p>
 </blockquote>
 <h2 id="字符串的初始化"><a href="#字符串的初始化" class="headerlink" title="字符串的初始化"></a>字符串的初始化</h2><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  一</span></span><br><span class="line"><span class="keyword">char</span> a[<span class="number">3</span>] = &#123;<span class="string">'m'</span>, <span class="string">'j'</span>, <span class="string">'\0'</span>&#125;;</span><br><span class="line"><span class="comment">//  二</span></span><br><span class="line"><span class="keyword">char</span> b[<span class="number">3</span>];</span><br><span class="line">b[<span class="number">0</span>] = <span class="string">'m'</span>;</span><br><span class="line">b[<span class="number">1</span>] = <span class="string">'j'</span>;</span><br><span class="line">b[<span class="number">2</span>] = <span class="string">'\0'</span>;</span><br><span class="line"><span class="comment">//  三</span></span><br><span class="line"><span class="keyword">char</span> c[<span class="number">3</span>] = <span class="string">"mj"</span>;</span><br><span class="line"><span class="comment">//  四</span></span><br><span class="line"><span class="keyword">char</span> d[] = <span class="string">"mj"</span>;</span><br></pre></td></tr></table></figure>
@@ -367,7 +367,7 @@
 <li>一般我们使用第11行的初始化方式，系统会自动在字符串尾部加上一个\0结束符。</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：字符串所占的空间至少要比字符串长度大1，因为字符串以 ‘\0’ 表⽰结束。</p>
+<p>注意：字符串所占的空间至少要比字符串长度大1，因为字符串以 ‘\0’ 表⽰结束。</p>
 </blockquote>
 <h2 id="字符串的输入"><a href="#字符串的输入" class="headerlink" title="字符串的输入"></a>字符串的输入</h2><p>stdio.h中有2个函数可以用来接收用户输入的字符串，分别是scanf和gets。</p>
 <h3 id="scanf"><a href="#scanf" class="headerlink" title="scanf"></a>scanf</h3><p>&lt; 代码示例 &gt;</p>
@@ -424,7 +424,7 @@
 <li>从输出结果可以看出puts函数输出一个字符串后会自动换行。</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：puts函数一次只能输出一个字符串，printf函数则可以同时输出多个字符串。</p>
+<p>注意：puts函数一次只能输出一个字符串，printf函数则可以同时输出多个字符串。</p>
 </blockquote>
 <h2 id="字符串常用处理函数"><a href="#字符串常用处理函数" class="headerlink" title="字符串常用处理函数"></a>字符串常用处理函数</h2><p>下面介绍的字符串处理函数都是在string.h头文件中声明的，使用前要包含这个头文件。</p>
 <p>系统提供的字符串处理函数都是根据 ‘\0’ 来判断字符串是否结束。</p>

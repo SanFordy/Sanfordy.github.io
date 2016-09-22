@@ -17,8 +17,8 @@
   
   <entry>
     <title>【01】HTTP请求返回状态码详解</title>
-    <link href="http://sanfordy.com/2016/09/10/%E3%80%96A%E3%80%97OC-iOS-%E9%AB%98%E7%BA%A7/%E3%80%9001%E3%80%91HTTP%E8%AF%B7%E6%B1%82%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://sanfordy.com/2016/09/10/〖A〗OC-iOS-高级/【01】HTTP请求返回状态码详解/</id>
+    <link href="http://sanfordy.com/2016/09/10/%E3%80%96A%E3%80%97OC-iOS-Higher/%E3%80%9001%E3%80%91HTTP%E8%AF%B7%E6%B1%82%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://sanfordy.com/2016/09/10/〖A〗OC-iOS-Higher/【01】HTTP请求返回状态码详解/</id>
     <published>2016-09-10T09:39:11.000Z</published>
     <updated>2016-09-22T07:40:01.000Z</updated>
     
@@ -138,8 +138,8 @@
   
   <entry>
     <title>【00】px、pt、ppi</title>
-    <link href="http://sanfordy.com/2016/09/02/%E3%80%96A%E3%80%97OC-iOS-%E9%AB%98%E7%BA%A7/%E3%80%9000%E3%80%91px%E3%80%81pt%E3%80%81ppi/"/>
-    <id>http://sanfordy.com/2016/09/02/〖A〗OC-iOS-高级/【00】px、pt、ppi/</id>
+    <link href="http://sanfordy.com/2016/09/02/%E3%80%96A%E3%80%97OC-iOS-Higher/%E3%80%9000%E3%80%91px%E3%80%81pt%E3%80%81ppi/"/>
+    <id>http://sanfordy.com/2016/09/02/〖A〗OC-iOS-Higher/【00】px、pt、ppi/</id>
     <published>2016-09-02T10:14:16.000Z</published>
     <updated>2016-09-13T15:50:57.000Z</updated>
     
@@ -1692,7 +1692,7 @@
     <link href="http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97OC/%E3%80%9002%E3%80%91%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/"/>
     <id>http://sanfordy.com/2016/08/22/〖A〗OC/【02】类和对象、成员变量/</id>
     <published>2016-08-22T03:27:06.000Z</published>
-    <updated>2016-09-09T04:01:32.000Z</updated>
+    <updated>2016-09-22T09:40:40.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;OC相对于C语言多了面向对象特性，因此它也有类、对象、静态\动态方法、成员变量的概念。但是OC又没有其他面向对象语言那么多语法特性，OC本身对面向对象进行了精简。&lt;/p&gt;
@@ -1731,13 +1731,13 @@
 &lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#import &lt;span class=&quot;meta-string&quot;&gt;&quot;Person.h&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@implementation&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Person&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&amp;lt; 代码分析 &amp;gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Person.h&lt;/code&gt;：.h文件称为接口文件或头文件。放类的声明，包括成员变量、属性和方法声明。.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写方法内部的代码。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Person.h&lt;/code&gt;：关键字@interface声明一个类，同时它必须以@end结束，在这两个关键字中间声明相关成员。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Person.h&lt;/code&gt;：类名Person后面的冒号”:”表示继承，即第3行代码的意思是Student继承自NSObject。NSObject是OC的基类，所有的类最终都继承于这个类（但是需要注意OC中的基类并不只有一个，例如NSProxy也是OC的基类）。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Person.h&lt;/code&gt;：因为NSObject被声明在Foundation.h中，所以导入了&lt;foundation foundaton.h=&quot;&quot;&gt;（这么描述的意思是导入Foundation框架中的Foundation.h声明文件）&lt;/foundation&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Person.m&lt;/code&gt;：.m称为实现⽂件。放属性、方法的具体实现。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Person.m&lt;/code&gt;：关键字@implementation来实现一个类，@implementation后面紧跟的类名，表示究竟要实现哪一个类，同时必须以@end结尾。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Person.m&lt;/code&gt;：在这两个关键字中间实现具体的属性、方法；由于.m中使用了Person类，所以需要导入声明文件“Person.h”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Person.h&lt;/code&gt;&lt;/strong&gt;：.h文件称为接口文件或头文件。放类的声明，包括成员变量、属性和方法声明。.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写方法内部的代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Person.h&lt;/code&gt;&lt;/strong&gt;：关键字@interface声明一个类，同时它必须以@end结束，在这两个关键字中间声明相关成员。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Person.h&lt;/code&gt;&lt;/strong&gt;：类名Person后面的冒号”:”表示继承，即第3行代码的意思是Student继承自NSObject。NSObject是OC的基类，所有的类最终都继承于这个类（但是需要注意OC中的基类并不只有一个，例如NSProxy也是OC的基类）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Person.h&lt;/code&gt;&lt;/strong&gt;：因为NSObject被声明在Foundation.h中，所以导入了&lt;foundation foundaton.h=&quot;&quot;&gt;（这么描述的意思是导入Foundation框架中的Foundation.h声明文件）&lt;/foundation&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Person.m&lt;/code&gt;&lt;/strong&gt;：.m称为实现⽂件。放属性、方法的具体实现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Person.m&lt;/code&gt;&lt;/strong&gt;：关键字@implementation来实现一个类，@implementation后面紧跟的类名，表示究竟要实现哪一个类，同时必须以@end结尾。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Person.m&lt;/code&gt;&lt;/strong&gt;：在这两个关键字中间实现具体的属性、方法；由于.m中使用了Person类，所以需要导入声明文件“Person.h”。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;成员变量&quot;&gt;&lt;a href=&quot;#成员变量&quot; class=&quot;headerlink&quot; title=&quot;成员变量&quot;&gt;&lt;/a&gt;成员变量&lt;/h2&gt;&lt;p&gt;假设在Person类中包含人员姓名（name）、年龄（age）、民族（nation）、身高（height）四个成员变量，同时姓名和年龄两个成员变量是私有的，身高是公开的，民族则限制为只有子类可以访问：&lt;/p&gt;
 &lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;
@@ -1811,11 +1811,11 @@
   </entry>
   
   <entry>
-    <title>【01】第一个OC程序解析</title>
-    <link href="http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97OC/%E3%80%9001%E3%80%91%E7%AC%AC%E4%B8%80%E4%B8%AAOC%E7%A8%8B%E5%BA%8F%E8%A7%A3%E6%9E%90/"/>
-    <id>http://sanfordy.com/2016/08/22/〖A〗OC/【01】第一个OC程序解析/</id>
+    <title>【01】Hello World</title>
+    <link href="http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97OC/%E3%80%9001%E3%80%91Hello%20World/"/>
+    <id>http://sanfordy.com/2016/08/22/〖A〗OC/【01】Hello World/</id>
     <published>2016-08-22T02:27:06.000Z</published>
-    <updated>2016-09-09T04:01:21.000Z</updated>
+    <updated>2016-09-22T09:35:21.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。&lt;/p&gt;
@@ -1865,7 +1865,7 @@
     <link href="http://sanfordy.com/2016/08/22/%E3%80%96A%E3%80%97OC/%E3%80%9000%E3%80%91Objective-C%E7%AE%80%E4%BB%8B/"/>
     <id>http://sanfordy.com/2016/08/22/〖A〗OC/【00】Objective-C简介/</id>
     <published>2016-08-22T02:22:48.000Z</published>
-    <updated>2016-09-09T04:01:18.000Z</updated>
+    <updated>2016-09-22T09:35:51.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;目前来说，Objective-C(简称OC)是iOS开发的核心语言，在开发过程中也会配合着使用C语言、C++，OC主要负责UI界面，C语言、C++可用于图形处理。 &lt;/p&gt;
@@ -1892,7 +1892,7 @@
 &lt;h3 id=&quot;拓展名&quot;&gt;&lt;a href=&quot;#拓展名&quot; class=&quot;headerlink&quot; title=&quot;拓展名&quot;&gt;&lt;/a&gt;拓展名&lt;/h3&gt;&lt;p&gt;c语言-&amp;gt;.c ，OC语言-&amp;gt;.m  ，兼容C++-&amp;gt;.cpp。&lt;/p&gt;
 &lt;h2 id=&quot;OC语法预览&quot;&gt;&lt;a href=&quot;#OC语法预览&quot; class=&quot;headerlink&quot; title=&quot;OC语法预览&quot;&gt;&lt;/a&gt;OC语法预览&lt;/h2&gt;&lt;h3 id=&quot;没有包名的概念&quot;&gt;&lt;a href=&quot;#没有包名的概念&quot; class=&quot;headerlink&quot; title=&quot;没有包名的概念&quot;&gt;&lt;/a&gt;没有包名的概念&lt;/h3&gt;&lt;p&gt;在Java中，为了防止两个类名相同的类冲突，你可以将这2个类放在不同的包里面。OC中并没有”包”的概念，取而代之的是开发人员给类名加上前缀，使用前缀可以有效的防止类名冲突。比如NSString（OC中的字符串类）、NSArray（OC的数组类），它们的前缀都是NS。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：NS其实是NeXTSTEP缩写，是乔布斯离开苹果后在NeXT公司所开发的系统，这个操作系统在当时虽然没有获得广泛认同，但是却为后面Mac OX奠定了基础。&lt;/p&gt;
+&lt;p&gt;说明：NS其实是NeXTSTEP缩写，是乔布斯离开苹果后在NeXT公司所开发的系统，这个操作系统在当时虽然没有获得广泛认同，但是却为后面Mac OX奠定了基础。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;关键字以-开头&quot;&gt;&lt;a href=&quot;#关键字以-开头&quot; class=&quot;headerlink&quot; title=&quot;关键字以@开头&quot;&gt;&lt;/a&gt;关键字以@开头&lt;/h3&gt;&lt;p&gt;我在前面说到，OC代码中是可以混入C语言、C++代码的，而C语言和C++作为一门编程语言，都有自己的关键字。为了防止跟C语言、C++关键字冲突，OC基本上所有的关键字都是以@开头的，少部分没有以@开头，如id，_cmd等。下面列举一些常见的关键字，看一眼就行了：&lt;/p&gt;
 &lt;p&gt;&amp;lt; 代码示例 &amp;gt;&lt;/p&gt;

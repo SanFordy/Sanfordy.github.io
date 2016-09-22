@@ -89,23 +89,16 @@
 
 
 
-<meta name="description" content="NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。">
+<meta name="description" content="一当用户试图通过 HTTP 访问一台正在运行 Internet 信息服务 (IIS) 的服务器上的内容时，IIS 返回一个表示该请求的状态的数字代码。状态代码可以指明具体请求是否已成功，还可以揭示请求失败的确切原因。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【01】第一个OC程序解析">
-<meta property="og:url" content="http://sanfordy.com/2016/08/22/〖A〗OC/【01】第一个OC程序解析/index.html">
+<meta property="og:title" content="【01】HTTP请求返回状态码详解">
+<meta property="og:url" content="http://sanfordy.com/2016/09/10/〖A〗OC-iOS-Higher/【01】HTTP请求返回状态码详解/index.html">
 <meta property="og:site_name" content="SanFordy`s　magic">
-<meta property="og:description" content="NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821102959933-926120850.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103006386-344731754.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103024120-2107595196.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103032855-631290928.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103045620-1717099193.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103053870-1257989906.png">
-<meta property="og:updated_time" content="2016-09-09T04:01:21.000Z">
+<meta property="og:description" content="一当用户试图通过 HTTP 访问一台正在运行 Internet 信息服务 (IIS) 的服务器上的内容时，IIS 返回一个表示该请求的状态的数字代码。状态代码可以指明具体请求是否已成功，还可以揭示请求失败的确切原因。">
+<meta property="og:updated_time" content="2016-09-22T07:40:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【01】第一个OC程序解析">
-<meta name="twitter:description" content="NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821102959933-926120850.png">
+<meta name="twitter:title" content="【01】HTTP请求返回状态码详解">
+<meta name="twitter:description" content="一当用户试图通过 HTTP 访问一台正在运行 Internet 信息服务 (IIS) 的服务器上的内容时，IIS 返回一个表示该请求的状态的数字代码。状态代码可以指明具体请求是否已成功，还可以揭示请求失败的确切原因。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -124,7 +117,7 @@
 
 
 
-  <title> 【01】第一个OC程序解析 | SanFordy`s　magic </title>
+  <title> 【01】HTTP请求返回状态码详解 | SanFordy`s　magic </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +270,7 @@
             
             
               
-                【01】第一个OC程序解析
+                【01】HTTP请求返回状态码详解
               
             
           </h1>
@@ -289,8 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-22T10:27:06+08:00" content="2016-08-22">
-              2016-08-22
+            <time itemprop="dateCreated" datetime="2016-09-10T17:39:11+08:00" content="2016-09-10">
+              2016-09-10
             </time>
           </span>
 
@@ -303,8 +296,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/〖A〗OC/" itemprop="url" rel="index">
-                    <span itemprop="name">〖A〗OC</span>
+                  <a href="/categories/〖A〗OC-iOS-高级/" itemprop="url" rel="index">
+                    <span itemprop="name">〖A〗OC-iOS-高级</span>
                   </a>
                 </span>
 
@@ -319,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/22/〖A〗OC/【01】第一个OC程序解析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/22/〖A〗OC/【01】第一个OC程序解析/" itemprop="commentsCount"></span>
+                <a href="/2016/09/10/〖A〗OC-iOS-Higher/【01】HTTP请求返回状态码详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/10/〖A〗OC-iOS-Higher/【01】HTTP请求返回状态码详解/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -349,32 +342,103 @@
 
       
         <blockquote>
-<p>NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。</p>
+<p>一当用户试图通过 HTTP 访问一台正在运行 Internet 信息服务 (IIS) 的服务器上的内容时，IIS 返回一个表示该请求的状态的数字代码。状态代码可以指明具体请求是否已成功，还可以揭示请求失败的确切原因。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="创建程序"><a href="#创建程序" class="headerlink" title="创建程序"></a>创建程序</h2><ol>
-<li>打开Xcode，创建一个新项目<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821102959933-926120850.png" alt=""></li>
-<li>选择命令行程序<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103006386-344731754.png" alt=""></li>
-<li>选择程序语言为Ojbective-C并输入项目名称<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103024120-2107595196.png" alt=""></li>
-<li>选择保存目录<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103032855-631290928.png" alt=""></li>
-<li>默认生成一个基本的项目结构<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103045620-1717099193.png" alt=""></li>
-<li>上面是通过Xcode创建的第一个OC程序，这是一个经典的“Hello,World！”。运行结果如下：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821103053870-1257989906.png" alt=""></li>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一当用户试图通过 HTTP 访问一台正在运行 Internet 信息服务 (IIS) 的服务器上的内容时，IIS 返回一个表示该请求的状态的数字代码。状态代码可以指明具体请求是否已成功，还可以揭示请求失败的确切原因。</p>
+<h2 id="1xx-信息提示"><a href="#1xx-信息提示" class="headerlink" title="1xx - 信息提示"></a>1xx - 信息提示</h2><p>这些状态代码表示临时的响应。客户端在收到常规响应之前，应准备接收一个或多个 1xx 响应：</p>
+<ol>
+<li>100 - Continue 初始的请求已经接受，客户应当继续发送请求的其余部分。（HTTP 1.1新）</li>
+<li>101 - Switching Protocols 服务器将遵从客户的请求转换到另外一种协议（HTTP 1.1新）</li>
 </ol>
-<h2 id="解析程序"><a href="#解析程序" class="headerlink" title="解析程序"></a>解析程序</h2><p>程序源代码：</p>
-<p>&lt; 代码示例 &gt;</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// insert code here...</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Hello, World!"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="import"><a href="#import" class="headerlink" title="#import"></a>#import</h3><p>#import是一个预处理指令，作用跟C语言的#include类似，都是包含（拷贝）某个文件的内容到预处理指令所在的位置。</p>
-<p>在C\C++中，我们用#include来包含头文件，缺点就是同一个头文件可能被包含多次。为了解决这个问题，一般会这样写头文件：</p>
-<p>&lt; 代码示例 &gt;</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _TEST_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _TEST_H_</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*.....*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>我们在OC中，就使用#import来包含头文件，优点是可以自动防止同一个头文件被包含多次（即使文件被多次包含，也只拷贝一份）。</li>
-</ul>
-<p>与#include类似，导入系统类库使用&lt;…&gt;，导入自定义类库使用”…”。<code>#import &lt;Foundation/Foundation.h&gt;</code>表示包含Foundation框架中的Foundation.h文件到当前位置。Foundation框架中包含了很多常用的类和函数，比如字符串处理类NSString、日志输出函数NSLog。Foundation.h是Foundation框架中的头文件，这是OC中的一个基础类库，基本上后面我们用到的所有OC的代码都需要引入这个类库。.h称为头文件，一般用来声明一些函数，想要使用这些函数，就必须用#import包含函数所在的头文件。我们在第9行中使用的NSLog函数存在于Foundation.h文件中，因此要先包含Foundation.h文件才能使用NSLog函数。</p>
-<h3 id="main函数"><a href="#main函数" class="headerlink" title="main函数"></a>main函数</h3><p>跟C程序一样，OC程序的入口点依然是main函数。在main.m的第3行已定义了一个main函数。</p>
-<h3 id="autoreleasepool"><a href="#autoreleasepool" class="headerlink" title="@autoreleasepool"></a>@autoreleasepool</h3><p>@autoreleasepool是OC的关键字，它的作用是对包含在这个关键字后面大包括内的程序会自动进行内存回收，不需要开发人员手动释放无用的对象；当然表面上看起来这有点类似于C#和Java的内存垃圾回收机制，但是事实上他们的原理完全不同，以后再做具体解释。你只需要记住：以后的OC代码都写在@autoreleasepool的{}内部。</p>
-<h3 id="NSLog"><a href="#NSLog" class="headerlink" title="NSLog"></a>NSLog</h3><p>NSLog是标准输出函数，类似于C语言中的printf()函数，但是它会自动换行，当然它同样支持格式输出（例如%i表示输出整形数据，%f输出浮点型数据），这个函数在Fundation.h中声明。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<h2 id="2xx-成功"><a href="#2xx-成功" class="headerlink" title="2xx - 成功"></a>2xx - 成功</h2><p>这类状态代码表明服务器成功地接受了客户端请求：</p>
+<ol>
+<li>200 - OK 一切正常，对GET和POST请求的应答文档跟在后面。</li>
+<li>201 - Created 服务器已经创建了文档，Location头给出了它的URL。</li>
+<li>202 - Accepted 已经接受请求，但处理尚未完成。</li>
+<li>203 - Non-Authoritative Information 文档已经正常地返回，但一些应答头可能不正确，因为使用的是文档的拷贝，非权威性信息（HTTP 1.1新）。</li>
+<li>204 - No Content 没有新文档，浏览器应该继续显示原来的文档。如果用户定期地刷新页面，而Servlet可以确定用户文档足够新，这个状态代码是很有用的。</li>
+<li>205 - Reset Content 没有新的内容，但浏览器应该重置它所显示的内容。用来强制浏览器清除表单输入内容（HTTP 1.1新）。</li>
+<li>206 - Partial Content 客户发送了一个带有Range头的GET请求，服务器完成了它（HTTP 1.1新）。</li>
+</ol>
+<h2 id="3xx-重定向"><a href="#3xx-重定向" class="headerlink" title="3xx - 重定向"></a>3xx - 重定向</h2><p>客户端浏览器必须采取更多操作来实现请求。例如，浏览器可能不得不请求服务器上的不同的页面，或通过代理服务器重复该请求：</p>
+<ol>
+<li>300 - Multiple Choices 客户请求的文档可以在多个位置找到，这些位置已经在返回的文档内列出。如果服务器要提出优先选择，则应该在Location应答头指明。</li>
+<li>301 - Moved Permanently 客户请求的文档在其他地方，新的URL在Location头中给出，浏览器应该自动地访问新的URL。</li>
+<li>302 - Found 类似于301，但新的URL应该被视为临时性的替代，而不是永久性的。注意，在HTTP1.0中对应的状态信息是“Moved Temporatily”。出现该状态代码时，浏览器能够自动访问新的URL，因此它是一个很有用的状态代码。注意这个状态代码有时候可以和301替换使用。例如，如果浏览器错误地请求 <a href="http://host/~user" target="_blank" rel="external">http://host/~user</a> （缺少了后面的斜杠），有的服务器返回301，有的则返回302。严格地说，我们只能假定只有当原来的请求是GET时浏览器才会自动重定向。请参见 307。</li>
+<li>303 - See Other 类似于301/302，不同之处在于，如果原来的请求是POST，Location头指定的重定向目标文档应该通过GET提取（HTTP 1.1新）。</li>
+<li>304 - Not Modified 客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。</li>
+<li>305 - Use Proxy 客户请求的文档应该通过Location头所指明的代理服务器提取（HTTP 1.1新）。</li>
+<li>307 - Temporary Redirect 和302（Found）相同。许多浏览器会错误地响应302应答进行重定向，即使原来的请求是POST，即使它实际上只能在POST请求的应答是303时才能重定向。由于这个原因，HTTP 1.1新增了307，以便更加清除地区分几个状态代码：当出现303应答时，浏览器可以跟随重定向的GET和POST请求；如果是307应答，则浏览器只能跟随对GET请求的重定向。（HTTP 1.1新）。</li>
+</ol>
+<h2 id="4xx-客户端错误"><a href="#4xx-客户端错误" class="headerlink" title="4xx - 客户端错误"></a>4xx - 客户端错误</h2><p>发生错误，客户端似乎有问题。例如，客户端请求不存在的页面，客户端未提供有效的身份验证信息：</p>
+<ol>
+<li>400 - Bad Request 请求出现语法错误。</li>
+<li>401 - Unauthorized 访问被拒绝，客户试图未经授权访问受密码保护的页面。应答中会包含一个WWW-Authenticate头，浏览器据此显示用户名字/密码对话框，然后在填写合适的Authorization头后再次发出请求。IIS 定义了许多不同的 401 错误，它们指明更为具体的错误原因。这些具体的错误代码在浏览器中显示，但不在 IIS 日志中显示：</li>
+<li>401.1 - 登录失败。</li>
+<li>401.2 - 服务器配置导致登录失败。</li>
+<li>401.3 - 由于 ACL 对资源的限制而未获得授权。</li>
+<li>401.4 - 筛选器授权失败。</li>
+<li>401.5 - ISAPI/CGI 应用程序授权失败。</li>
+<li>401.7 – 访问被 Web 服务器上的 URL 授权策略拒绝。这个错误代码为 IIS 6.0 所专用。</li>
+<li>403 - Forbidden 资源不可用。服务器理解客户的请求，但拒绝处理它。通常由于服务器上文件或目录的权限设置导致。禁止访问：IIS 定义了许多不同的 403 错误，它们指明更为具体的错误原因：</li>
+<li>403.1 - 执行访问被禁止。</li>
+<li>403.2 - 读访问被禁止。</li>
+<li>403.3 - 写访问被禁止。</li>
+<li>403.4 - 要求 SSL。</li>
+<li>403.5 - 要求 SSL 128。</li>
+<li>403.6 - IP 地址被拒绝。</li>
+<li>403.7 - 要求客户端证书。</li>
+<li>403.8 - 站点访问被拒绝。</li>
+<li>403.9 - 用户数过多。</li>
+<li>403.10 - 配置无效。</li>
+<li>403.11 - 密码更改。</li>
+<li>403.12 - 拒绝访问映射表。</li>
+<li>403.13 - 客户端证书被吊销。</li>
+<li>403.14 - 拒绝目录列表。</li>
+<li>403.15 - 超出客户端访问许可。</li>
+<li>403.16 - 客户端证书不受信任或无效。</li>
+<li>403.17 - 客户端证书已过期或尚未生效。</li>
+<li>403.18 - 在当前的应用程序池中不能执行所请求的 URL。这个错误代码为 IIS 6.0 所专用。</li>
+<li>403.19 - 不能为这个应用程序池中的客户端执行 CGI。这个错误代码为 IIS 6.0 所专用</li>
+<li>403.20 - Passport 登录失败。这个错误代码为 IIS 6.0 所专用。</li>
+<li>404 - Not Found 无法找到指定位置的资源。这也是一个常用的应答。</li>
+<li>404.0 -（无） – 没有找到文件或目录。</li>
+<li>404.1 - 无法在所请求的端口上访问 Web 站点。</li>
+<li>404.2 - Web 服务扩展锁定策略阻止本请求。</li>
+<li>404.3 - MIME 映射策略阻止本请求。</li>
+<li>405 - Method Not Allowed 请求方法（GET、POST、HEAD、Delete、PUT、TRACE等）对指定的资源不适用，用来访问本页面的 HTTP 谓词不被允许（方法不被允许）（HTTP 1.1新）</li>
+<li>406 - Not Acceptable 指定的资源已经找到，但它的MIME类型和客户在Accpet头中所指定的不兼容，客户端浏览器不接受所请求页面的 MIME 类型。（HTTP 1.1新）</li>
+<li>407 - Proxy Authentication Required 要求进行代理身份验证，类似于401，表示客户必须先经过代理服务器的授权。（HTTP 1.1新）</li>
+<li>408 - Request Timeout 在服务器许可的等待时间内，客户一直没有发出任何请求。客户可以在以后重复同一请求。（HTTP 1.1新）</li>
+<li>409 - Conflict 通常和PUT请求有关。由于请求和资源的当前状态相冲突，因此请求不能成功。（HTTP 1.1新）</li>
+<li>410 - Gone 所请求的文档已经不再可用，而且服务器不知道应该重定向到哪一个地址。它和404的不同在于，返回407表示文档永久地离开了指定的位置，而404表示由于未知的原因文档不可用。（HTTP 1.1新）</li>
+<li>411 - Length Required 服务器不能处理请求，除非客户发送一个Content-Length头。（HTTP 1.1新）</li>
+<li>412 - Precondition Failed 请求头中指定的一些前提条件失败（HTTP 1.1新）。</li>
+<li>413 – Request Entity Too Large 目标文档的大小超过服务器当前愿意处理的大小。如果服务器认为自己能够稍后再处理该请求，则应该提供一个Retry-After头（HTTP 1.1新）。</li>
+<li>414 - Request URI Too Long URI太长（HTTP 1.1新）。</li>
+<li>415 – 不支持的媒体类型。</li>
+<li>416 – Requested Range Not Satisfiable 服务器不能满足客户在请求中指定的Range头。（HTTP 1.1新）</li>
+<li>417 – 执行失败。</li>
+<li>423 – 锁定的错误。</li>
+</ol>
+<h2 id="5xx-服务器错误"><a href="#5xx-服务器错误" class="headerlink" title="5xx - 服务器错误"></a>5xx - 服务器错误</h2><p>服务器由于遇到错误而不能完成该请求：</p>
+<ol>
+<li>500 - Internal Server Error 服务器遇到了意料不到的情况，不能完成客户的请求。</li>
+<li>500.12 - 应用程序正忙于在 Web 服务器上重新启动。</li>
+<li>500.13 - Web 服务器太忙。</li>
+<li>500.15 - 不允许直接请求 Global.asa。</li>
+<li>500.16 – UNC 授权凭据不正确。这个错误代码为 IIS 6.0 所专用。</li>
+<li>500.18 – URL 授权存储不能打开。这个错误代码为 IIS 6.0 所专用。</li>
+<li>500.100 - 内部 ASP 错误。</li>
+<li>501 - Not Implemented 服务器不支持实现请求所需要的功能，页眉值指定了未实现的配置。例如，客户发出了一个服务器不支持的PUT请求。</li>
+<li>502 - Bad Gateway 服务器作为网关或者代理时，为了完成请求访问下一个服务器，但该服务器返回了非法的应答。 亦说Web 服务器用作网关或代理服务器时收到了无效响应。</li>
+<li>502.1 - CGI 应用程序超时。</li>
+<li>502.2 - CGI 应用程序出错。</li>
+<li>503 - Service Unavailable 服务不可用，服务器由于维护或者负载过重未能应答。例如，Servlet可能在数据库连接池已满的情况下返回503。服务器返回503时可以提供一个 Retry-After头。这个错误代码为 IIS 6.0 所专用。</li>
+<li>504 - Gateway Timeout 网关超时，由作为代理或网关的服务器使用，表示不能及时地从远程服务器获得应答。（HTTP 1.1新）</li>
+<li>505 - HTTP Version Not Supported 服务器不支持请求中所指明的HTTP版本。（HTTP 1.1新）</li>
+</ol>
 <hr>
 
       
@@ -420,17 +484,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/22/〖A〗OC/【00】Objective-C简介/" rel="next" title="【00】Objective-C简介">
-                <i class="fa fa-chevron-left"></i> 【00】Objective-C简介
+              <a href="/2016/09/02/〖A〗OC-iOS-Higher/【00】px、pt、ppi/" rel="next" title="【00】px、pt、ppi">
+                <i class="fa fa-chevron-left"></i> 【00】px、pt、ppi
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/22/〖A〗OC/【02】类和对象、成员变量/" rel="prev" title="【02】类和对象、成员变量">
-                【02】类和对象、成员变量 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -456,8 +516,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/22/〖A〗OC/【01】第一个OC程序解析/"
-           data-title="【01】第一个OC程序解析" data-url="http://sanfordy.com/2016/08/22/〖A〗OC/【01】第一个OC程序解析/">
+      <div class="ds-thread" data-thread-key="2016/09/10/〖A〗OC-iOS-Higher/【01】HTTP请求返回状态码详解/"
+           data-title="【01】HTTP请求返回状态码详解" data-url="http://sanfordy.com/2016/09/10/〖A〗OC-iOS-Higher/【01】HTTP请求返回状态码详解/">
       </div>
     
   </div>
@@ -633,7 +693,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建程序"><span class="nav-number">1.</span> <span class="nav-text">创建程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析程序"><span class="nav-number">2.</span> <span class="nav-text">解析程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#import"><span class="nav-number">2.1.</span> <span class="nav-text">#import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main函数"><span class="nav-number">2.2.</span> <span class="nav-text">main函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#autoreleasepool"><span class="nav-number">2.3.</span> <span class="nav-text">@autoreleasepool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSLog"><span class="nav-number">2.4.</span> <span class="nav-text">NSLog</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1xx-信息提示"><span class="nav-number">2.</span> <span class="nav-text">1xx - 信息提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2xx-成功"><span class="nav-number">3.</span> <span class="nav-text">2xx - 成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3xx-重定向"><span class="nav-number">4.</span> <span class="nav-text">3xx - 重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4xx-客户端错误"><span class="nav-number">5.</span> <span class="nav-text">4xx - 客户端错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5xx-服务器错误"><span class="nav-number">6.</span> <span class="nav-text">5xx - 服务器错误</span></a></li></ol></div>
             
           </div>
         </section>

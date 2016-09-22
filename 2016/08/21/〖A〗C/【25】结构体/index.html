@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="SanFordy`s　magic">
 <meta property="og:description" content="在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。
 在实际应用中，我们通常需要由不同类型的数据来构成一个整体，比如学生这个整体可以由姓名、年龄、身高等数据构成，这些数据都具有不同的类型，姓名可以是字符串类型，年龄可以是整型，身高可以是浮点型。为此，C语言专门提供了一种构造类型来">
-<meta property="og:updated_time" content="2016-09-09T04:00:00.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:33:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【25】结构体">
 <meta name="twitter:description" content="在前面已经介绍了C语言中的数组，用法跟其他语言差不多。当一个整体由多个数据构成时，我们可以用数组来表示这个整体，但是数组有个特点：内部的每一个元素都必须是相同类型的数据。
@@ -367,27 +367,27 @@
 <li>上面定义了一个叫做Student的结构体类型，共有name、age、height3个成员。看到这里是否有点面向对象的味道呢，其实这跟面向对象完全是两码事，只能说感觉有点像。</li>
 </ul>
 <h2 id="结构体变量的初始化"><a href="#结构体变量的初始化" class="headerlink" title="结构体变量的初始化"></a>结构体变量的初始化</h2><p>前面只是定义了名字为Student的结构体类型，并非定义了一个结构体变量，就像int一样，只是一种类型。</p>
-<h3 id="整体初始化"><a href="#整体初始化" class="headerlink" title="整体初始化"></a>整体初始化</h3><p>先定义结构体类型，再定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<h3 id="整体初始化"><a href="#整体初始化" class="headerlink" title="整体初始化"></a>整体初始化</h3><p>先定义结构体类型，再定义结构体变量，同时<strong>整体</strong>初始化结构体变量：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//  注意：struct和Student是连着使用的。</span></span><br><span class="line"><span class="keyword">struct</span> Student stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>结构体变量名为stu。</li>
 </ul>
-<p>定义结构体类型的同时定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>定义结构体类型的同时定义结构体变量，同时<strong>整体</strong>初始化结构体变量：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Student &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125; stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
 <li>结构体变量名为stu。</li>
 </ul>
-<p>省略类型名，直接定义结构体变量，同时<code>整体</code>初始化结构体变量：</p>
+<p>省略类型名，直接定义结构体变量，同时<strong>整体</strong>初始化结构体变量：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125; stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>结构体变量名为stu。</li>
 </ul>
-<p>结构体变量在<code>整体初始化</code>时，不能先定义变量再拿变量来整体初始化：</p>
+<p>结构体变量在<strong>整体初始化</strong>时，不能先定义变量再拿变量来整体初始化：</p>
 <p>&lt; 代码示例 &gt;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  这种写法是错误的</span></span><br><span class="line">stu = &#123;<span class="string">"小明"</span>,<span class="number">18</span>&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="成员单独初始化"><a href="#成员单独初始化" class="headerlink" title="成员单独初始化"></a>成员单独初始化</h3><p>成员单独初始化时需要先拿到定义好的结构体变量（我们在（1.整体初始化）中已经学会了怎么定义结构体变量）：</p>

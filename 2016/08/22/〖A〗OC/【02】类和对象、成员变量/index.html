@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821112148761-533158696.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821112158573-327676209.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160821112258558-1102035295.png">
-<meta property="og:updated_time" content="2016-09-09T04:01:32.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:40:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【02】类和对象、成员变量">
 <meta name="twitter:description" content="OC相对于C语言多了面向对象特性，因此它也有类、对象、静态\动态方法、成员变量的概念。但是OC又没有其他面向对象语言那么多语法特性，OC本身对面向对象进行了精简。">
@@ -383,13 +383,13 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
-<li><code>Person.h</code>：.h文件称为接口文件或头文件。放类的声明，包括成员变量、属性和方法声明。.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写方法内部的代码。</li>
-<li><code>Person.h</code>：关键字@interface声明一个类，同时它必须以@end结束，在这两个关键字中间声明相关成员。</li>
-<li><code>Person.h</code>：类名Person后面的冒号”:”表示继承，即第3行代码的意思是Student继承自NSObject。NSObject是OC的基类，所有的类最终都继承于这个类（但是需要注意OC中的基类并不只有一个，例如NSProxy也是OC的基类）。</li>
-<li><code>Person.h</code>：因为NSObject被声明在Foundation.h中，所以导入了<foundation foundaton.h="">（这么描述的意思是导入Foundation框架中的Foundation.h声明文件）</foundation></li>
-<li><code>Person.m</code>：.m称为实现⽂件。放属性、方法的具体实现。</li>
-<li><code>Person.m</code>：关键字@implementation来实现一个类，@implementation后面紧跟的类名，表示究竟要实现哪一个类，同时必须以@end结尾。</li>
-<li><code>Person.m</code>：在这两个关键字中间实现具体的属性、方法；由于.m中使用了Person类，所以需要导入声明文件“Person.h”。</li>
+<li><strong><code>Person.h</code></strong>：.h文件称为接口文件或头文件。放类的声明，包括成员变量、属性和方法声明。.h中的方法只是做一个声明，并不对方法进行实现。也就是说，只是说明一下方法名、方法的返回值类型、方法接收的参数类型而已，并不会编写方法内部的代码。</li>
+<li><strong><code>Person.h</code></strong>：关键字@interface声明一个类，同时它必须以@end结束，在这两个关键字中间声明相关成员。</li>
+<li><strong><code>Person.h</code></strong>：类名Person后面的冒号”:”表示继承，即第3行代码的意思是Student继承自NSObject。NSObject是OC的基类，所有的类最终都继承于这个类（但是需要注意OC中的基类并不只有一个，例如NSProxy也是OC的基类）。</li>
+<li><strong><code>Person.h</code></strong>：因为NSObject被声明在Foundation.h中，所以导入了<foundation foundaton.h="">（这么描述的意思是导入Foundation框架中的Foundation.h声明文件）</foundation></li>
+<li><strong><code>Person.m</code></strong>：.m称为实现⽂件。放属性、方法的具体实现。</li>
+<li><strong><code>Person.m</code></strong>：关键字@implementation来实现一个类，@implementation后面紧跟的类名，表示究竟要实现哪一个类，同时必须以@end结尾。</li>
+<li><strong><code>Person.m</code></strong>：在这两个关键字中间实现具体的属性、方法；由于.m中使用了Person类，所以需要导入声明文件“Person.h”。</li>
 </ul>
 <h2 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h2><p>假设在Person类中包含人员姓名（name）、年龄（age）、民族（nation）、身高（height）四个成员变量，同时姓名和年龄两个成员变量是私有的，身高是公开的，民族则限制为只有子类可以访问：</p>
 <p>&lt; 代码示例 &gt;</p>
@@ -491,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/22/〖A〗OC/【01】第一个OC程序解析/" rel="next" title="【01】第一个OC程序解析">
-                <i class="fa fa-chevron-left"></i> 【01】第一个OC程序解析
+              <a href="/2016/08/22/〖A〗OC/【01】Hello World/" rel="next" title="【01】Hello World">
+                <i class="fa fa-chevron-left"></i> 【01】Hello World
               </a>
             
           </div>

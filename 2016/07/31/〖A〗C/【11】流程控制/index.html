@@ -105,7 +105,7 @@
 循环结构：在给定条件成立的情况下，反复执行某一段代码。">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160731215744731-1017647345.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201607/776348-20160731215752450-665863719.png">
-<meta property="og:updated_time" content="2016-09-09T03:58:52.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:16:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【11】流程控制">
 <meta name="twitter:description" content="为了方便我们控制程序的运行流程，C语言提供3种流程结构，不同的流程结构可以实现不同的运行流程。这3种流程结构分别是：
@@ -462,7 +462,7 @@
 <li>如果所有的条件都不成立，就会执行else后面大括号{}中的内容：第15~17行</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong>：这么多大括号中，只有1个大括号内的代码会被执行。跟之前一样，所有的大括号都可以省略，但是不建议省略。必要的时候，最后面的else那一段（第14~17行）是可以省略的。</p>
+<p>注意：这么多大括号中，只有1个大括号内的代码会被执行。跟之前一样，所有的大括号都可以省略，但是不建议省略。必要的时候，最后面的else那一段（第14~17行）是可以省略的。</p>
 </blockquote>
 <h4 id="举例-2"><a href="#举例-2" class="headerlink" title="举例"></a>举例</h4><p>&lt; 代码示例 &gt;</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> ( a==<span class="number">0</span> ) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a等于0"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>( a&gt;<span class="number">0</span> ) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a大于0"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a小于0"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -603,7 +603,7 @@
 <li>注意第6行的break，这个break的作用是跳出外面的for循环，并非里面的for循环。</li>
 </ul>
 <blockquote>
-<p><strong>说明</strong>：规律已经很明显了：break只会影响它所在的那个for循环。</p>
+<p>说明：规律已经很明显了：break只会影响它所在的那个for循环。</p>
 </blockquote>
 <h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue只能使用在循环结构中，它的作用是跳过这一次循环，直接进入下一次循环。</p>
 <p>这里以for循环为例子，continue也可以用在while循环、do-while循环中：</p>
@@ -616,7 +616,7 @@
 <li>注意第2行，当x%2==0，也就是当x是2的倍数时，就跳过这次循环，不执行第6行语句，直接进入下一次循环。输出结果：</li>
 </ul>
 <blockquote>
-<p><strong>说明</strong>：跟break一样，continue只会影响它所在的那个for循环。</p>
+<p>说明：跟break一样，continue只会影响它所在的那个for循环。</p>
 </blockquote>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
 <hr>

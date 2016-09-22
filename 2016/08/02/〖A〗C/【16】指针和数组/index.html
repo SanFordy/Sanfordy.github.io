@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818112935203-566428571.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818112946031-1771197389.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818140330906-137790207.png">
-<meta property="og:updated_time" content="2016-09-09T03:59:13.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:25:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【16】指针和数组">
 <meta name="twitter:description" content="前面我们已经学习了指针，如果指针存储了某个变量的地址，我们就可以说指针指向这个变量。数组及其数组元素都占有存储空间，都有自己的地址，因此指针变量可以指向整个数组，也可以指向数组元素。">
@@ -376,7 +376,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a[0] = 1 </span><br><span class="line">a[1] = 2 </span><br><span class="line">a[2] = 3 </span><br><span class="line">a[3] = 4 </span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
 <p>&lt; 代码分析 &gt;</p>
 <ul>
-<li>内存分析图如下：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818112935203-566428571.png" alt=""><br>p的值是a[0]的地址，因此，现在我们利用指针p只能访问数组的第0个元素a[0]，用*p就可取出a[0]的值1。要想访问其他元素，就必须拿到元素的地址，可以发现每个元素的地址差值为2，因为在16位编译器环境下，一个int类型的变量占用2个字节。现在只是知道a[0]的地址值为p，怎么根据a[0]的地址获取其他元素的地址呢？其实非常简单，p+1就是a[1]的地址。注意了，这里的p+1代表着p的值加2，并不是p的值加1，比如p的值为ffc3，p+1则为ffc5，而非ffc4。依次类推，p+2就是a[2]的地址ffc7，p+3就是a[3]的地址ffc9。<code>遍历完毕后，指针变量p还是指向a[0]，因为p值一直没有变过，一直都是a[0]的地址ffc3</code>。</li>
+<li>内存分析图如下：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818112935203-566428571.png" alt=""><br>p的值是a[0]的地址，因此，现在我们利用指针p只能访问数组的第0个元素a[0]，用*p就可取出a[0]的值1。要想访问其他元素，就必须拿到元素的地址，可以发现每个元素的地址差值为2，因为在16位编译器环境下，一个int类型的变量占用2个字节。现在只是知道a[0]的地址值为p，怎么根据a[0]的地址获取其他元素的地址呢？其实非常简单，p+1就是a[1]的地址。注意了，这里的p+1代表着p的值加2，并不是p的值加1，比如p的值为ffc3，p+1则为ffc5，而非ffc4。依次类推，p+2就是a[2]的地址ffc7，p+3就是a[3]的地址ffc9。<strong>遍历完毕后，指针变量p还是指向a[0]，因为p值一直没有变过，一直都是a[0]的地址ffc3</strong>。</li>
 <li>我先解释一下，为什么p+1代表p的值加2，而不是加1呢？其实，p+1不一定代表p的值加2，也可能是加1、加4或者加8。究竟加多少，这跟指针的类型有关。下图是在16位编译器环境下的情况：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160818112946031-1771197389.png" alt=""><br>聪明的你可能已经找到规律了，因为char类型的变量要占用1字节，所以p+1代表p的值加1；float类型的变量占用4字节，所以p+1代表p的值加4。从这一点，也可以很好地说明为什么指针一定要分类型，不同类型的指针，p+1的含义是不一样的。</li>
 <li>其实第10行改成下面的代码也是可以的：</li>
 </ul>

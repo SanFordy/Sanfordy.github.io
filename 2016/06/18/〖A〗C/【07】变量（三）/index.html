@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="SanFordy`s　magic">
 <meta property="og:description" content="我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png">
-<meta property="og:updated_time" content="2016-09-22T07:37:42.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:11:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【07】变量（三）">
 <meta name="twitter:description" content="我们已经知道，在64bit编译器环境下，1个int类型变量取值范围是-231 ~ 231 - 1，最大值是231-1。有时候，我们要使用的整数可能比231-1还大，比如234这个整数，如果还坚持用int类型变量来存储这个值的话，就会损失精度，得到的是垃圾数据。为了解决这个问题，C语言允许我们给int类型的变量加一些类型修饰符，某些类型修饰符可以增大int类型变量的长度，这样的话，int类型变量能">
@@ -412,7 +412,7 @@
 <h4 id="signed"><a href="#signed" class="headerlink" title="signed"></a>signed</h4><p><code>signed</code>表示有符号，也就是说最高位要当做符号位，所以包括正数、负数和0。其实int的最高位本来就是符号位，已经包括了正负数和0了，因此signed和int是一样的，signed等价于signed int，也等价于int。signed的取值范围是-231 ~ 231 - 1。</p>
 <h4 id="unsigned"><a href="#unsigned" class="headerlink" title="unsigned"></a>unsigned</h4><p><code>unsigned</code>表示无符号，也就是说最高位并不当做符号位，所以不包括负数。在64bit编译器环境下面，int占用4个字节（32bit），因此unsigned的取值范围是：0000 0000 0000 0000 0000 0000 0000 0000 ~ 1111 1111 1111 1111 1111 1111 1111 1111，也就是0 ~ 232 - 1。</p>
 <blockquote>
-<p><strong>注意</strong>：signed、unsigned也可以修饰char，long还可以修饰double。</p>
+<p>注意：signed、unsigned也可以修饰char，long还可以修饰double。</p>
 </blockquote>
 <h3 id="不同数据类型所占用的存储空间"><a href="#不同数据类型所占用的存储空间" class="headerlink" title="不同数据类型所占用的存储空间"></a>不同数据类型所占用的存储空间</h3><p><img src="http://images2015.cnblogs.com/blog/776348/201606/776348-20160618225017760-1752659694.png" alt=""></p>
 <h2 id="自动类型提升"><a href="#自动类型提升" class="headerlink" title="自动类型提升"></a>自动类型提升</h2><h3 id="什么是自动类型提升"><a href="#什么是自动类型提升" class="headerlink" title="什么是自动类型提升"></a>什么是自动类型提升</h3><p>先来看看下面的一则运算：</p>

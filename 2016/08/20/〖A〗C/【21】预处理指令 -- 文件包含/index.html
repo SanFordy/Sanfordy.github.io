@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145154750-1306087584.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145202281-1455136960.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145210000-705717918.png">
-<meta property="og:updated_time" content="2016-09-09T03:59:31.000Z">
+<meta property="og:updated_time" content="2016-09-22T09:29:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【21】预处理指令 -- 文件包含">
 <meta name="twitter:description" content="其实我们早就有接触文件包含这个指令了， 就是#include，它可以将一个文件的全部内容拷贝另一个文件中。">
@@ -356,7 +356,7 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实我们早就有接触文件包含这个指令了， 就是#include，它可以将一个文件的全部内容拷贝另一个文件中。</p>
 <h2 id="一般形式"><a href="#一般形式" class="headerlink" title="一般形式"></a>一般形式</h2><h3 id="include-lt-文件名-gt"><a href="#include-lt-文件名-gt" class="headerlink" title="#include　&lt;文件名&gt;"></a>#include　&lt;文件名&gt;</h3><p>直接到C语言库函数头文件所在的目录中寻找文件。</p>
 <h3 id="include-“文件名”"><a href="#include-“文件名”" class="headerlink" title="#include　“文件名”"></a>#include　“文件名”</h3><p>系统会先在源程序当前目录下寻找，若找不到，再到操作系统的path路径中查找，最后才到C语言库函数头文件所在目录中查找。</p>
-<h2 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h2><h3 id="嵌套包含和递归包含"><a href="#嵌套包含和递归包含" class="headerlink" title="嵌套包含和递归包含"></a>嵌套包含和递归包含</h3><p>#include指令允许嵌套包含但是<code>不允许</code>递归包含：</p>
+<h2 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h2><h3 id="嵌套包含和递归包含"><a href="#嵌套包含和递归包含" class="headerlink" title="嵌套包含和递归包含"></a>嵌套包含和递归包含</h3><p>#include指令允许嵌套包含但是<strong>不允许</strong>递归包含：</p>
 <ol>
 <li>嵌套包含：比如a.h包含b.h，b.h包含c.h。</li>
 <li>递归包含：比如 a.h 包含 b.h，b.h 包含 a.h，下面的做法是错误的：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145127343-2070603187.png" alt=""><br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160820145134640-1258787116.png" alt=""></li>
