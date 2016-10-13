@@ -1,0 +1,932 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <link rel="apple-touch-icon" href="touch-icon-mac.png">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|comic sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SanFordy" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SanFordy`s　magic" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="作为程序员最怕的是什么？是加班？是领导？图样！答案是看别人的代码，因为每个人写代码的习惯都是不一样的，当我进入到新的公司的第一天，看到以前老员工编写的代码，一股日了🐶的感觉油然而生。为了不让别人跟我感同身受（当然更是为了让自己的强迫症得到缓解？！）就要保证项目的易读性、易维护性以及易扩展性等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【05】iOS 项目的架构及代码的规范">
+<meta property="og:url" content="http://sanfordy.com/2016/10/11/〖A〗OC-iOS-Higher/【05】iOS 项目的架构及代码的规范/index.html">
+<meta property="og:site_name" content="SanFordy`s　magic">
+<meta property="og:description" content="作为程序员最怕的是什么？是加班？是领导？图样！答案是看别人的代码，因为每个人写代码的习惯都是不一样的，当我进入到新的公司的第一天，看到以前老员工编写的代码，一股日了🐶的感觉油然而生。为了不让别人跟我感同身受（当然更是为了让自己的强迫症得到缓解？！）就要保证项目的易读性、易维护性以及易扩展性等。">
+<meta property="og:image" content="http://oevlxqp42.bkt.clouddn.com/16-10-11/40485318.jpg">
+<meta property="og:image" content="http://oevlxqp42.bkt.clouddn.com/16-10-12/34772223.jpg">
+<meta property="og:image" content="http://oevlxqp42.bkt.clouddn.com/16-10-12/41516174.jpg">
+<meta property="og:image" content="http://oevlxqp42.bkt.clouddn.com/16-10-12/28480.jpg">
+<meta property="og:image" content="http://oevlxqp42.bkt.clouddn.com/16-10-12/99809738.jpg">
+<meta property="og:updated_time" content="2016-10-12T09:17:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【05】iOS 项目的架构及代码的规范">
+<meta name="twitter:description" content="作为程序员最怕的是什么？是加班？是领导？图样！答案是看别人的代码，因为每个人写代码的习惯都是不一样的，当我进入到新的公司的第一天，看到以前老员工编写的代码，一股日了🐶的感觉油然而生。为了不让别人跟我感同身受（当然更是为了让自己的强迫症得到缓解？！）就要保证项目的易读性、易维护性以及易扩展性等。">
+<meta name="twitter:image" content="http://oevlxqp42.bkt.clouddn.com/16-10-11/40485318.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+  <title> 【05】iOS 项目的架构及代码的规范 | SanFordy`s　magic </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SanFordy`s　magic</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">　　　　　　</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【05】iOS 项目的架构及代码的规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-11T15:08:36+08:00" content="2016-10-11">
+              2016-10-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/〖A〗OC-iOS-Higher/" itemprop="url" rel="index">
+                    <span itemprop="name">〖A〗OC-iOS-Higher</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/11/〖A〗OC-iOS-Higher/【05】iOS 项目的架构及代码的规范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/11/〖A〗OC-iOS-Higher/【05】iOS 项目的架构及代码的规范/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次数阅读
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>作为程序员最怕的是什么？是加班？是领导？图样！答案是看别人的代码，因为每个人写代码的习惯都是不一样的，当我进入到新的公司的第一天，看到以前老员工编写的代码，一股日了🐶的感觉油然而生。为了不让别人跟我感同身受（当然更是为了让自己的强迫症得到缓解？！）就要保证项目的<strong>易读性</strong>、<strong>易维护性</strong>以及<strong>易扩展性</strong>等。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为程序员最怕的是什么？是加班？是领导？图样！答案是看别人的代码，因为每个人写代码的习惯都是不一样的，当我进入到新的公司的第一天，看到以前老员工编写的代码，一股日了🐶的感觉油然而生。为了不让别人跟我感同身受（当然更是为了让自己的强迫症得到缓解？！）就要保证项目的<strong>易读性</strong>、<strong>易维护性</strong>以及<strong>易扩展性</strong>等。</p>
+<p>在我看来，作为一个项目开发的领头人，你可以从两个方面着手：</p>
+<ol>
+<li>项目的架构。</li>
+<li>代码的规范。</li>
+</ol>
+<h2 id="项目的架构"><a href="#项目的架构" class="headerlink" title="项目的架构"></a>项目的架构</h2><p>为了为项目代码创建一个<strong>易读性</strong>、<strong>易维护性</strong>、<strong>易扩展性</strong>都相当不错的代码模板，我建议按照如下的步骤进行（基础<code>Xcode8.0</code>）：</p>
+<ol>
+<li>所有新建项目最好是 Single View Application ：<br><img src="http://oevlxqp42.bkt.clouddn.com/16-10-11/40485318.jpg" alt="GGGGGGG"></li>
+<li>填好各个项目，这里注意，项目名称最好使用英文：<br><img src="http://oevlxqp42.bkt.clouddn.com/16-10-12/34772223.jpg" alt=""></li>
+<li>项目创建好之后，第一件事就是修改 Delpoyment Target ：<br><img src="http://oevlxqp42.bkt.clouddn.com/16-10-12/41516174.jpg" alt=""></li>
+<li>接下来就是源文件管理，我们看左侧的导航区域，非代码源文件全部移动到 Supporting Files 中：<br><img src="http://oevlxqp42.bkt.clouddn.com/16-10-12/28480.jpg" alt=""></li>
+<li>最后通过鼠标右键 New Group 创建我们所需的项目结构文件，我们只需要关注 ProjectDemo 文件夹下的目录：<br><img src="http://oevlxqp42.bkt.clouddn.com/16-10-12/99809738.jpg" alt=""></li>
+</ol>
+<p>通过上面的操作我已经在 Xcode 中生成了项目所需的基本架构，下面我来介绍一下这些新建的 Group 有什么用：</p>
+<ol>
+<li>Classes：代码。<ul>
+<li>AppDelegate：AppDelegate.h/.m 文件，是整个应用的入口文件，所以单独拿出来。</li>
+<li>Macros：存放代码中会用到的宏定义。</li>
+<li>Models：数据相关的 Model 文件。</li>
+<li>Section：项目的各个功能模块。</li>
+<li>Tools：工具类，比如正则表达式、网络请求等。</li>
+<li>Utility：重用的Views/Classes和Categories。</li>
+<li>Vendors：第三方的类库/SDK，如UMeng、WeiboSDK、WeixinSDK等等。</li>
+</ul>
+</li>
+<li>Resources：资源。<ul>
+<li>Audios：音频。</li>
+<li>CoreDatas：coreData。</li>
+<li>Pictures：图片。</li>
+<li>Plists：plist。</li>
+<li>Vedios：视频。</li>
+</ul>
+</li>
+<li>Supporting Files：项目配置文件，存放Info.plist、main.m、pch文件等。</li>
+</ol>
+<p>业务无关的类库可以通过 Cocoapods 来方便地管理，如SDWebImage, Reachability等等。还有一些是多个应用都会用到的基础模块，比如HBAPI、HBSNS 、HBFoundation（HB为公司名首字母）等等，可以建一个私有的git repo，然后加到podfile中，这样如果HBAPI有更新，只需要pod update一下就行了。</p>
+<p>顺便说一下HBFoundation，这个git仓库中可以放一些自己写的所有应用基本上都会用到的小模块。如很多app都会有隔一段时间跳出一个求好评的alertView，就可以写一个HBRating类，这样需要使用该功能的app只需加上一句：[HBRating checkIfShouldPopupWithAppID:(NSInteger)appID]就行了。又比如app都有接受push notification的需求，可以写一个HBAPNS类，等等。</p>
+<p>开发流程<br>在拿到设计图后，就可以针对设计图抽离出可复用的Classes/Views/Helpers，考虑一下某个效果的具体实现，使用合适的设计模式来避免大量的if/else嵌套，等等。不要一下子就钻到Sections中去实现页面效果和功能，初看起来可能会快一点，但只要有点复杂度的项目，这种做法到后来只会吃尽苦头，代码会变的越来越难维护。所以前期一定要做好充足的准备工作。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+<div>想请我吃辣条吗？</div>
+<button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+<span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+</button>
+<div id="QR" style="display: none;">
+
+<div id="wechat" style="display: inline-block">
+<img id="wechat_qr" src="http://i4.piimg.com/508f386ab6942876.jpg" alt="SanFordy WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>微信打赏</p>
+</div>
+
+
+<div id="alipay" style="display: inline-block">
+<img id="alipay_qr" src="http://i4.piimg.com/481cbcc6ec69d37b.png" alt="SanFordy Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>支付宝打赏</p>
+</div>
+
+</div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/10/〖A〗OC-iOS-Higher/【04】如何提高iOS开发能力/" rel="next" title="【04】如何提高 iOS 开发能力">
+                <i class="fa fa-chevron-left"></i> 【04】如何提高 iOS 开发能力
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/12/〖A〗程序人生/【00】40岁的程序员你该怎么办？/" rel="prev" title="【00】40岁的程序员你该怎么办？">
+                【00】40岁的程序员你该怎么办？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/11/〖A〗OC-iOS-Higher/【05】iOS 项目的架构及代码的规范/"
+           data-title="【05】iOS 项目的架构及代码的规范" data-url="http://sanfordy.com/2016/10/11/〖A〗OC-iOS-Higher/【05】iOS 项目的架构及代码的规范/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="SanFordy" />
+          <p class="site-author-name" itemprop="name">SanFordy</p>
+          <p class="site-description motion-element" itemprop="description">是时候表演真正的技术啦！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-name">归档</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter-square"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-facebook-square"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-book"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Douban">
+                  
+                    <i class="fa fa-coffee"></i>
+                  
+                  Douban
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.guijj.com/pics/201404/535a0243a9698.gif" title="biggift" target="_blank">biggift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目的架构"><span class="nav-number">2.</span> <span class="nav-text">项目的架构</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SanFordy</span>
+</div>
+
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sanfordy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>
