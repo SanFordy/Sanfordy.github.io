@@ -1,0 +1,1026 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <link rel="apple-touch-icon" href="touch-icon-mac.png">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|comic sans:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SanFordy" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SanFordy`s　magic" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="通常一个成员变量的访问不会直接通过成员变量而是通过属性暴漏给外界。在OC中属性定义方式是通过对应的setter和getter方法进行实现。没错，上面setName其实就是属性的setter方法，但是在OC中gettter方法通常使用变量名，而不加”get”。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【03】方法和属性">
+<meta property="og:url" content="http://sanfordy.com/2016/08/24/〖A〗OC/【03】方法和属性/index.html">
+<meta property="og:site_name" content="SanFordy`s　magic">
+<meta property="og:description" content="通常一个成员变量的访问不会直接通过成员变量而是通过属性暴漏给外界。在OC中属性定义方式是通过对应的setter和getter方法进行实现。没错，上面setName其实就是属性的setter方法，但是在OC中gettter方法通常使用变量名，而不加”get”。">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175036667-1382470729.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175044058-1682041607.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175049808-92091325.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175104058-1189198860.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160830111935808-1922086063.png">
+<meta property="og:updated_time" content="2016-09-09T04:01:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【03】方法和属性">
+<meta name="twitter:description" content="通常一个成员变量的访问不会直接通过成员变量而是通过属性暴漏给外界。在OC中属性定义方式是通过对应的setter和getter方法进行实现。没错，上面setName其实就是属性的setter方法，但是在OC中gettter方法通常使用变量名，而不加”get”。">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175036667-1382470729.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+  <title> 【03】方法和属性 | SanFordy`s　magic </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SanFordy`s　magic</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">　　　　　　</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【03】方法和属性
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-24T14:59:29+08:00" content="2016-08-24">
+              2016-08-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/〖A〗OC/" itemprop="url" rel="index">
+                    <span itemprop="name">〖A〗OC</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/24/〖A〗OC/【03】方法和属性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/〖A〗OC/【03】方法和属性/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次数阅读
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>通常一个成员变量的访问不会直接通过成员变量而是通过属性暴漏给外界。在OC中属性定义方式是通过对应的setter和getter方法进行实现。没错，上面setName其实就是属性的setter方法，但是在OC中gettter方法通常使用变量名，而不加”get”。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="方法的概念"><a href="#方法的概念" class="headerlink" title="方法的概念"></a>方法的概念</h3><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[person sayHi];</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在OC中没有person调用”sayHi”这种表述，而是使用消息发送机制：<code>[receiver message];</code></li>
+<li>正确表述：给person对象发送sayHi消息，person接收到sayHi消息，person找到sayHi方法并执行。</li>
+</ul>
+<p>在OC中方法分为类（静态）方法和对象（动态）方法两种：</p>
+<ol>
+<li>- 表示对象方法（动态方法），对象方法只能由对象来调用。<code>对象方法中可以访问当前对象的成员变量，因为成员变量存储于对象的内存空间中</code>。</li>
+<li>+ 表示类方法（静态方法），类方法只能由类来调用。<code>类方法中不能访问成员变量，因为类并没有创建内存空间来存储类中的成员变量</code>。</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：如果一个方法在.h中有声明则该方法是公共方法，如果没有在.h中声明直接在.m中定义则该方法是私有方法，外部无法访问。</p>
+</blockquote>
+<h3 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h3><h4 id="不带参数的方法"><a href="#不带参数的方法" class="headerlink" title="不带参数的方法"></a>不带参数的方法</h4><p>声明：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175036667-1382470729.png" alt=""></p>
+<p>调用：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175044058-1682041607.png" alt=""></p>
+<h4 id="带参数的方法"><a href="#带参数的方法" class="headerlink" title="带参数的方法"></a>带参数的方法</h4><p>声明：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175049808-92091325.png" alt=""></p>
+<p>调用：</p>
+<p><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160824175104058-1189198860.png" alt=""></p>
+<blockquote>
+<p><strong>注意</strong>：冒号也是方法名的一部分。</p>
+</blockquote>
+<h3 id="方法的定义"><a href="#方法的定义" class="headerlink" title="方法的定义"></a>方法的定义</h3><p>假设现在需要一个对象方法去设置用户姓名，还需一个类方法打印一些信息：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>Person.h</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span>&#123;</span><br><span class="line">    <span class="keyword">@private</span></span><br><span class="line">    <span class="built_in">NSString</span> *_name;<span class="comment">//在OC中推荐成员变量名以_开头</span></span><br><span class="line">    <span class="keyword">int</span> _age;</span><br><span class="line">    <span class="keyword">@protected</span></span><br><span class="line">    <span class="built_in">NSString</span> *_nation;</span><br><span class="line">    <span class="keyword">@public</span></span><br><span class="line">    <span class="keyword">float</span> _height;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  声明一个动态方法，没有返回值</span></span><br><span class="line">-(<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name;</span><br><span class="line"><span class="comment">//  声明一个静态方法，没有返回值</span></span><br><span class="line">+(<span class="keyword">void</span>)showMessage:(<span class="built_in">NSString</span> *)info;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p><em>Person.m</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//实现一个动态方法</span></span><br><span class="line">-(<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name&#123;</span><br><span class="line">    _name=name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现一个静态方法</span></span><br><span class="line">+(<span class="keyword">void</span>)showMessage:(<span class="built_in">NSString</span> *)info&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,info);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>在OC中方法的参数类型、返回值类型需要放到（）中，而且参数前必须使用”:”，并且此时”:”是方法名的一部分。当然，上面的方法只有一个参数，假设现在有一个方法可以同时设置年龄和籍贯，可以写成如下形式：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  其中andNation可以省略不写，当然为了保证方法名更有意义建议书写时加上。</span></span><br><span class="line">-(<span class="keyword">void</span>)setAge:(<span class="keyword">int</span>)age andNation:(<span class="built_in">NSString</span> *)nation&#123;</span><br><span class="line">    _age=age;</span><br><span class="line">    _nation=nation;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>通常一个成员变量的访问不会直接通过成员变量而是通过属性暴漏给外界。在OC中属性定义方式是通过对应的setter和getter方法进行实现。没错，上面setName其实就是属性的setter方法，但是在OC中gettter方法通常使用变量名，而不加”get”。</p>
+<p>如果一个成员变量是<code>int age;</code>或者<code>int _age</code>;setter和getter的书写格式如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  setter：即set+首字母大写的成员变量名（忽略下划线）。</span></span><br><span class="line">-(<span class="keyword">void</span>)setAge:(<span class="keyword">int</span>)age;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  getter：即返回值类型和变量类型一致，方法名和成员变量名相同（忽略下划线）。</span></span><br><span class="line">-(<span class="keyword">int</span>)age;</span><br></pre></td></tr></table></figure>
+<p>下面就看一下age属性的实现：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>Person.h</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span>&#123;</span><br><span class="line">    <span class="keyword">@private</span></span><br><span class="line">    <span class="built_in">NSString</span> *_name;<span class="comment">//在OC中推荐变量名以_开头</span></span><br><span class="line">    <span class="keyword">int</span> _age;</span><br><span class="line">    <span class="keyword">@protected</span></span><br><span class="line">    <span class="built_in">NSString</span> *_nation;</span><br><span class="line">    <span class="keyword">@public</span></span><br><span class="line">    <span class="keyword">float</span> _height;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//声明一个动态方法，没有返回值</span></span><br><span class="line">-(<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name;</span><br><span class="line"><span class="comment">//声明一个静态方法，没有返回值</span></span><br><span class="line">+(<span class="keyword">void</span>)showMessage:(<span class="built_in">NSString</span> *)info;</span><br><span class="line"></span><br><span class="line"><span class="comment">//声明age的setter、getter方法</span></span><br><span class="line">-(<span class="keyword">int</span>)age;</span><br><span class="line">-(<span class="keyword">void</span>)setAge:(<span class="keyword">int</span>)age;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p><em>Person.m</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//实现一个动态方法</span></span><br><span class="line">-(<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name&#123;</span><br><span class="line">    _name=name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//私有方法</span></span><br><span class="line">-(<span class="keyword">void</span>)setAge:(<span class="keyword">int</span>)age andNation:(<span class="built_in">NSString</span> *)nation&#123;</span><br><span class="line">    _age=age;</span><br><span class="line">    _nation=nation;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现一个静态方法</span></span><br><span class="line">+(<span class="keyword">void</span>)showMessage:(<span class="built_in">NSString</span> *)info&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,info);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现age的setter、getter方法</span></span><br><span class="line">-(<span class="keyword">int</span>)age&#123;</span><br><span class="line">    <span class="keyword">return</span> _age;</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)setAge:(<span class="keyword">int</span>)age&#123;</span><br><span class="line">    _age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h2 id="方法和属性的调用"><a href="#方法和属性的调用" class="headerlink" title="方法和属性的调用"></a>方法和属性的调用</h2><p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        Person *p=[Person alloc];</span><br><span class="line">        p=[p init];</span><br><span class="line">        <span class="comment">//上面两句代码可以直接写成：Person *p=[[Person alloc] init];</span></span><br><span class="line">        <span class="comment">//还可以写成：Person *p=[Person new];</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//成员变量调用</span></span><br><span class="line">        p-&gt;_height=<span class="number">1.72</span>;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"height=%.2f"</span>,p-&gt;_height);<span class="comment">//结果：height=1.72</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//方法调用</span></span><br><span class="line">        [p setName:<span class="string">@"Kenshin"</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//属性调用</span></span><br><span class="line">        p.age=<span class="number">28</span>; <span class="comment">//等价于：[p setAge:28];</span></span><br><span class="line">        <span class="keyword">int</span> age=p.age;<span class="comment">//等价于：age=[p age];</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"age=%i"</span>,age); <span class="comment">//结果：age=28</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>关于方法的调用在这里不着重介绍了，我们可以看到p.age的调用方式，这就是OC中的点语法。其实点语法的本质还是调用对应的方法进行处理，这么做的目的只是为了开发人员书写方便而已（这就是语法糖的目的）。至于p.age是调用get方法还是调用set方法完全取决于当前操作是赋值操作还是读取操作。点语法具体见下篇。</li>
+</ul>
+<h2 id="property、-synthesize-关键字"><a href="#property、-synthesize-关键字" class="headerlink" title="@property、@synthesize 关键字"></a>@property、@synthesize 关键字</h2><p>通过上面的程序我们可以看到如果要定义一个属性，首先需要在.h中声明其次还要在.m中实现，而定义属性的代码基本都是类似的，那么有没有简单的方法呢？其实在OC中可以通过声明@property，同时通过@synthesize自动生成getter、setter方法（在xcode4.4后甚至都不用通过@synthesize只声明就可以使用）。</p>
+<h3 id="关键字的使用"><a href="#关键字的使用" class="headerlink" title="关键字的使用"></a>关键字的使用</h3><p>xcode4.4之前：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.m</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        Person *aperson = [[Person alloc] init];</span><br><span class="line">        [aperson setAge:<span class="number">10</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  使用点语法，打印成员变量的值以验证</span></span><br><span class="line">        <span class="comment">//  点语法的本质是调用了set和get方法</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"age = %d"</span>,aperson.age);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>Person.h</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  使用@property关键字实现_age成员变量的set和get方法的声明</span></span><br><span class="line"><span class="keyword">@property</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p><em>Person.m</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  使用@synthesize关键字自动完成了_age成员变量的set和get方法的实现，并生成了一个_age成员变量。</span></span><br><span class="line"><span class="keyword">@synthesize</span> age = _age;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2015-12-28 19:09:16.540 22[19602:219033] age = 10</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<p>xcode4.4之后：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>main.m</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        Person *aperson = [[Person alloc] init];</span><br><span class="line">        [aperson setAge:<span class="number">10</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  使用点语法为_age成员变量赋值</span></span><br><span class="line">        aperson.age = <span class="number">22</span>;</span><br><span class="line">        <span class="comment">//  使用set方法为成员变量赋值</span></span><br><span class="line">        [aperson setName:<span class="string">@"xiaoming"</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  使用点语法，本质调用get方法</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"age = %d, name = %@"</span>,aperson.age,aperson.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>Person.h</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span>&#123;</span><br><span class="line">    <span class="comment">//  类的成员变量，这样的方式默认为protected</span></span><br><span class="line">    <span class="comment">//  如果这里不写成员变量，那么使用属性会自动生成成员变量，但是默认为private的</span></span><br><span class="line">    <span class="keyword">int</span> _age;</span><br><span class="line">    <span class="built_in">NSString</span> *_name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  使用@property关键字生成成员变量的set和get方法的声明和实现</span></span><br><span class="line"><span class="keyword">@property</span> <span class="keyword">int</span> age;</span><br><span class="line"><span class="keyword">@property</span> <span class="built_in">NSString</span> *name;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p><em>Person.m</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"Person.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  从xcode4.4之后，@property关键字独揽了三个功能，所以这里不用再写@synthesize</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>&lt; 输出结果 &gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2015-12-28 19:19:06.788 22[20135:225229] age = 22, name = xiaoming</span><br><span class="line">Program ended with exit code: 0</span><br></pre></td></tr></table></figure>
+<h3 id="关键字使用注意"><a href="#关键字使用注意" class="headerlink" title="关键字使用注意"></a>关键字使用注意</h3><p>自从xcode 4.4后，@property就独揽了@property和@synthesize的功能，<code>@property int age;</code>这句话完成了3个功能：</p>
+<p>&lt; 代码示例 &gt;</p>
+<p><em>.h</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span></span>&#123;</span><br><span class="line">     <span class="comment">//  （2）在&#123;&#125;中生成一个@private的_age的成员变量。</span></span><br><span class="line">     <span class="keyword">@private</span></span><br><span class="line">     <span class="keyword">int</span> _age;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// （1）在@interface  @end中完成了_age成员变量set和get方法的声明。</span></span><br><span class="line">-(<span class="keyword">void</span>)setAge;</span><br><span class="line">-(<span class="keyword">int</span>)age;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p><em>.m</em></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  （3）在@implementation  @end中完成了_age成员变量set和get方法的实现：</span></span><br><span class="line">- (<span class="keyword">void</span>)setAge:(<span class="keyword">int</span>)age&#123;</span><br><span class="line">    _age = age;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">int</span>)age&#123;</span><br><span class="line">    <span class="keyword">return</span> _age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>当然自己也可以手动写属性的实现方法：</p>
+<ol>
+<li>如果手动实现了set方法，那么编译器（@synthesize）就只生成get方法和成员变量。</li>
+<li>如果手动实现了get方法，那么编译器（@synthesize）就只生成set方法和成员变量。</li>
+<li>如果set和get方法都是手动实现的，那么编译器（@synthesize）将不会生成成员变量。</li>
+</ol>
+<h3 id="生成成员变量的注意事项"><a href="#生成成员变量的注意事项" class="headerlink" title="生成成员变量的注意事项"></a>生成成员变量的注意事项</h3><ol>
+<li>只使用@property，不使用@synthesize：<ul>
+<li>即使不使用@synthesize也会默认会在.m生成@synthersize property = _property;</li>
+<li>编译器会自动生成一个名为_property的私有成员变量（对照自定义的成员变量列表，名字重复则用自定义[作用域由自己决定]，不重复则生成[作用域为私有]），并生成property属性的setter、getter方法的声明和实现。</li>
+</ul>
+</li>
+<li>既使用@property，也使用@syntheszie（相当于重写系统默认的@synthersize）：<ul>
+<li><code>@synthesize property;</code>：编译器会自动生成一个名为property的私有成员变量（对照自定义的成员变量列表，名字重复则用自定义[作用域由自己决定]，不重复则生成[作用域为私有]），并生成属性property的setter、getter方法的声明和实现。</li>
+<li><code>@synthesize properyty = memberName;</code>（成员变量的名字一般使用下划线加属性名，比如这里：_property）：编译器会生成一个名为memberName的成员变量，（对照自定义的成员变量列表，名字重复则用自定义[作用域由自己决定]，不重复则生成[作用域为私有]），并生成属性property的setter、getter方法的声明和实现。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：有时候生成的成员变量跟自定义成员变量名字稍有差异（比如下划线），如果名字不一样则生成新的成员变量，如果名字一样则使用自定义成员变量，新的成员变量（比如_property）和自定义中名字相似的成员变量（比如property）是两个不同的成员变量。</p>
+<p><strong>总结</strong>：现在一般直接使用@property，除非需要我们会重写@synthesize，@synthesize才是生成成员变量的关键，当生成成员变量后编译器会对照自定义的成员变量列表，如果生成的成员变量和自定义成员变量有冲突，则使用自定义的成员变量而不生成额外的成员变量。</p>
+</blockquote>
+<h2 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>懒加载——也称为延迟加载，即在需要的时候才加载（效率低，占用内存小）。所谓懒加载，写的是其get方法。</p>
+<blockquote>
+<p><strong>注意</strong>：如果是懒加载的话则一定要注意先判断是否已经有了，如果没有那么再去进行实例化</p>
+</blockquote>
+<h3 id="使用懒加载的好处"><a href="#使用懒加载的好处" class="headerlink" title="使用懒加载的好处"></a>使用懒加载的好处</h3><ol>
+<li>不必将创建对象的代码全部写在viewDidLoad方法中，代码的可读性更强。</li>
+<li>每个控件的getter方法中分别负责各自的实例化处理，代码彼此之间的独立性强，松耦合。</li>
+<li>通过重写属性的getter方法可以完成lazyloading（懒加载）模式，使用lazyloding可以将代码按照模块封装，同时提高类的灵活度，也可以在一定时期内节省内存的使用。</li>
+</ol>
+<h2 id="SEL"><a href="#SEL" class="headerlink" title="SEL"></a>SEL</h2><h3 id="基本简介"><a href="#基本简介" class="headerlink" title="基本简介"></a>基本简介</h3><p>SEL：全称Selector，表示方法的地址。</p>
+<p>下面演示一下寻找方法的过程：</p>
+<p>&lt; 代码示例 &gt;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person *p=[[Person alloc] init];</span><br><span class="line">　　[p test];</span><br></pre></td></tr></table></figure>
+<p>&lt; 代码分析 &gt;</p>
+<ul>
+<li>方法在内存中是这么存储的：<br><img src="http://images2015.cnblogs.com/blog/776348/201608/776348-20160830111935808-1922086063.png" alt=""></li>
+<li>首先把test这个方法名包装成SEL类型的数据（SEL数据存放着方法的地址）；沿着isa找到本类，根据SEL数据在本类及所有父类中找到相同的方法地址；根据方法地址调用相应的方法。</li>
+<li>在这个操作过程中有缓存，第一次找的时候是一个一个的找，非常耗性能，之后再用到的时候就直接使用。</li>
+<li>SEL其实是对方法的一种包装，将方法包装成一个SEL类型的数据，去寻找对应的方法地址，找到方法地址后就可以调用方法。这些都是运行时特性，发消息就是发送SEL，然后根据SEL找到地址，调用方法。</li>
+</ul>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><ol>
+<li>SEL 变量名 = @selector(方法名字);</li>
+<li>SEL 变量名 = NSSelectorFromString(方法名字的字符串);</li>
+<li>NSString *变量名 = NSStringFromSelector(SEL变量);</li>
+<li>[对象　performSelector:SEL变量　withObject:参数];<ul>
+<li>这样的机制大大的增加了我们的程序的灵活性，我们可以通过给一个方法传递SEL变量，让这个方法动态的执行某一个方法。我们也可以通过配置文件指定需要执行的方法，程序读取配置文件之后把方法的字符串翻译成为SEL变量然后给相应的对象发送这个消息。</li>
+<li>从效率的角度上来说，执行的时候不是通过方法名字而是方法地址也就是一个整数来查找方法，由于整数的查找和匹配比字符串要快得多，所以这样可以在某种程度上提高执行的效率。</li>
+</ul>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/mjios/" target="_blank" rel="external">M了个J的博客</a></p>
+<hr>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+<div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+<div>想请我吃辣条吗？</div>
+<button id="rewardButton", disable="enable", onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}", style="cursor: pointer; border: 0; outline: 0; border-radius: 100%; padding: 0; margin: 0; letter-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none">
+<span onmouseover="this.style.color='rgb(236,96,0)';this.style.background='rgb(204,204,204)'" onMouseOut="this.style.color='#fff';this.style.background='rgb(236,96,0)'" style="display: inline-block; width: 70px; height: 70px; border-radius: 100%; line-height: 81px; color: #fff; font: 400 35px/75px 'microsofty'; background: rgb(236,96,0)">赏</span>
+</button>
+<div id="QR" style="display: none;">
+
+<div id="wechat" style="display: inline-block">
+<img id="wechat_qr" src="http://i4.piimg.com/508f386ab6942876.jpg" alt="SanFordy WeChat Pay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>微信打赏</p>
+</div>
+
+
+<div id="alipay" style="display: inline-block">
+<img id="alipay_qr" src="http://i4.piimg.com/481cbcc6ec69d37b.png" alt="SanFordy Alipay" style="width: 200px; max-width: 100%; display: inline-block"/>
+<p>支付宝打赏</p>
+</div>
+
+</div>
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/22/〖A〗OC/【02】类和对象、成员变量/" rel="next" title="【02】类和对象、成员变量">
+                <i class="fa fa-chevron-left"></i> 【02】类和对象、成员变量
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/25/〖A〗OC/【04】关键字self、点语法/" rel="prev" title="【04】关键字self、点语法">
+                【04】关键字self、点语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/24/〖A〗OC/【03】方法和属性/"
+           data-title="【03】方法和属性" data-url="http://sanfordy.com/2016/08/24/〖A〗OC/【03】方法和属性/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/icon.jpg"
+               alt="SanFordy" />
+          <p class="site-author-name" itemprop="name">SanFordy</p>
+          <p class="site-description motion-element" itemprop="description">是时候表演真正的技术啦！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-name">归档</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-twitter-square"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-facebook-square"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-book"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="" target="_blank" title="Douban">
+                  
+                    <i class="fa fa-coffee"></i>
+                  
+                  Douban
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.guijj.com/pics/201404/535a0243a9698.gif" title="biggift" target="_blank">biggift</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的概念"><span class="nav-number">1.1.</span> <span class="nav-text">方法的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法名"><span class="nav-number">1.2.</span> <span class="nav-text">方法名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不带参数的方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">不带参数的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带参数的方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">带参数的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的定义"><span class="nav-number">1.3.</span> <span class="nav-text">方法的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法和属性的调用"><span class="nav-number">3.</span> <span class="nav-text">方法和属性的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#property、-synthesize-关键字"><span class="nav-number">4.</span> <span class="nav-text">@property、@synthesize 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字的使用"><span class="nav-number">4.1.</span> <span class="nav-text">关键字的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字使用注意"><span class="nav-number">4.2.</span> <span class="nav-text">关键字使用注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成成员变量的注意事项"><span class="nav-number">4.3.</span> <span class="nav-text">生成成员变量的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒加载"><span class="nav-number">5.</span> <span class="nav-text">懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">5.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用懒加载的好处"><span class="nav-number">5.2.</span> <span class="nav-text">使用懒加载的好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEL"><span class="nav-number">6.</span> <span class="nav-text">SEL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本简介"><span class="nav-number">6.1.</span> <span class="nav-text">基本简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单使用"><span class="nav-number">6.2.</span> <span class="nav-text">简单使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SanFordy</span>
+</div>
+
+
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sanfordy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>
